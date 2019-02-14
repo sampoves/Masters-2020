@@ -1,0 +1,144 @@
+% Sampo notes
+% Tämä on mun gradu. Tässä alussa vähän löpinää siitä, mistä kyse ja varmaan jotain linkkejä
+
+%%% LAITOKSEN VANHAT GRADUOHJEET
+% https://blogs.helsinki.fi/geotiede/files/2008/03/Pro-gradu-ohjeet.pdf
+% FLAMMAN GRADUOHJEET:
+%%% https://flamma.helsinki.fi/portal/units/matlu?_nfpb=true&_pageLabel=P9806621561360920311893&contentId=HY358060&placeId=HY357991&lang=fi
+
+\documentclass[a4paper,11pt]{article}
+
+% marginaalit
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    right=20mm,
+    }
+
+% fontti- ja asetteluasetukset
+\renewcommand{\baselinestretch}{1.5}        % aseta riviväli
+\usepackage[english]{babel}                 % aseta kieli
+\usepackage[utf8]{inputenc}
+\usepackage[font=small,labelfont=bf]{caption}
+\setlength{\abovecaptionskip}{15pt plus 3pt minus 2pt}
+\setlength{\belowcaptionskip}{15pt plus 3pt minus 2pt}
+\usepackage[document]{ragged2e}             % tasaa rivit
+\usepackage[ddmmyyyy]{datetime}             % muokkaa datetimen ominaisuuksia
+\renewcommand{\dateseparator}{.}
+
+% tiedostojen sijainnit
+\usepackage{graphicx}
+\graphicspath{ {Images/} }
+
+% referenssit ja referenssityylit
+\usepackage{natbib}
+\bibliographystyle{agsm}
+\setcitestyle{authoryear,open={},close={}}  % poista sitaateista sulut
+
+% muut lisäosat
+\usepackage{alphabeta}
+\usepackage{amsmath} 
+\usepackage{subfigure}
+\usepackage{gensymb}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{hyperref} 
+\usepackage{amsthm} 
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{color}
+
+% titlen asetukset
+\usepackage{setspace}                       % Eriävä riviväli kuin dokumentin oletus
+\author{Sampo Vesanen}
+\date{\today}
+\title{Parking of private cars and spatial accessibility in Helsinki Capital Region}
+
+% aloita varsinainen dokumentti
+% MUISTA KATTOO \begin{spacing}{1} \end{spacing} GRADUKIRJALLISUUS-TIEDOSTOSTA
+\begin{document}
+
+% KANSISIVU
+\begin{titlepage}
+{
+\setstretch{1.0}
+\centering
+\begin{figure}[t]
+\centering
+\includegraphics[scale=0.4]{HY_logo}
+\end{figure}
+
+Master's thesis \par
+Geography \par
+Geoinformatics \par
+
+\bigskip
+PARKING OF PRIVATE CARS AND SPATIAL ACCESSIBILITY IN HELSINKI CAPITAL REGION
+
+\bigskip
+Sampo Vesanen
+
+\today
+
+% fills empty space between top and bottom
+\vfill 
+
+Supervisor: \par
+Tuuli Toivonen \par
+\bigskip
+\bigskip
+UNIVERSITY OF HELSINKI\par
+FACULTY OF SCIENCE\par
+DEPARTMENT OF GEOSCIENCES\par
+GEOGRAPHY\par
+PL 64 (Gustaf Hällströmin katu 2)\par
+00014 Helsingin yliopisto\par
+}
+\end{titlepage}
+
+% abstraktisivut, ensin ENG, sitten FI
+\newpage
+abstrakt EN
+
+\newpage
+abstrakt FI
+
+% Table of contents
+\newpage
+\tableofcontents
+
+% INTRODUCTION AND RESEARCH QUESTIONS
+\newpage
+\section{Introduction}
+
+% THEORETICAL BACKGROUND
+\newpage
+\section{Theoretical background}
+
+% DATA AND METHODS
+\newpage
+\section{Data and methods}
+
+% RESULTS
+\newpage
+\section{Results}
+
+% DISCUSSION
+\newpage
+\section{Discussion}
+
+% Yhdistä Mendeley-lähteet tähän .bib-tiedostoon
+\newpage
+\section{References}
+\renewcommand{\refname}{}
+\bibliography{references.bib}
+
+% ANNEXES
+\newpage
+\section{Annexes}
+
+\end{document}
