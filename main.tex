@@ -28,6 +28,7 @@
 \usepackage[ddmmyyyy]{datetime}             % muokkaa datetimen ominaisuuksia
 \renewcommand{\dateseparator}{.}
 \newdateformat{monthyeardate}{\monthname[\THEMONTH], \THEYEAR} %Abstraktin mm/yyyy date
+\usepackage{lastpage}                       % get amount of pages
 
 % tiedostojen sijainnit
 \usepackage{graphicx}
@@ -118,7 +119,7 @@ PL 64 (Gustaf Hällströmin katu 2)\par
 % Katso apua
 % https://tex.stackexchange.com/questions/186046/table-with-different-widths-and-rows
 \newpage
-\thispagestyle{empty}
+\thispagestyle{empty} % hides page number
 \noindent
 \begin{spacing}{1}
 \footnotesize % set table font size to small
@@ -138,7 +139,7 @@ PL 64 (Gustaf Hällströmin katu 2)\par
     \hline
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline Geography} \TBstrut\\
     \hline
-    \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline Master's thesis} & \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \monthyeardate\today} & \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline 1337 pages and annexes} \TBstrut\\
+    \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline Master's thesis} & \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \monthyeardate\today} & \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \pageref{LastPage} pages and annexes} \TBstrut\\
     \hline    
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract}\newline Olipa kerran gradu} \\ [540pt]
     \hline
@@ -152,14 +153,17 @@ PL 64 (Gustaf Hällströmin katu 2)\par
 \end{spacing}
 
 \newpage
+\thispagestyle{empty}
 abstrakt FI
 
 % Table of contents
 \newpage
+\thispagestyle{empty}
 \tableofcontents
 
 % INTRODUCTION AND RESEARCH QUESTIONS
 \newpage
+\setcounter{page}{1} % set page numbering to start from here
 \section{Introduction}
 
 % THEORETICAL BACKGROUND
