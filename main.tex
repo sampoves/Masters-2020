@@ -52,6 +52,14 @@
 \usepackage{listings}
 \usepackage{color}
 
+% tables
+\usepackage[showframe]{geometry}
+\usepackage{tabularx, array, lipsum}
+\usepackage{cellspace}
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+\addparagraphcolumntypes{X}
+
 % titlen asetukset
 \usepackage{setspace}                       % Eriävä riviväli kuin dokumentin oletus
 \author{Sampo Vesanen}
@@ -101,8 +109,57 @@ PL 64 (Gustaf Hällströmin katu 2)\par
 \end{titlepage}
 
 % abstraktisivut, ensin ENG, sitten FI
+% Katso apua
+% https://tex.stackexchange.com/questions/186046/table-with-different-widths-and-rows
 \newpage
-abstrakt EN
+\thispagestyle{empty}
+\noindent
+\begin{tabularx}{\linewidth}{|S{X}|S{X}|}
+  \hline
+  \multicolumn{2}{|>{\hsize=\dimexpr2\hsize- + 2\tabcolsep\relax}S{X}|}{\sffamily Lorem ipsum dolor sit amet,}\\
+  \hline
+  \multicolumn{2}{|>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\lipsum[2]} \\
+  \hline
+  \textsf{Lorem av}:\newline foo & \textsf{Ipsum:}\newline bar \\
+  \hline
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{|S{X}|S{X}|S{X}|}
+  \hline
+  \multicolumn{2}{|>{\hsize=\dimexpr2\hsize- + 2\tabcolsep\relax}S{X}|}{\textsf{Tiedekunta/Osasto  Fakultet/Sektion – Faculty}\newline foo}\\
+  \hline
+  \multicolumn{3}{|>{\hsize=\dimexpr3\hsize- + 3\tabcolsep\relax}S{X}|}{\sffamily Lorem ipsum dolor sit amet,}\\
+  \hline
+  \multicolumn{3}{|>{\hsize=\dimexpr3\hsize + 3\tabcolsep\relax} S{X}|} {\lipsum[2]} \\
+  \hline
+  \textsf{Työn laji/Arbetets art – Level}\newline foo & \textsf{Aika/Datum – Month and year}\newline bar & \textsf{Sivumäärä/ Sidoantal – Number of pages}\newline foobar \\
+  \hline
+\end{tabularx}
+
+%% Circumvent having to use halves of columns by using six
+\begin{tabularx}{\linewidth}{|S{X}|S{X}|S{X}|S{X}|S{X}|S{X}|}
+  \hline
+  \multicolumn{3} {|>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{\textsf{Tiedekunta/Osasto  Fakultet/Sektion – Faculty}\newline foo} & \multicolumn{3}{|>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{\textsf{Laitos/Institution– Department}\newline foo} \\
+  \hline
+  \multicolumn{6}{|>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}|}{\textsf{Tekijä/Författare – Author }\newline foo} \\
+  \hline
+  \multicolumn{6}{|>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}|}{\textsf{Työn nimi / Arbetets titel – Title}\newline foo} \\
+  \hline
+  \multicolumn{6}{|>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}|}{\textsf{Oppiaine /Läroämne – Subject }\newline foo} \\
+  \hline  
+  \multicolumn{2}{|>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Työn laji/Arbetets art – Level}\newline foo} & \multicolumn{2}{|>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline foo} & \multicolumn{2}{|>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline foo} \\
+  \hline    
+  \multicolumn{6}{|>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}|} {\textsf{Tiivistelmä/Referat – Abstract}\newline foo } \\
+  \hline
+  \multicolumn{6}{|>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}|}{\textsf{Avainsanat – Nyckelord – Keywords}\newline foo} \\
+  \hline
+  \multicolumn{6}{|>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}|}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline foo} \\
+  \hline
+  \multicolumn{6}{|>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}|}{\textsf{Muita tietoja – Övriga uppgifter – Additional information}\newline foo} \\
+  \hline
+
+\end{tabularx}
+
 
 \newpage
 abstrakt FI
