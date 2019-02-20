@@ -27,6 +27,7 @@
 \usepackage[document]{ragged2e}             % tasaa rivit
 \usepackage[ddmmyyyy]{datetime}             % muokkaa datetimen ominaisuuksia
 \renewcommand{\dateseparator}{.}
+\newdateformat{monthyeardate}{\monthname[\THEMONTH], \THEYEAR} %Abstraktin mm/yyyy date
 
 % tiedostojen sijainnit
 \usepackage{graphicx}
@@ -35,7 +36,7 @@
 % referenssit ja referenssityylit
 \usepackage{natbib}
 \bibliographystyle{agsm}
-\setcitestyle{authoryear,open={},close={}}  % poista sitaateista sulut
+\setcitestyle{authoryear,open={},close={}}  % Removes citation parentheses
 
 % muut lisäosat
 \usepackage{alphabeta}
@@ -54,11 +55,16 @@
 
 % tables
 \usepackage[showframe]{geometry}
-\usepackage{tabularx, array, lipsum}
+\usepackage{tabularx}
+\usepackage{makecell}                       % enable thicker vline
 \usepackage{cellspace}
-\setlength\cellspacetoplimit{6pt}
-\setlength\cellspacebottomlimit{6pt}
+\setlength{\cellspacetoplimit}{6pt}
+\setlength{\cellspacebottomlimit}{6pt}
 \addparagraphcolumntypes{X}
+\newcolumntype{?}{!{\vrule width 1.5pt}}    % thicker vline for tabularx
+\newcommand\Tstrut{\rule{0pt}{2.2ex}}       % "top" strut
+\newcommand\Bstrut{\rule[-4.0ex]{0pt}{0pt}} % "bottom" strut
+\newcommand{\TBstrut}{\Tstrut\Bstrut}       % top & bottom struts
 
 % titlen asetukset
 \usepackage{setspace}                       % Eriävä riviväli kuin dokumentin oletus
@@ -66,11 +72,11 @@
 \date{\today}
 \title{Parking of private cars and spatial accessibility in Helsinki Capital Region}
 
-% aloita varsinainen dokumentti
+% Begin document proper
 % MUISTA KATTOO \begin{spacing}{1} \end{spacing} GRADUKIRJALLISUUS-TIEDOSTOSTA
 \begin{document}
 
-% KANSISIVU
+% TITLE PAGE
 \begin{titlepage}
 {
 \setstretch{1.0}
@@ -92,7 +98,7 @@ Sampo Vesanen
 
 \today
 
-% fills empty space between top and bottom
+% Fills empty space between top and bottom
 \vfill 
 
 Supervisor: \par
@@ -114,52 +120,36 @@ PL 64 (Gustaf Hällströmin katu 2)\par
 \newpage
 \thispagestyle{empty}
 \noindent
-\begin{tabularx}{\linewidth}{|S{X}|S{X}|}
-  \hline
-  \multicolumn{2}{|>{\hsize=\dimexpr2\hsize- + 2\tabcolsep\relax}S{X}|}{\sffamily Lorem ipsum dolor sit amet,}\\
-  \hline
-  \multicolumn{2}{|>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\lipsum[2]} \\
-  \hline
-  \textsf{Lorem av}:\newline foo & \textsf{Ipsum:}\newline bar \\
-  \hline
+\begin{spacing}{1}
+\footnotesize % set table font size to small
+% Tabularx table notes:
+%%% Circumvent having to use halves of columns by using six
+%%% In this table '?' means thicker vline. See definitions for tables in the beginning of the document
+%%% Idea from: https://tex.stackexchange.com/questions/236155/tabularx-and-multicolumn
+%%% TBstrut is also defined above. See following address for the full explanation:
+%%%%% https://tex.stackexchange.com/questions/126539/padding-at-the-top-of-a-table-cell-in-latex
+\begin{tabularx}{\linewidth}{|S{X}S{X}|S{X}|S{X}|S{X}|S{X}|}
+    \Xhline{3\arrayrulewidth}
+    \multicolumn{3}{?>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{\textsf{Tiedekunta/Osasto  Fakultet/Sektion – Faculty}\newline Faculty of Science} & \multicolumn{3}{>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}?}{\textsf{Laitos/Institution– Department}\newline Department of Geosciences and Geography} \TBstrut\\
+    \hline
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Tekijä/Författare – Author }\newline Sampo Vesanen} \TBstrut\\
+    \hline
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Työn nimi / Arbetets titel – Title}\newline Parking of private cars in Helsinki Capital Region} \TBstrut\\
+    \hline
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline Geography} \TBstrut\\
+    \hline
+    \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline Master's thesis} & \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \monthyeardate\today} & \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline 1337 pages and annexes} \TBstrut\\
+    \hline    
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract}\newline Olipa kerran gradu} \\ [540pt]
+    \hline
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline parking, GIS, löysää} \TBstrut\\
+    \hline
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline Library of University of Helsinki} \TBstrut\\
+    \hline
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Muita tietoja – Övriga uppgifter – Additional information}\newline -} \TBstrut\\
+    \Xhline{3\arrayrulewidth}
 \end{tabularx}
-
-\begin{tabularx}{\linewidth}{|S{X}|S{X}|S{X}|}
-  \hline
-  \multicolumn{2}{|>{\hsize=\dimexpr2\hsize- + 2\tabcolsep\relax}S{X}|}{\textsf{Tiedekunta/Osasto  Fakultet/Sektion – Faculty}\newline foo}\\
-  \hline
-  \multicolumn{3}{|>{\hsize=\dimexpr3\hsize- + 3\tabcolsep\relax}S{X}|}{\sffamily Lorem ipsum dolor sit amet,}\\
-  \hline
-  \multicolumn{3}{|>{\hsize=\dimexpr3\hsize + 3\tabcolsep\relax} S{X}|} {\lipsum[2]} \\
-  \hline
-  \textsf{Työn laji/Arbetets art – Level}\newline foo & \textsf{Aika/Datum – Month and year}\newline bar & \textsf{Sivumäärä/ Sidoantal – Number of pages}\newline foobar \\
-  \hline
-\end{tabularx}
-
-%% Circumvent having to use halves of columns by using six
-\begin{tabularx}{\linewidth}{|S{X}|S{X}|S{X}|S{X}|S{X}|S{X}|}
-  \hline
-  \multicolumn{3} {|>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{\textsf{Tiedekunta/Osasto  Fakultet/Sektion – Faculty}\newline foo} & \multicolumn{3}{|>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{\textsf{Laitos/Institution– Department}\newline foo} \\
-  \hline
-  \multicolumn{6}{|>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}|}{\textsf{Tekijä/Författare – Author }\newline foo} \\
-  \hline
-  \multicolumn{6}{|>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}|}{\textsf{Työn nimi / Arbetets titel – Title}\newline foo} \\
-  \hline
-  \multicolumn{6}{|>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}|}{\textsf{Oppiaine /Läroämne – Subject }\newline foo} \\
-  \hline  
-  \multicolumn{2}{|>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Työn laji/Arbetets art – Level}\newline foo} & \multicolumn{2}{|>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline foo} & \multicolumn{2}{|>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline foo} \\
-  \hline    
-  \multicolumn{6}{|>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}|} {\textsf{Tiivistelmä/Referat – Abstract}\newline foo } \\
-  \hline
-  \multicolumn{6}{|>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}|}{\textsf{Avainsanat – Nyckelord – Keywords}\newline foo} \\
-  \hline
-  \multicolumn{6}{|>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}|}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline foo} \\
-  \hline
-  \multicolumn{6}{|>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}|}{\textsf{Muita tietoja – Övriga uppgifter – Additional information}\newline foo} \\
-  \hline
-
-\end{tabularx}
-
+\end{spacing}
 
 \newpage
 abstrakt FI
