@@ -8,7 +8,7 @@
 
 \documentclass[a4paper,11pt]{article}
 
-% marginaalit
+% Set margins
 \usepackage{geometry}
 \geometry{
     a4paper,
@@ -17,9 +17,9 @@
     right=20mm,
     }
 
-% fontti- ja asetteluasetukset
-\renewcommand{\baselinestretch}{1.5}        % aseta riviväli
-\usepackage[finnish,english]{babel}         % aseta kielet
+% Font and layout settings
+\renewcommand{\baselinestretch}{1.5}        % set line spacing
+\usepackage[finnish,english]{babel}         % set languages
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[font=small,labelfont=bf]{caption}
@@ -27,23 +27,23 @@
 \setlength{\belowcaptionskip}{15pt plus 3pt minus 2pt}
 \usepackage[document]{ragged2e}             % tasaa rivit
 
-% datetime
-\usepackage[ddmmyyyy]{datetime}             % muokkaa datetimen ominaisuuksia
+% Datetime settings
+\usepackage[ddmmyyyy]{datetime}             % change format of datetime
 % tutki datetime2:a, jos haluut fiksaa esim kuukausnumeron yksnumeroiseks ja suomenkielen kuukauden paremmaksi
 \renewcommand{\dateseparator}{.}
 \newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR} %mm/yyyy date format
 \usepackage{lastpage}                       % get amount of pages
 
-% tiedostojen sijainnit
+% location of files
 \usepackage{graphicx}
 \graphicspath{ {Images/} }
 
-% referenssit ja referenssityylit
+% references and reference styles
 \usepackage{natbib}
 \bibliographystyle{agsm}
 \setcitestyle{authoryear,open={},close={}}  % Removes citation parentheses
 
-% muut lisäosat
+% other packages
 \usepackage{alphabeta}
 \usepackage{amsmath} 
 \usepackage{subfigure}
@@ -71,8 +71,8 @@
 \newcommand\Bstrut{\rule[-4.0ex]{0pt}{0pt}} % "bottom" strut
 \newcommand{\TBstrut}{\Tstrut\Bstrut}       % top & bottom struts
 
-% titlen asetukset
-\usepackage{setspace}                       % Eriävä riviväli kuin dokumentin oletus
+% Title page settings
+\usepackage{setspace}                       % different line spacing than document default
 \author{Sampo Vesanen}
 \date{\today}
 \title{Parking of private cars and spatial accessibility in Helsinki Capital Region}
@@ -80,42 +80,41 @@
 % Begin document proper
 % MUISTA KATTOO \begin{spacing}{1} \end{spacing} GRADUKIRJALLISUUS-TIEDOSTOSTA
 \begin{document}
-%\selectlanguage{english}
+
 % TITLE PAGE
-\begin{titlepage}
-{
-\setstretch{1.0}
-\centering
-\begin{figure}[t]
-\centering
-\includegraphics[scale=0.4]{HY_logo}
-\end{figure}
-
-Master's thesis \par
-Geography \par
-Geoinformatics \par
-
-\bigskip
-PARKING OF PRIVATE CARS AND SPATIAL ACCESSIBILITY IN HELSINKI CAPITAL REGION
-
-\bigskip
-Sampo Vesanen
-
-\today
-
-% Fills empty space between top and bottom
-\vfill 
-
-Supervisor: \par
-Tuuli Toivonen \par
-\bigskip
-\bigskip
-UNIVERSITY OF HELSINKI\par
-FACULTY OF SCIENCE\par
-DEPARTMENT OF GEOSCIENCES\par
-GEOGRAPHY\par
-PL 64 (Gustaf Hällströmin katu 2)\par
-00014 Helsingin yliopisto\par
+\begin{titlepage}{
+    \setstretch{1.0}
+    \centering
+    \begin{figure}[t]
+    \centering
+    \includegraphics[scale=0.4]{HY_logo}
+    \end{figure}
+    
+    Master's thesis \par
+    Geography \par
+    Geoinformatics \par
+    
+    \bigskip
+    PARKING OF PRIVATE CARS AND SPATIAL ACCESSIBILITY IN HELSINKI CAPITAL REGION
+    
+    \bigskip
+    Sampo Vesanen
+    
+    \today
+    
+    % Fills empty space between top and bottom
+    \vfill 
+    
+    Supervisor: \par
+    Tuuli Toivonen \par
+    \bigskip
+    \bigskip
+    UNIVERSITY OF HELSINKI\par
+    FACULTY OF SCIENCE\par
+    DEPARTMENT OF GEOSCIENCES\par
+    GEOGRAPHY\par
+    PL 64 (Gustaf Hällströmin katu 2)\par
+    00014 Helsingin yliopisto\par
 }
 \end{titlepage}
 
@@ -134,25 +133,34 @@ PL 64 (Gustaf Hällströmin katu 2)\par
 %%%%% https://tex.stackexchange.com/questions/126539/padding-at-the-top-of-a-table-cell-in-latex
 \begin{tabularx}{\linewidth}{|S{X}S{X}|S{X}|S{X}|S{X}|S{X}|}
     \Xhline{3\arrayrulewidth}
+    % FIRST ROW ENGLISH
     \multicolumn{3}{?>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{\textsf{Tiedekunta/Osasto  Fakultet/Sektion – Faculty}\newline Faculty of Science} & %
     \multicolumn{3}{>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}?}{\textsf{Laitos/Institution– Department}\newline Department of Geosciences and Geography} \TBstrut\\
     \hline
+    % SECOND ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Tekijä/Författare – Author }\newline Sampo Vesanen} \TBstrut\\
     \hline
+    % THIRD ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Työn nimi / Arbetets titel – Title}\newline Parking of private cars and spatial accessibility in Helsinki Capital Region} \TBstrut\\
     \hline
+    % FOURTH ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline Geography} \TBstrut\\
     \hline
+    % FIFTH ROW
     \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline Master's thesis} & %
     \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \monthyeardate\today} & %
     \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \pageref{LastPage} pages and annexes} \TBstrut\\
     \hline    
+    % SIXTH ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract}\newline Once upon a gradu} \\ [540pt]
     \hline
+    % SEVENTH ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline parking, accessibility, GIS, Python} \TBstrut\\
     \hline
+    % EIGHTH ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline Library of University of Helsinki} \TBstrut\\
     \hline
+    % LAST ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Muita tietoja – Övriga uppgifter – Additional information}\newline -} \TBstrut\\
     \Xhline{3\arrayrulewidth}
 \end{tabularx}
@@ -167,25 +175,34 @@ PL 64 (Gustaf Hällströmin katu 2)\par
 \begin{otherlanguage*}{finnish}
 \begin{tabularx}{\linewidth}{|S{X}S{X}|S{X}|S{X}|S{X}|S{X}|}
     \Xhline{3\arrayrulewidth}
+    % FIRST ROW FINNISH
     \multicolumn{3}{?>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{\textsf{Tiedekunta/Osasto  Fakultet/Sektion – Faculty}\newline Matemaattisluonnontieteellinen tiedekunta} & %
     \multicolumn{3}{>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}?}{\textsf{Laitos/Institution– Department}\newline Geotieteiden ja maantieteen osasto} \TBstrut\\
     \hline
+    % SECOND ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Tekijä/Författare – Author }\newline Sampo Vesanen} \TBstrut\\
     \hline
+    % THIRD ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Työn nimi / Arbetets titel – Title}\newline Henkilöauton pysäköinti ja spatiaalinen saavutettavuus pääkaupunkiseudulla} \TBstrut\\
     \hline
+    % FOURTH ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline Maantiede} \TBstrut\\
     \hline
+    % FIFTH ROW
     \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline Pro gradu -tutkimus} & %
     \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \monthyeardate\today} & %
     \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \pageref{LastPage} sivua ja liitteet} \TBstrut\\
     \hline    
+    % SIXTH ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract}\newline Olipa kerran gradu} \\ [500pt]
     \hline
+    % SEVENTH ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline pysäköinti, saavutettavuus, GIS, Python} \TBstrut\\
     \hline
+    % EIGHTH ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline Helsingin yliopiston kirjasto} \TBstrut\\
     \hline
+    % LAST ROW    
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Muita tietoja – Övriga uppgifter – Additional information}\newline -} \TBstrut\\
     \Xhline{3\arrayrulewidth}
 \end{tabularx}
@@ -220,7 +237,8 @@ PL 64 (Gustaf Hällströmin katu 2)\par
 \newpage
 \section{Discussion}
 
-% Yhdistä Mendeley-lähteet tähän .bib-tiedostoon
+% REFERENCES
+% Connect Mendeley references to Overleaf bib file
 \newpage
 \section{References}
 \renewcommand{\refname}{}
