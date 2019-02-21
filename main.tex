@@ -19,20 +19,24 @@
 
 % Font and layout settings
 \renewcommand{\baselinestretch}{1.5}        % set line spacing
-\usepackage[finnish,english]{babel}         % set languages
+\usepackage[finnish,english]{babel}         % set languages. Last in list is main language
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[font=small,labelfont=bf]{caption}
 \setlength{\abovecaptionskip}{15pt plus 3pt minus 2pt}
 \setlength{\belowcaptionskip}{15pt plus 3pt minus 2pt}
-\usepackage[document]{ragged2e}             % tasaa rivit
+\usepackage[document]{ragged2e}             % package enables justifying of text. \justify
+\usepackage{lastpage}                       % get amount of pages
 
 % Datetime settings
 \usepackage[ddmmyyyy]{datetime}             % change format of datetime
-% tutki datetime2:a, jos haluut fiksaa esim kuukausnumeron yksnumeroiseks ja suomenkielen kuukauden paremmaksi
-\renewcommand{\dateseparator}{.}
-\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR} %mm/yyyy date format
-\usepackage{lastpage}                       % get amount of pages
+%\renewcommand{\dateseparator}{.}
+\newdateformat{mydate}%
+    {\onedigit{\THEDAY}.\onedigit{\THEMONTH}.\THEYEAR} % remove unnecessary zeroes in date
+\newdateformat{monthyeardate}%
+    {\monthname[\THEMONTH] \THEYEAR}        % mm/yyyy date format for English abstract
+\newcommand*{\printfindate}{%               % Get Finnish months and year for Finnish abstract
+   \ifcase \month\or Tammikuu\or Helmikuu\or Maaliskuu\or Huhtikuu\or Toukokuu\or Kesäkuu\or Heinäkuu\or Elokuu\or Syyskuu\or Lokakuu\or Marraskuu\or Joulukuu\fi \space \number\year}
 
 % location of files
 \usepackage{graphicx}
@@ -78,7 +82,6 @@
 \title{Parking of private cars and spatial accessibility in Helsinki Capital Region}
 
 % Begin document proper
-% MUISTA KATTOO \begin{spacing}{1} \end{spacing} GRADUKIRJALLISUUS-TIEDOSTOSTA
 \begin{document}
 
 % TITLE PAGE
@@ -100,10 +103,10 @@
     \bigskip
     Sampo Vesanen
     
-    \today
+    \mydate\today
     
-    % Fills empty space between top and bottom
-    \vfill 
+    % Fills empty space between top and bottom of page
+    \vfill
     
     Supervisor: \par
     Tuuli Toivonen \par
@@ -190,7 +193,7 @@
     \hline
     % FIFTH ROW
     \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline Pro gradu -tutkimus} & %
-    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \monthyeardate\today} & %
+    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \printfindate} & %
     \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \pageref{LastPage} sivua ja liitteet} \TBstrut\\
     \hline    
     % SIXTH ROW
@@ -209,11 +212,11 @@
 \end{otherlanguage*}
 \end{spacing}
 
-
 % Table of contents
 \newpage
 \selectlanguage{english}
 \thispagestyle{empty}
+\renewcommand*\contentsname{Table of contents} % Set custom name for ToC
 \tableofcontents
 
 % INTRODUCTION AND RESEARCH QUESTIONS
@@ -228,6 +231,9 @@
 % DATA AND METHODS
 \newpage
 \section{Data and methods}
+\subsection{Parking survey}
+\justify
+To test if parking really is hard in Helsinki, I created a survey in JavaScript and Leaflet. It was actually the second time I was doing the survey as the first one, done with Survey123 didn't get approved. That really sucked man.
 
 % RESULTS
 \newpage
