@@ -43,6 +43,7 @@
 \graphicspath{ {Images/} }
 
 % references and reference styles
+\usepackage{enumitem}% http://ctan.org/pkg/enumitem
 \usepackage{natbib}
 \bibliographystyle{agsm}
 \setcitestyle{authoryear,open={},close={}}  % Removes citation parentheses
@@ -147,12 +148,12 @@
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Työn nimi / Arbetets titel – Title}\newline Parking of private cars and spatial accessibility in Helsinki Capital Region} \TBstrut\\
     \hline
     % FOURTH ROW
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline Geography} \TBstrut\\
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline Geography (geoinformatics)} \TBstrut\\
     \hline
     % FIFTH ROW
     \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline Master's thesis} & %
     \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \monthyeardate\today} & %
-    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \pageref{LastPage} pages and annexes} \TBstrut\\
+    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \pageref{LastPage} pages and appendices} \TBstrut\\
     \hline    
     % SIXTH ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract}\newline Once upon a gradu} \\ [540pt]
@@ -161,7 +162,7 @@
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline parking, accessibility, GIS, Python} \TBstrut\\
     \hline
     % EIGHTH ROW
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline Library of University of Helsinki} \TBstrut\\
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline Kumpula science library} \TBstrut\\
     \hline
     % LAST ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Muita tietoja – Övriga uppgifter – Additional information}\newline -} \TBstrut\\
@@ -189,10 +190,10 @@
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Työn nimi / Arbetets titel – Title}\newline Henkilöauton pysäköinti ja spatiaalinen saavutettavuus pääkaupunkiseudulla} \TBstrut\\
     \hline
     % FOURTH ROW
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline Maantiede} \TBstrut\\
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline Maantiede (geoinformatiikka)} \TBstrut\\
     \hline
     % FIFTH ROW
-    \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline Pro gradu -tutkimus} & %
+    \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline Pro gradu -tutkielma} & %
     \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \printfindate} & %
     \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \pageref{LastPage} sivua ja liitteet} \TBstrut\\
     \hline    
@@ -203,7 +204,7 @@
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline pysäköinti, saavutettavuus, GIS, Python} \TBstrut\\
     \hline
     % EIGHTH ROW
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline Helsingin yliopiston kirjasto} \TBstrut\\
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline Kumpulan tiedekirjasto} \TBstrut\\
     \hline
     % LAST ROW    
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Muita tietoja – Övriga uppgifter – Additional information}\newline -} \TBstrut\\
@@ -223,10 +224,24 @@
 \newpage
 \setcounter{page}{1} % set page numbering to start from here
 \section{Introduction}
+\justify
+Tässä kappaleessa ei alaotsikoita.
+
+The specific research questions for this thesis are:
+
+\begin{spacing}{1}
+\begin{enumerate}[label=\Roman*] % use Roman numerals, uses enumitem package
+  \item What are the spatial differences in the time that it takes to find and park one’s car in the study area?
+  \item If spatial differences are detected, what explains them?
+  \item What is the significance of the process of parking one’s car to the overall travel time?
+\end{enumerate}
+\end{spacing}
 
 % THEORETICAL BACKGROUND
 \newpage
-\section{Theoretical background}
+\section{Background}
+\subsection{Parking studies}
+\subsection{Parking time estimations}
 
 % DATA AND METHODS
 \newpage
@@ -252,6 +267,6 @@ To test if parking really is hard in Helsinki, I created a survey in JavaScript 
 
 % ANNEXES
 \newpage
-\section{Annexes}
+\section{Appendices}
 
 \end{document}
