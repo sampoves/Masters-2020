@@ -1,0 +1,45 @@
+%\noindent
+\thispagestyle{empty}
+\begin{spacing}{1}
+\footnotesize % set table font size to small
+
+% Tabularx table notes:
+%%% Circumvent having to use halves of columns by using six
+%%% In this table '?' means thicker vline. See definitions for tables in the beginning of the document
+%%% Idea from: https://tex.stackexchange.com/questions/236155/tabularx-and-multicolumn
+%%% TBstrut is also defined above. See following address for the full explanation:
+%%%%% https://tex.stackexchange.com/questions/126539/padding-at-the-top-of-a-table-cell-in-latex
+\begin{tabularx}{\linewidth}{|S{X}S{X}|S{X}|S{X}|S{X}|S{X}|}
+    \Xhline{3\arrayrulewidth}
+    % FIRST ROW ENGLISH, FACULTY AND DEPARTMENT
+    \multicolumn{3}{?>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{\textsf{Tiedekunta/Osasto  Fakultet/Sektion – Faculty}\newline \myfaculty} & %
+    \multicolumn{3}{>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}?}{\textsf{Laitos/Institution– Department}\newline \mydept} \TBstrut\\
+    \hline
+    % SECOND ROW, AUTHOR
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Tekijä/Författare – Author }\newline \myname} \TBstrut\\
+    \hline
+    % THIRD ROW, TITLE
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Työn nimi / Arbetets titel – Title}\newline \mytitle} \TBstrut\\
+    \hline
+    % FOURTH ROW, SUBJECT
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline \mygeography (\mygis)} \TBstrut\\
+    \hline
+    % FIFTH ROW, THESIS PROPERTIES
+    \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline \mythesis} & %
+    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \translatedate} & %
+    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \mypages} \TBstrut\\
+    \hline    
+    % SIXTH ROW, ABSTRACT
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract} \myabstract} \\ [540pt]
+    \hline
+    % SEVENTH ROW, KEYWORDS
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline \mykeywords} \TBstrut\\
+    \hline
+    % EIGHTH ROW, DEPOSIT
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline \mylibrary} \TBstrut\\
+    \hline
+    % LAST ROW, OTHER INFO
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Muita tietoja – Övriga uppgifter – Additional information}\newline \myotherinfo} \TBstrut\\
+    \Xhline{3\arrayrulewidth}
+\end{tabularx}
+\end{spacing}

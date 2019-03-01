@@ -31,10 +31,10 @@
 % Datetime settings
 \usepackage[ddmmyyyy]{datetime}             % change format of datetime
 %\renewcommand{\dateseparator}{.}
-\newdateformat{mydate}%
-    {\onedigit{\THEDAY}.\onedigit{\THEMONTH}.\THEYEAR} % remove unnecessary zeroes in date
-\newdateformat{monthyeardate}%
-    {\monthname[\THEMONTH] \THEYEAR}        % mm/yyyy date format for English abstract
+\newdateformat{mydate}{%
+\onedigit{\THEDAY}.\onedigit{\THEMONTH}.\THEYEAR} % remove unnecessary zeroes in date
+\newdateformat{monthyeardate}{%
+    \monthname[\THEMONTH] \THEYEAR}         % mm/yyyy date format for English abstract
 \newcommand*{\printfindate}{%               % Get Finnish months and year for Finnish abstract
    \ifcase \month\or Tammikuu\or Helmikuu\or Maaliskuu\or Huhtikuu\or Toukokuu\or Kesäkuu\or Heinäkuu\or Elokuu\or Syyskuu\or Lokakuu\or Marraskuu\or Joulukuu\fi \space \number\year}
 
@@ -62,6 +62,7 @@
 \usepackage{enumitem}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{import}
 
 % tables
 \usepackage[showframe]{geometry}
@@ -90,35 +91,51 @@
 \usepackage{setspace}                       % different line spacing than document default
 \date{\today}
 \newcommand{\myname}{                      % THIS STRING REPRESENTS THESIS AUTHOR IN THE DOCUMENT
-    Sampo Vesanen
+    Sampo Vesanen%
 }
 
 % THESIS TITLE MULTILANGUAGE STRING
+% Multilanguage code is adapted from here:
+% https://tex.stackexchange.com/questions/42784/language-dependent-custom-command
 \newtranslatorcommand{\mytitle}{%
-    Parking private cars and accessibility in Helsinki Capital Region
+    Parking private cars and accessibility in Helsinki Capital Region%
 }{%
-    Henkilöauton pysäköinti ja spatiaalinen saavutettavuus pääkaupunkiseudulla
+    Henkilöauton pysäköinti ja spatiaalinen saavutettavuus pääkaupunkiseudulla%
+}
+
+% Choose correct date format for abstract
+\newtranslatorcommand{\translatedate}{%
+    \monthyeardate\today%
+}{%
+    \printfindate%
+}
+
+% PAGE COUNT MULTILANUAGE STRING
+\newtranslatorcommand{\mypages}{%
+    \pageref{myLastPage} pages and appendices%
+}{%
+    \pageref{myLastPage} sivua ja liitteet%
 }
 
 % UNIVERSITY MULTILANGUAGE STRING
 \newtranslatorcommand{\myuni}{%
-    University of Helsinki
+    University of Helsinki%
 }{%
-    Helsingin yliopisto
+    Helsingin yliopisto%
 }
 
 % FACULTY MULTILANGUAGE STRING
 \newtranslatorcommand{\myfaculty}{%
-    Faculty of Science
+    Faculty of Science%
 }{%
-    Matemaattisluonnontieteellinen tiedekunta
+    Matemaattisluonnontieteellinen tiedekunta%
 }
 
 % DEPARTMENT MULTILANGUAGE STRING
 \newtranslatorcommand{\mydept}{%
-    Department of Geosciences and Geography
+    Department of Geosciences and Geography%
 }{%
-    Geotieteiden ja maantieteen osasto
+    Geotieteiden ja maantieteen osasto%
 }
 
 % GEOGRAPHY MULTILANGUAGE STRING
@@ -137,30 +154,37 @@
 
 % THESIS TYPE MULTILANGUAGE STRING
 \newtranslatorcommand{\mythesis}{%
-    Master's thesis
+    Master's thesis%
 }{%
-    Pro gradu -tutkielma
+    Pro gradu -tutkielma%
+}
+
+% CHOOSE CORRECT ABSTRACT LANGUAGE
+\newtranslatorcommand{\myabstract}{%
+   \import{sections/}{abstract_en.tex}%
+}{%
+    \import{sections/}{abstract_fi.tex}%
 }
 
 % KEYWORDS MULTILANGUAGE STRING
 \newtranslatorcommand{\mykeywords}{%
-    Parking, accessibility, GIS, Python
+    Parking, accessibility, GIS, Python%
 }{%
-    Pysäköinti, saavutettavuus, GIS, Python
+    Pysäköinti, saavutettavuus, GIS, Python%
 }
 
 % LIBRARY MULTILANGUAGE STRING
 \newtranslatorcommand{\mylibrary}{%
-    Kumpula science library
+    Kumpula science library%
 }{%
-    Kumpulan tiedekirjasto
+    Kumpulan tiedekirjasto%
 }
 
 % OTHER INFO MULTILANGUAGE STRING
 \newtranslatorcommand{\myotherinfo}{%
-    -
+    -%
 }{%
-    -
+    -%
 }
 
 \title{ \mytitle}
@@ -237,11 +261,11 @@
     \hline
     % FIFTH ROW, THESIS PROPERTIES
     \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline \mythesis} & %
-    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \monthyeardate\today} & %
-    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \pageref{myLastPage} pages and appendices} \TBstrut\\
+    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \translatedate} & %
+    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \mypages} \TBstrut\\
     \hline    
     % SIXTH ROW, ABSTRACT
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract}\newline Once upon a gradu} \\ [540pt]
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract} \myabstract} \\ [540pt]
     \hline
     % SEVENTH ROW, KEYWORDS
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline \mykeywords} \TBstrut\\
@@ -279,11 +303,11 @@
     \hline
     % FIFTH ROW, THESIS PROPERTIES
     \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline \mythesis} & %
-    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \printfindate} & %
-    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \pageref{myLastPage} sivua ja liitteet} \TBstrut\\
+    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \translatedate} & %
+    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \mypages} \TBstrut\\
     \hline    
     % SIXTH ROW, ABSTRACT
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract}\newline Olipa kerran gradu} \\ [500pt]
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract} \myabstract} \\ [500pt]
     \hline
     % SEVENTH ROW, KEYWORDS
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline \mykeywords} \TBstrut\\
@@ -298,6 +322,14 @@
 \end{otherlanguage*}
 \end{spacing}
 
+
+
+%%% 2ND ABSTRACT PAGE, FINNISH
+%\newpage
+%\begin{otherlanguage*}{finnish}
+%\import{sections/}{abstract.tex}
+%\end{otherlanguage*}
+
 % Table of contents
 \newpage
 \selectlanguage{english}
@@ -311,6 +343,7 @@
 \section{Introduction}
 \justify
 Tässä kappaleessa ei alaotsikoita.
+%\import{/sections}{introduction}
 
 The specific research questions for this thesis are:
 
