@@ -78,9 +78,15 @@
 
 % Title page settings
 \usepackage{setspace}                       % different line spacing than document default
-\author{Sampo Vesanen}
 \date{\today}
-\title{Parking of private cars and spatial accessibility in Helsinki Capital Region}
+\newcommand{\myname}{                      % THIS STRING REPRESENTS THESIS AUTHOR IN THE DOCUMENT
+    Sampo Vesanen
+}
+\newcommand{\mytitle}{                      % THIS STRING REPRESENTS THESIS TITLE IN THE DOCUMENT
+    Parking of private cars and spatial accessibility in Helsinki Capital Region
+}
+\title{ \mytitle}
+\author{ \myname}
 
 % Begin document proper
 \begin{document}
@@ -99,10 +105,10 @@
     Geoinformatics \par
     
     \bigskip
-    PARKING OF PRIVATE CARS AND SPATIAL ACCESSIBILITY IN HELSINKI CAPITAL REGION
+    \MakeUppercase{\mytitle}
     
     \bigskip
-    Sampo Vesanen
+    \myname
     
     \mydate\today
     
@@ -142,10 +148,10 @@
     \multicolumn{3}{>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}?}{\textsf{Laitos/Institution– Department}\newline Department of Geosciences and Geography} \TBstrut\\
     \hline
     % SECOND ROW
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Tekijä/Författare – Author }\newline Sampo Vesanen} \TBstrut\\
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Tekijä/Författare – Author }\newline \myname} \TBstrut\\
     \hline
     % THIRD ROW
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Työn nimi / Arbetets titel – Title}\newline Parking of private cars and spatial accessibility in Helsinki Capital Region} \TBstrut\\
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Työn nimi / Arbetets titel – Title}\newline \mytitle} \TBstrut\\
     \hline
     % FOURTH ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline Geography (geoinformatics)} \TBstrut\\
@@ -153,7 +159,7 @@
     % FIFTH ROW
     \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline Master's thesis} & %
     \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \monthyeardate\today} & %
-    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \pageref{LastPage} pages and appendices} \TBstrut\\
+    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \pageref{myLastPage} pages and appendices} \TBstrut\\
     \hline    
     % SIXTH ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract}\newline Once upon a gradu} \\ [540pt]
@@ -184,7 +190,7 @@
     \multicolumn{3}{>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}?}{\textsf{Laitos/Institution– Department}\newline Geotieteiden ja maantieteen osasto} \TBstrut\\
     \hline
     % SECOND ROW
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Tekijä/Författare – Author }\newline Sampo Vesanen} \TBstrut\\
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Tekijä/Författare – Author }\newline \myname} \TBstrut\\
     \hline
     % THIRD ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Työn nimi / Arbetets titel – Title}\newline Henkilöauton pysäköinti ja spatiaalinen saavutettavuus pääkaupunkiseudulla} \TBstrut\\
@@ -195,7 +201,7 @@
     % FIFTH ROW
     \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline Pro gradu -tutkielma} & %
     \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \printfindate} & %
-    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \pageref{LastPage} sivua ja liitteet} \TBstrut\\
+    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \pageref{myLastPage} sivua ja liitteet} \TBstrut\\
     \hline    
     % SIXTH ROW
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract}\newline Olipa kerran gradu} \\ [500pt]
@@ -261,12 +267,14 @@ To test if parking really is hard in Helsinki, I created a survey in JavaScript 
 % REFERENCES
 % Connect Mendeley references to Overleaf bib file
 \newpage
+\label{myLastPage} % this label defines the last page to be included in page count
 \section{References}
 \renewcommand{\refname}{}
 \bibliography{references.bib}
 
-% ANNEXES
+% APPENDICES
 \newpage
+\pagenumbering{gobble} % suppress appendices page numbering from page and table of contents 
 \section{Appendices}
 
 \end{document}
