@@ -76,17 +76,96 @@
 \newcommand\Bstrut{\rule[-4.0ex]{0pt}{0pt}} % "bottom" strut
 \newcommand{\TBstrut}{\Tstrut\Bstrut}       % top & bottom struts
 
+% translator command setup
+% this enables us to use multilanguage strings which works with package babel
+\newcommand{\newtranslatorcommand}[3]{%
+    \newcommand{#1}{%
+        \iflanguage{english}{#2}{%
+        \iflanguage{finnish}{#3}{%
+        }}%
+    }%
+}
+
 % Title page settings
 \usepackage{setspace}                       % different line spacing than document default
 \date{\today}
 \newcommand{\myname}{                      % THIS STRING REPRESENTS THESIS AUTHOR IN THE DOCUMENT
     Sampo Vesanen
 }
-\newcommand{\mytitle}{                      % THIS STRING REPRESENTS THESIS TITLE IN THE DOCUMENT
-    Parking of private cars and spatial accessibility in Helsinki Capital Region
+
+% THESIS TITLE MULTILANGUAGE STRING
+\newtranslatorcommand{\mytitle}{%
+    Parking private cars and accessibility in Helsinki Capital Region
+}{%
+    Henkilöauton pysäköinti ja spatiaalinen saavutettavuus pääkaupunkiseudulla
 }
+
+% UNIVERSITY MULTILANGUAGE STRING
+\newtranslatorcommand{\myuni}{%
+    University of Helsinki
+}{%
+    Helsingin yliopisto
+}
+
+% FACULTY MULTILANGUAGE STRING
+\newtranslatorcommand{\myfaculty}{%
+    Faculty of Science
+}{%
+    Matemaattisluonnontieteellinen tiedekunta
+}
+
+% DEPARTMENT MULTILANGUAGE STRING
+\newtranslatorcommand{\mydept}{%
+    Department of Geosciences and Geography
+}{%
+    Geotieteiden ja maantieteen osasto
+}
+
+% GEOGRAPHY MULTILANGUAGE STRING
+\newtranslatorcommand{\mygeography}{%
+    Geography
+}{%
+    Maantiede
+}
+
+% GEOINFORMATICS MULTILANGUAGE STRING
+\newtranslatorcommand{\mygis}{%
+    Geoinformatics%
+}{%
+    geoinformatiikka%
+}
+
+% THESIS TYPE MULTILANGUAGE STRING
+\newtranslatorcommand{\mythesis}{%
+    Master's thesis
+}{%
+    Pro gradu -tutkielma
+}
+
+% KEYWORDS MULTILANGUAGE STRING
+\newtranslatorcommand{\mykeywords}{%
+    Parking, accessibility, GIS, Python
+}{%
+    Pysäköinti, saavutettavuus, GIS, Python
+}
+
+% LIBRARY MULTILANGUAGE STRING
+\newtranslatorcommand{\mylibrary}{%
+    Kumpula science library
+}{%
+    Kumpulan tiedekirjasto
+}
+
+% OTHER INFO MULTILANGUAGE STRING
+\newtranslatorcommand{\myotherinfo}{%
+    -
+}{%
+    -
+}
+
 \title{ \mytitle}
 \author{ \myname}
+
 
 % Begin document proper
 \begin{document}
@@ -100,9 +179,9 @@
     \includegraphics[scale=0.4]{HY_logo}
     \end{figure}
     
-    Master's thesis \par
-    Geography \par
-    Geoinformatics \par
+    \mythesis \par
+    \mygeography \par
+    \mygis \par
     
     \bigskip
     \MakeUppercase{\mytitle}
@@ -119,12 +198,12 @@
     Tuuli Toivonen \par
     \bigskip
     \bigskip
-    UNIVERSITY OF HELSINKI\par
-    FACULTY OF SCIENCE\par
-    DEPARTMENT OF GEOSCIENCES\par
-    GEOGRAPHY\par
-    PL 64 (Gustaf Hällströmin katu 2)\par
-    00014 Helsingin yliopisto\par
+    \MakeUppercase\myuni \par
+    \MakeUppercase\myfaculty \par
+    \MakeUppercase\mydept \par
+    \MakeUppercase{\mygeography} \par
+    PL 64 (Gustaf Hällströmin katu 2) \par
+    00014 Helsingin yliopisto \par
 }
 \end{titlepage}
 
@@ -143,35 +222,35 @@
 %%%%% https://tex.stackexchange.com/questions/126539/padding-at-the-top-of-a-table-cell-in-latex
 \begin{tabularx}{\linewidth}{|S{X}S{X}|S{X}|S{X}|S{X}|S{X}|}
     \Xhline{3\arrayrulewidth}
-    % FIRST ROW ENGLISH
-    \multicolumn{3}{?>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{\textsf{Tiedekunta/Osasto  Fakultet/Sektion – Faculty}\newline Faculty of Science} & %
-    \multicolumn{3}{>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}?}{\textsf{Laitos/Institution– Department}\newline Department of Geosciences and Geography} \TBstrut\\
+    % FIRST ROW ENGLISH, FACULTY AND DEPARTMENT
+    \multicolumn{3}{?>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{\textsf{Tiedekunta/Osasto  Fakultet/Sektion – Faculty}\newline \myfaculty} & %
+    \multicolumn{3}{>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}?}{\textsf{Laitos/Institution– Department}\newline \mydept} \TBstrut\\
     \hline
-    % SECOND ROW
+    % SECOND ROW, AUTHOR
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Tekijä/Författare – Author }\newline \myname} \TBstrut\\
     \hline
-    % THIRD ROW
+    % THIRD ROW, TITLE
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Työn nimi / Arbetets titel – Title}\newline \mytitle} \TBstrut\\
     \hline
-    % FOURTH ROW
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline Geography (geoinformatics)} \TBstrut\\
+    % FOURTH ROW, SUBJECT
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline \mygeography (\mygis)} \TBstrut\\
     \hline
-    % FIFTH ROW
-    \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline Master's thesis} & %
+    % FIFTH ROW, THESIS PROPERTIES
+    \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline \mythesis} & %
     \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \monthyeardate\today} & %
     \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \pageref{myLastPage} pages and appendices} \TBstrut\\
     \hline    
-    % SIXTH ROW
+    % SIXTH ROW, ABSTRACT
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract}\newline Once upon a gradu} \\ [540pt]
     \hline
-    % SEVENTH ROW
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline parking, accessibility, GIS, Python} \TBstrut\\
+    % SEVENTH ROW, KEYWORDS
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline \mykeywords} \TBstrut\\
     \hline
-    % EIGHTH ROW
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline Kumpula science library} \TBstrut\\
+    % EIGHTH ROW, DEPOSIT
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline \mylibrary} \TBstrut\\
     \hline
-    % LAST ROW
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Muita tietoja – Övriga uppgifter – Additional information}\newline -} \TBstrut\\
+    % LAST ROW, OTHER INFO
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Muita tietoja – Övriga uppgifter – Additional information}\newline \myotherinfo} \TBstrut\\
     \Xhline{3\arrayrulewidth}
 \end{tabularx}
 \end{spacing}
@@ -185,35 +264,35 @@
 \begin{otherlanguage*}{finnish}
 \begin{tabularx}{\linewidth}{|S{X}S{X}|S{X}|S{X}|S{X}|S{X}|}
     \Xhline{3\arrayrulewidth}
-    % FIRST ROW FINNISH
-    \multicolumn{3}{?>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{\textsf{Tiedekunta/Osasto  Fakultet/Sektion – Faculty}\newline Matemaattisluonnontieteellinen tiedekunta} & %
-    \multicolumn{3}{>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}?}{\textsf{Laitos/Institution– Department}\newline Geotieteiden ja maantieteen osasto} \TBstrut\\
+    % FIRST ROW FINNISH, FACULTY AND DEPARTMENT
+    \multicolumn{3}{?>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{\textsf{Tiedekunta/Osasto  Fakultet/Sektion – Faculty}\newline \myfaculty} & %
+    \multicolumn{3}{>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}?}{\textsf{Laitos/Institution– Department}\newline \mydept} \TBstrut\\
     \hline
-    % SECOND ROW
+    % SECOND ROW, AUTHOR
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Tekijä/Författare – Author }\newline \myname} \TBstrut\\
     \hline
-    % THIRD ROW
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Työn nimi / Arbetets titel – Title}\newline Henkilöauton pysäköinti ja spatiaalinen saavutettavuus pääkaupunkiseudulla} \TBstrut\\
+    % THIRD ROW, TITLE
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Työn nimi / Arbetets titel – Title}\newline \mytitle} \TBstrut\\
     \hline
-    % FOURTH ROW
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline Maantiede (geoinformatiikka)} \TBstrut\\
+    % FOURTH ROW, SUBJECT
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline \mygeography (\mygis)} \TBstrut\\
     \hline
-    % FIFTH ROW
-    \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline Pro gradu -tutkielma} & %
+    % FIFTH ROW, THESIS PROPERTIES
+    \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline \mythesis} & %
     \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \printfindate} & %
     \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \pageref{myLastPage} sivua ja liitteet} \TBstrut\\
     \hline    
-    % SIXTH ROW
+    % SIXTH ROW, ABSTRACT
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract}\newline Olipa kerran gradu} \\ [500pt]
     \hline
-    % SEVENTH ROW
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline pysäköinti, saavutettavuus, GIS, Python} \TBstrut\\
+    % SEVENTH ROW, KEYWORDS
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline \mykeywords} \TBstrut\\
     \hline
-    % EIGHTH ROW
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline Kumpulan tiedekirjasto} \TBstrut\\
+    % EIGHTH ROW, DEPOSIT
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline \mylibrary} \TBstrut\\
     \hline
-    % LAST ROW    
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Muita tietoja – Övriga uppgifter – Additional information}\newline -} \TBstrut\\
+    % LAST ROW, OTHER INFO
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Muita tietoja – Övriga uppgifter – Additional information}\newline \myotherinfo} \TBstrut\\
     \Xhline{3\arrayrulewidth}
 \end{tabularx}
 \end{otherlanguage*}
