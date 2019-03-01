@@ -5,6 +5,10 @@
 % https://blogs.helsinki.fi/geotiede/files/2008/03/Pro-gradu-ohjeet.pdf
 % FLAMMAN GRADUOHJEET:
 %%% https://flamma.helsinki.fi/portal/units/matlu?_nfpb=true&_pageLabel=P9806621561360920311893&contentId=HY358060&placeId=HY357991&lang=fi
+% Multifile LaTeX project:
+%%% https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects
+% How to write a thesis in LaTeX
+%%% https://www.overleaf.com/learn/latex/How_to_Write_a_Thesis_in_LaTeX_(Part_1):_Basic_Structure
 
 \documentclass[a4paper,11pt]{article}
 
@@ -87,14 +91,13 @@
     }%
 }
 
-% Title page settings
+% Title page and abstract settings
 \usepackage{setspace}                       % different line spacing than document default
-\date{\today}
 \newcommand{\myname}{                      % THIS STRING REPRESENTS THESIS AUTHOR IN THE DOCUMENT
     Sampo Vesanen%
 }
 
-% THESIS TITLE MULTILANGUAGE STRING
+% THESIS TITLE MULTILANGUAGE STRINGS
 % Multilanguage code is adapted from here:
 % https://tex.stackexchange.com/questions/42784/language-dependent-custom-command
 \newtranslatorcommand{\mytitle}{%
@@ -161,7 +164,7 @@
 
 % CHOOSE CORRECT ABSTRACT LANGUAGE
 \newtranslatorcommand{\myabstract}{%
-   \import{sections/}{abstract_en.tex}%
+    \import{sections/}{abstract_en.tex}%
 }{%
     \import{sections/}{abstract_fi.tex}%
 }
@@ -187,11 +190,12 @@
     -%
 }
 
-\title{ \mytitle}
-\author{ \myname}
+\title{\mytitle}
+\author{\myname}
+\date{\today}
 
 
-% Begin document proper
+% BEGIN DOCUMENT PROPER
 \begin{document}
 
 % TITLE PAGE
@@ -233,104 +237,15 @@
 
 %%% 1ST ABSTRACT PAGE, ENGLISH
 \newpage
-\thispagestyle{empty} % hides page number
-\noindent
-\begin{spacing}{1}
-\footnotesize % set table font size to small
-
-% Tabularx table notes:
-%%% Circumvent having to use halves of columns by using six
-%%% In this table '?' means thicker vline. See definitions for tables in the beginning of the document
-%%% Idea from: https://tex.stackexchange.com/questions/236155/tabularx-and-multicolumn
-%%% TBstrut is also defined above. See following address for the full explanation:
-%%%%% https://tex.stackexchange.com/questions/126539/padding-at-the-top-of-a-table-cell-in-latex
-\begin{tabularx}{\linewidth}{|S{X}S{X}|S{X}|S{X}|S{X}|S{X}|}
-    \Xhline{3\arrayrulewidth}
-    % FIRST ROW ENGLISH, FACULTY AND DEPARTMENT
-    \multicolumn{3}{?>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{\textsf{Tiedekunta/Osasto  Fakultet/Sektion – Faculty}\newline \myfaculty} & %
-    \multicolumn{3}{>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}?}{\textsf{Laitos/Institution– Department}\newline \mydept} \TBstrut\\
-    \hline
-    % SECOND ROW, AUTHOR
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Tekijä/Författare – Author }\newline \myname} \TBstrut\\
-    \hline
-    % THIRD ROW, TITLE
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Työn nimi / Arbetets titel – Title}\newline \mytitle} \TBstrut\\
-    \hline
-    % FOURTH ROW, SUBJECT
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline \mygeography (\mygis)} \TBstrut\\
-    \hline
-    % FIFTH ROW, THESIS PROPERTIES
-    \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline \mythesis} & %
-    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \translatedate} & %
-    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \mypages} \TBstrut\\
-    \hline    
-    % SIXTH ROW, ABSTRACT
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract} \myabstract} \\ [540pt]
-    \hline
-    % SEVENTH ROW, KEYWORDS
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline \mykeywords} \TBstrut\\
-    \hline
-    % EIGHTH ROW, DEPOSIT
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline \mylibrary} \TBstrut\\
-    \hline
-    % LAST ROW, OTHER INFO
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Muita tietoja – Övriga uppgifter – Additional information}\newline \myotherinfo} \TBstrut\\
-    \Xhline{3\arrayrulewidth}
-\end{tabularx}
-\end{spacing}
+\import{sections/}{abstract.tex}
 
 %%% 2ND ABSTRACT PAGE, FINNISH
 \newpage
-\noindent
-\thispagestyle{empty}
-\begin{spacing}{1}
-\footnotesize
 \begin{otherlanguage*}{finnish}
-\begin{tabularx}{\linewidth}{|S{X}S{X}|S{X}|S{X}|S{X}|S{X}|}
-    \Xhline{3\arrayrulewidth}
-    % FIRST ROW FINNISH, FACULTY AND DEPARTMENT
-    \multicolumn{3}{?>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{\textsf{Tiedekunta/Osasto  Fakultet/Sektion – Faculty}\newline \myfaculty} & %
-    \multicolumn{3}{>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}?}{\textsf{Laitos/Institution– Department}\newline \mydept} \TBstrut\\
-    \hline
-    % SECOND ROW, AUTHOR
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Tekijä/Författare – Author }\newline \myname} \TBstrut\\
-    \hline
-    % THIRD ROW, TITLE
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Työn nimi / Arbetets titel – Title}\newline \mytitle} \TBstrut\\
-    \hline
-    % FOURTH ROW, SUBJECT
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline \mygeography (\mygis)} \TBstrut\\
-    \hline
-    % FIFTH ROW, THESIS PROPERTIES
-    \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline \mythesis} & %
-    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \translatedate} & %
-    \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \mypages} \TBstrut\\
-    \hline    
-    % SIXTH ROW, ABSTRACT
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+6\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract} \myabstract} \\ [500pt]
-    \hline
-    % SEVENTH ROW, KEYWORDS
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline \mykeywords} \TBstrut\\
-    \hline
-    % EIGHTH ROW, DEPOSIT
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline \mylibrary} \TBstrut\\
-    \hline
-    % LAST ROW, OTHER INFO
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Muita tietoja – Övriga uppgifter – Additional information}\newline \myotherinfo} \TBstrut\\
-    \Xhline{3\arrayrulewidth}
-\end{tabularx}
+\import{sections/}{abstract.tex}
 \end{otherlanguage*}
-\end{spacing}
 
-
-
-%%% 2ND ABSTRACT PAGE, FINNISH
-%\newpage
-%\begin{otherlanguage*}{finnish}
-%\import{sections/}{abstract.tex}
-%\end{otherlanguage*}
-
-% Table of contents
+% TABLE OF CONTENTS
 \newpage
 \selectlanguage{english}
 \thispagestyle{empty}
@@ -343,7 +258,7 @@
 \section{Introduction}
 \justify
 Tässä kappaleessa ei alaotsikoita.
-%\import{/sections}{introduction}
+%\import{/sections}{introduction.tex}
 
 The specific research questions for this thesis are:
 
