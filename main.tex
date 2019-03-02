@@ -31,12 +31,13 @@
 \setlength{\belowcaptionskip}{15pt plus 3pt minus 2pt}
 \usepackage[document]{ragged2e}             % package enables justifying of text. \justify
 \usepackage{lastpage}                       % get amount of pages
+\usepackage{subfiles}                       % enable multi-file .tex support
 
 % Datetime settings
 \usepackage[ddmmyyyy]{datetime}             % change format of datetime
 %\renewcommand{\dateseparator}{.}
 \newdateformat{mydate}{%
-\onedigit{\THEDAY}.\onedigit{\THEMONTH}.\THEYEAR} % remove unnecessary zeroes in date
+    \onedigit{\THEDAY}.\onedigit{\THEMONTH}.\THEYEAR} % remove unnecessary zeroes in date
 \newdateformat{monthyeardate}{%
     \monthname[\THEMONTH] \THEYEAR}         % mm/yyyy date format for English abstract
 \newcommand*{\printfindate}{%               % Get Finnish months and year for Finnish abstract
@@ -221,41 +222,23 @@
 % INTRODUCTION AND RESEARCH QUESTIONS
 \newpage
 \setcounter{page}{1} % set page numbering to start from here
-\section{Introduction}
-\justify
-Tässä kappaleessa ei alaotsikoita.
-%\import{/content}{introduction.tex}
-
-The specific research questions for this thesis are:
-
-\begin{spacing}{1}
-\begin{enumerate}[label=\Roman*] % use Roman numerals, uses enumitem package
-  \item What are the spatial differences in the time that it takes to find and park one’s car in the study area?
-  \item If spatial differences are detected, what explains them?
-  \item What is the significance of the process of parking one’s car to the overall travel time?
-\end{enumerate}
-\end{spacing}
+\subfile{content/c1_introduction}
 
 % THEORETICAL BACKGROUND
 \newpage
-\section{Background}
-\subsection{Parking studies}
-\subsection{Parking time estimations}
+\subfile{content/c2_background}
 
 % DATA AND METHODS
 \newpage
-\section{Data and methods}
-\subsection{Parking survey}
-\justify
-To test if parking really is hard in Helsinki, I created a survey in JavaScript and Leaflet. It was actually the second time I was doing the survey as the first one, done with Survey123 didn't get approved. That really sucked man.
+\subfile{content/c3_data}
 
 % RESULTS
 \newpage
-\section{Results}
+\subfile{content/c4_results}
 
 % DISCUSSION
 \newpage
-\section{Discussion}
+\subfile{content/c5_discussion}
 
 % REFERENCES
 % Connect Mendeley references to Overleaf bib file
@@ -268,6 +251,6 @@ To test if parking really is hard in Helsinki, I created a survey in JavaScript 
 % APPENDICES
 \newpage
 \pagenumbering{gobble} % suppress appendices page numbering from page and table of contents 
-\section{Appendices}
+\subfile{content/appendices}
 
 \end{document}
