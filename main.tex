@@ -44,7 +44,7 @@
 
 % location of files
 \usepackage{graphicx}
-\graphicspath{ {Images/} }
+\graphicspath{ {images/} }
 
 % references and reference styles
 \usepackage{enumitem}% http://ctan.org/pkg/enumitem
@@ -164,9 +164,9 @@
 
 % CHOOSE CORRECT ABSTRACT LANGUAGE
 \newtranslatorcommand{\myabstract}{%
-    \import{sections/}{abstract_en.tex}%
+    \import{content/}{abstract_en.tex}%
 }{%
-    \import{sections/}{abstract_fi.tex}%
+    \import{content/}{abstract_fi.tex}%
 }
 
 % KEYWORDS MULTILANGUAGE STRING
@@ -199,50 +199,16 @@
 \begin{document}
 
 % TITLE PAGE
-\begin{titlepage}{
-    \setstretch{1.0}
-    \centering
-    \begin{figure}[t]
-    \centering
-    \includegraphics[scale=0.4]{HY_logo}
-    \end{figure}
-    
-    \mythesis \par
-    \mygeography \par
-    \mygis \par
-    
-    \bigskip
-    \MakeUppercase{\mytitle}
-    
-    \bigskip
-    \myname
-    
-    \mydate\today
-    
-    % Fills empty space between top and bottom of page
-    \vfill
-    
-    Supervisor: \par
-    Tuuli Toivonen \par
-    \bigskip
-    \bigskip
-    \MakeUppercase\myuni \par
-    \MakeUppercase\myfaculty \par
-    \MakeUppercase\mydept \par
-    \MakeUppercase{\mygeography} \par
-    PL 64 (Gustaf Hällströmin katu 2) \par
-    00014 Helsingin yliopisto \par
-}
-\end{titlepage}
+\import{elements/}{titlepage.tex}
 
 %%% 1ST ABSTRACT PAGE, ENGLISH
 \newpage
-\import{sections/}{abstract.tex}
+\import{elements/}{abstract.tex}
 
 %%% 2ND ABSTRACT PAGE, FINNISH
 \newpage
 \begin{otherlanguage*}{finnish}
-\import{sections/}{abstract.tex}
+\import{elements/}{abstract.tex}
 \end{otherlanguage*}
 
 % TABLE OF CONTENTS
@@ -258,7 +224,7 @@
 \section{Introduction}
 \justify
 Tässä kappaleessa ei alaotsikoita.
-%\import{/sections}{introduction.tex}
+%\import{/content}{introduction.tex}
 
 The specific research questions for this thesis are:
 
