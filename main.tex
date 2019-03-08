@@ -7,6 +7,7 @@
 %%% https://flamma.helsinki.fi/portal/units/matlu?_nfpb=true&_pageLabel=P9806621561360920311893&contentId=HY358060&placeId=HY357991&lang=fi
 % Multifile LaTeX project:
 %%% https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects
+%%% https://en.wikibooks.org/wiki/LaTeX/Modular_Documents
 % How to write a thesis in LaTeX
 %%% https://www.overleaf.com/learn/latex/How_to_Write_a_Thesis_in_LaTeX_(Part_1):_Basic_Structure
 
@@ -22,6 +23,8 @@
     }
 
 % Font and layout settings
+% tutki microtypen käyttöö: http://www.khirevich.com/latex/microtype/
+%\usepackage[activate={true,nocompatibility},tracking=true,kerning=true,factor=1100,stretch=10, shrink=10]{microtype}
 \renewcommand{\baselinestretch}{1.5}        % set line spacing
 \usepackage[finnish,english]{babel}         % set languages. Last in list is main language
 \usepackage[T1]{fontenc}
@@ -29,15 +32,16 @@
 \usepackage[font=small,labelfont=bf]{caption}
 \setlength{\abovecaptionskip}{15pt plus 3pt minus 2pt}
 \setlength{\belowcaptionskip}{15pt plus 3pt minus 2pt}
-\usepackage[document]{ragged2e}             % package enables justifying of text. \justify
+\usepackage{ragged2e}                       % enables justifying of text. \justify
 \usepackage{lastpage}                       % get amount of pages
-\usepackage{subfiles}                       % enable multi-file .tex support
+%\usepackage{subfiles}                      % enable multi-file .tex support
 
 % Datetime settings
 \usepackage[ddmmyyyy]{datetime}             % change format of datetime
-%\renewcommand{\dateseparator}{.}
+%\newdateformat{mydate}{%
+%    \onedigit{\THEDAY}.\onedigit{\THEMONTH}.\THEYEAR} % remove unnecessary zeroes in date
 \newdateformat{mydate}{%
-    \onedigit{\THEDAY}.\onedigit{\THEMONTH}.\THEYEAR} % remove unnecessary zeroes in date
+    {\THEDAY}.{\THEMONTH}.\THEYEAR}         % The one above causes undefined control sequence   
 \newdateformat{monthyeardate}{%
     \monthname[\THEMONTH] \THEYEAR}         % mm/yyyy date format for English abstract
 \newcommand*{\printfindate}{%               % Get Finnish months and year for Finnish abstract
@@ -70,7 +74,7 @@
 \usepackage{import}
 
 % tables
-\usepackage[showframe]{geometry}
+%\usepackage[showframe]{geometry}           % double load of geometry? what does showframe do?
 \usepackage{tabularx}
 \usepackage{makecell}                       % enable thicker vline
 \usepackage{cellspace}
@@ -222,23 +226,28 @@
 % INTRODUCTION AND RESEARCH QUESTIONS
 \newpage
 \setcounter{page}{1} % set page numbering to start from here
-\subfile{content/c1_introduction}
+\include{content/c1_introduction}
 
 % THEORETICAL BACKGROUND
 \newpage
-\subfile{content/c2_background}
+%\include{content/c2_background}
+\import{content/}{c2_background.tex}%
 
 % DATA AND METHODS
 \newpage
-\subfile{content/c3_data}
+%\include{content/c3_data}
+%\input{content/c3_data}
+\import{content/}{c3_data.tex}%
+% EN TAJUU; JOS C3_DATAN TUO TÄHÄN; EI TUU SOMETHING'S WRONG -ERRORIA
+% EHKÄ EN VAAN VÄLITÄ NOISTA ERROREISTA, PITÄISKÖ OLLA VÄLITTÄMÄTTÄ?
 
 % RESULTS
 \newpage
-\subfile{content/c4_results}
+\include{content/c4_results}
 
 % DISCUSSION
 \newpage
-\subfile{content/c5_discussion}
+\include{content/c5_discussion}
 
 % REFERENCES
 % Connect Mendeley references to Overleaf bib file
@@ -251,6 +260,7 @@
 % APPENDICES
 \newpage
 \pagenumbering{gobble} % suppress appendices page numbering from page and table of contents 
-\subfile{content/appendices}
+\include{content/appendices}
+
 
 \end{document}
