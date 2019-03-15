@@ -96,13 +96,23 @@
     }%
 }
 
-% Title page and abstract settings
+% Title page settings
 \usepackage{setspace}                       % different line spacing than document default
 \newcommand{\myname}{                      % THIS STRING REPRESENTS THESIS AUTHOR IN THE DOCUMENT
     Sampo Vesanen%
 }
+\newcommand{\mysupervisor}{%
+    Tuuli Toivonen%
+}
+\newcommand{\addressFirst}{%
+    PL 64 (Gustaf Hällströmin katu 2)
+}
+\newcommand{\addressSecond}{%
+    00014 Helsingin yliopisto%
+}
 
-% THESIS TITLE MULTILANGUAGE STRINGS
+% Abstract page settings
+% THESIS MULTILANGUAGE STRINGS
 % Multilanguage code is adapted from here:
 % https://tex.stackexchange.com/questions/42784/language-dependent-custom-command
 \newtranslatorcommand{\mytitle}{%
@@ -147,14 +157,14 @@
 }
 
 % GEOGRAPHY MULTILANGUAGE STRING
-\newtranslatorcommand{\mygeography}{%
+\newtranslatorcommand{\mysubject}{%
     Geography
 }{%
     Maantiede
 }
 
 % GEOINFORMATICS MULTILANGUAGE STRING
-\newtranslatorcommand{\mygis}{%
+\newtranslatorcommand{\mySpecSubject}{%
     Geoinformatics%
 }{%
     geoinformatiikka%
@@ -230,24 +240,19 @@
 
 % THEORETICAL BACKGROUND
 \newpage
-%\include{content/c2_background}
 \import{content/}{c2_background.tex}%
 
 % DATA AND METHODS
 \newpage
-%\include{content/c3_data}
-%\input{content/c3_data}
 \import{content/}{c3_data.tex}%
-% EN TAJUU; JOS C3_DATAN TUO TÄHÄN; EI TUU SOMETHING'S WRONG -ERRORIA
-% EHKÄ EN VAAN VÄLITÄ NOISTA ERROREISTA, PITÄISKÖ OLLA VÄLITTÄMÄTTÄ?
 
 % RESULTS
 \newpage
-\include{content/c4_results}
+\import{content/}{c4_results.tex}%
 
 % DISCUSSION
 \newpage
-\include{content/c5_discussion}
+\import{content/}{c5_discussion.tex}%
 
 % REFERENCES
 % Connect Mendeley references to Overleaf bib file
@@ -260,7 +265,7 @@
 % APPENDICES
 \newpage
 \pagenumbering{gobble} % suppress appendices page numbering from page and table of contents 
-\include{content/appendices}
+\import{content/}{appendices.tex}%
 
 
 \end{document}
