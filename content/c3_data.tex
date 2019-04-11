@@ -11,7 +11,10 @@ Helsinki capital region
 \justify
 To collect the areal parking data, the study needs a survey which respondents can use to submit their parking habits in a spatial fashion. To attract a maximum number of submissions, the survey also needs to be of modern design, easy to use and its purpose easy to understand. The type of survey described here is offered as a proprietary web application by a some companies but a no such solution exist which is also free. 
 
-For these reasons a web application was programmed from ground up. The survey and its supporting infrastructure were installed on a virtual machine in CSC State-of-the-art Taito neural network supercluster deep learning AI.  the  survey was built on a supporting foundations. a combination of many components. One needs a user interface, web server and a database for storing results. a web application was programmed with JavaScript and its open-source mapping library Leaflet. The source code for this survey is available at GitHub (\textcolor{blue}{Insert link here}). In the survey the respondent is presented with a map view of Helsinki Capital Region with its 167 postal code areas and is asked to fill out three questions about each area: 
+To increase transparency and repeatability, a web application was programmed from ground up. The survey and its supporting infrastructure was installed on a virtual machine in CSC's Taito supercluster. Running on Ubuntu 16.04, the backbone of the survey is a LAMP stack, a software bundle which incorporates the Linux operating system, Apache HTTP Server, MySQL relational database management system and PHP programming language environment. The actual components of the survey are the frontend visible to user, a server side script to verify received data and a database to store user submissions. 
+
+The frontend, a web application, was programmed in JavaScript using its open-source mapping library Leaflet. In the survey the respondent is presented with a map view of Helsinki Capital Region with its 167 postal code areas and is asked to fill out three questions about each area. User is asked to fill out as many postal code areas as they can remember parking in. All answers are estimates as the survey is not about an exact time and place. Once the user is finished with the survey, they may send them to the server side. The user can return to the survey to add data on any postal code areas they missed the last time. In the survey, user fills out the following questions for each postal code area:
+
 \begin{spacing}{1}
 \begin{enumerate}
   \item How long does it usually take for you to park your car and arrive at your destination by foot in this postal code area (in minutes)?
@@ -21,7 +24,11 @@ For these reasons a web application was programmed from ground up. The survey an
 \end{spacing}
 
 \noindent
-User is asked to only fill out postal code areas they remember parking in. Each user only needs to fill out the survey one time but they can revisit it, in case they want to add in more postal code areas.
+When data is received from user, a PHP language script verifies all results. This is an effort to prevent attacks on the web server running the study survey, which is available to the entire internet. Additionally, the verification makes sure falsified or incomplete data does not find its way to the database containing the accepted results. Only certain variables are accepted from the user. All of the variables must be present in the received data. If the verification test fails on any of the variables, user is informed about it. In addition to the verification, a PHP script tracks IP addresses which have accessed the survey.
+
+As a final survey component there are two MySQL tables in use. Records contains all the records received from users and visitors contains all unique IP addresses detected by the web server. In records, the following data is gathered: timestamp, IP address, likert, parkspot, parktime. In visitors the following data is gathered: unique IP address, the timestamp of first visit, the timestamp of latest visit, the count of visits.
+
+The source code for this survey and all the information to set up the system is available at GitHub (\textcolor{blue}{Insert link here}).
 
 \subsection{Processing survey data}
 \justify
