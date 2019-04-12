@@ -1,11 +1,21 @@
 \section{Data and methods}
 \subsection{General workflow}
 \justify
-Flowchart of methodology/data refinement process
+\begin{itemize}
+    \item Kyselytutkimuksen teko
+    \item Kyselytutkimuksen toteuttaminen
+    \item Kyselytutkimuksen tulostentutkimus
+    \item Upea flowchartti (methodology/data refinement process)
+\end{itemize}
 
 \subsection{Study area}
 \justify
-Helsinki capital region
+\begin{itemize}
+    \item Helsinki capital region
+    \item Aineisto Tilastokeskukselta, paavo, 167 postinumeroaluetta
+    \item YKR gridiin tiedot, Tilastokeskuksen YKR gridin ja DGL:n saavutettavuusaineiston yhteispeli
+    \item syy alueen valintaan yllä
+\end{itemize}
 
 \subsection{Parking survey}
 \justify
@@ -28,8 +38,15 @@ When data is received from user, a PHP language script verifies all results. Thi
 
 As a final survey component there are two MySQL tables in use. Records contains all the records received from users and visitors contains all unique IP addresses detected by the web server. In records, the following data is gathered: timestamp, IP address, likert, parkspot, parktime. In visitors the following data is gathered: unique IP address, the timestamp of first visit, the timestamp of latest visit, the count of visits.
 
-The source code for this survey and all the information to set up the system is available at GitHub (\textcolor{blue}{Insert link here}).
+The source code for this survey and all the information to set up the same system is available at GitHub (\textcolor{blue}{Insert link here}).
 
 \subsection{Processing survey data}
 \justify
-Vastausdatan käsittely
+Vastausdatan käsittely:
+\begin{itemize}
+  \item Alueellinen aineisto
+  \item Kuinka paljon on tullut aineistoa per postinumeroalue?
+  \item Jotain algoritmia alueiden kokoerojen vertailuun?
+  \item alueiden maankäytön huomioonotto? (Corine)
+  \item Millainen Python-tutkimus?
+\end{itemize}
