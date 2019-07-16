@@ -5,14 +5,14 @@
     \item Kyselytutkimuksen teko
     \item Kyselytutkimuksen toteuttaminen
     \item Kyselytutkimuksen tulostentutkimus
-    \item Upea flowchartti (methodology/data refinement process)
+    \item Tähän upea flowchartti (methodology/data refinement process)
 \end{itemize}
 
 \subsection{Study area}
 \justify
 \begin{itemize}
     \item Helsinki capital region
-    \item Aineisto Tilastokeskukselta, paavo, 167 postinumeroaluetta
+    \item Aineisto Tilastokeskukselta, PAAVO, 167 postinumeroaluetta
     \item YKR gridiin tiedot, Tilastokeskuksen YKR gridin ja DGL:n saavutettavuusaineiston yhteispeli
     \item syy alueen valintaan yllä
 \end{itemize}
@@ -23,13 +23,15 @@ To collect the areal parking data, the study needs a survey which respondents ca
 
 To increase transparency and repeatability, a web application was programmed from ground up. The survey and its supporting infrastructure was installed on a virtual machine in CSC's Taito supercluster. Running on Ubuntu 16.04, the backbone of the survey is a LAMP stack, a software bundle which incorporates the Linux operating system, Apache HTTP Server, MySQL relational database management system and PHP programming language environment. The actual components of the survey are the frontend visible to user, a server side script to verify received data and a database to store user submissions. 
 
-The frontend, a web application, was programmed in JavaScript using its open-source mapping library Leaflet. In the survey the respondent is presented with a map view of Helsinki Capital Region with its 167 postal code areas and is asked to fill out three questions about each area. User is asked to fill out as many postal code areas as they can remember parking in. All answers are estimates as the survey is not about an exact time and place. Once the user is finished with the survey, they may send them to the server side. The user can return to the survey to add data on any postal code areas they missed the last time. In the survey, user fills out the following questions for each postal code area:
+The frontend, a web application, was programmed in JavaScript using its open-source mapping library Leaflet (software version 1.4.0). In the survey the respondent is presented with a map view of Helsinki Capital Region with its 167 postal code areas and is asked to fill out three questions about each area. User is asked to fill out as many postal code areas as they can remember parking in. All answers are estimates as the survey is not about an exact time and place. Once the user is finished with the survey, they may send them to the server side. The user can return to the survey to add data on any postal code areas they missed the last time. In the survey, user fills out the following questions for each postal code area:
 
 \begin{spacing}{1}
 \begin{enumerate}
   \item How long does it usually take for you to park your car and arrive at your destination by foot in this postal code area (in minutes)?
   \item How familiar are you with this postal code area?
   \item What kind of parking spot do you usually take in this postal code area?
+  \item fourth question
+  \item fifth question
 \end{enumerate}
 \end{spacing}
 
@@ -42,11 +44,19 @@ The source code for this survey and all the information to set up the same syste
 
 \subsection{Processing survey data}
 \justify
-Vastausdatan käsittely:
+Processing user submitted data:
 \begin{itemize}
   \item Alueellinen aineisto
   \item Kuinka paljon on tullut aineistoa per postinumeroalue?
   \item Jotain algoritmia alueiden kokoerojen vertailuun?
   \item alueiden maankäytön huomioonotto? (Corine)
-  \item Millainen Python-tutkimus?
+  \item Mitä kaikkea Python-tutkimukseen?
+\end{itemize}
+
+\subsection{Conducting analyses}
+\justify
+\begin{itemize}
+  \item Compare a few different travel time chains in Helsinki Capital Region. A few starting points and a few finishing points
+  \item All of the statistics stuff to detect the variation 
+  \item Tuuli was supposed to send me the exact numbers used for parking in Travel Time Matrix, did not do it yet
 \end{itemize}
