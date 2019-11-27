@@ -26,21 +26,63 @@ To increase transparency and repeatability, a web application was programmed fro
 The frontend, a web application, was programmed in JavaScript using its open-source mapping library Leaflet (software version 1.4.0). In the survey the respondent is presented with a map view of Helsinki Capital Region with its 167 postal code areas and is asked to fill out three questions about each area. User is asked to fill out as many postal code areas as they can remember parking in. All answers are estimates as the survey is not about an exact time and place. Once the user is finished with the survey, they may send them to the server side. The user can return to the survey to add data on any postal code areas they missed the last time. In the survey, user fills out the following questions for each postal code area:
 
 \begin{spacing}{1}
-\begin{enumerate}
-  \item How long does it usually take for you to park your car and arrive at your destination by foot in this postal code area (in minutes)?
-  \item How familiar are you with this postal code area?
-  \item What kind of parking spot do you usually take in this postal code area?
-  \item fourth question
-  \item fifth question
-\end{enumerate}
+    \begin{enumerate}
+      \item How long does it usually take for you to park your car and arrive at your destination by foot in this postal code area (in minutes)?
+      \item How familiar are you with this postal code area?
+      \item What kind of parking spot do you usually take in this postal code area?
+      \item fourth question
+      \item fifth question
+    \end{enumerate}
 \end{spacing}
 
 \noindent
 When data is received from user, a PHP language script verifies all results. This is an effort to prevent attacks on the web server running the study survey, which is available to the entire internet. Additionally, the verification makes sure falsified or incomplete data does not find its way to the database containing the accepted results. Only certain variables are accepted from the user. All of the variables must be present in the received data. If the verification test fails on any of the variables, user is informed about it. In addition to the verification, a PHP script tracks IP addresses which have accessed the survey.
 
+\begin{table}[!htbp] %% [] prevents table floating
+    \begin{centering}
+        \begin{tabular}{|c c c c c c c c c|} 
+            \hline
+            id & timestamp & ip & zipcode & likert & parkspot & parktime & walktime & timeofday \\ [0.5ex] 
+            \hline\hline
+            3244 & 2019-06-06 21:39:50 & wro4qo8hv4 & 00510 & 1 & 4 & 0 & 3 & 1\\ [0.25ex]
+            \hline
+            3245 & 2019-06-06 21:41:21 & aonm72lyx3 & 00520 & 2 & 1 & 10 & 5 & 1 \\ [0.25ex] 
+            \hline
+            3246 & 2019-06-06 21:41:54 & n1982i4i2v & 00100 & 1 & 1 & 20 & 4 & 1 \\ [0.25ex] 
+            \hline
+            3247 & 2019-06-06 21:46:19 & sbhfz0uvsl & 00210 & 1 & 1 & 5 & 3 & 3 \\ [0.25ex] 
+            \hline
+            3248 & 2019-06-06 21:46:22 & sbhfz0uvsl & 00220 & 2 & 2 & 5 & 5 & 2 \\ [1ex]
+            \hline
+        \end{tabular}
+        \caption{Records} \label{tab:recordstab}
+    \end{centering}
+\end{table}
+
+\begin{table}[!htbp] %% [] prevents table floating
+    \begin{centering}
+        \begin{tabular}{|c c c c c|} 
+            \hline
+            id & ip & ts\_first & ts\_latest & count \\ [0.5ex] 
+            \hline\hline
+            1780 & mvovd467a7 & 2019-05-26 15:25:23 & 2019-05-26 15:26:06 & 2 \\ [0.25ex] 
+            \hline
+            1781 & xgbgkkzxb3 & 2019-05-26 15:26:23 & 2019-05-26 15:26:23 & 1 \\ [0.25ex] 
+            \hline
+            1782 & c9qer4q99a & 2019-05-26 15:27:25 & 2019-05-26 15:27:25 & 1 \\ [0.25ex]
+            \hline
+            1783 & cujhd0hng7 & 2019-05-26 15:27:29 & 2019-05-26 15:27:29 & 1 \\ [0.25ex] 
+            \hline
+            1784 & 3ja7gjtko6 & 2019-05-26 15:28:45 & 2019-05-26 15:29:20 & 2 \\ [1ex]
+            \hline
+        \end{tabular}
+        \caption{Visitors} \label{tab:visitortab}
+    \end{centering}
+\end{table}
+
 As a final survey component there are two MySQL tables in use. Records contains all the records received from users and visitors contains all unique IP addresses detected by the web server. In records, the following data is gathered: timestamp, IP address, likert, parkspot, parktime. In visitors the following data is gathered: unique IP address, the timestamp of first visit, the timestamp of latest visit, the count of visits.
 
-The source code for this survey and all the information to set up the same system is available at GitHub (\textcolor{blue}{Insert link here}).
+The source code for this survey and all the information to set up an identical system is available at GitHub (\textcolor{blue}{Insert link here}).
 
 \subsection{Processing survey data}
 \justify
