@@ -4,22 +4,43 @@
 \begin{itemize}
     \item Kyselytutkimuksen teko
     \item Kyselytutkimuksen toteuttaminen
+    \item geoprosessointi ja visualisointien tuotto
     \item Kyselytutkimuksen tulostentutkimus
     \item Tähän upea flowchartti (methodology/data refinement process)
 \end{itemize}
 
 \subsection{Study area}
 \justify
+The study area of this thesis is Helsinki Capital Region. It comprises of municipalities of Helsinki, Espoo, Vantaa and Kauniainen. According to \textcolor{red}{LÄHDE}, the total population of the metropolitan area is 1.495 million. In practice the whole area amalgamates as one complete functional area with borders of the municipalities indistinguishable at the street level. The HCR faces increasing pressure to manage its traffic because \textcolor{red}{LÄHDE}. Of these municipalities Helsinki is the hub, and considered to contain the only inner city features of the municipalities (\textcolor{red}{LÄHDE}). Espoo, Vantaa and Kauniainen are mostly made of suburban areas with occasional industrial areas and large shopping complexes placed throughout the area. The HRC is served with a high performance public transport system comprised of buses and train and tram in Helsinki. Recently the metro expanded from Helsinki to Espoo, triggering a new phase of fast evolving for the surroundings of the new stations.
+
+Despite extensive service level of Helsinki Region public transport, households especially Espoo, Vantaa and Kauniainen remain much dependent on their personal vehicles (\textcolor{red}{LÄHDE}). 
+
+\subsection{TEE TABLE Used data}
+\justify
+
 \begin{itemize}
-    \item Helsinki capital region
     \item Aineisto Tilastokeskukselta, PAAVO, 167 postinumeroaluetta
     \item YKR gridiin tiedot, Tilastokeskuksen YKR gridin ja DGL:n saavutettavuusaineiston yhteispeli
-    \item syy alueen valintaan yllä
+    \item Urban Atlas 2012
+    \item Finnish Environment Institute, urban areas
+    \item Helsinki Region Travel Time Matrix 2018, DGL
+\end{itemize}
+
+\subsection{TEE TABLE Used software}
+\justify
+
+\begin{itemize}
+    \item Python 3.7.3, programming language, geoprocessing
+    \item R 3.6.1, programming language, data and visualisation
+    \item NetBeans, programming platform, asdf
+    \item Leaflet 1.4.0, web interface
+    \item LAMP Stack
+    \item several packages
 \end{itemize}
 
 \subsection{Parking survey}
 \justify
-To collect the areal parking data, the study needs a survey which respondents can use to submit their parking habits in a spatial fashion. To attract a maximum number of submissions, the survey also needs to be of modern design, easy to use and its purpose easy to understand. The type of survey described here is offered as a proprietary web application by a some companies but a no such solution exist which is also free. 
+To collect the areal parking data, the study needed an interactive survey which respondents can use to submit their parking habits in a spatial fashion. To attract a maximum number of submissions, the survey also needs to be of modern design, easy to use and its purpose easy to understand. The type of survey described here is offered as a proprietary web application by a some companies but a no such solution exist which is also free. 
 
 To increase transparency and repeatability, a web application was programmed from ground up. The survey and its supporting infrastructure was installed on a virtual machine in CSC's Taito supercluster. Running on Ubuntu 16.04, the backbone of the survey is a LAMP stack, a software bundle which incorporates the Linux operating system, Apache HTTP Server, MySQL relational database management system and PHP programming language environment. The actual components of the survey are the frontend visible to user, a server side script to verify received data and a database to store user submissions. 
 
@@ -38,28 +59,30 @@ The frontend, a web application, was programmed in JavaScript using its open-sou
 \noindent
 When data is received from user, a PHP language script verifies all results. This is an effort to prevent attacks on the web server running the study survey, which is available to the entire internet. Additionally, the verification makes sure falsified or incomplete data does not find its way to the database containing the accepted results. Only certain variables are accepted from the user. All of the variables must be present in the received data. If the verification test fails on any of the variables, user is informed about it. In addition to the verification, a PHP script tracks IP addresses which have accessed the survey.
 
-\begin{table}[!htbp] %% [] prevents table floating
-    \begin{centering}
-        \begin{tabular}{|c c c c c c c c c|} 
-            \hline
-            id & timestamp & ip & zipcode & likert & parkspot & parktime & walktime & timeofday \\ [0.5ex] 
-            \hline\hline
-            3244 & 2019-06-06 21:39:50 & wro4qo8hv4 & 00510 & 1 & 4 & 0 & 3 & 1\\ [0.25ex]
-            \hline
-            3245 & 2019-06-06 21:41:21 & aonm72lyx3 & 00520 & 2 & 1 & 10 & 5 & 1 \\ [0.25ex] 
-            \hline
-            3246 & 2019-06-06 21:41:54 & n1982i4i2v & 00100 & 1 & 1 & 20 & 4 & 1 \\ [0.25ex] 
-            \hline
-            3247 & 2019-06-06 21:46:19 & sbhfz0uvsl & 00210 & 1 & 1 & 5 & 3 & 3 \\ [0.25ex] 
-            \hline
-            3248 & 2019-06-06 21:46:22 & sbhfz0uvsl & 00220 & 2 & 2 & 5 & 5 & 2 \\ [1ex]
-            \hline
-        \end{tabular}
-        \caption{Records} \label{tab:recordstab}
-    \end{centering}
+\begin{table}[!htbp] %% [!htbp] prevents table floating
+    \begin{adjustwidth}{-1cm}{-1cm} %% prevents wide table going grossly out of margin, adjust the L and R margins by 1 inch
+        \begin{centering}
+            \begin{tabular}{|c c c c c c c c c|} 
+                \hline
+                id & timestamp & ip & zipcode & likert & parkspot & parktime & walktime & timeofday \\ [0.5ex] 
+                \hline\hline
+                3244 & 2019-06-06 21:39:50 & wro4qo8hv4 & 00510 & 1 & 4 & 0 & 3 & 1\\ [0.25ex]
+                \hline
+                3245 & 2019-06-06 21:41:21 & aonm72lyx3 & 00520 & 2 & 1 & 10 & 5 & 1 \\ [0.25ex] 
+                \hline
+                3246 & 2019-06-06 21:41:54 & n1982i4i2v & 00100 & 1 & 1 & 20 & 4 & 1 \\ [0.25ex] 
+                \hline
+                3247 & 2019-06-06 21:46:19 & sbhfz0uvsl & 00210 & 1 & 1 & 5 & 3 & 3 \\ [0.25ex] 
+                \hline
+                3248 & 2019-06-06 21:46:22 & sbhfz0uvsl & 00220 & 2 & 2 & 5 & 5 & 2 \\ [1ex]
+                \hline
+            \end{tabular}
+            \caption{Records} \label{tab:recordstab}
+        \end{centering}
+    \end{adjustwidth}
 \end{table}
 
-\begin{table}[!htbp] %% [] prevents table floating
+\begin{table}[!htbp]
     \begin{centering}
         \begin{tabular}{|c c c c c|} 
             \hline
