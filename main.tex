@@ -24,7 +24,7 @@
 
 % Font and layout settings
 % tutki microtypen käyttöö: http://www.khirevich.com/latex/microtype/
-%\usepackage[activate={true,nocompatibility},tracking=true,kerning=true,factor=1100,stretch=10, shrink=10]{microtype}
+%\usepackage[activate={true,nocompatibility},tracking=true,kerning=true,factor=1100,stretch=10,shrink=10]{microtype}
 \renewcommand{\baselinestretch}{1.5}        % set line spacing
 \usepackage[finnish,english]{babel}         % set languages. Last in list is main language
 \usepackage[T1]{fontenc}
@@ -32,9 +32,35 @@
 \usepackage[font=small,labelfont=bf]{caption}
 \setlength{\abovecaptionskip}{15pt plus 3pt minus 2pt}
 \setlength{\belowcaptionskip}{15pt plus 3pt minus 2pt}
-\usepackage{ragged2e}                       % enables justifying of text. \justify
+\usepackage{ragged2e}                       % enables justifying of text. Command: \justify
 \usepackage{lastpage}                       % get amount of pages
 %\usepackage{subfiles}                      % enable multi-file .tex support
+\usepackage{color}                          % enable \textcolor{}{}
+\usepackage{minted}                         % format and highlight code
+\usepackage{enumitem}                       % Control layout of itemize, enumerate, description
+
+% Generate list of abbreviations
+\usepackage{hyperref}                       % Enable hyperlinks in thesis. Need to be activated before glossaries
+\usepackage[acronym]{glossaries}            % Glossaries and lists of acronyms
+
+\newacronym{ny}{NY}{New York}               % abbreviations
+\newacronym{la}{LA}{Los Angeles}
+\newacronym{un}{UN}{United Nations}
+
+\newglossaryentry{angelsperarea}{           % nomenclature
+  name = $a$ ,
+  description = The number of angels per unit area,
+}
+\newglossaryentry{numofangels}{
+  name = $N$ ,
+  description = The number of angels per needle point
+}
+\newglossaryentry{areaofneedle}{
+  name = $A$ ,
+  description = The area of the needle point
+}
+
+\makeglossaries
 
 % Datetime settings
 \usepackage[ddmmyyyy]{datetime}             % change format of datetime
@@ -47,39 +73,34 @@
 \newcommand*{\printfindate}{%               % Get Finnish months and year for Finnish abstract
    \ifcase \month\or Tammikuu\or Helmikuu\or Maaliskuu\or Huhtikuu\or Toukokuu\or Kesäkuu\or Heinäkuu\or Elokuu\or Syyskuu\or Lokakuu\or Marraskuu\or Joulukuu\fi \space \number\year}
 
-% location of files
+% Images related packages and settings
 \usepackage{rotating, graphicx}
 \graphicspath{ {images/} }
 
 % references and reference styles
-\usepackage{enumitem}% http://ctan.org/pkg/enumitem
-\usepackage{natbib}
+\usepackage{natbib}                         % Flexible bibliography support
 \bibliographystyle{agsm}
 \setcitestyle{authoryear,open={},close={}}  % Removes citation parentheses
 
-% other packages
-\usepackage{alphabeta}
-\usepackage{amsmath} 
+% Other packages
+%\usepackage{alphabeta}                      % Greek alphabet
+%\usepackage{amsmath}                        % AMS mathematical facilities
 \usepackage{subfigure}
-\usepackage{gensymb}
-\usepackage[colorinlistoftodos]{todonotes}
-\usepackage{hyperref} 
-\usepackage{amsthm} 
-\usepackage{float}
-\usepackage{pdfpages}
-\usepackage{minted}
-\usepackage{enumitem}
-\usepackage{listings}
-\usepackage{color}                          % enable \textcolor{}{}
-\usepackage{import}
+\usepackage{gensymb}                        % Generic symbols for both text and math mode
+%\usepackage[colorinlistoftodos]{todonotes}  % Marking things to do in a LATEX document
+%\usepackage{amsthm}                         % Typesetting theorems (AMS style)
+\usepackage{float}                          % Improved interface for floating objects
+\usepackage{pdfpages}                       % Include PDF documents in LATEX
+\usepackage{listings}                       % Typeset source code listings using LATEX
+\usepackage{import}                         % Establish input relative to a directory
 
-% tables
+% Tables
 %\usepackage[showframe]{geometry}           % double load of geometry? what does showframe do?
-\usepackage{tabularx}
+\usepackage{tabularx}                       % Tabulars with adjustable-width columns
 \usepackage{makecell}                       % enable thicker vline
 \usepackage{chngpage}                       % allows for temporary adjustment of side margins
 \usepackage{longtable}                      % allows tables to span multiple pages
-\usepackage{cellspace}
+\usepackage{cellspace}                      % Ensure minimal spacing of table cells
 \setlength{\cellspacetoplimit}{6pt}
 \setlength{\cellspacebottomlimit}{6pt}
 \addparagraphcolumntypes{X}
@@ -99,8 +120,8 @@
 }
 
 % Title page settings
-\usepackage{setspace}                       % different line spacing than document default
-\newcommand{\myname}{                      % THIS STRING REPRESENTS THESIS AUTHOR IN THE DOCUMENT
+\usepackage{setspace}                       % Different line spacing than document default
+\newcommand{\myname}{                       % THIS STRING REPRESENTS THESIS AUTHOR IN THE DOCUMENT
     Sampo Vesanen%
 }
 \newcommand{\mysupervisor}{%
@@ -231,9 +252,22 @@
 % TABLE OF CONTENTS
 \newpage
 \selectlanguage{english}
-\thispagestyle{empty}
+\thispagestyle{empty} % suppress page numbering
 \renewcommand*\contentsname{Table of contents} % Set custom name for ToC
 \tableofcontents
+
+% LIST OF FIGURES
+\newpage
+\listoffigures
+\thispagestyle{empty}
+
+% LIST OF TABLES
+\listoftables
+
+% LIST OF ABBREVIATIONS
+%\printacronyms[include-classes=abbrev,name=List of abbreviations]
+\printglossary[type=\acronymtype,title=List of abbreviations]
+\printglossary[title=Nomenclature]
 
 % INTRODUCTION AND RESEARCH QUESTIONS
 \newpage
@@ -259,15 +293,14 @@
 % REFERENCES
 % Connect Mendeley references to Overleaf bib file
 \newpage
-\label{myLastPage} % this label defines the last page to be included in page count
+\label{myLastPage} % This label defines the last page to be included in page count
 \section{References}
 \renewcommand{\refname}{}
 \bibliography{references.bib}
 
 % APPENDICES
 \newpage
-\pagenumbering{gobble} % suppress appendices page numbering from page and table of contents 
+\pagenumbering{gobble} % Suppress appendices page numbering from page and table of contents 
 \import{content/}{appendices.tex}%
-
 
 \end{document}
