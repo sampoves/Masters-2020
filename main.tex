@@ -25,45 +25,44 @@
 % Font and layout settings
 % tutki microtypen käyttöö: http://www.khirevich.com/latex/microtype/
 %\usepackage[activate={true,nocompatibility},tracking=true,kerning=true,factor=1100,stretch=10,shrink=10]{microtype}
-\renewcommand{\baselinestretch}{1.5}        % set line spacing
-\usepackage[finnish,english]{babel}         % set languages. Last in list is main language
+\renewcommand{\baselinestretch}{1.5}        % Set line spacing
+\usepackage[finnish,english]{babel}         % Set languages. Last in list is main language
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[font=small,labelfont=bf]{caption}
 \setlength{\abovecaptionskip}{15pt plus 3pt minus 2pt}
 \setlength{\belowcaptionskip}{15pt plus 3pt minus 2pt}
-\usepackage{ragged2e}                       % enables justifying of text. Command: \justify
-\usepackage{lastpage}                       % get amount of pages
-%\usepackage{subfiles}                      % enable multi-file .tex support
-\usepackage{color}                          % enable \textcolor{}{}
-\usepackage{minted}                         % format and highlight code
+\usepackage{ragged2e}                       % Enables justifying of text. Command: \justify
+\usepackage{lastpage}                       % Get amount of pages
+%\usepackage{subfiles}                      % Enable multi-file .tex support
+\usepackage{color}                          % Enable \textcolor{}{}
+\usepackage{minted}                         % Format and highlight code
 \usepackage{enumitem}                       % Control layout of itemize, enumerate, description
 
 % Generate list of abbreviations
 \usepackage{hyperref}                       % Enable hyperlinks in thesis. Need to be activated before glossaries
-\usepackage[acronym]{glossaries}            % Glossaries and lists of acronyms
+\usepackage[acronym,style=super4col]{glossaries} % Glossaries and lists of acronyms
 
 \newacronym{ny}{NY}{New York}               % abbreviations
 \newacronym{la}{LA}{Los Angeles}
 \newacronym{un}{UN}{United Nations}
-
 \newglossaryentry{angelsperarea}{           % nomenclature
-  name = $a$ ,
+  name = $a$,
   description = The number of angels per unit area,
 }
 \newglossaryentry{numofangels}{
-  name = $N$ ,
+  name = $N$,
   description = The number of angels per needle point
 }
 \newglossaryentry{areaofneedle}{
-  name = $A$ ,
+  name = $A$,
   description = The area of the needle point
 }
 
 \makeglossaries
 
 % Datetime settings
-\usepackage[ddmmyyyy]{datetime}             % change format of datetime
+\usepackage[ddmmyyyy]{datetime}             % Change format of datetime
 %\newdateformat{mydate}{%
 %    \onedigit{\THEDAY}.\onedigit{\THEMONTH}.\THEYEAR} % remove unnecessary zeroes in date
 \newdateformat{mydate}{%
@@ -79,8 +78,10 @@
 
 % references and reference styles
 \usepackage{natbib}                         % Flexible bibliography support
-\bibliographystyle{agsm}
+\bibliographystyle{apalike2}                
 \setcitestyle{authoryear,open={},close={}}  % Removes citation parentheses
+
+
 
 % Other packages
 %\usepackage{alphabeta}                      % Greek alphabet
@@ -109,7 +110,7 @@
 \newcommand\Bstrut{\rule[-4.0ex]{0pt}{0pt}} % "bottom" strut
 \newcommand{\TBstrut}{\Tstrut\Bstrut}       % top & bottom struts
 
-% translator command setup
+% Translator command setup
 % this enables us to use multilanguage strings which works with package babel
 \newcommand{\newtranslatorcommand}[3]{%
     \newcommand{#1}{%
@@ -265,7 +266,6 @@
 \listoftables
 
 % LIST OF ABBREVIATIONS
-%\printacronyms[include-classes=abbrev,name=List of abbreviations]
 \printglossary[type=\acronymtype,title=List of abbreviations]
 \printglossary[title=Nomenclature]
 
