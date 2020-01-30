@@ -40,27 +40,19 @@ Despite extensive service level of Helsinki Region public transport, households 
 
 \subsection{Parking survey}
 \justify
-To collect the areal parking data, the study needed an interactive survey which respondents can use to submit their parking habits in a spatial fashion. To attract a maximum number of submissions, the survey also needs to be of modern design, easy to use and its purpose easy to understand. The type of survey described here is offered as a proprietary web application by a some companies but a no such solution exist which is also free. 
+To collect the areal parking data, the study needed an interactive survey which respondents can use to submit their parking habits in a spatial fashion. To attract a maximum number of submissions, the survey also needs to be of modern design, easy to use and its purpose easy to understand. The type of survey described here is offered as proprietary web applications by some companies but no such solutions exist which are also free. 
 
-To increase transparency and repeatability, a web application was programmed from ground up. The survey and its supporting infrastructure was installed on a virtual machine in CSC's Taito supercluster. Running on Ubuntu 16.04, the backbone of the survey is a LAMP stack, a software bundle which incorporates the Linux operating system, Apache HTTP Server, MySQL relational database management system and PHP programming language environment. The actual components of the survey are the frontend visible to user, a server side script to verify received data and a database to store user submissions. 
+To increase transparency and repeatability, a survey web application was programmed from the ground up. The survey and its supporting infrastructure was installed on a virtual machine in CSC's Taito supercluster. Running on Ubuntu 16.04, the backbone of the survey is a LAMP stack, a software bundle which incorporates the Linux operating system, Apache HTTP Server, \gls{mysql} relational database management system and PHP programming language environment. The actual components of the survey are the frontend visible to user, a server side script to verify received data and a database to store user submissions. 
 
-The frontend, a web application, was programmed in JavaScript using its open-source mapping library Leaflet (software version 1.4.0). In the survey the respondent is presented with a map view of Helsinki Capital Region with its 167 postal code areas and is asked to fill out three questions about each area. User is asked to fill out as many postal code areas as they can remember parking in. All answers are estimates as the survey is not about an exact time and place. Once the user is finished with the survey, they may send them to the server side. The user can return to the survey to add data on any postal code areas they missed the last time. In the survey, user fills out the following questions for each postal code area:
+The frontend, a web application, was programmed in JavaScript using a open-source mapping library Leaflet (software version 1.4.0). The survey was made available in English and Finnish languages. In the survey the respondent is presented with a map view of Helsinki Capital Region with its 167 postal code areas and is asked to fill out five questions about each area. User is asked to fill out as many postal code areas as they can remember parking in last two years. Last two years was chosen as the timeframe to allow the respondent to comfortably think back while also forbidding the submission of out of date parking times. All answers received are estimates as the survey is not about an exact time and place. The answers are also subject to errors made by the user. Once the user is finished with the survey, they may send them to the server side. The user can return to the survey to add data on any postal code areas they missed the last time. The survey questions are available for viewing in the appendices.
 
-\begin{spacing}{1}
-    \begin{enumerate}
-      \item How long does it usually take for you to park your car and arrive at your destination by foot in this postal code area (in minutes)?
-      \item How familiar are you with this postal code area?
-      \item What kind of parking spot do you usually take in this postal code area?
-      \item fourth question
-      \item fifth question
-    \end{enumerate}
-\end{spacing}
+When data is received from the user, a \gls{php} language script verifies all results. This is an effort to prevent attacks on the web server running the study survey, as it is visible to the entire internet. Additionally, the verification makes sure falsified or incomplete data does not find its way to the database containing the accepted results. Only certain variables are accepted from the survey. All of the variables must be present in the received data. If the verification test fails on any of the variables, user is informed about it. In addition to the verification, a PHP script tracks IP addresses which have accessed the survey. By using the survey, respondents agree that their IP addresses are recorded for the use of this thesis solely to recognise overlapping answers and detect unique visits. All IP addresses were anonymised with a Python script and original data deleted.
 
-\noindent
-When data is received from user, a PHP language script verifies all results. This is an effort to prevent attacks on the web server running the study survey, which is available to the entire internet. Additionally, the verification makes sure falsified or incomplete data does not find its way to the database containing the accepted results. Only certain variables are accepted from the user. All of the variables must be present in the received data. If the verification test fails on any of the variables, user is informed about it. In addition to the verification, a PHP script tracks IP addresses which have accessed the survey.
+As a final survey component the server side contained two MySQL datatables, one for received records (Table~\ref{tab:recordstab}) and another for survey page hits (Table~\ref{tab:visitortab}). In the table records, the following data was gathered: time of sending (timestamp), IP address (ip), postal code (zipcode), a value in the sequence 1--5 for the likert question (likert), a value in the sequence 1--4 for the question what type of parking spot was used (parkspot), an integer value for how long it usually took to park in this location (parktime), an integer value for how long it usually took to walk from parking place to one's destination (walktime) and a value in the sequence 1--4 for the question at what time of the day one usually parks in the location (timeofday). In the table records it is notable that in the case an user sends the server data for multiple postal code areas each of the postal code areas take up their own row in the data table. Consequently, it was theoretically possible for one user to simultaneously submit 167 rows of data.
 
-\gls{ny}, \gls{la} and \gls{un} are abbreviations whereas \gls{angelsperarea}, \gls{numofangels} and \gls{areaofneedle} are part of the nomenclature
-\glspl{ny} jeje \gls{ny} test
+In the table visitors the following data was gathered: IP address (ip), the timestamp of the first visit (ts\_first), the timestamp of latest visit (ts\_latest), the count of visits (count). In this table an IP address is only stored once. On the first visit of an IP address the row for that IP address is created in the data table with ts\_first and ts\_latest being identical. On the second visit of that IP address the original row is appended with updated information in the columns ts\_latest and count.
+
+The source code for this survey and all the information to set up an identical system is available at GitHub (\textcolor{blue}{Insert link here}).
 
 \begin{table}[!htbp] %% [!htbp] prevents table floating
     \begin{adjustwidth}{-1cm}{-1cm} %% prevents wide table going grossly out of margin, adjust the L and R margins by 1 inch
@@ -105,10 +97,6 @@ When data is received from user, a PHP language script verifies all results. Thi
         \caption{Visitors} \label{tab:visitortab}
     \end{centering}
 \end{table}
-
-As a final survey component there are two MySQL tables in use. Records contains all the records received from users and visitors contains all unique IP addresses detected by the web server. In records, the following data is gathered: timestamp, IP address, likert, parkspot, parktime. In visitors the following data is gathered: unique IP address, the timestamp of first visit, the timestamp of latest visit, the count of visits.
-
-The source code for this survey and all the information to set up an identical system is available at GitHub (\textcolor{blue}{Insert link here}).
 
 \subsection{Processing survey data}
 \justify
