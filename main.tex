@@ -1,9 +1,7 @@
 % Sampo notes
 % Tämä on mun gradu. Tässä alussa vähän löpinää siitä, mistä kyse ja varmaan jotain linkkejä
 
-%%% LAITOKSEN VANHAT GRADUOHJEET
-% https://blogs.helsinki.fi/geotiede/files/2008/03/Pro-gradu-ohjeet.pdf
-% FLAMMAN GRADUOHJEET:
+%%% LAITOKSEN (FLAMMA) VANHAT GRADUOHJEET
 %%% https://flamma.helsinki.fi/portal/units/matlu?_nfpb=true&_pageLabel=P9806621561360920311893&contentId=HY358060&placeId=HY357991&lang=fi
 % Multifile LaTeX project:
 %%% https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects
@@ -15,21 +13,17 @@
 
 % Set margins
 \usepackage{geometry}
-\geometry{
-    a4paper,
-    total={170mm,257mm},
-    left=20mm,
-    right=20mm,
-    }
+\geometry{a4paper,total={170mm,257mm},left=20mm,right=20mm,}
 
 % Font and layout settings
-% tutki microtypen käyttöö: http://www.khirevich.com/latex/microtype/
-%\usepackage[activate={true,nocompatibility},tracking=true,kerning=true,factor=1100,stretch=10,shrink=10]{microtype}
+% See Microtype for thesis: http://www.khirevich.com/latex/microtype/
+\usepackage[activate={true,nocompatibility},tracking=true,kerning=true,factor=1100,stretch=10,shrink=10]{microtype}
+
 \renewcommand{\baselinestretch}{1.5}        % Set line spacing
 \usepackage[finnish,english]{babel}         % Set languages. Last in list is main language
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[font=small,labelfont=bf,labelsep=period]{caption}
 \setlength{\abovecaptionskip}{15pt plus 3pt minus 2pt}
 \setlength{\belowcaptionskip}{15pt plus 3pt minus 2pt}
 \usepackage{ragged2e}                       % Enables justifying of text. Command: \justify
@@ -100,6 +94,9 @@
 \newcommand\Tstrut{\rule{0pt}{2.2ex}}       % "top" strut
 \newcommand\Bstrut{\rule[-4.0ex]{0pt}{0pt}} % "bottom" strut
 \newcommand{\TBstrut}{\Tstrut\Bstrut}       % top & bottom struts
+\usepackage{booktabs}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
 
 % Translator command setup
 % this enables us to use multilanguage strings which works with package babel

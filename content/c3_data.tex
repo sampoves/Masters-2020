@@ -15,28 +15,53 @@ The study area of this thesis is Helsinki Capital Region. It comprises of munici
 
 Despite extensive service level of Helsinki Region public transport, households especially Espoo, Vantaa and Kauniainen remain much dependent on their personal vehicles (\textcolor{red}{LÄHDE}). 
 
-\subsection{TEE TABLE Used data}
+\subsection{Used data}
 \justify
 
-\begin{itemize}
-    \item Aineisto Tilastokeskukselta, PAAVO, 167 postinumeroaluetta
-    \item YKR gridiin tiedot, Tilastokeskuksen YKR gridin ja DGL:n saavutettavuusaineiston yhteispeli
-    \item Urban Atlas 2012
-    \item Finnish Environment Institute, urban areas
-    \item Helsinki Region Travel Time Matrix 2018, DGL
-\end{itemize}
+% hyphenrules: prevent hyphenation temporarily
+\begin{hyphenrules}{nohyphenation}
+    \begin{table}[ht]
+        \centering
+        \setlength\tabcolsep{1pt}
+        % One unit here is ">{\raggedright\arraybackslash}p{4cm}". \raggedright prevents justification of text and conveniently allows flush right or flush left, which is not possible with column command p{4cm} alone.
+        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedleft\arraybackslash}p{2cm} @{} }
+            \toprule
+            \cmidrule(r){1-2}
+            Data & Description & Producer & Citation \\
+            \midrule
+            Paavo - Open data by postal code area & Postal code areas & Statistics Finland & 2 \\
+            Urban Atlas 2012 & Land use and land cover data & Copernicus Land Monitoring Service & 1 \\
+            Urban areas & kaupunkialueet & Finnish Environment Institute & 1 \\
+            Helsinki Region-Travel Time Matrix 2018 & matrix & Digital Geography Lab & 1 \\
+            YKR grid & Statistical grid for 250 x 250 meters & Statistics Finland & 2 \\
+            \bottomrule
+        \end{tabular}
+        \caption{Used data} \label{tab:useddata}
+    \end{table} 
+\end{hyphenrules}
 
-\subsection{TEE TABLE Used software}
+\subsection{Used software}
 \justify
 
-\begin{itemize}
-    \item Python 3.7.3, programming language, geoprocessing
-    \item R 3.6.1, programming language, data and visualisation
-    \item NetBeans, programming platform, asdf
-    \item Leaflet 1.4.0, web interface
-    \item LAMP Stack
-    \item several packages
-\end{itemize}
+\begin{hyphenrules}{nohyphenation}
+    \begin{table}[ht]
+        \centering
+        \setlength\tabcolsep{1pt}
+        % One unit here is ">{\raggedright\arraybackslash}p{4cm}". \raggedright prevents justification of text and conveniently allows flush right or flush left, which is not possible with column command p{4cm} alone.
+        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedleft\arraybackslash}p{2cm} @{} }
+            \toprule
+            \cmidrule(r){1-2}
+            Software & Description & Purpose in thesis & Producer & Citation \\
+            \midrule
+            Python 3.7.3 & programming language & geoprocessing & Pyhton & 2 \\
+            R 3.6.1 & programming language & data and visualisation & R & 2 \\
+            NetBeans & programming platform & survey programming & joku & 2 \\
+            Leaflet 1.4.0 & library & survey & tyyppi & 2 \\
+            \bottomrule
+        \end{tabular}
+        \caption{Used software} \label{tab:usedsoft}
+    \end{table} 
+\end{hyphenrules}
 
 \subsection{Parking survey}
 \justify
@@ -44,7 +69,7 @@ To collect the areal parking data, the study needed an interactive survey which 
 
 To increase transparency and repeatability, a survey web application was programmed from the ground up. The survey and its supporting infrastructure was installed on a virtual machine in CSC's Taito supercluster. Running on Ubuntu 16.04, the backbone of the survey is a LAMP stack, a software bundle which incorporates the Linux operating system, Apache HTTP Server, \gls{mysql} relational database management system and PHP programming language environment. The actual components of the survey are the frontend visible to user, a server side script to verify received data and a database to store user submissions. 
 
-The frontend, a web application, was programmed in JavaScript using a open-source mapping library Leaflet (software version 1.4.0). The survey was made available in English and Finnish languages. In the survey the respondent is presented with a map view of Helsinki Capital Region with its 167 postal code areas and is asked to fill out five questions about each area. User is asked to fill out as many postal code areas as they can remember parking in last two years. Last two years was chosen as the timeframe to allow the respondent to comfortably think back while also forbidding the submission of out of date parking times. All answers received are estimates as the survey is not about an exact time and place. The answers are also subject to errors made by the user. Once the user is finished with the survey, they may send them to the server side. The user can return to the survey to add data on any postal code areas they missed the last time. The survey questions are available for viewing in the appendices.
+The frontend, a web application, was programmed in JavaScript using a open-source mapping library Leaflet (software version 1.4.0) in January--May 2019. The survey was made available in English and Finnish languages. In the survey the respondent is presented with a map view of Helsinki Capital Region with its 167 postal code areas and is asked to fill out five questions about each area. User is asked to fill out as many postal code areas as they can remember parking in last two years. Last two years was chosen as the timeframe to allow the respondent to comfortably think back while also forbidding the submission of out of date parking times. All answers received are estimates as the survey is not about an exact time and place. The answers are also subject to errors made by the user. Once the user is finished with the survey, they may send them to the server side. The user can return to the survey to add data on any postal code areas they missed the last time. The survey questions are available for viewing in the appendices.
 
 When data is received from the user, a \gls{php} language script verifies all results. This is an effort to prevent attacks on the web server running the study survey, as it is visible to the entire internet. Additionally, the verification makes sure falsified or incomplete data does not find its way to the database containing the accepted results. Only certain variables are accepted from the survey. All of the variables must be present in the received data. If the verification test fails on any of the variables, user is informed about it. In addition to the verification, a PHP script tracks IP addresses which have accessed the survey. By using the survey, respondents agree that their IP addresses are recorded for the use of this thesis solely to recognise overlapping answers and detect unique visits. All IP addresses were anonymised with a Python script and original data deleted.
 
@@ -52,7 +77,7 @@ As a final survey component the server side contained two MySQL datatables, one 
 
 In the table visitors the following data was gathered: IP address (ip), the timestamp of the first visit (ts\_first), the timestamp of latest visit (ts\_latest), the count of visits (count). In this table an IP address is only stored once. On the first visit of an IP address the row for that IP address is created in the data table with ts\_first and ts\_latest being identical. On the second visit of that IP address the original row is appended with updated information in the columns ts\_latest and count.
 
-The source code for this survey and all the information to set up an identical system is available at GitHub (\textcolor{blue}{Insert link here}).
+The source code for the survey described in this chapter and step-by-step information to set up an identical system is available at GitHub (\textcolor{blue}{Insert link here}).
 
 \begin{table}[!htbp] %% [!htbp] prevents table floating
     \begin{adjustwidth}{-1cm}{-1cm} %% prevents wide table going grossly out of margin, adjust the L and R margins by 1 inch
@@ -100,14 +125,10 @@ The source code for this survey and all the information to set up an identical s
 
 \subsection{Processing survey data}
 \justify
-Processing user submitted data:
-\begin{itemize}
-  \item Alueellinen aineisto
-  \item Kuinka paljon on tullut aineistoa per postinumeroalue?
-  \item Jotain algoritmia alueiden kokoerojen vertailuun?
-  \item alueiden maankäytön huomioonotto? (Corine)
-  \item Mitä kaikkea Python-tutkimukseen?
-\end{itemize}
+% this text belongs to results?!?
+The survey was released to the public in May 2019 and the active phase of gathering results continued until 30th June 2019. However, the survey remained open after the active period, receiving the last response in October 2019. The majority of the respondents were found through Facebook. Invitations to participate in the survey were sent to 112 city district and neighborhood groups with a theoretical reach of tens of thousands of people. Effort was also made to get faculty members and students of University of Helsinki to participate in the survey. A small amount of answers were collected with a tweet sent from the Twitter account of Digital Geography Lab. The survey received visits from 4309 unique IP addresses with a total of 5561 visits. 843 visitors visited the survey more than one time. 24.6 percent of all visitors submitted at least one answer. On average one respondent submitted answers for 4.89 postal code areas.
+
+The survey received in total 5222 answers of which 39 were deemed invalid. The raw survey data included multiple answers where the values for searching for parking or walking from parking to destination, or both, were 60 minutes or more. It was impossible to determine the reasoning behind these answers and it was concluded that these answers would be excluded. The maximum value in these fields were consciously put to 99 in effort not to feel restrictive for users. Additionally the raw data included some answers submitted by the author which were discarded. In one case an individual contacted the author to report an erroneous submission which was also detected and deleted. In summary, 5183 valid answers were sent from 1060 unique IP addresses. All 167 postal code areas received answers, with median amount being 17 answers per area. Five areas received over one hundred answers while 60 postal code areas received 55 less than ten answers.
 
 \subsection{Conducting analyses}
 \justify
