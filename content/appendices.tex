@@ -67,12 +67,13 @@
 \subsection{PAAVO 2019 postal code areas}
 \justify
 
-%%longtable allows tables to span multiple pages. Not possible with tabularx
+% Longtable allows tables to span multiple pages. Not possible with tabularx
 \begin{center}
     \begin{longtable}{|l l l l|} 
         \hline
-        Postal code & Name (fi) & Name (sv) & Municipality \\ [0.5ex] 
+        Postal code & Name (fi) & Name (sv) & Municipality \\ [0.5ex]
         \hline\hline
+        \endhead % all lines above this will be repeated on every page
         00100 & Helsinki Keskusta - Etu-Töölö & Helsingfors centrum - Främre Tölö & 091 \\ [0.5 ex] \hline
         00120 & Punavuori & Rödbergen & 091 \\ [0.25ex] \hline
         00130 & Kaartinkaupunki & Gardesstaden & 091 \\ [0.25ex] \hline

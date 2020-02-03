@@ -15,7 +15,7 @@ The study area of this thesis is Helsinki Capital Region. It comprises of munici
 
 Despite extensive service level of Helsinki Region public transport, households especially Espoo, Vantaa and Kauniainen remain much dependent on their personal vehicles (\textcolor{red}{LÄHDE}). 
 
-\subsection{Used data}
+\subsection{Data}
 \justify
 
 % hyphenrules: prevent hyphenation temporarily
@@ -47,7 +47,6 @@ Despite extensive service level of Helsinki Region public transport, households 
     \begin{table}[ht]
         \centering
         \setlength\tabcolsep{1pt}
-        % One unit here is ">{\raggedright\arraybackslash}p{4cm}". \raggedright prevents justification of text and conveniently allows flush right or flush left, which is not possible with column command p{4cm} alone.
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedleft\arraybackslash}p{2cm} @{} }
             \toprule
             \cmidrule(r){1-2}
@@ -63,7 +62,10 @@ Despite extensive service level of Helsinki Region public transport, households 
     \end{table} 
 \end{hyphenrules}
 
-\subsection{Parking survey}
+\subsection{Methods}
+\justify
+
+\subsubsection{Parking survey}
 \justify
 To collect the areal parking data, the study needed an interactive survey which respondents can use to submit their parking habits in a spatial fashion. To attract a maximum number of submissions, the survey also needs to be of modern design, easy to use and its purpose easy to understand. The type of survey described here is offered as proprietary web applications by some companies but no such solutions exist which are also free. 
 
@@ -79,49 +81,46 @@ In the table visitors the following data was gathered: IP address (ip), the time
 
 The source code for the survey described in this chapter and step-by-step information to set up an identical system is available at GitHub (\textcolor{blue}{Insert link here}).
 
-\begin{table}[!htbp] %% [!htbp] prevents table floating
-    \begin{adjustwidth}{-1cm}{-1cm} %% prevents wide table going grossly out of margin, adjust the L and R margins by 1 inch
-        \begin{centering}
-            \begin{tabular}{|c c c c c c c c c|} 
-                \hline
-                id & timestamp & ip & zipcode & likert & parkspot & parktime & walktime & timeofday \\ [0.5ex] 
-                \hline\hline
-                3244 & 2019-06-06 21:39:50 & wro4qo8hv4 & 00510 & 1 & 4 & 0 & 3 & 1\\ [0.25ex]
-                \hline
-                3245 & 2019-06-06 21:41:21 & aonm72lyx3 & 00520 & 2 & 1 & 10 & 5 & 1 \\ [0.25ex] 
-                \hline
-                3246 & 2019-06-06 21:41:54 & n1982i4i2v & 00100 & 1 & 1 & 20 & 4 & 1 \\ [0.25ex] 
-                \hline
-                3247 & 2019-06-06 21:46:19 & sbhfz0uvsl & 00210 & 1 & 1 & 5 & 3 & 3 \\ [0.25ex] 
-                \hline
-                3248 & 2019-06-06 21:46:22 & sbhfz0uvsl & 00220 & 2 & 2 & 5 & 5 & 2 \\ [1ex]
-                \hline
-            \end{tabular}
-            \caption{Records} \label{tab:recordstab}
-        \end{centering}
-    \end{adjustwidth}
-\end{table}
+% \scalebox to prevent table going too wide
+\begin{hyphenrules}{nohyphenation}
+    \begin{table}[ht]
+        \centering
+        \setlength\tabcolsep{1pt}
+        \scalebox{0.92}{\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedleft\arraybackslash}p{1.5cm} @{} }
+            \toprule
+            \cmidrule(r){1-2}
+            id & timestamp & ip & zipcode & likert & parkspot & parktime & walktime & timeofday \\
+            \midrule
+            3244 & 2019-06-06 21:39:50 & wro4qo8hv4 & 00510 & 1 & 4 & 0 & 3 & 1 \\
+            3245 & 2019-06-06 21:41:21 & aonm72lyx3 & 00520 & 2 & 1 & 10 & 5 & 1 \\
+            3246 & 2019-06-06 21:41:54 & n1982i4i2v & 00100 & 1 & 1 & 20 & 4 & 1 \\
+            3247 & 2019-06-06 21:46:19 & sbhfz0uvsl & 00210 & 1 & 1 & 5 & 3 & 3 \\
+            3248 & 2019-06-06 21:46:22 & sbhfz0uvsl & 00220 & 2 & 2 & 5 & 5 & 2 \\        
+            \bottomrule
+        \end{tabular}}
+        \caption{Records} \label{tab:recordstab}
+    \end{table} 
+\end{hyphenrules}
 
-\begin{table}[!htbp]
-    \begin{centering}
-        \begin{tabular}{|c c c c c|} 
-            \hline
-            id & ip & ts\_first & ts\_latest & count \\ [0.5ex] 
-            \hline\hline
-            1780 & mvovd467a7 & 2019-05-26 15:25:23 & 2019-05-26 15:26:06 & 2 \\ [0.25ex] 
-            \hline
-            1781 & xgbgkkzxb3 & 2019-05-26 15:26:23 & 2019-05-26 15:26:23 & 1 \\ [0.25ex] 
-            \hline
-            1782 & c9qer4q99a & 2019-05-26 15:27:25 & 2019-05-26 15:27:25 & 1 \\ [0.25ex]
-            \hline
-            1783 & cujhd0hng7 & 2019-05-26 15:27:29 & 2019-05-26 15:27:29 & 1 \\ [0.25ex] 
-            \hline
-            1784 & 3ja7gjtko6 & 2019-05-26 15:28:45 & 2019-05-26 15:29:20 & 2 \\ [1ex]
-            \hline
+\begin{hyphenrules}{nohyphenation}
+    \begin{table}[ht]
+        \centering
+        \setlength\tabcolsep{1pt}
+        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedleft\arraybackslash}p{1cm} @{} }
+            \toprule
+            \cmidrule(r){1-2}
+            id & ip & ts\_first & ts\_latest & count \\
+            \midrule
+            1780 & mvovd467a7 & 2019-05-26 15:25:23 & 2019-05-26 15:26:06 & 2 \\
+            1781 & xgbgkkzxb3 & 2019-05-26 15:26:23 & 2019-05-26 15:26:23 & 1 \\
+            1782 & c9qer4q99a & 2019-05-26 15:27:25 & 2019-05-26 15:27:25 & 1 \\
+            1783 & cujhd0hng7 & 2019-05-26 15:27:29 & 2019-05-26 15:27:29 & 1 \\
+            1784 & 3ja7gjtko6 & 2019-05-26 15:28:45 & 2019-05-26 15:29:20 & 2 \\        
+            \bottomrule
         \end{tabular}
         \caption{Visitors} \label{tab:visitortab}
-    \end{centering}
-\end{table}
+    \end{table} 
+\end{hyphenrules}
 
 \subsection{Processing survey data}
 \justify
