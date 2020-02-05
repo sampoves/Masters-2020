@@ -11,7 +11,11 @@
 
 \subsection{Study area}
 \justify
-The study area of this thesis is Helsinki Capital Region. It comprises of municipalities of Helsinki, Espoo, Vantaa and Kauniainen. According to \textcolor{red}{LÄHDE}, the total population of the metropolitan area is 1.495 million. In practice the whole area amalgamates as one complete functional area with borders of the municipalities indistinguishable at the street level. The HCR faces increasing pressure to manage its traffic because \textcolor{red}{LÄHDE}. Of these municipalities Helsinki is the hub, and considered to contain the only inner city features of the municipalities (\textcolor{red}{LÄHDE}). Espoo, Vantaa and Kauniainen are mostly made of suburban areas with occasional industrial areas and large shopping complexes placed throughout the area. The HRC is served with a high performance public transport system comprised of buses and train and tram in Helsinki. Recently the metro expanded from Helsinki to Espoo, triggering a new phase of fast evolving for the surroundings of the new stations.
+% https://www.hel.fi/hel2/Helsinginseutu/HS_tunnusluvut/liikennemaara_ja_autonomistus.pdf
+% https://www.hsl.fi/sites/default/files/19_2016_auton_omistus_helsingin_seudulla.pdf
+% https://www.hsl.fi/tutkimukset/muut-selvitykset
+% http://pxnet2.stat.fi/PXWeb/pxweb/fi/StatFin/StatFin__lii__mkan/
+The study area of this thesis is Helsinki Capital Region. It comprises of municipalities of Helsinki, Espoo, Vantaa and Kauniainen. According to \textcolor{red}{LÄHDE}, the total population of the metropolitan area is 1.495 million. In practice the whole area amalgamates as one complete functional area with borders of the municipalities indistinguishable at the street level. The HCR faces increasing pressure to manage its traffic because \textcolor{red}{LÄHDE}. Of these municipalities Helsinki is the hub, and considered to contain the only inner city features of the municipalities (\textcolor{red}{syke-urbanareas}). Espoo, Vantaa and Kauniainen are mostly made of suburban areas with occasional industrial areas and large shopping complexes placed throughout the area. The HRC is served with a high performance public transport system comprised of buses and train and tram in Helsinki. Recently the metro expanded from Helsinki to Espoo, triggering a new phase of fast evolving for the surroundings of the new stations.
 
 Despite extensive service level of Helsinki Region public transport, households especially Espoo, Vantaa and Kauniainen remain much dependent on their personal vehicles (\textcolor{red}{LÄHDE}). 
 
@@ -20,7 +24,7 @@ Despite extensive service level of Helsinki Region public transport, households 
 
 % hyphenrules: prevent hyphenation temporarily
 \begin{hyphenrules}{nohyphenation}
-    \begin{table}[ht]
+    \begin{table}[H]
         \centering
         \setlength\tabcolsep{1pt}
         % One unit here is ">{\raggedright\arraybackslash}p{4cm}". \raggedright prevents justification of text and conveniently allows flush right or flush left, which is not possible with column command p{4cm} alone.
@@ -30,9 +34,9 @@ Despite extensive service level of Helsinki Region public transport, households 
             Data & Description & Producer & Citation \\
             \midrule
             Paavo - Open data by postal code area & Postal code areas & Statistics Finland & 2 \\
-            Urban Atlas 2012 & Land use and land cover data & Copernicus Land Monitoring Service & 1 \\
+            Urban Atlas 2012 & Land use and land cover data & European Environment Agency & \cite{EuropeanEnvironmentAgency2016Urban2012} \\
             Urban areas & kaupunkialueet & Finnish Environment Institute & 1 \\
-            Helsinki Region-Travel Time Matrix 2018 & matrix & Digital Geography Lab & 1 \\
+            Helsinki Region-Travel Time Matrix 2018 & matrix & Digital Geography Lab & \cite{Tenkanen2018Helsinki2018} \\
             YKR grid & Statistical grid for 250 x 250 meters & Statistics Finland & 2 \\
             \bottomrule
         \end{tabular}
@@ -44,7 +48,7 @@ Despite extensive service level of Helsinki Region public transport, households 
 \justify
 
 \begin{hyphenrules}{nohyphenation}
-    \begin{table}[ht]
+    \begin{table}[H]
         \centering
         \setlength\tabcolsep{1pt}
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedleft\arraybackslash}p{2cm} @{} }
@@ -65,12 +69,14 @@ Despite extensive service level of Helsinki Region public transport, households 
 \subsection{Methods}
 \justify
 
+\subsubsection{Considering options for survey}
+\justify
+To collect the areal parking data, the study required an interactive survey which respondents could use to submit their parking habits in a spatial fashion. To attract a maximum number of submissions, the survey also needed to be of modern design, easy to use and its purpose easy to understand. The survey would have to be clear-cut, effortless to internalise and short in length as to prevent users getting frustrated and leaving before submitting answers. Design-wise, the spatial resolution of the survey was also in question. The particular concern was that in the case of insufficient amount of answers, what kind of area delineation would be at the same time detailed enough but streamlined enough to reach the optimal results. This chapter strives to describe the process that would lead to the implemented survey to accentuate the challenges this kind of research entail.
+
+The type of survey described here is offered as proprietary web applications by some companies but no such solutions exist which are also free. When planning this research several alternative methods were considered. Out of commercial options, Maptionnaire by Mapita was considered. They offer tailored map survey products with a discount for students. This price was considered too steep for the thesis and Maptionnaire was passed on. Next Survey123 for ArcGIS was evaluated. Survey123 is a form based survey tool included in the contract between University of Helsinki and ESRI. Survey123 offers a range of possibilities for customisation with its adherence to the XLSForm standard. With Survey123 a preliminary survey was created but the software proved unwieldly for the purposes of this research and was difficult to use because of an arrangement of inconvenient design choices and bugs. It was decided that the survey would have to be programmed from scratch. The whole process of designing, creating and carrying out the survey took several months of work.
+
 \subsubsection{Parking survey}
 \justify
-To collect the areal parking data, the study required an interactive survey which respondents could use to submit their parking habits in a spatial fashion. To attract a maximum number of submissions, the survey also needed to be of modern design, easy to use and its purpose easy to understand. The type of survey described here is offered as proprietary web applications by some companies but no such solutions exist which are also free. 
-
-When planning this research several alternative methods were considered. Out of commercial options, company Maptionnaire was considered. They offer tailored map survey products with a discount for students. This price was considered too steep for the thesis and Maptionnaire was passed on. Next Survey123 for ArcGIS was evaluated. Survey123 is a form based survey tool included in the contract between University of Helsinki and ESRI. Survey123 offers a range of possibilities for customisation with its adherence to the XLSForm standard. With Survey123 a preliminary survey was created but the software proved unwieldly for the purposes of this research and was difficult to use because of an arrangement of inconvenient design choices and bugs. It was decided that the survey would have to be programmed from scratch.
-
 To increase transparency and repeatability, a survey web application was programmed from the ground up. The survey and its supporting infrastructure was installed on a virtual machine in CSC's Taito supercluster. Running on Ubuntu 16.04, the backbone of the survey is a LAMP stack, a software bundle which incorporates the Linux operating system, Apache HTTP Server, \gls{mysql} relational database management system and PHP programming language environment. The actual components of the survey are the frontend visible to user, a server side script to verify received data and a database to store user submissions. 
 
 The frontend, a web application, was programmed in JavaScript using a open-source mapping library Leaflet (software version 1.4.0) in January--May 2019. The survey was made available in English and Finnish languages. In the survey the respondent is presented with a map view of Helsinki Capital Region with its 167 postal code areas and is asked to fill out five questions about each area. User is asked to fill out as many postal code areas as they can remember parking in last two years. Last two years was chosen as the timeframe to allow the respondent to comfortably think back while also forbidding the submission of out of date parking times. All answers received are estimates as the survey is not about an exact time and place. The answers are also subject to errors made by the user. Once the user is finished with the survey, they may send them to the server side. The user can return to the survey to add data on any postal code areas they missed the last time. The survey questions are available for viewing in the appendices.
@@ -81,11 +87,13 @@ As a final survey component the server side contained two MySQL datatables, one 
 
 In the table visitors the following data was gathered: IP address (ip), the timestamp of the first visit (ts\_first), the timestamp of latest visit (ts\_latest), the count of visits (count). In this table an IP address is only stored once. On the first visit of an IP address the row for that IP address is created in the data table with ts\_first and ts\_latest being identical. On the second visit of that IP address the original row is appended with updated information in the columns ts\_latest and count.
 
+The survey was released to the public in May 2019 and the active phase of gathering results continued until 30th June 2019. However, the survey remained open after the active period, receiving the last response in October 2019. The majority of the respondents were found through Facebook. Invitations to participate in the survey were sent to 112 city district and neighborhood groups with a theoretical reach of tens of thousands of people. Effort was also made to get faculty members and students of University of Helsinki to participate in the survey. A small amount of answers were collected with a tweet sent from the Twitter account of Digital Geography Lab. 
+
 The source code for the survey described in this chapter and step-by-step information to set up an identical system is available at GitHub (\textcolor{blue}{Insert link here}). As a side product, a variant of this survey was created where users pick precise points instead of areas. This precise survey template is, too, available at GitHub (\textcolor{blue}{Insert link here}).
 
 % \scalebox to prevent table going too wide
 \begin{hyphenrules}{nohyphenation}
-    \begin{table}[ht]
+    \begin{table}[H]
         \centering
         \setlength\tabcolsep{1pt}
         \scalebox{0.92}{\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedleft\arraybackslash}p{1.5cm} @{} }
@@ -105,7 +113,7 @@ The source code for the survey described in this chapter and step-by-step inform
 \end{hyphenrules}
 
 \begin{hyphenrules}{nohyphenation}
-    \begin{table}[ht]
+    \begin{table}[H]
         \centering
         \setlength\tabcolsep{1pt}
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedleft\arraybackslash}p{1cm} @{} }
@@ -126,13 +134,11 @@ The source code for the survey described in this chapter and step-by-step inform
 
 \subsection{Processing survey data}
 \justify
-% this text definitely belongs to results
-The survey was released to the public in May 2019 and the active phase of gathering results continued until 30th June 2019. However, the survey remained open after the active period, receiving the last response in October 2019. The majority of the respondents were found through Facebook. Invitations to participate in the survey were sent to 112 city district and neighborhood groups with a theoretical reach of tens of thousands of people. Effort was also made to get faculty members and students of University of Helsinki to participate in the survey. A small amount of answers were collected with a tweet sent from the Twitter account of Digital Geography Lab. The survey received visits from 4309 unique IP addresses with a total of 5561 visits. 843 visitors visited the survey more than one time. 24.6 percent of all visitors submitted at least one answer. On average one respondent submitted answers for 4.89 postal code areas.
-
-The survey received in total 5222 answers of which 39 were deemed invalid. The raw survey data included multiple answers where the values for searching for parking or walking from parking to destination, or both, were 60 minutes or more. It was impossible to determine the reasoning behind these answers and it was concluded that these answers would be excluded. The maximum value in these fields were consciously put to 99 in effort not to feel restrictive for users. Additionally the raw data included some answers submitted by the author which were discarded. In one case an individual contacted the author to report an erroneous submission which was also detected and deleted. In summary, 5183 valid answers were sent from 1060 unique IP addresses. All 167 postal code areas received answers, with median amount being 17 answers per area. Five areas received over one hundred answers while 60 postal code areas received 55 less than ten answers.
+Lots of processing was done in Python.
 
 \subsection{Conducting analyses}
 \justify
+Lots of analysing was done in R.
 \begin{itemize}
   \item Compare a few different travel time chains in Helsinki Capital Region. A few starting points and a few finishing points
   \item All of the statistics stuff to detect the variation 
