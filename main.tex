@@ -23,7 +23,7 @@
 \usepackage[finnish,english]{babel}         % Set languages. Last in list is main language
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[font=small,labelfont=bf,labelsep=period]{caption}
+\usepackage[font=small,labelfont=bf,labelsep=period,tableposition=top]{caption}
 \setlength{\abovecaptionskip}{15pt plus 3pt minus 2pt}
 \setlength{\belowcaptionskip}{15pt plus 3pt minus 2pt}
 \usepackage{ragged2e}                       % Enables justifying of text. Command: \justify
@@ -96,7 +96,6 @@
 \newcommand{\TBstrut}{\Tstrut\Bstrut}       % top & bottom struts
 \usepackage{booktabs}
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
-
 
 % Translator command setup
 % this enables us to use multilanguage strings which works with package babel
@@ -198,16 +197,16 @@
 
 % KEYWORDS MULTILANGUAGE STRING
 \newtranslatorcommand{\mykeywords}{%
-    Parking, accessibility, GIS, Python%
+    GIS, R, parking, Python, accessibility%
 }{%
-    Pysäköinti, saavutettavuus, GIS, Python%
+    GIS, R, pysäköinti, Python, saavutettavuus%
 }
 
 % LIBRARY MULTILANGUAGE STRING
 \newtranslatorcommand{\mylibrary}{%
-    Kumpula science library%
+    E-Thesis%
 }{%
-    Kumpulan tiedekirjasto%
+    E-Thesis%
 }
 
 % OTHER INFO MULTILANGUAGE STRING
@@ -289,6 +288,7 @@
 % APPENDICES
 \newpage
 \pagenumbering{gobble} % Suppress appendices page numbering from page and table of contents 
+\appendix
 \import{content/}{appendices.tex}%
 
 \end{document}

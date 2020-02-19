@@ -17,7 +17,9 @@ This chapter describes the usage of methods in this study.
 % https://www.hsl.fi/sites/default/files/19_2016_auton_omistus_helsingin_seudulla.pdf
 % https://www.hsl.fi/tutkimukset/muut-selvitykset
 % http://pxnet2.stat.fi/PXWeb/pxweb/fi/StatFin/StatFin__lii__mkan/
-The study area of this thesis is Helsinki Capital Region. It comprises of municipalities of Helsinki, Espoo, Vantaa and Kauniainen. According to \textcolor{red}{LÄHDE}, the total population of the metropolitan area is 1.495 million. In practice the whole area amalgamates as one complete functional area with borders of the municipalities indistinguishable at the street level. The HCR faces increasing pressure to manage its traffic because \textcolor{red}{LÄHDE}. Of these municipalities Helsinki is the hub, and considered to contain the only inner city features of the municipalities (\textcolor{red}{syke-urbanareas}). Espoo, Vantaa and Kauniainen are mostly made of suburban areas with occasional industrial areas and large shopping complexes placed throughout the area. The HRC is served with a high performance public transport system comprised of buses and train and tram in Helsinki. Recently the metro expanded from Helsinki to Espoo, triggering a new phase of fast evolving for the surroundings of the new stations.
+The study area of this thesis is Helsinki Capital Region. It comprises of municipalities of Helsinki, Espoo, Vantaa and Kauniainen. According to \textcolor{red}{LÄHDE}, the total population of the metropolitan area is 1.495 million. In practice the whole area amalgamates as one complete functional area with borders of the municipalities indistinguishable at the street level. The HCR faces increasing pressure to manage its traffic because \textcolor{red}{LÄHDE}. Of these municipalities Helsinki is the hub, and considered to contain the only inner city features of the municipalities (\textcolor{red}{syke-urbanareas}). Espoo, Vantaa and Kauniainen are mostly made of suburban areas with occasional industrial areas and large shopping complexes placed throughout the area. The HCR is served with a high performance public transport system comprised of buses and train and tram in Helsinki. Recently the metro expanded from Helsinki to Espoo, triggering a new phase of fast evolving for the surroundings of the new stations.
+
+Insert map of the research area
 
 Despite extensive service level of Helsinki Region public transport, households especially Espoo, Vantaa and Kauniainen remain much dependent on their personal vehicles (\textcolor{red}{LÄHDE}). 
 
@@ -29,6 +31,7 @@ Despite extensive service level of Helsinki Region public transport, households 
     \begin{table}[H]
         \centering
         \setlength\tabcolsep{1pt}
+        \caption{Used data} \label{tab:useddata}
         % One unit here is ">{\raggedright\arraybackslash}p{4cm}". \raggedright prevents justification of text and conveniently allows flush right or flush left, which is not possible with column command p{4cm} alone.
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedleft\arraybackslash}p{2cm} @{} }
             \toprule
@@ -42,7 +45,6 @@ Despite extensive service level of Helsinki Region public transport, households 
             YKR grid & Statistical grid for 250 x 250 meters & Statistics Finland & 2 \\
             \bottomrule
         \end{tabular}
-        \caption{Used data} \label{tab:useddata}
     \end{table} 
 \end{hyphenrules}
 
@@ -53,6 +55,7 @@ Despite extensive service level of Helsinki Region public transport, households 
     \begin{table}[H]
         \centering
         \setlength\tabcolsep{1pt}
+        \caption{Used software} \label{tab:usedsoft}
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedleft\arraybackslash}p{2cm} @{} }
             \toprule
             \cmidrule(r){1-2}
@@ -64,7 +67,6 @@ Despite extensive service level of Helsinki Region public transport, households 
             Leaflet 1.4.0 & library & survey & tyyppi & 2 \\
             \bottomrule
         \end{tabular}
-        \caption{Used software} \label{tab:usedsoft}
     \end{table} 
 \end{hyphenrules}
 
@@ -81,7 +83,7 @@ Next Survey123 for ArcGIS was evaluated. An Esri operated service, Survey123 is 
 
 In January 2019 the parking survey developed with Survey123 was deployed to friends and family, with a larger scale marketing push on social media platforms planned for later. At its core, this survey asked respondents for specific parking events in Helsinki Capital Region they had had. Respondents would pick an exact location on a map view for the location of their parked car and separately on a second map view the location of their final destination. Respondents were asked to do this for as many times as they had the will. The survey was released even after the Survey123 software had proved itself unwieldly for the purposes of this research. The software was difficult to use because of an arrangement of inconvenient design choices, unfinished functionality and multitude of bugs. It was not possible, for example, to have respondents leave multiple results at once. They would have to reload the survey, something a majority of people would not do. The desktop application of Survey123, Survey123 Connect, did not allow customisation of the post-submission message and therefore it would not be possible to efficiently direct respondents back to the form. Following the responses received by this form it was decided that the required spatial resolution for this research would need to be lower than exact points. Postal code areas were deemed an acceptable compromise in spatial accuracy. Specifying postal code areas as polygons in Survey123 was not possible. 
 
-A conclusive search was carried out in the Internet to find a previous survey research with similar objectives as in this thesis with the hopes to adapt one for this study. The search carried no results. After careful consideration it was decided that the survey would have to be programmed from scratch. The whole process of designing, creating and carrying out the survey research took several months of work.
+After careful consideration it was decided that the survey would have to be programmed from the ground up.
 
 \subsubsection{Parking survey}
 \justify
@@ -104,6 +106,7 @@ The source code for the survey described in this chapter and step-by-step inform
     \begin{table}[H]
         \centering
         \setlength\tabcolsep{1pt}
+        \caption{Records} \label{tab:recordstab}
         \scalebox{0.92}{\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedleft\arraybackslash}p{1.5cm} @{} }
             \toprule
             \cmidrule(r){1-2}
@@ -116,7 +119,6 @@ The source code for the survey described in this chapter and step-by-step inform
             3248 & 2019-06-06 21:46:22 & sbhfz0uvsl & 00220 & 2 & 2 & 5 & 5 & 2 \\        
             \bottomrule
         \end{tabular}}
-        \caption{Records} \label{tab:recordstab}
     \end{table} 
 \end{hyphenrules}
 
@@ -124,6 +126,7 @@ The source code for the survey described in this chapter and step-by-step inform
     \begin{table}[H]
         \centering
         \setlength\tabcolsep{1pt}
+        \caption{Visitors} \label{tab:visitortab}
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedleft\arraybackslash}p{1cm} @{} }
             \toprule
             \cmidrule(r){1-2}
@@ -136,7 +139,6 @@ The source code for the survey described in this chapter and step-by-step inform
             1784 & 3ja7gjtko6 & 2019-05-26 15:28:45 & 2019-05-26 15:29:20 & 2 \\        
             \bottomrule
         \end{tabular}
-        \caption{Visitors} \label{tab:visitortab}
     \end{table} 
 \end{hyphenrules}
 
@@ -146,13 +148,42 @@ At the beginning of processing the research survey data, all IP addresses were a
 
 The main objective of processing was to merge survey results with spatial data. The acquired data would be need to be cleaned up. Using a selection of open data, new explanatory spatial data would be merged to the survey result data. This would open opportunities to compare the thesis data against those currently present in Helsinki Travel time matrix 2018.
 
+\begin{itemize}
+    \item anonymisation of ip addresses
+    \item Read in spatial data sources
+    \item Read in survey data
+    \item Prepare source data (convert formats, remove some irregular erroneous answers from dataset)
+    \item Prepare shape files (remove islands not reachable by car)
+    \item give grid cells zipcodes (ykr grid does not have those of-the-shelf. Develop method to assign all cells zipcodes, take into account water and grid cells which are outside of research area)
+    \item respondent behaviour (see how each user has answered)
+    \item detect illegal data (first detect duplicate answers, produce report. Then remove data where parktime and/or walktime is 60 or over)
+    \item Add data to geodataframes (add columns for ykr\_vyoh, ua-forest, answer count, parktime and walktime mean
+    \item show statistics to user
+    \item Set percentage of urban zones and forest in each zipcode area (choose one urban zone and forest amount (jenks breaks) for every zipcode)
+    \item add subdivisions to data (all answer row gets corresponding subdivision value)
+    \item EXPERIMENTAL utilise travel-time matrix 2018, make comparisons
+    \item EXPERIMENTAL somehow create my own TTM18, with updated values
+    \item export results to R
+\end{itemize}
+
 The source code for the data processing described in this chapter is available at GitHub (\textcolor{blue}{Insert link here}).
 
 \subsection{Conducting analyses}
-\justify
 % - Compare a few different travel time chains in Helsinki Capital Region. A few starting points and a few finishing points
 % - All of the statistics stuff to detect the variation 
 % - Tuuli was supposed to send me the exact numbers used for parking in Travel Time Matrix, did not do it yet
+\begin{itemize}
+    \item Prepare data to R compliant format
+    \item ShinyApp descriptive statistics
+    \item shinyapp histogram for parktime and walktime
+    \item shinyapp boxplot, show outliers
+    \item shinyapp barplot, show amounts
+    \item shinyapp levene test
+    \item shinyapp one-way anova
+    \item shinyapp map, nice to have, not at all important
+    \item visitor shinyapp, see the accumulation of visits and received records
+\end{itemize}
+\justify
 Lots of analysing was done in R. 
 
 The source code for the data analysis and visualisation scripts described in this chapter are available at GitHub (\textcolor{blue}{Insert link here}).
