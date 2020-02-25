@@ -19,7 +19,7 @@ This chapter describes the usage of methods in this study.
 % http://pxnet2.stat.fi/PXWeb/pxweb/fi/StatFin/StatFin__lii__mkan/
 The study area of this thesis is Helsinki Capital Region. It comprises of municipalities of Helsinki, Espoo, Vantaa and Kauniainen. According to \textcolor{red}{LÄHDE}, the total population of the metropolitan area is 1.495 million. In practice the whole area amalgamates as one complete functional area with borders of the municipalities indistinguishable at the street level. The HCR faces increasing pressure to manage its traffic because \textcolor{red}{LÄHDE}. Of these municipalities Helsinki is the hub, and considered to contain the only inner city features of the municipalities (\textcolor{red}{syke-urbanareas}). Espoo, Vantaa and Kauniainen are mostly made of suburban areas with occasional industrial areas and large shopping complexes placed throughout the area. The HCR is served with a high performance public transport system comprised of buses and train and tram in Helsinki. Recently the metro expanded from Helsinki to Espoo, triggering a new phase of fast evolving for the surroundings of the new stations.
 
-Insert map of the research area
+(\textcolor{red}{Insert map of the research area})
 
 Despite extensive service level of Helsinki Region public transport, households especially Espoo, Vantaa and Kauniainen remain much dependent on their personal vehicles (\textcolor{red}{LÄHDE}). 
 
@@ -144,27 +144,33 @@ The source code for the survey described in this chapter and step-by-step inform
 
 \subsection{Processing survey data}
 \justify
-At the beginning of processing the research survey data, all IP addresses were anonymised. The anonymisation was carried out in such a way that the random identifiers of respondents match in records and visitors.
+At the beginning of processing the research survey data, all IP addresses were anonymised. The anonymisation was carried out in such a way that the random identifiers for respondents match in records and visitors, preserving the possibility to associate responses with survey visits. All data processing was programmed in Python.
 
-The main objective of processing was to merge survey results with spatial data. The acquired data would be need to be cleaned up. Using a selection of open data, new explanatory spatial data would be merged to the survey result data. This would open opportunities to compare the thesis data against those currently present in Helsinki Travel time matrix 2018.
+The main objective of data processing was to merge the survey results with spatial data. Using a selection of open data, new explanatory spatial data would be merged to the survey result data (see table \ref{tab:useddata}). This would open opportunities to compare the new survey data against that currently present in Helsinki Travel-time Matrix 2018.
 
-\begin{itemize}
-    \item anonymisation of ip addresses
-    \item Read in spatial data sources
-    \item Read in survey data
-    \item Prepare source data (convert formats, remove some irregular erroneous answers from dataset)
-    \item Prepare shape files (remove islands not reachable by car)
-    \item give grid cells zipcodes (ykr grid does not have those of-the-shelf. Develop method to assign all cells zipcodes, take into account water and grid cells which are outside of research area)
-    \item respondent behaviour (see how each user has answered)
-    \item detect illegal data (first detect duplicate answers, produce report. Then remove data where parktime and/or walktime is 60 or over)
-    \item Add data to geodataframes (add columns for ykr\_vyoh, ua-forest, answer count, parktime and walktime mean
-    \item show statistics to user
-    \item Set percentage of urban zones and forest in each zipcode area (choose one urban zone and forest amount (jenks breaks) for every zipcode)
-    \item add subdivisions to data (all answer row gets corresponding subdivision value)
-    \item EXPERIMENTAL utilise travel-time matrix 2018, make comparisons
-    \item EXPERIMENTAL somehow create my own TTM18, with updated values
-    \item export results to R
-\end{itemize}
+The data processing started with loading aforementioned open spatial data and selecting only those areas relevant to the research. Postal code areas were processed to only include areas reachable by car from the mainland in the municipalities of Helsinki, Espoo, Vantaa and Kauniainen. Islands not reachable by car were approximated visually using Google Maps.
+
+Helsinki Travel-time Matrix 2018 and the survey data of this thesis operate in different spatial units. Travel-time Matrix uses the Statistics Finland statistics grid and the basic spatial unit of the survey data is the zip code area. Using Python, postal codes were added to each grid cell with the logic that the largest area (LISÄÄ KUVA) assigns the postal code. PAAVO postal code areas are not present in all of the cells of YKR statistics grid and because of this some cells have a postal code of 99999.
+
+The Python data processing in this thesis contains detailed features to detect patterns in the survey data. Before everything else some false data inputted by the author was deleted. In addition, one survey user reported that they had inserted erroneous data in the survey. These responses were identified and deleted.
+
+%\begin{itemize}
+%    \item anonymisation of ip addresses
+%    \item Read in spatial data sources
+%    \item Read in survey data
+%    \item Prepare source data (convert formats, remove some irregular erroneous answers from dataset)
+%    \item Prepare shape files (remove islands not reachable by car)
+%    \item give grid cells zipcodes (ykr grid does not have those of-the-shelf. Develop method to assign all cells zipcodes, take into account water and grid cells which are outside of research area)
+%    \item respondent behaviour (see how each user has answered)
+%    \item detect illegal data (first detect duplicate answers, produce report. Then remove data where parktime and/or walktime is 60 or over)
+%    \item Add data to geodataframes (add columns for ykr\_vyoh, ua-forest, answer count, parktime and walktime mean
+%    \item show statistics to user
+%    \item Set percentage of urban zones and forest in each zipcode area (choose one urban zone and forest amount (jenks breaks) for every zipcode)
+%    \item add subdivisions to data (all answer row gets corresponding subdivision value)
+%    \item EXPERIMENTAL utilise travel-time matrix 2018, make comparisons
+%    \item EXPERIMENTAL somehow create my own TTM18, with updated values
+%    \item export results to R
+%\end{itemize}
 
 The source code for the data processing described in this chapter is available at GitHub (\textcolor{blue}{Insert link here}).
 
@@ -172,17 +178,18 @@ The source code for the data processing described in this chapter is available a
 % - Compare a few different travel time chains in Helsinki Capital Region. A few starting points and a few finishing points
 % - All of the statistics stuff to detect the variation 
 % - Tuuli was supposed to send me the exact numbers used for parking in Travel Time Matrix, did not do it yet
-\begin{itemize}
-    \item Prepare data to R compliant format
-    \item ShinyApp descriptive statistics
-    \item shinyapp histogram for parktime and walktime
-    \item shinyapp boxplot, show outliers
-    \item shinyapp barplot, show amounts
-    \item shinyapp levene test
-    \item shinyapp one-way anova
-    \item shinyapp map, nice to have, not at all important
-    \item visitor shinyapp, see the accumulation of visits and received records
-\end{itemize}
+
+%\begin{itemize}
+%    \item Prepare data to R compliant format
+%    \item ShinyApp descriptive statistics
+%    \item shinyapp histogram for parktime and walktime
+%    \item shinyapp boxplot, show outliers
+%    \item shinyapp barplot, show amounts
+%    \item shinyapp levene test
+%    \item shinyapp one-way anova
+%    \item shinyapp map, nice to have, not at all important
+%    \item visitor shinyapp, see the accumulation of visits and received records
+%\end{itemize}
 \justify
 Lots of analysing was done in R. 
 
