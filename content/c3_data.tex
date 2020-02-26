@@ -38,10 +38,10 @@ Despite extensive service level of Helsinki Region public transport, households 
             \cmidrule(r){1-2}
             Data & Description & Producer & Citation \\
             \midrule
-            Paavo - Open data by postal code area & Postal code areas & Statistics Finland & 2 \\
+            Paavo -- Open data by postal code area & Postal code areas & Statistics Finland & 2 \\
             Urban Atlas 2012 & Land use and land cover data & European Environment Agency & \cite{EuropeanEnvironmentAgency2016Urban2012} \\
-            Urban areas & kaupunkialueet & Finnish Environment Institute & 1 \\
-            Helsinki Region-Travel Time Matrix 2018 & matrix & Digital Geography Lab & \cite{Tenkanen2018Helsinki2018} \\
+            Urban regions (Yhdyskuntarakenteen vyöhykkeet) 2017 & Zones of urban regions & Finnish Environment Institute & 1 \\
+            Helsinki Region-Travel Time Matrix 2018 & Travel time and distance information for routes between all YKR grid cell centroids in the Capital Region of Helsinki & Digital Geography Lab & \cite{Tenkanen2018Helsinki2018} \\
             YKR grid & Statistical grid for 250 x 250 meters & Statistics Finland & 2 \\
             \bottomrule
         \end{tabular}
@@ -59,12 +59,12 @@ Despite extensive service level of Helsinki Region public transport, households 
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedleft\arraybackslash}p{2cm} @{} }
             \toprule
             \cmidrule(r){1-2}
-            Software & Description & Purpose in thesis & Producer & Citation \\
+            Software & Description & Purpose in thesis & Developer & Citation \\
             \midrule
-            Python 3.7.3 & programming language & geoprocessing & Pyhton & 2 \\
-            R 3.6.1 & programming language & data and visualisation & R & 2 \\
-            NetBeans & programming platform & survey programming & joku & 2 \\
-            Leaflet 1.4.0 & library & survey & tyyppi & 2 \\
+            Anaconda 2019.7 & Python programming language distribution for scientific computing & Data processing and clean-up & Anaconda, Inc. & 2 \\
+            R 3.6.1 & Programming language environment for statistical computing & data and visualisation & R Core Team & 2 \\
+            NetBeans & Integrated development environment (IDE) & Survey programming & Apache Software Foundation, Oracle Corporation & 2 \\
+            Leaflet 1.4.0 & JavaScript library & Research survey & Vladimir Agafonkin & 2 \\
             \bottomrule
         \end{tabular}
     \end{table} 
@@ -144,15 +144,7 @@ The source code for the survey described in this chapter and step-by-step inform
 
 \subsection{Processing survey data}
 \justify
-At the beginning of processing the research survey data, all IP addresses were anonymised. The anonymisation was carried out in such a way that the random identifiers for respondents match in records and visitors, preserving the possibility to associate responses with survey visits. All data processing was programmed in Python.
-
-The main objective of data processing was to merge the survey results with spatial data. Using a selection of open data, new explanatory spatial data would be merged to the survey result data (see table \ref{tab:useddata}). This would open opportunities to compare the new survey data against that currently present in Helsinki Travel-time Matrix 2018.
-
-The data processing started with loading aforementioned open spatial data and selecting only those areas relevant to the research. Postal code areas were processed to only include areas reachable by car from the mainland in the municipalities of Helsinki, Espoo, Vantaa and Kauniainen. Islands not reachable by car were approximated visually using Google Maps.
-
-Helsinki Travel-time Matrix 2018 and the survey data of this thesis operate in different spatial units. Travel-time Matrix uses the Statistics Finland statistics grid and the basic spatial unit of the survey data is the zip code area. Using Python, postal codes were added to each grid cell with the logic that the largest area (LISÄÄ KUVA) assigns the postal code. PAAVO postal code areas are not present in all of the cells of YKR statistics grid and because of this some cells have a postal code of 99999.
-
-The Python data processing in this thesis contains detailed features to detect patterns in the survey data. Before everything else some false data inputted by the author was deleted. In addition, one survey user reported that they had inserted erroneous data in the survey. These responses were identified and deleted.
+%% pidä postal df mukana, muuten on sekavaa
 
 %\begin{itemize}
 %    \item anonymisation of ip addresses
@@ -171,6 +163,24 @@ The Python data processing in this thesis contains detailed features to detect p
 %    \item EXPERIMENTAL somehow create my own TTM18, with updated values
 %    \item export results to R
 %\end{itemize}
+
+At the beginning of processing the research survey data, all IP addresses were anonymised. The anonymisation was carried out in such a way that the random identifiers for respondents matched in records and visitors, preserving the possibility to associate responses with survey visits. All data processing was carried out in Python, using Anaconda, a free and open-source Python distribution for scientific programming. Anaconda included all essential packages for carrying out the script, except for the geospatial data package GeoPandas 0.4.0. GeoPandas and its dependencies -- GDAL 2.4.1, Fiona 1.8.6, pyproj 2.1.3, rtree 0.8.3, and Shapely 1.6.4.post1 -- were manually installed through Python package installer pip. 
+
+The main objective of data processing was to merge the survey results with spatial data. Using a selection of open data layers, new explanatory spatial data would be available for analysis (see table \ref{tab:useddata}). This opened opportunities to compare the new survey data against that currently present in Helsinki Travel-time Matrix 2018.
+
+The data processing started with loading aforementioned open spatial data and selecting only those areas relevant to the research. Postal code areas were processed to only include areas reachable by car from the mainland in the research area. Islands not reachable by car were approximated visually using Google Maps.
+
+Helsinki Travel-time Matrix 2018 and the survey data of this thesis operate in different spatial units. Travel-time Matrix 2018 uses the 250 x 250 meter Statistics Finland statistics grid and the basic spatial unit of the survey data is the zip code area. Using Python, postal codes were added to each grid cell with the logic that the largest area (LISÄÄ KUVA) assigns the postal code. PAAVO postal code areas are not present in all of the cells of YKR statistics grid and because of this some cells have a postal code of 99999 to denote missing data. In addition, the grid was merged with data which tells how much of a cell is contained in the research area and how large is the largest share which dictated the denotation of the current cell.
+
+The data processing script created for this thesis contains detailed features to detect patterns in the survey data. To enable pattern recognition the records were purged of known false data, namely records and visits made by the author. In addition, one survey user reported that they had inserted erroneous data in the survey. These responses were identified and deleted.
+
+A Pandas DataFrame was created to make it easy to view the behaviour of each survey respondent. In addition to this feature, the data processing script writes a text file format report about respondents who have submitted multiple responses from the same postal code area. This report was then used to determine what to do about the duplicates.
+
+It was decided that if parking time or walking time value was over 60 minutes that value would be deleted. This value is arbitrary and there is little reason (VOIKO NÄIN SANOA, HATUSTA HEITETTY?) to believe that it would take anyone 60 minutes to reach their final destination from their place of parking. An hour of searching for parking plausible in the center of Helsinki. The data processing script deleted, additionally, the illegal IP address codes from visitors.
+
+Next the additional spatial data was added to the survey data. Postal dataframe was added with answer count, parking time mean and walking time mean. Each postal code area also received seven columns to depict the share of classes in percentage. Using Urban Atlas 2012 data, all postal code areas were tested for forest percentage. Using a custom Jenks breaks function (by GitHub user Drewda, miten citation?) suitable class breaks were calculated to be used in records.
+
+The dataframe records would be used as data in the analysis part of the thesis. Using the calculations made for dataframe postal, each row in records would receive, according to their postal code area, the most common urban structure type and the most common jenks break value. With data gathered from the Helsinki Capital Region web sites, using the postal code area in each response, the city subdivisions (Finnish "suuralue") were added to the dataframe records.
 
 The source code for the data processing described in this chapter is available at GitHub (\textcolor{blue}{Insert link here}).
 
