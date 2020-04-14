@@ -8,7 +8,7 @@ This chapter describes the usage of methods in this study.
     \item Kyselytutkimuksen toteuttaminen
     \item geoprosessointi ja visualisointien tuotto
     \item Kyselytutkimuksen tulostentutkimus
-    \item Tähän upea flowchartti (methodology/data refinement process)
+    \item lopussa upea flowchartti
 \end{itemize}
 
 \begin{figure}[H]
@@ -84,11 +84,21 @@ Despite the extensive service level of Helsinki Capital Region public transport,
 
 \subsubsection{Considering options for the survey}
 \justify
-(\textcolor{red}{Vois lisää kuvia näistä kokeiluista}) To collect the areal parking data, the study required an interactive survey which respondents could use to submit their parking habits in a spatial fashion. To attract a maximum number of submissions, the survey also needed to be of modern design, easy to use and its purpose easy to understand. The survey would have to be clear-cut, effortless to internalise and short in length as to prevent users getting frustrated and leaving before submitting answers. Design-wise, the spatial resolution of the survey was also in question. The particular concern was that in the case of insufficient amount of answers, what kind of area delineation would be at the same time detailed enough but streamlined enough to realistically reach the good quality results. This chapter strives to describe the process that would lead to the implemented survey to accentuate the challenges this kind of research entail.
+(\textcolor{red}{Vois lisää kuvia näistä kokeiluista}) To collect the areal parking data, the study required an interactive survey which respondents could use to submit their parking habits in a spatial fashion. To attract a largest possible number of submissions, the survey also needed to be of modern design, easy to use and its purpose easy to understand. The survey would have to be clear-cut, effortless to internalise and short in length as to prevent users getting frustrated and leaving before submitting answers. Design-wise, the spatial resolution of the survey was also in question. The particular concern was that in the case of insufficient amount of answers, what kind of area delineation would be at the same time detailed enough but streamlined enough to realistically reach the good quality results. This chapter strives to describe the process that would lead to the implemented survey of the thesis to accentuate the challenges this kind of research entail.
 
-Once the consideration into options to produce the survey for this study had started, it quickly became apparent that there were few alternatives available and fewer free, customisable alternatives. Out of the proprietary options, Maptionnaire by the Finnish company Mapita was considered. They offer tailored map survey products with discounts for students. In return for the fee a subscriber receives a time window in which to carry out their survey accompanied with tailored features and customer support -- all according to the price plan. This price was considered too steep for the thesis and Maptionnaire was passed on. 
+Once the consideration into options to produce the survey for this study had started, it quickly became apparent that there were few alternatives available and even fewer free, customisable alternatives. Out of the proprietary options, Maptionnaire by the Finnish company Mapita was considered. They offer tailored map survey products with discounts for students. In return for the fee a subscriber receives a time window in which to carry out their survey accompanied with tailored features and customer support -- all according to the price plan. This price was considered too steep for the thesis and Maptionnaire was passed on. 
 
-Next Survey123 for ArcGIS was evaluated. An Esri operated service, Survey123 is used to create and analyse form based surveys. It is included in the contract between University of Helsinki and Esri and thus was free to use for the study. One can design a survey at the Survey123 website and share it immediately to respondents. Alternatively, Survey123 offers a range of possibilities for customisation with its adherence to the XLSForm standard. XLSForm is a standard to make authoring forms in Excel easier. With the customisability of XLSForm users can design Survey123 surveys to the dot while employing the support for Excel style scripting for complex survey behaviour. Some months were used to perfect the parking survey with Survey123. 
+Next Survey123 for ArcGIS was evaluated. An Esri operated service, Survey123 is used to create and analyse form based surveys. It is included in the contract between University of Helsinki and Esri and thus was free to use for the study. One can design a survey at the Survey123 website and share it immediately to respondents. Alternatively, the service is available as a desktop client in the form of Survey123 Connect, where Survey123 offers a range of possibilities for customisation with its adherence to the XLSForm standard. XLSForm is a standard to make authoring forms in Excel easier. With the customisability of XLSForm users can design Survey123 surveys to the dot while employing the support for Excel style scripting for complex survey behaviour. Some months were used to perfect the parking survey with Survey123. 
+
+% utilises package subfig
+\begin{figure}[H]%
+    \centering
+    \subfloat[label 1]{{\includegraphics[width=5.5cm]{survey123_1.png} }}%
+    \subfloat[label 2]{{\includegraphics[width=5.5cm]{survey123_2.png} }}%
+    \subfloat[label 3]{{\includegraphics[width=5.5cm]{survey123_3.png} }}%
+    \caption{Survey123 survey}%
+    \label{fig:survey123}%
+\end{figure}
 
 In January 2019 the parking survey developed with Survey123 was deployed to friends and family, with a larger scale marketing push on social media platforms planned for later. At its core, this survey asked respondents for specific parking events in Helsinki Capital Region they had had. Respondents would pick an exact location on a map view for the location of their parked car and separately on a second map view the location of their final destination. Respondents were asked to do this for as many times as they had the will. The survey was released even after the Survey123 software had proved itself unwieldly for the purposes of this research. The software was difficult to use because of an arrangement of inconvenient design choices, unfinished functionality and multitude of bugs. It was not possible, for example, to have respondents leave multiple results at once. They would have to reload the survey, something a majority of people would not do. The desktop application of Survey123, Survey123 Connect, did not allow customisation of the post-submission message and therefore it would not be possible to efficiently direct respondents back to the form. Following the responses received by this form it was decided that the required spatial resolution for this research would need to be lower than exact points. Postal code areas were deemed an acceptable compromise in spatial accuracy. Specifying postal code areas as polygons in Survey123 was not possible. 
 
@@ -115,7 +125,8 @@ The source code for the survey described in this chapter and step-by-step inform
     \begin{table}[H]
         \centering
         \setlength\tabcolsep{1pt}
-        \caption{Records} \label{tab:recordstab}
+        \caption{Records} 
+        \label{tab:recordstab}
         \scalebox{0.92}{\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedleft\arraybackslash}p{1.5cm} @{} }
             \toprule
             \cmidrule(r){1-2}
@@ -135,7 +146,8 @@ The source code for the survey described in this chapter and step-by-step inform
     \begin{table}[H]
         \centering
         \setlength\tabcolsep{1pt}
-        \caption{Visitors} \label{tab:visitortab}
+        \caption{Visitors} 
+        \label{tab:visitortab}
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedleft\arraybackslash}p{1cm} @{} }
             \toprule
             \cmidrule(r){1-2}
