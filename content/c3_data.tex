@@ -63,17 +63,43 @@ Despite the extensive service level of Helsinki Capital Region public transport,
     \begin{table}[H]
         \centering
         \setlength\tabcolsep{1pt}
-        \caption{Used software} 
+        \caption{Utilised programming languages} 
+        \label{tab:usedlangs}
+        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedleft\arraybackslash}p{2cm} @{} }
+            \toprule
+            \cmidrule(r){1-2}
+            Programming language and IDE & Description & Purpose in thesis & Developer & Citation \\
+            \midrule
+            HTML, CSS, JavaScript (NetBeans 8.2.0) & Web technologies which enable interactive web sites & Research survey programming & ECMA\footnotemark, W3C, WHATWG, Apache Software Foundation, Oracle Corporation & 2 \\
+            Python 3.7.6, Anaconda 2020.02 (Spyder 4.0.1) & Anaconda is a Python programming language distribution for scientific computing & Survey data processing & Python Software Foundation, Anaconda, Inc., Spyder Project contributors & 2 \\
+            R for Windows 3.6.3 (RStudio 1.2.5033) & Programming language environment for statistical computing & Survey data analysis and visualisation & R Core Team, RStudio, Inc. & 2 \\
+            \bottomrule
+        \end{tabular}
+    \end{table} 
+\end{hyphenrules}
+% Normal footnotes in float objects do not work in Latex. Use \footnotemark and \footnotetext combo
+\footnotetext{JavaScript is a trademark of Oracle Corporation in the United States. JavaScript is defined by European Computer Manufacturers Association (ECMA). JavaScript development is guided by an ECMA committee called TC39 which includes browser developers such as Google, Mozilla and Microsoft but also non-corporate members.}
+
+\begin{hyphenrules}{nohyphenation}
+    \begin{table}[H]
+        \centering
+        \setlength\tabcolsep{1pt}
+        \caption{Essential software packages used in the thesis. The complete list is available at the script repositories in GitHub.} 
         \label{tab:usedsoft}
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedleft\arraybackslash}p{2cm} @{} }
             \toprule
             \cmidrule(r){1-2}
-            Software & Description & Purpose in thesis & Developer & Citation \\
+            Programming language & Software package & Purpose in thesis & Developer & Citation \\
             \midrule
-            Anaconda 2020.02 (and Spyder 4.0.1) & Python programming language distribution for scientific computing & Data processing and clean-up & Anaconda, Inc. & 2 \\
-            R for Windows 3.6.3 (and RStudio 1.2.5033) & Programming language environment for statistical computing & data and visualisation & R Core Team & 2 \\
-            NetBeans 8.2.0 & Integrated development environment (IDE) & Survey programming & Apache Software Foundation, Oracle Corporation & 2 \\
-            Leaflet 1.4.0 & JavaScript library & Research survey & Vladimir Agafonkin & 2 \\
+            JavaScript & Leaflet 1.4.0 & Web mapping backbone of the research survey & Vladimir Agafonkin & 2 \\
+            Python & pandas 1.0.1 & Data analysis and manipulation & Pandas contributors & \cite{McKinney2011Pandas:Statistics} \\
+                & GeoPandas 0.5.0 & Adds Geographic data support to pandas objects & GeoPandas contributors & 2 \\
+                & Shapely 1.6.4.post1 & Geometric objects, predicates, and operations & Apache Software Foundation & 2 \\
+                & rtree 0.8.3 & Spatial indexing & Apache Software Foundation & 2 \\
+            R & Shiny 1.4.0 & Web application framework for R & Vladimir Agafonkin & \cite{Chang2019Shiny:R} \\
+                & dygraphs 1.1.1.6 & Interactive time series charting & Vladimir Agafonkin & 2 \\
+                & ggplot2 3.3.0 & Data Visualisation & Vladimir Agafonkin & 2 \\
+                & ggiraph 0.7.0 & Interactive ggplot2 graphics & Vladimir Agafonkin & 2 \\
             \bottomrule
         \end{tabular}
     \end{table} 
@@ -96,7 +122,7 @@ Next Survey123 for ArcGIS was evaluated. An Esri operated service, Survey123 is 
     \subfloat[label 1]{{\includegraphics[width=5.5cm]{survey123_1.png} }}%
     \subfloat[label 2]{{\includegraphics[width=5.5cm]{survey123_2.png} }}%
     \subfloat[label 3]{{\includegraphics[width=5.5cm]{survey123_3.png} }}%
-    \caption{Survey123 survey}%
+    \caption{An example parking event entered into the unused parking research survey made with Survey123 Connect.}%
     \label{fig:survey123}%
 \end{figure}
 
@@ -132,11 +158,11 @@ The source code for the survey described in this chapter and step-by-step inform
             \cmidrule(r){1-2}
             id & timestamp & ip & zipcode & likert & parkspot & parktime & walktime & timeofday \\
             \midrule
-            3244 & 2019-06-06 21:39:50 & wro4qo8hv4 & 00510 & 1 & 4 & 0 & 3 & 1 \\
-            3245 & 2019-06-06 21:41:21 & aonm72lyx3 & 00520 & 2 & 1 & 10 & 5 & 1 \\
-            3246 & 2019-06-06 21:41:54 & n1982i4i2v & 00100 & 1 & 1 & 20 & 4 & 1 \\
-            3247 & 2019-06-06 21:46:19 & sbhfz0uvsl & 00210 & 1 & 1 & 5 & 3 & 3 \\
-            3248 & 2019-06-06 21:46:22 & sbhfz0uvsl & 00220 & 2 & 2 & 5 & 5 & 2 \\        
+            3245 & 2019-06-06 21:41:21 & wro4qo8hv4 & 00510 & 1 & 4 & 0 & 3 & 1 \\
+            3246 & 2019-06-06 21:41:54 & aonm72lyx3 & 00520 & 2 & 1 & 10 & 5 & 1 \\
+            3247 & 2019-06-06 21:46:19 & n1982i4i2v & 00100 & 1 & 1 & 20 & 4 & 1 \\
+            3248 & 2019-06-06 21:46:22 & sbhfz0uvsl & 00210 & 1 & 1 & 5 & 3 & 3 \\
+            3249 & 2019-06-06 21:46:22 & sbhfz0uvsl & 00220 & 2 & 2 & 5 & 5 & 2 \\        
             \bottomrule
         \end{tabular}}
     \end{table} 
