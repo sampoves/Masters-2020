@@ -37,20 +37,21 @@ Despite the extensive service level of Helsinki Capital Region public transport,
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \setlength\tabcolsep{1pt}
-        \caption{Used data} 
+        \caption{Data utilised in the thesis.} 
         \label{tab:useddata}
+        % use \arraystretch to add whitespace between rows. \setlength\tabcolsep for columns
+        \def\arraystretch{1.2} 
+        \setlength\tabcolsep{1.2ex}
         % One unit here is ">{\raggedright\arraybackslash}p{4cm}". \raggedright prevents justification of text and conveniently allows flush right or flush left, which is not possible with column command p{4cm} alone.
-        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedleft\arraybackslash}p{2cm} @{} }
+        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4.5cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedleft\arraybackslash}p{2.5cm} @{} }
             \toprule
-            \cmidrule(r){1-2}
             Data & Description & Producer & Citation \\
             \midrule
-            Paavo -- Open data by postal code area & Postal code areas & Statistics Finland & 2 \\
-            Urban Atlas 2012 & Land use and land cover data & European Environment Agency & \cite{EuropeanEnvironmentAgency2016Urban2012} \\
-            Urban regions (Yhdyskuntarakenteen vyöhykkeet) 2017 & Zones of urban regions & Finnish Environment Institute & 1 \\
-            Helsinki Region-Travel Time Matrix 2018 & Travel time and distance information for routes between all YKR grid cell centroids in the Capital Region of Helsinki & Digital Geography Lab & \cite{Tenkanen2018Helsinki2018} \\
-            YKR grid & Statistical grid for 250 x 250 meters & Statistics Finland & 2 \\
+            Paavo -- Open data by postal code area & Helsinki Capital Region postal code areas & Statistics Finland & \cite{StatisticsFinland2019a} \\
+            Urban Atlas 2012 & Land use and land cover data in vector format & European Environment Agency & \cite{EuropeanEnvironmentAgency2016} \\
+            Zones of urban structure (Yhdyskuntarakenteen vyöhykkeet) 2017 & Delineation of urban areas based on the theory of urban fabrics & Finnish Environment Institute & \cite{Ristimaki2017} \\
+            Helsinki Region-Travel Time Matrix 2018 & Travel time and distance information for routes between all YKR grid cell centroids in the Capital Region of Helsinki & Digital Geography Lab & \cite{Tenkanen2018} \\
+            MetropAccess YKR grid & Statistical grid of 250 x 250 meters for monitoring urban structure, Helsinki Capital Region area & Statistics Finland & \cite{StatisticsFinland2020} \\
             \bottomrule
         \end{tabular}
     \end{table} 
@@ -62,17 +63,17 @@ Despite the extensive service level of Helsinki Capital Region public transport,
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \setlength\tabcolsep{1pt}
-        \caption{Utilised programming languages} 
+        \caption{Programming languages and integrated development environments (IDE) utilised in the thesis.} 
         \label{tab:usedlangs}
-        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedleft\arraybackslash}p{2cm} @{} }
+        \def\arraystretch{1.3}
+        \setlength\tabcolsep{1.2ex}
+        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedleft\arraybackslash}p{3cm} @{} }
             \toprule
-            \cmidrule(r){1-2}
             Programming language and IDE & Description & Purpose in thesis & Developer & Citation \\
             \midrule
-            HTML, CSS, JavaScript (NetBeans 8.2.0) & Web technologies which enable interactive web sites & Research survey programming & ECMA\footnotemark, W3C, WHATWG, Apache Software Foundation, Oracle Corporation & 2 \\
-            Python 3.7.6, Anaconda 2020.02 (Spyder 4.0.1) & Anaconda is a Python programming language distribution for scientific computing & Survey data processing & Python Software Foundation, Anaconda, Inc., Spyder Project contributors & 2 \\
-            R for Windows 3.6.3 (RStudio 1.2.5033) & Programming language environment for statistical computing & Survey data analysis and visualisation & R Core Team, RStudio, Inc. & 2 \\
+            HTML, CSS, JavaScript (NetBeans 8.2.0) & Web technologies which enable interactive web sites & Research survey programming & WHATWG, W3C, ECMA\footnotemark, Apache Software Foundation & \cite{WHATWG2020}, \cite{W3C2020}, \cite{ECMA2019}, \cite{ApacheSoftwareFoundation2016} \\
+            Python 3.7.6, Anaconda 2020.02 (Spyder 4.0.1) & Anaconda is a Python programming language distribution for scientific computing & Survey data processing & Python Software Foundation, Anaconda, Inc., Spyder Project contributors & \cite{Python3Reference}, \cite{AnacondaInc.2020}, \cite{SpyderProjectContributors2020} \\
+            R for Windows 3.6.3 (RStudio 1.2.5033) & Programming language environment for statistical computing & Survey data analysis and visualisation & R Core Team, RStudio, Inc. & \cite{RCoreTeam2020}, \cite{RStudioTeam2015} \\
             \bottomrule
         \end{tabular}
     \end{table} 
@@ -83,23 +84,23 @@ Despite the extensive service level of Helsinki Capital Region public transport,
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \setlength\tabcolsep{1pt}
         \caption{Essential software packages used in the thesis. The complete list is available at the script repositories in GitHub.} 
         \label{tab:usedsoft}
-        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedleft\arraybackslash}p{2cm} @{} }
+        \def\arraystretch{1.2}
+        \setlength\tabcolsep{1.2ex}
+        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedleft\arraybackslash}p{3cm} @{} }
             \toprule
-            \cmidrule(r){1-2}
             Programming language & Software package & Purpose in thesis & Developer & Citation \\
             \midrule
-            JavaScript & Leaflet 1.4.0 & Web mapping backbone of the research survey & Vladimir Agafonkin & 2 \\
-            Python & pandas 1.0.1 & Data analysis and manipulation & Pandas contributors & \cite{McKinney2011Pandas:Statistics} \\
-                & GeoPandas 0.5.0 & Adds Geographic data support to pandas objects & GeoPandas contributors & 2 \\
-                & Shapely 1.6.4.post1 & Geometric objects, predicates, and operations & Apache Software Foundation & 2 \\
-                & rtree 0.8.3 & Spatial indexing & Apache Software Foundation & 2 \\
-            R & Shiny 1.4.0 & Web application framework for R & Vladimir Agafonkin & \cite{Chang2019Shiny:R} \\
-                & dygraphs 1.1.1.6 & Interactive time series charting & Vladimir Agafonkin & 2 \\
-                & ggplot2 3.3.0 & Data Visualisation & Vladimir Agafonkin & 2 \\
-                & ggiraph 0.7.0 & Interactive ggplot2 graphics & Vladimir Agafonkin & 2 \\
+            JavaScript & Leaflet 1.4.0 & Web mapping library for the research survey & Vladimir Agafonkin & \cite{Agafonkin2019} \\
+            Python & pandas 1.0.1 & Data analysis and manipulation & Pandas contributors & \cite{McKinney2011a} \\
+                & GeoPandas 0.5.0 & Geographic data operations & GeoPandas contributors & \cite{GeoPandasDevelopers2019} \\
+                & Shapely 1.6.4.post1 & Geometric objects, predicates, and operations & Sean Gillies & \cite{Gillies2019} \\
+                & rtree 0.8.3 & Spatial indexing & Sean Gillies, Howard Butler and contributors & \cite{Gillies2014} \\
+            R & Shiny 1.4.0 & Web application framework for R & Shiny contributors & \cite{Chang2019} \\
+                & ggplot2 3.3.0 & Data visualisation & ggplot2 contributors & \cite{Wickham2016} \\
+                & ggiraph 0.7.0 & Interactive ggplot2 graphics & ggiraph contributors & \cite{Gohel2019} \\
+                & dygraphs 1.1.1.6 & Interactive time series charting & dygraphs contributors & \cite{Vanderkam2018} \\
             \bottomrule
         \end{tabular}
     \end{table} 
@@ -110,27 +111,42 @@ Despite the extensive service level of Helsinki Capital Region public transport,
 
 \subsubsection{Considering options for the survey}
 \justify
-(\textcolor{red}{Vois lisää kuvia näistä kokeiluista}) To collect the areal parking data, the study required an interactive survey which respondents could use to submit their parking habits in a spatial fashion. To attract a largest possible number of submissions, the survey also needed to be of modern design, easy to use and its purpose easy to understand. The survey would have to be clear-cut, effortless to internalise and short in length as to prevent users getting frustrated and leaving before submitting answers. Design-wise, the spatial resolution of the survey was also in question. The particular concern was that in the case of insufficient amount of answers, what kind of area delineation would be at the same time detailed enough but streamlined enough to realistically reach the good quality results. This chapter strives to describe the process that would lead to the implemented survey of the thesis to accentuate the challenges this kind of research entail.
+(\textcolor{red}{Vois lisää kuvia näistä kokeiluista}) To collect the areal parking data, the study required an interactive survey which respondents could use to submit their parking habits in a spatial fashion. To attract a largest possible number of submissions, the survey also needed to be of modern design, easy to use and its purpose easy to understand. The survey would have to be clear-cut, effortless to internalise and short in length as to prevent users getting frustrated and leaving before submitting answers. Design-wise, the spatial resolution of the survey was in question. The particular concern was that in the case of insufficient amount of answers, what kind of area delineation would be at the same time detailed enough but also streamlined enough to realistically reach the good quality results? This chapter strives to describe the process that would lead to the implemented survey of the thesis to accentuate the challenges this kind of research entail.
 
-Once the consideration into options to produce the survey for this study had started, it quickly became apparent that there were few alternatives available and even fewer free, customisable alternatives. Out of the proprietary options, Maptionnaire by the Finnish company Mapita was considered. They offer tailored map survey products with discounts for students. In return for the fee a subscriber receives a time window in which to carry out their survey accompanied with tailored features and customer support -- all according to the price plan. This price was considered too steep for the thesis and Maptionnaire was passed on. 
+Once the consideration into options to produce the survey for this study had started, it quickly became apparent that there were few alternatives available and even fewer free, sufficiently customisable alternatives. Out of the proprietary options, Maptionnaire by the Finnish company Mapita was considered. They offer tailored map survey products with discounts for students. In return for the fee a subscriber receives a time window in which to carry out their survey accompanied with tailored features and customer support -- all according to the price plan. This price was considered too steep for the thesis and Maptionnaire was passed on. 
 
-Next Survey123 for ArcGIS was evaluated. An Esri operated service, Survey123 is used to create and analyse form based surveys. It is included in the contract between University of Helsinki and Esri and thus was free to use for the study. One can design a survey at the Survey123 website and share it immediately to respondents. Alternatively, the service is available as a desktop client in the form of Survey123 Connect, where Survey123 offers a range of possibilities for customisation with its adherence to the XLSForm standard. XLSForm is a standard to make authoring forms in Excel easier. With the customisability of XLSForm users can design Survey123 surveys to the dot while employing the support for Excel style scripting for complex survey behaviour. Some months were used to perfect the parking survey with Survey123. 
+Next Survey123 for ArcGIS was evaluated. An Esri operated service, Survey123 is used to create and analyse form based surveys (\cite{Esri}). It is included in the contract between University of Helsinki and Esri and thus was free to use for the study. One can design a survey at the Survey123 website and share it immediately to respondents. Alternatively, the service is available as a desktop client in the form of Survey123 Connect, where Survey123 offers a range of possibilities for customisation with its adherence to the XLSForm standard. XLSForm is a standard to make authoring forms in Excel easier. With the customisability of XLSForm users can design Survey123 surveys to the dot while employing the support for Excel style scripting for complex survey behaviour. Some months were used to perfect the parking survey with Survey123. 
 
 % utilises package subfig
 \begin{figure}[H]%
     \centering
-    \subfloat[label 1]{{\includegraphics[width=5.5cm]{survey123_1.png} }}%
-    \subfloat[label 2]{{\includegraphics[width=5.5cm]{survey123_2.png} }}%
-    \subfloat[label 3]{{\includegraphics[width=5.5cm]{survey123_3.png} }}%
-    \caption{An example parking event entered into the unused parking research survey made with Survey123 Connect.}%
+    \subfloat[Survey introduction and the date and time for the parking event.]{{\includegraphics[width=5.5cm]{survey123_1.png} }}%
+    \subfloat[Map panels for the parking location and the final destination.]{{\includegraphics[width=5.5cm]{survey123_2.png} }}%
+    \subfloat[Final questions of the survey.]{{\includegraphics[width=5.5cm]{survey123_3.png} }}%
+    \caption[The unused parking survey created with Survey123]{An example parking event entered into the unused parking research survey made with Survey123 Connect.}%
     \label{fig:survey123}%
 \end{figure}
 
-In January 2019 the parking survey developed with Survey123 was deployed to friends and family, with a larger scale marketing push on social media platforms planned for later. At its core, this survey asked respondents for specific parking events in Helsinki Capital Region they had had. Respondents would pick an exact location on a map view for the location of their parked car and separately on a second map view the location of their final destination. Respondents were asked to do this for as many times as they had the will. The survey was released even after the Survey123 software had proved itself unwieldly for the purposes of this research. The software was difficult to use because of an arrangement of inconvenient design choices, unfinished functionality and multitude of bugs. It was not possible, for example, to have respondents leave multiple results at once. They would have to reload the survey, something a majority of people would not do. The desktop application of Survey123, Survey123 Connect, did not allow customisation of the post-submission message and therefore it would not be possible to efficiently direct respondents back to the form. Following the responses received by this form it was decided that the required spatial resolution for this research would need to be lower than exact points. Postal code areas were deemed an acceptable compromise in spatial accuracy. Specifying postal code areas as polygons in Survey123 was not possible. 
+% \ref{}: tilde (~) indicates a non-breaking space
+In January 2019 the parking survey developed with Survey123 was deployed to friends and family, with a large scale marketing push on social media platforms planned for later. At its core, this survey asked respondents for specific parking events in Helsinki Capital Region they had had (figure~\ref{fig:survey123}). Respondents would pick an exact location on a map view for the location of their parked car and separately on a second map view the location of their final destination. In addition, respondents would fill the date and time of this parking event, how long it took for them to find a parking spot, how often they had parked to that area, and what kind of a parking spot they had taken. Respondents were asked repeat this process as many times as they had the will to do so.
+
+This survey was designed to reach the same spatial resolution as Travel Time Matrix 2018 with the 250 x 250 meters YKR grid it utilises. Using exact coordinates of parkings and final destinations it would have been possible to allocate each event to possibly two different YKR grid cell codes, reaching excellent spatial resolution. As MetropAccess YKR grid contains 13 231 grid cells, there was no way to accumulate events for every grid cell, let alone enough events for most grid cells. If the data gathering campaign would have ended with insufficient amount of parking events the backup plan was to employ an interpolation algorithm to generate approximate boundaries for the hypothetically varying parking times in Helsinki Capital Region. It was also considered that the exact coordinates of the parking events could be generalised to other delineations, such as administrative areas like municipality subdivisions or postal code areas. 
+
+The survey was released even after the Survey123 had proved itself unwieldly for the purposes of this research. Additionally, the software was difficult to use because of an arrangement of inconvenient design choices, unfinished functionality and multitude of bugs. It was not possible, for example, to have respondents enter multiple parking events at once in a full screen map view. They would have to reload the survey, something a majority of people would not do. Survey123 Connect version available at the time, version 3.1.126, did not allow customisation of the post-submission message and therefore it would not be possible to efficiently direct respondents back to the form. In addition, recording coordinates from two map views was only possible through a bypass. The coordinates of the final destionation would have to be printed on the form (hence the section "Coordinates" on the form) and then these second set of coordinates could be saved into the survey data table in string format. The technical limitations of Survey123 as a spatial survey was witnessed also in the fact that it was not possible to add custom polygons on top of the map views. It was therefore impossible to delineate the research area for the respondents and accurately detect attempts to add parking events outside of Helsinki Capital Region.
+
+The functionality of the released form was not reliable on the most popular web browsers such as Google Chrome and Apple Safari. Survey123 supported multi-language strings but it proved problematic to ensure that the form would open in the mother language of most respondents, Finnish. In addition to this, entering the specific time of parking was restricted to the US style 12 hour clock -- a system Finnish nationals could not intuitively use. To make matters worse, at that time there was a bug in Survey123 which prevented the use of parameter "constraint", the value which controls which entered values are illegal and which are not. I could not, therefore, control parking events made into the future and excessively long times for searching for parking.
+
+\begin{figure}[H]%
+    \includegraphics[width=\textwidth]{images/survey123_dataview.png}
+    \caption[Survey123 data tab]{Survey123 for ArcGIS, with open "data" tab. The research survey made with Survey123 received in total 104 parking events. The red dots are the final destinations of each parking event.}%
+    \label{fig:survey123_dataview}%
+\end{figure}
+
+Despite the technical incertainties with Survey123, the survey gathered more than one hundred parking events in one month (figure~\ref{fig:survey123_dataview}). This amount was achieved mostly without advertising. It was decided, however, that the required spatial resolution for this research would need to be lower than exact points. It was argued that a more general scale would still be accurate enough to provide good data and a more generalised scale would make it easier for respondents to internalise the spatial extent of the research area. Postal code areas were deemed an acceptable compromise in spatial accuracy.
 
 After careful consideration it was decided that the survey would have to be programmed from the ground up.
 
-\subsubsection{Parking survey}
+\subsubsection{Programming the parking survey}
 \justify
 To achieve maximum transparency and repeatability for this research, a survey web application was programmed from the ground up. The survey and its supporting infrastructure was installed on a virtual machine in CSC's -- the state owned ICT solutions company -- Taito supercluster. Running on the Linux distribution Ubuntu version 16.04, the backbone of the survey ecosystem was a LAMP stack, a software bundle which incorporates the Linux operating system, Apache HTTP Server (web server software), \gls{mysql} relational database management system and the PHP programming language environment for server-side scripting. The visible component of the survey is the front-end, the only component of the survey system an user would interact with.
 
@@ -153,9 +169,9 @@ The source code for the survey described in this chapter and step-by-step inform
         \setlength\tabcolsep{1pt}
         \caption{Records} 
         \label{tab:recordstab}
-        \scalebox{0.92}{\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedleft\arraybackslash}p{1.5cm} @{} }
+        \scalebox{0.92}
+        {\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedleft\arraybackslash}p{1.5cm} @{} }
             \toprule
-            \cmidrule(r){1-2}
             id & timestamp & ip & zipcode & likert & parkspot & parktime & walktime & timeofday \\
             \midrule
             3245 & 2019-06-06 21:41:21 & wro4qo8hv4 & 00510 & 1 & 4 & 0 & 3 & 1 \\
@@ -176,7 +192,6 @@ The source code for the survey described in this chapter and step-by-step inform
         \label{tab:visitortab}
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedleft\arraybackslash}p{1cm} @{} }
             \toprule
-            \cmidrule(r){1-2}
             id & ip & ts\_first & ts\_latest & count \\
             \midrule
             1780 & mvovd467a7 & 2019-05-26 15:25:23 & 2019-05-26 15:26:06 & 2 \\
