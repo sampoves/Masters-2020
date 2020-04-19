@@ -63,16 +63,16 @@ Despite the extensive service level of Helsinki Capital Region public transport,
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption{Programming languages and integrated development environments (IDE) utilised in the thesis.} 
+        \caption{Programming languages and \glspl{ide} utilised in the thesis.} 
         \label{tab:usedlangs}
         \def\arraystretch{1.3}
         \setlength\tabcolsep{1.2ex}
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedleft\arraybackslash}p{3cm} @{} }
             \toprule
-            Programming language and IDE & Description & Purpose in thesis & Developer & Citation \\
+            Programming language and \gls{ide} & Description & Purpose in thesis & Developer & Citation \\
             \midrule
             HTML, CSS, JavaScript (NetBeans 8.2.0) & Web technologies which enable interactive web sites & Research survey programming & WHATWG, W3C, ECMA\footnotemark, Apache Software Foundation & \cite{WHATWG2020}, \cite{W3C2020}, \cite{ECMA2019}, \cite{ApacheSoftwareFoundation2016} \\
-            Python 3.7.6, Anaconda 2020.02 (Spyder 4.0.1) & Anaconda is a Python programming language distribution for scientific computing & Survey data processing & Python Software Foundation, Anaconda, Inc., Spyder Project contributors & \cite{Python3Reference}, \cite{AnacondaInc.2020}, \cite{SpyderProjectContributors2020} \\
+            Python 3.7.6, Anaconda 2020.02 (Spyder 4.0.1) & Anaconda is a Python distribution for scientific computing & Survey data processing & Python Software Foundation, Anaconda, Inc., Spyder Project contributors & \cite{Python3Reference}, \cite{AnacondaInc.2020}, \cite{SpyderProjectContributors2020} \\
             R for Windows 3.6.3 (RStudio 1.2.5033) & Programming language environment for statistical computing & Survey data analysis and visualisation & R Core Team, RStudio, Inc. & \cite{RCoreTeam2020}, \cite{RStudioTeam2015} \\
             \bottomrule
         \end{tabular}
@@ -154,7 +154,7 @@ After careful consideration it was decided that the survey for this thesis would
 
 \subsubsection{Programming the parking survey}
 \justify
-To achieve maximum transparency and repeatability for this research, in addition to freedom in survey content and appearance, a survey web application was programmed from the ground up utilising HTML, JavaScript and PHP. The survey and its supporting infrastructure was installed on a virtual machine in CSC's -- the state owned ICT solutions company -- Taito supercluster. CSC offers virtual machines in several different hardware configurations, or flavors. The virtual machine flavor picked for this survey was \textit{standard.medium}, a flavor with 3.9 \gls{GB} \gls{RAM}, three virtual \gls{CPU}s and 80 GB of disk space. Running on the Linux distribution Ubuntu version 16.04, the backbone of the survey ecosystem was a LAMP stack, a software bundle which incorporates the Linux operating system, Apache web server software, \gls{mysql} relational database management system and the PHP programming language environment for server-side scripting. The public component of the survey is the front-end, the only component of the survey system an user would interact with. One may use additional software in a LAMP stack for extended functionality or can replace some of the components. This thesis utilises the components described in the table~\ref{tab:survey_components}.
+To achieve maximum transparency and repeatability for this research, in addition to freedom in survey content and appearance, a survey web application was programmed from the ground up utilising HTML, JavaScript and PHP. The survey and its supporting infrastructure was installed on a virtual machine in CSC's -- the state owned ICT solutions company -- Taito supercluster. CSC offers virtual machines in several different hardware configurations, or flavors. The virtual machine flavor picked for this survey was \textit{standard.medium}, a flavor with 3.9 \gls{GB} \gls{RAM}, three virtual \gls{CPU}s and 80 GB of disk space. Running on the Linux distribution Ubuntu version 16.04, the backbone of the survey ecosystem was a LAMP stack, a software bundle which incorporates the Linux operating system, Apache web server software, \gls{mysql} relational database management system and the PHP programming language environment for server-side scripting. The public component of the survey is the front-end, the only component of the survey system a respondent would interact with (figure~\ref{fig:js_survey_welcome}). One may use additional software in a LAMP stack for extended functionality or can replace some of the components with a wide array of alternatives. This thesis utilises the components described in the table~\ref{tab:survey_components}.
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
@@ -177,27 +177,109 @@ To achieve maximum transparency and repeatability for this research, in addition
     \end{table}
 \end{hyphenrules}
 
-Setting up the virtual machine for the use of the survey was very straightforward. The LAMP stack was installed on the fresh virtual machine. After the successful installation the MySQL tables were formed and relevant users created. The last step before a fully functioning web server was using root access to give the survey components permission to access relevant system directories. For the full step-by-step install procedure used to set up the web server for this thesis, please see the GitHub repository here \textcolor{red}{insert link}.
+Setting up the virtual machine for the use of the survey was a process of few stages. The LAMP stack was installed on the fresh virtual machine with the command \code{sudo apt install lamp-server\^}. \textcolor{red}{kuuluuko koodi graduun?} After the successful installation the MySQL tables were formed and relevant users created. The last step before a fully functioning web server was using root access to give the survey components permission to access relevant system directories. Please see the GitHub repository (\textcolor{blue}{\url{https://github.com/sampoves/parking-in-helsinki-region}}) for the full step-by-step install procedure used to set up the web server for this thesis.
 
-The front-end was programmed in NetBeans IDE 8.2.0 in mostly JavaScript using an open-source mapping library Leaflet (software version 1.4.0) in January--May 2019. The survey was made available in English and Finnish languages. In the survey the respondent was presented with a map view of Helsinki Capital Region with its 167 postal code areas and was asked to fill out five questions about each area. User was asked to fill out as many postal code areas as they can remember parking in in last two years. Last two years was chosen as the timeframe to allow the respondent to comfortably think back while also forbidding the submission of out of date parking times. All answers received were estimates as the survey was not about an exact time and place. The answers were also subject to errors made by the user even though help functionality and a search tool were implemented in the parking survey. Once the user was finished with the survey, they would send them to the server. The user could return to the survey to add data on any postal code areas they had missed the last time. The survey questions are available for viewing in the appendices.
+\begin{figure}[H]%
+    \includegraphics[width=\textwidth]{images/js_survey_welcome.png}
+    \caption[Survey landing page]{This was the screen respondents would first see when arriving to the parking survey.}%
+    \label{fig:js_survey_welcome}%
+\end{figure}
 
-When data was received from the user, a \gls{php} language script verified the contents. This was an effort to prevent attacks on the web server running the study survey, as it was visible to the entire internet. Additionally, the verification made sure falsified or incomplete data would not find its way to the database containing the accepted results. Only specified variables were accepted from the survey. All of the variables had to be present in the received data, no unfinished results were accepted. As a failsafe if the verification test failed on any of the variables, user was informed about it. In addition to the verification, a PHP script tracked the IP addresses which had accessed the survey. By using the survey, respondents agreed that their IP addresses were recorded for the use of this thesis solely to recognise falsified or overlapping answers and detect unique visits. All IP addresses were anonymised with a Python script and original sensitive data deleted.
+The survey front-end was programmed in NetBeans \gls{ide} 8.2 in mostly JavaScript using an open-source mapping library Leaflet (software version 1.4.0) in January--May 2019. In the survey the respondent was presented with a map view of Helsinki Capital Region with its 167 postal code areas and was asked to fill out five questions about each area (table~\ref{tab:js_survey_questions} and figure~\ref{fig:js_survey_questions}). The respondent was asked to fill out as many postal code areas as they could remember parking in in the last two years. Last two years was chosen as the timeframe to allow respondents to comfortably recall parking events which happened during the subjective notion of "recent memory" while also forbidding the submission of out of date parking times. In the introduction to the survey it was explained to respondents that all answers were meant to be estimates as the survey was not about an exact time and place. To mitigate confusion and errors made by respondents a comprehensive help functionality and a location search tool were implemented in the parking survey. Once the respondent was finished with the survey, they would send their responses to the server. Respondents were welcomed to return to the survey to send additional data on any postal code areas they had missed the last time. The survey was made available in English and Finnish languages.
 
-As a final survey component the server side contained two MySQL datatables, one for received records (Table~\ref{tab:recordstab}) and another for survey page hits (Table~\ref{tab:visitortab}). In the table \textit{records}, the following data was gathered: time of sending (timestamp), IP address (ip), postal code (zipcode), a value in the sequence 1--5 for the likert question (likert), a value in the sequence 1--4 for the question what type of parking spot was used (parkspot), an integer value for how long it usually took to park in this location (parktime), an integer value for how long it usually took to walk from parking place to one's destination (walktime) and a value in the sequence 1--4 for the question at what time of the day one usually parks in the location (timeofday). In the table \textit{records} it is notable that in the case an user sends the server data for multiple postal code areas each of the postal code areas take up their own row in the data table. Consequently, it was theoretically possible for one user to simultaneously submit 167 rows of data.
+\begin{hyphenrules}{nohyphenation}
+    \begin{table}[H]
+        \centering
+        \caption{Survey questions and question choices.} 
+        \label{tab:js_survey_questions}
+        \def\arraystretch{1.5}
+        \setlength\tabcolsep{1.2ex}
+        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{5.5cm} >{\raggedright\arraybackslash}p{5cm} >{\raggedleft\arraybackslash}p{2.5cm} @{} }
+            \toprule
+            Question & Question choices & Question type \\
+            \midrule
+            How long does it usually take for you to find a parking spot and park your car in this postal code area (in minutes)? & One value 0--99 & numeric \\
+            How long does it usually take for you to walk from your parking spot to your destination in this postal code area (in minutes)? & One value 0--99 & numeric \\
+            How familiar are you with this postal code area? & 1 -- Extremely familiar\linebreak2 -- Moderately familiar\linebreak3 -- Somewhat familiar\linebreak4 -- Slightly familiar\linebreak5 -- Not at all familiar & Likert-type scale \\
+            What kind of parking spot do you usually take in this postal code area? & 1 -- Parking space on the side of the street\linebreak2 -- Parking lot\linebreak3 -- Parking garage\linebreak4 -- Private or reserved spot\linebreak5 -- Other & Selection \\
+            At what time of the day do you usually park in this postal code area? & 1 -- Weekday, rush hour (07.00--09.00 and 15.00--17.00)\linebreak2 -- Weekday, other than rush hour\linebreak3 -- Weekend\linebreak4 -- None of the above, no usual time & Selection \\
+            \bottomrule
+        \end{tabular}
+    \end{table} 
+\end{hyphenrules}
 
-In the table \textit{visitors} the following data was gathered: IP address (ip), the timestamp of the first visit (ts\_first), the timestamp of latest visit (ts\_latest), the count of visits (count). In this table an IP address is only stored once. On the first visit of an IP address the row for that IP address is created in the data table with ts\_first and ts\_latest being identical. On further visits of that IP address the original row is appended with updated information in the columns ts\_latest and count.
+\begin{figure}[H]%
+    \centering
+    \subfloat[Survey questions in English.]{{\includegraphics[width=6.25cm]{js_survey_en.png} }}%
+    \qquad
+    \subfloat[Survey questions in Finnish.]{{\includegraphics[width=6.25cm]{js_survey_fi.png} }}%
+    \caption[Research survey questions in the web application]{For each postal code area of their choosing the respondent would answer to these five questions. The survey was made available in English and Finnish.}%
+    \label{fig:js_survey_questions}%
+\end{figure}
 
-The parking survey was released to the public in May 2019 and the active phase of gathering results continued until 30th June 2019. However, the survey remained open after the active period, receiving the last response in October 2019. The majority of the respondents were found through Facebook. Invitations to participate in the survey were sent to 112 city district and neighborhood groups with a theoretical reach of tens of thousands of people. Of the 112 posts, 63 were Helsinki centric groups, while Espoo had 22, Vantaa 15 and bordering municipalities 12. In addition to these groups invitation to participate were sent to two other Facebook groups, "Lisää kaupunki Helsinkiin" and the GIS profession group "GIS-velhot". It is not possible to conclusively differentiate from which group or city survey responses originated from. A clue about the survey's popularity in each city, however, may be gained from the table \textit{visitors} as posts to the groups were sent over multiple days. In addition to Facebook, an effort was also made to get faculty members and students of University of Helsinki to participate in the survey. A small amount of answers were collected with a tweet sent from the Twitter account of Digital Geography Lab. After initial invitation to participate, reminders were sent to the largest Facebook groups one month after the original post.
+When data was received from the respondent, a script written in \gls{php} verified the contents. This was an effort to prevent attacks on the web server running the study survey, as the site was visible to the entire internet. Only specific variables of specific types were accepted from the front-end. Additionally, the \gls{php} verification made sure falsified or incomplete data would not be accepted into the database containing the verified results. If the server-side verification test failed in any way, the respondent was informed about it. 
 
-The source code for the survey described in this chapter and step-by-step information to set up an identical system is available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/parking-in-helsinki-region}}). As a side product, a variant of this survey was created where users pick precise points instead of areas. This precise survey template is, too, available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/leaflet-map-survey-point}}).
+In addition to the data verification, a PHP script tracked the IP addresses which accessed the survey web server. By using the survey, respondents agreed that their IP addresses were recorded for the use of this thesis solely to recognise falsified or overlapping answers and detect unique visits. All IP addresses were anonymised with a Python script and original sensitive data deleted. The anonymisation script is available for viewing at the survey repository at GitHub.
+
+As a final survey component the server side contained two MySQL datatables, one for received data (Table~\ref{tab:mysql_records}) and another for survey web page hits (Table~\ref{tab:mysql_visitors}). In the table \textit{records}, the following data was recorded: time of sending (column name \code{timestamp}), IP address (\code{ip}), postal area code (\code{zipcode}), a value in the sequence 1--5 for the likert question (\code{likert}), a value in the sequence 1--5 for the question what type of parking spot was used (\code{parkspot}), an integer value for how long it usually took to park in this location (\code{parktime}), an integer value for how long it usually took to walk from parking place to one's destination (\code{walktime}), and a value in the sequence 1--4 for the question at what time of the day one usually parks in the location (\code{timeofday}). In the table \textit{records} it is notable that in the case an respondent sent the web server data for multiple postal code areas each of the postal code areas would take up their own row in the data table. Consequently, it was theoretically possible for one respondent to simultaneously submit 167 rows of data.
+
+In the table \textit{visitors} the following data was recorded: IP address (\code{ip}), the timestamp of the first visit of this IP address (\code{ts\_first}), the timestamp of latest visit of this IP address (\code{ts\_latest}), and the count of visits (\code{count}). In this table an IP address is only stored once. On the first visit of an IP address the row for that IP address is created in the data table with \code{ts\_first} and \code{ts\_latest} being identical. On further visits of that IP address the original row is appended with updated information in the columns \code{ts\_latest} and \code{count}.
+
+\begin{hyphenrules}{nohyphenation}
+    \begin{table}[H]
+        \centering
+        \setlength\tabcolsep{1.2ex}
+        \caption[Structure of MySQL table records]{The structure of the survey MySQL table \textit{records} fetched with the statement \code{DESCRIBE records;}} 
+        \label{tab:mysql_records_str}
+        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{1cm} >{\raggedright\arraybackslash}p{1cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedleft\arraybackslash}p{4cm} @{} }
+            \toprule
+            Field & Type & Null & Key & Default & Extra \\
+            \midrule
+            id & int(11) & No & PRI & NULL & AUTO\_INCREMENT \\
+            timestamp & varchar(19) & Yes & & NULL & \\
+            ip & TEXT & Yes & & NULL & \\
+            zipcode & varchar(5) & Yes & & NULL & \\
+            likert & int(1) & Yes & & NULL & \\
+            parkspot & int(1) & Yes & & NULL & \\
+            parktime & int(2) & Yes & & NULL & \\
+            walktime & int(2) & Yes & & NULL & \\
+            timeofday & int(1) & Yes & & NULL & \\
+            \bottomrule
+        \end{tabular}
+    \end{table} 
+\end{hyphenrules}
+
+\begin{hyphenrules}{nohyphenation}
+    \begin{table}[H]
+        \centering
+        \setlength\tabcolsep{1.2ex}
+        \caption[Structure of MySQL table visitors]{The structure of the survey MySQL table \textit{visitors} fetched with the statement \code{DESCRIBE visitors;}} 
+        \label{tab:mysql_visitors_str}
+        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{1cm} >{\raggedright\arraybackslash}p{1cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedleft\arraybackslash}p{4cm} @{} }
+            \toprule
+            Field & Type & Null & Key & Default & Extra \\
+            \midrule
+            id & int(11) & No & PRI & NULL & AUTO\_INCREMENT \\
+            ip & TEXT & Yes & & NULL & \\
+            ts\_first & DATETIME & Yes & & NULL & \\
+            ts\_latest & DATETIME & Yes & & NULL & \\
+            count & int(11) & Yes & & NULL & \\        
+            \bottomrule
+        \end{tabular}
+    \end{table} 
+\end{hyphenrules}
+
+The parking survey was released to the public in May 2019 and the active phase of collecting data continued until 30th June 2019. However, the survey remained open after the active period, receiving the last row of data in October 2019. The majority of the respondents were found through Facebook. Invitations to participate in the survey were sent to 112 city district and neighborhood groups with a theoretical reach of tens of thousands of people. Of the 112 posts, 63 were Helsinki centric groups, while 22 were from Espoo, 15 from Vantaa, and 12 from municipalities bordering Helsinki Capital Region. In addition to these city district and municipal groups invitation to participate was sent to two other Facebook groups, "Lisää kaupunki Helsinkiin", a group for city planning ethusiasts in Helsinki, and the GIS profession group "GIS-velhot". It is not possible to conclusively differentiate from which group or city survey data originated from. A clue about the survey's popularity in each city, however, may be gained from the table \textit{visitors} due to the fact that invitation posts were sent over multiple days to the groups in roughly the order Espoo--Helsinki--Vantaa--bordering municipalities--reminders to all groups. In addition to Facebook, an effort was also made to get faculty members of geosciences and geography and students of University of Helsinki to participate in the survey. A small amount of answers were collected with a tweet sent from the Twitter account of Digital Geography Lab. After the initial invitation to participate, reminders were sent to the largest Facebook groups one month after the original posts.
+
+The source code for the survey described in this chapter and step-by-step information to set up an identical system is available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/parking-in-helsinki-region}}). As a side product, a variant of this survey was created where respondents pick precise points instead of areas. This point-based survey template is, too, available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/leaflet-map-survey-point}}).
 
 % \scalebox to prevent table going too wide
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
         \setlength\tabcolsep{1pt}
-        \caption{Records} 
-        \label{tab:recordstab}
+        \caption[MySQL table records]{The data content of the survey MySQL table \textit{records}.} 
+        \label{tab:mysql_records}
         \scalebox{0.92}
         {\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedleft\arraybackslash}p{1.5cm} @{} }
             \toprule
@@ -217,8 +299,8 @@ The source code for the survey described in this chapter and step-by-step inform
     \begin{table}[H]
         \centering
         \setlength\tabcolsep{1pt}
-        \caption{Visitors} 
-        \label{tab:visitortab}
+        \caption[MySQL table visitors]{The data content of the survey MySQL table \textit{visitors}.} 
+        \label{tab:mysql_visitors}
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedleft\arraybackslash}p{1cm} @{} }
             \toprule
             id & ip & ts\_first & ts\_latest & count \\
@@ -264,7 +346,7 @@ The data processing started with loading aforementioned open spatial data and se
 
 Helsinki Travel-time Matrix 2018 and the survey data of this thesis operate in different spatial units. Travel-time Matrix 2018 uses the 250 x 250 meter Statistics Finland statistics grid and the basic spatial unit of the survey data is the zip code area. Using Python, postal codes were added to each grid cell with the logic that the largest area (\textcolor{red}{LISÄÄ KUVA}) assigns the postal code. PAAVO postal code areas are not present in all of the cells of YKR statistics grid and because of this some cells have a postal code of 99999 to denote missing data. In addition, the grid was merged with data which tells how much of a cell is contained in the research area and how large is the largest share which dictated the denotation of the current cell.
 
-The data processing script created for this thesis contains detailed features to detect patterns in the survey data. To enable pattern recognition the records were purged of known false data, namely records and visits made by the author. In addition, one survey user reported that they had inserted erroneous data in the survey. These responses were identified and deleted.
+The data processing script created for this thesis contains detailed features to detect patterns in the survey data. To enable pattern recognition the records were purged of known false data, namely records and visits made by the author. In addition, one survey respondent reported that they had inserted erroneous data in the survey. These responses were identified and deleted.
 
 A Pandas DataFrame was created to make it easy to view the behaviour of each survey respondent. In addition to this feature, the data processing script writes a text file format report about respondents who have submitted multiple responses from the same postal code area. This report was then used to determine what to do about the duplicates.
 

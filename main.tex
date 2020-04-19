@@ -33,30 +33,37 @@
 \usepackage{minted}                         % Format and highlight code
 \usepackage{enumitem}                       % Control layout of itemize, enumerate, description
 \usepackage{pdfpages}                       % Enable pdf graphics
+\usepackage{xcolor}                         % Define colors for inline codeblock
+\definecolor{light-gray}{gray}{0.95}
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}} % define StackExchange style code inline
 
 % Generate list of abbreviations
 \usepackage{hyperref}                       % Enable hyperlinks in thesis. Need to be activated before glossaries
 \usepackage[acronym,style=super4col]{glossaries} % Glossaries and lists of acronyms
 
-\newacronym{php}{PHP}{Hypertext preprocessor}% abbreviations
+% Abbreviations. Note the definition of plural forms
+\newacronym[plural=IDEs,firstplural=Integrated development environments (IDE)]{ide}{IDE}{Integrated Development Environment}
+\newacronym{php}{PHP}{Hypertext preprocessor}
 
-\newglossaryentry{mysql}{                    % nomenclature
-  name = $MySQL$,
-  description = Open-source relational database management system,
+% Nomenclature for glossary. Note the definition of plural forms
+\newglossaryentry{mysql}{
+  name = {MySQL},
+  description = {Open-source relational database management system},
 }
 \newglossaryentry{GB}{
-  name = $GB$,
-  description = Gigabyte is a multiple of the unit used to store digital information. A gigabyte is 1 000 megabytes,
+  name = {GB},
+  description = {Gigabyte is a multiple of the unit used to store digital information. A gigabyte is 1 000 megabytes},
 }
 \newglossaryentry{CPU}{
-  name = $CPU$,
-  description = Central processing unit,
+  name = {CPU},
+  description = {Central Processing Unit},
+  plural = {CPUs},
+  firstplural = {\glsentrydesc{CPU}s (\glsentryplural{CPU})}
 }
 \newglossaryentry{RAM}{
-  name = $RAM$,
-  description = Random access memory,
+  name = {RAM},
+  description = {Random Access Memory},
 }
-
 
 \makeglossaries
 
