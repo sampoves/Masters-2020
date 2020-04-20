@@ -33,9 +33,11 @@
 \usepackage{minted}                         % Format and highlight code
 \usepackage{enumitem}                       % Control layout of itemize, enumerate, description
 \usepackage{pdfpages}                       % Enable pdf graphics
-\usepackage{xcolor}                         % Define colors for inline codeblock
-\definecolor{light-gray}{gray}{0.95}
-\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}} % define StackExchange style code inline
+
+% define \code{}: StackExchange style inline code
+\usepackage{xcolor}
+\definecolor{light-gray}{gray}{0.95}        % Define inline code background color
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}} % define command
 
 % Generate list of abbreviations
 \usepackage{hyperref}                       % Enable hyperlinks in thesis. Need to be activated before glossaries
@@ -86,8 +88,6 @@
 \usepackage{natbib}                         % Flexible bibliography support
 \bibliographystyle{apalike2}                
 \setcitestyle{authoryear,open={},close={}}  % Removes citation parentheses
-
-
 
 % Other packages
 %\usepackage{alphabeta}                      % Greek alphabet
