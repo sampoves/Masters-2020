@@ -38,7 +38,7 @@ Despite the extensive service level of Helsinki Capital Region public transport,
     \begin{table}[H]
         \centering
         \caption{Data utilised in the thesis.} 
-        \label{tab:useddata}
+        \label{tab:used_data}
         % use \arraystretch to add whitespace between rows. \setlength\tabcolsep for columns
         \def\arraystretch{1.2} 
         \setlength\tabcolsep{1.2ex}
@@ -64,7 +64,7 @@ Despite the extensive service level of Helsinki Capital Region public transport,
     \begin{table}[H]
         \centering
         \caption{Programming languages and \glspl{ide} utilised in the thesis.} 
-        \label{tab:usedlangs}
+        \label{tab:used_langs}
         \def\arraystretch{1.3}
         \setlength\tabcolsep{1.2ex}
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedleft\arraybackslash}p{3cm} @{} }
@@ -85,7 +85,7 @@ Despite the extensive service level of Helsinki Capital Region public transport,
     \begin{table}[H]
         \centering
         \caption{Essential software packages used in the thesis. The complete list is available at the script repositories in GitHub.} 
-        \label{tab:usedsoft}
+        \label{tab:used_soft}
         \def\arraystretch{1.2}
         \setlength\tabcolsep{1.2ex}
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedleft\arraybackslash}p{3cm} @{} }
@@ -342,7 +342,7 @@ The source code for the survey described in this chapter and step-by-step inform
 %    \item export results to R
 %\end{itemize}
 
-The main objective of the thesis data processing was to merge the survey results with spatial data. Using a selection of open spatial data (table \ref{tab:useddata}), new explanatory spatial data would be available for analysis. This opened opportunities to compare the thesis survey data against that currently present in Helsinki Travel-time Matrix 2018. All data processing was carried out in Python 3.7.6, using Anaconda, a free and open-source Python distribution for scientific programming. Anaconda version 2020.02 included all essential packages for carrying out the script, except for GeoPandas 0.5.0, the package for geospatial data manipulation in Python. GeoPandas and its dependencies -- GDAL 2.4.1, Fiona 1.8.6, pyproj 2.1.3, rtree 0.8.3, and Shapely 1.6.4.post1 -- were manually installed through Python package installer pip.
+The main objective of the thesis data processing was to merge the survey data with selected spatial data. Using a selection of open spatial data (table \ref{tab:used_data}), new explanatory factors would be available for analysis. This opened opportunities to compare the thesis survey data against that currently present in Helsinki Travel-time Matrix 2018. All data processing was carried out in Python programming language version 3.7.6, using Anaconda, a free and open-source Python distribution for scientific programming. Anaconda version 2020.02 included all essential packages for carrying out the script, except for GeoPandas 0.5.0, the package for geospatial data manipulation in Python. GeoPandas and its dependencies -- GDAL 2.4.1, Fiona 1.8.6, pyproj 2.1.3, rtree 0.8.3, and Shapely 1.6.4.post1 -- were manually installed through Python package installer pip.
 
 As the first step in survey data processing, all IP addresses were anonymised. The anonymisation was carried out in such a way that the random identifiers for respondents matched in both textit{records} and textit{visitors}, preserving the possibility to associate survey responses with survey visits. 
 
@@ -355,9 +355,9 @@ As the first step in survey data processing, all IP addresses were anonymised. T
     \label{fig:paavo_resarea}%
 \end{figure}
 
-The data processing proper started with loading the open spatial data presented in the table~\ref{tab:useddata} and selecting only those areas relevant to the research. Postal code areas were processed to only include areas reachable by car from the mainland in the research area (figure~\ref{fig:paavo_resarea}). Islands not reachable by car were approximated visually using Google Maps and were removed from the data.
+The data processing proper started with loading the open spatial data presented in the table~\ref{tab:used_data} and selecting only those areas relevant to the research. Postal code areas were processed to only include areas reachable by car from the mainland in the research area (figure~\ref{fig:paavo_resarea}). Islands not reachable by car were approximated visually using Google Maps and were removed from the data.
 
-Helsinki Travel-time Matrix 2018 and the survey data of this thesis operate in different spatial units. Travel-time Matrix 2018 uses the 250 x 250 meter Statistics Finland statistics grid and the basic spatial unit of the survey data is the postal code area. Using Python, postal codes were added to each grid cell with the logic that the largest area (\textcolor{red}{LISÄÄ KUVA}) assigns the postal code. PAAVO postal code areas are not present in all of the cells of YKR statistics grid and because of this some cells have a postal code of 99999 to denote missing data. In addition, the grid was merged with data which tells how much of a cell is contained in the research area and how large is the largest share which dictated the denotation of the current cell.
+Helsinki Travel-time Matrix 2018 and the survey data of this thesis operate in different spatial units. Travel-time Matrix 2018 uses the 250 x 250 meter Statistics Finland statistics grid and the basic spatial unit of the survey data is the postal code area based on PAAVO open data (\textcolor{red}{lisää lähteet}). Using Python, postal codes were added to each grid cell with the logic that the largest area (\textcolor{red}{LISÄÄ KUVA}) assigns the postal code. In the research area PAAVO postal code areas are not present in all of the cells of YKR statistics grid and because of this some cells have a postal code of 99999 to denote missing data (\textcolor{red}{mieti 99999:n käyttö}). In addition, the grid was merged with data which tells how much of a cell is contained in the research area and how large is the largest share which dictated the denotation of the current cell.
 
 The data processing script created for this thesis contains detailed features to detect patterns in the survey data. To enable pattern recognition the records were purged of known false data, namely records and visits made by the author. In addition, one survey respondent reported that they had inserted erroneous data in the survey. These responses were identified and deleted.
 
