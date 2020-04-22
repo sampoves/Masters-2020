@@ -50,8 +50,8 @@ Despite the extensive service level of Helsinki Capital Region public transport,
             Paavo -- Open data by postal code area & Helsinki Capital Region postal code areas & Statistics Finland & \cite{StatisticsFinland2019a} \\
             Urban Atlas 2012 & Land use and land cover data in vector format & European Environment Agency & \cite{EuropeanEnvironmentAgency2016} \\
             Zones of urban structure (Yhdyskuntarakenteen vyöhykkeet) 2017 & Delineation of urban areas based on the theory of urban fabrics & Finnish Environment Institute & \cite{Ristimaki2017} \\
-            Helsinki Region-Travel Time Matrix 2018 & Travel time and distance information for routes between all YKR grid cell centroids in the Capital Region of Helsinki & Digital Geography Lab & \cite{Tenkanen2018} \\
-            MetropAccess YKR grid & Statistical grid of 250 x 250 meters for monitoring urban structure, Helsinki Capital Region area & Statistics Finland & \cite{StatisticsFinland2020} \\
+            Helsinki Region-Travel Time Matrix 2018 & Travel time and distance information for routes between all MetropAccess-YKR-grid cell centroids in the Capital Region of Helsinki & Digital Geography Lab & \cite{Tenkanen2018} \\
+            MetropAccess-YKR-grid & Statistical grid of 250 x 250 meter cells for monitoring urban structure, Helsinki Capital Region area & Toivonen et al., Statistics Finland & \cite{Toivonen2014a}, \cite{StatisticsFinland2020} \\
             \bottomrule
         \end{tabular}
     \end{table} 
@@ -126,7 +126,7 @@ Next Survey123 for ArcGIS was evaluated. An Esri operated service, Survey123 is 
 % \ref{}: tilde (~) indicates a non-breaking space
 In January 2019 the parking survey developed with Survey123 was deployed to friends and family, with a large scale marketing push on social media platforms planned for later. At its core, this survey asked respondents for specific parking events in Helsinki Capital Region they had had (figure~\ref{fig:survey123}). Respondents would pick an exact location on a map view for the location of their parked car and separately on a second map view the location of their final destination. In addition, respondents would fill the date and time of this parking event, how long it took for them to find a parking spot, how often they had parked to that area, and what kind of a parking spot they had taken. Respondents were asked repeat this process as many times as they had the will to do so.
 
-The Survey123 survey was designed to reach the same spatial resolution as Travel Time Matrix 2018 with the 250 x 250 meters YKR grid it utilises. Using exact coordinates of parkings and final destinations it would have been possible to allocate each event to possibly two different YKR grid cell codes, reaching excellent spatial resolution. As MetropAccess YKR grid contains 13 231 grid cells, there was not enough resources for this master's thesis research survey to accumulate events for every grid cell, or even for most grid cells. If the data gathering campaign would have ended with insufficient amount of parking events the backup plan was to employ an interpolation algorithm to generate approximate boundaries for the hypothetically varying parking times in Helsinki Capital Region. It was also considered that the exact coordinates of the parking events could be generalised to other boundaries, such as administrative areas like municipality subdivisions or postal code areas. 
+The Survey123 survey was designed to reach the same spatial resolution as Travel Time Matrix 2018 with its MetropAccess-YKR-grid (grid cell 250 x 250 meters). Using exact coordinates of parkings and final destinations it would have been possible to allocate each event to possibly two different MetropAccess-YKR-grid cell codes, reaching excellent spatial resolution. As MetropAccess-YKR-grid contains 13 231 grid cells, there was not enough resources for this master's thesis research survey to accumulate events for every grid cell, or even for most grid cells. If the data gathering campaign would have ended with insufficient amount of parking events the backup plan was to employ an interpolation algorithm to generate approximate boundaries for the hypothetically varying parking times in Helsinki Capital Region. It was also considered that the exact coordinates of the parking events could be generalised to other boundaries, such as administrative areas like municipality subdivisions or postal code areas. 
 
 % utilises package subfig
 \begin{figure}[H]%
@@ -319,6 +319,19 @@ The source code for the survey described in this chapter and step-by-step inform
     \end{table} 
 \end{hyphenrules}
 
+\begin{figure}[H]%
+    \centering
+    \subfloat[Respondent arrives to the survey web application to see a map with the postal code areas of Helsinki Capital Region lined out.]{{\includegraphics[width=7cm]{js_survey_process1.png} }}%
+    \quad
+    \subfloat[Respodent proceeds to fill out their parking experiences in freely chosen postal code areas.]{{\includegraphics[width=7cm]{js_survey_process2.png} }}%
+    \quad
+    \subfloat[\textit{Submit records} button activates when all questions in all selected postal code areas are completed.]{{\includegraphics[width=7cm]{js_survey_process3.png} }}%
+    \quad
+    \subfloat[Respondent receives a prompt to confirm that their submission was successful.]{{\includegraphics[width=7cm]{js_survey_process4.png} }}%
+    \caption[Steps to fill out the survey]{A respondent would follow these steps to submit data through the survey web application.}%
+    \label{fig:survey_process}%
+\end{figure}
+
 \subsection{Processing survey data}
 \label{sec:processdata} % labeling to enable hyperref to this chapter
 \justify
@@ -357,7 +370,13 @@ As the first step in survey data processing, all IP addresses were anonymised. T
 
 The data processing proper started with loading the open spatial data presented in the table~\ref{tab:used_data} and selecting only those areas relevant to the research. Postal code areas were processed to only include areas reachable by car from the mainland in the research area (figure~\ref{fig:paavo_resarea}). Islands not reachable by car were approximated visually using Google Maps and were removed from the data.
 
-Helsinki Travel-time Matrix 2018 and the survey data of this thesis operate in different spatial units. Travel-time Matrix 2018 uses the 250 x 250 meter Statistics Finland statistics grid and the basic spatial unit of the survey data is the postal code area based on PAAVO open data (\textcolor{red}{lisää lähteet}). Using Python, postal codes were added to each grid cell with the logic that the largest area (\textcolor{red}{LISÄÄ KUVA}) assigns the postal code. In the research area PAAVO postal code areas are not present in all of the cells of YKR statistics grid and because of this some cells have a postal code of 99999 to denote missing data (\textcolor{red}{mieti 99999:n käyttö}). In addition, the grid was merged with data which tells how much of a cell is contained in the research area and how large is the largest share which dictated the denotation of the current cell.
+\begin{figure}[H]%
+    \includegraphics[width=\textwidth]{images/paavo-ykr.png}
+    \caption[Assigning MetropAccess-YKR-grid postal codes]{The MetropAccess-YKR-grid cell 6002625 (marked with the red square) is assigned postal code 02360 because in that grid cell, the largest segment of PAAVO open data (coloured warm purple and yellow) belongs in the postal code 02360 Soukka. \textcolor{red}{osm cite}}%
+    \label{fig:paavo_ykr}%
+\end{figure}
+
+Helsinki Travel-time Matrix 2018 and the survey data of this thesis operate in different spatial units. Travel-time Matrix 2018 uses the MetropAccess-YKR-grid, a spatial dataset based on the Statistics Finland statistics grid with the cell size of 250 x 250 meters. The basic spatial unit of the survey data is the postal code area based on PAAVO open data (\textcolor{red}{lisää lähteet}). Using Python, postal codes were added to each MetropAccess-YKR-grid cell with the logic that the largest area (figure~\ref{fig:paavo_ykr}) assigns the postal code. In the research area PAAVO postal code areas are not present in all of the cells of MetropAccess-YKR-grid and because of this some cells have a postal code of 99999 to denote missing data (\textcolor{red}{mieti 99999:n käyttö}). In addition, the MetropAccess-YKR-grid was merged with data which tells how much of a cell is contained in the research area and how large is the largest share which dictated the denotation of the current cell.
 
 The data processing script created for this thesis contains detailed features to detect patterns in the survey data. To enable pattern recognition the records were purged of known false data, namely records and visits made by the author. In addition, one survey respondent reported that they had inserted erroneous data in the survey. These responses were identified and deleted.
 
