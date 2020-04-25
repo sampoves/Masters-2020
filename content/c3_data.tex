@@ -88,23 +88,23 @@ Despite the extensive service level of Helsinki Capital Region public transport,
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[Essential software packages in thesis]{Essential software packages used in the thesis. The complete list is available at the script repositories in GitHub.} 
+        \caption[Essential software packages in thesis]{Essential software packages used in the thesis. The complete list is available at the script repositories in GitHub. \textcolor{red}{kuuluuko citee kaikki libraryt?}} 
         \label{tab:used_soft}
         \def\arraystretch{1.2}
         \setlength\tabcolsep{1.2ex}
-        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedleft\arraybackslash}p{3cm} @{} }
+        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedleft\arraybackslash}p{3cm} @{} }
             \toprule
-            Programming language & Software package & Purpose in thesis & Developer & Citation \\
+            Programming language & Software package & Purpose in thesis & Citation \\
             \midrule
-            JavaScript & Leaflet 1.4.0 & Web mapping library for the research survey & Vladimir Agafonkin & \cite{Agafonkin2019} \\
-            Python & pandas 1.0.1 & Data analysis and manipulation & Pandas contributors & \cite{McKinney2011a} \\
-                & GeoPandas 0.5.0 & Geographic data operations & GeoPandas contributors & \cite{GeoPandasDevelopers2019} \\
-                & Shapely 1.6.4.post1 & Geometric objects, predicates, and operations & Sean Gillies & \cite{Gillies2019} \\
-                & rtree 0.8.3 & Spatial indexing & Sean Gillies, Howard Butler and contributors & \cite{Gillies2014} \\
-            R & Shiny 1.4.0 & Web application framework for R & Shiny contributors & \cite{Chang2019} \\
-                & ggplot2 3.3.0 & Data visualisation & ggplot2 contributors & \cite{Wickham2016} \\
-                & ggiraph 0.7.0 & Interactive ggplot2 graphics & ggiraph contributors & \cite{Gohel2019} \\
-                & dygraphs 1.1.1.6 & Interactive time series charting & dygraphs contributors & \cite{Vanderkam2018} \\
+            JavaScript & Leaflet 1.4.0 & Web mapping library for the research survey & \cite{Agafonkin2019} \\
+            Python & pandas 1.0.1 & Data analysis and manipulation & \cite{McKinney2011a} \\
+                & GeoPandas 0.5.0 & Geographic data operations & \cite{GeoPandasDevelopers2019} \\
+                & Shapely 1.6.4.post1 & Geometric objects, predicates, and operations & \cite{Gillies2019} \\
+                & rtree 0.8.3 & Spatial indexing & \cite{Gillies2014} \\
+            R & Shiny 1.4.0 & Web application framework for R & \cite{Chang2019} \\
+                & ggplot2 3.3.0 & Data visualisation & \cite{Wickham2016} \\
+                & ggiraph 0.7.0 & Interactive ggplot2 graphics & \cite{Gohel2019} \\
+                & dygraphs 1.1.1.6 & Interactive time series charting & \cite{Vanderkam2018} \\
             \bottomrule
         \end{tabular}
     \end{table} 
@@ -390,11 +390,17 @@ The data processing script creates two distinct reports about \textit{records}. 
 
 It was decided that if the parking time or walking time value in a \textit{records} row was 60 minutes or greater, that data row would be deleted. This value is arbitrary. The research assumes that it is highly unlikely that anybody would generally park 60 minutes away from their final destination which they would reach on foot. A hour of searching for parking is plausible in the center of Helsinki but because it its unlikeliness the same 60 minutes limit was utilised in parktime.
 
-Next in the survey data processing workflow the additional spatial data was added to \textit{postal}, the dataset with one row for each postal code area (figure~\ref{fig:gen_workflow}, section 4). Utilising \textit{records}, functions \code{sum}, \code{mean}, and \code{median} were used to produce answer count, and means and medians for parktime and walktime for all postal code area. Each postal code area also received seven columns to depict the share of \textit{YKR zones} classes in percentage. Using Urban Atlas 2012 data, the percentage of forest in each postal code area was calculated. 
+Next in the survey data processing workflow the additional spatial data was added to \textit{postal}, the dataset with one row for each postal code area (figure~\ref{fig:gen_workflow}, section 4). Utilising \textit{records}, functions \code{sum}, \code{mean}, and \code{median} were used to produce answer count, and means and medians for parktime and walktime for all postal code areas. Each postal code area also received seven columns to depict the share of \textit{YKR zones} classes in percentage. Using Urban Atlas 2012 data, the percentage of forest in each postal code area was calculated. 
 
-In the finalising section \textit{records} was prepared to be used for analysis and visualisation in R (figure~\ref{fig:gen_workflow}, section 5).  The software library for plotting in R, ggplot2, prefers data inputted in long format. To study charasteristics of postal code areas in this research it meant adding repetitive data columns in \textit{records}, where values for Urban Atlas 2012 forest, YKR zone and subdivision remained unchanged for all rows in the same postal code area. For Urban Atlas 2012 forest, a custom Jenks breaks function (GitHub user Drewda, \textcolor{red}{add cite}) with five classes were utilised to find the applicable class for each postal code area. For YKR zones, the most common urban structure type in percentage was selected for each postal code area. In addition, \textit{records} was inserted with municipality subdivision (Finnish: "suuralue") information. This was achieved by gathering data from the web sites of the municipalities of Helsinki Capital Region (\textcolor{red}{lisää cite}). Each municipality broke the subdivisions down to city district level, from where it was possible to allot postal code areas to subdivisions. This was for the most part simplistic work, but in some cases the postal code areas and city districts did not match. One such area is south of Leppävaara in Espoo. \textcolor{red}{täydennä selitys leppävaarasta ja lisää subdivision-kartta}
+In the finalising section \textit{records} was prepared to be used for analysis and visualisation in R (figure~\ref{fig:gen_workflow}, section 5).  The software library for plotting in R, \textit{ggplot2}, prefers data inputted in long format. To study charasteristics of postal code areas in this research it meant adding repetitive data columns in \textit{records}, where values for Urban Atlas 2012 forest, YKR zone and subdivision remained unchanged for all rows in the same postal code area. For Urban Atlas 2012 forest, a custom Jenks breaks function (GitHub user Drewda, \textcolor{red}{add cite}) with five classes were utilised to find the applicable class for each postal code area. For YKR zones, the most common urban structure type in percentage was selected for each postal code area. In addition, \textit{records} was inserted with municipality subdivision information (figure~\ref{fig:subdiv_placement}). This was achieved by collecting data from the web sites of the municipalities of Helsinki Capital Region (\cite{Espoonkaupunki2020}, \cite{Helsinginkaupunkiymparistontoimiala2019}, \cite{Vantaankaupunki2019}). In these sources, each municipality broke the subdivisions down to city district level, from where it was possible to allot each postal code area with a subdivision. This was for the most part simplistic work, but in some cases the postal code areas and city districts did not align and author's own deliberation was used to help the placement. Some of the most glaring discrepancies between PAAVO postal code areas and subdivision borders occur in Espoo. In the case of Lippajärvi-Järvenperä, a postal code area north of Kaunianen, the subdivision Vanha-Espoo was chosen because Lippajärvi-Järvenperä as a whole does not fit into the charasteristics of Suur-Leppävaara, and at the same time the city districts Lippajärvi and Järvenperä do not fit into the distinctive features of the subdivision Pohjois-Espoo. In the same spirit the postal code area Sepänkylä-Kuurinniitty south of Kauniainen lies troublingly in the area of four subdivisions of Espoo. In the end Vanha-Espoo was chosen as Sepänkylä-Kuurinniitty lies for the most part in its area. Similar complications occurred in Helsinki and Vantaa (the partial placement of Kirkonkylä-Veromäki and Ruskeasanta-Ilola in subdivision of Tikkurila) and using author's best judgement, the classification shown in figure~\ref{fig:subdiv_placement} was used in the survey results analysis of this thesis.
 
 The source code for the data processing described in this chapter is available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/Msc-thesis-data-analysis}}).
+
+\begin{figure}[H]%
+    \includegraphics[width=\textwidth]{images/thesis_subdiv_place.png}
+    \caption[Placing postal code areas in subdivisions]{For the purposes of analysis in R, all postal code areas in \textit{postal} were assigned with subdivision information. In this figure, distinct colors depict the subdivision classification chosen for this thesis.}%
+    \label{fig:subdiv_placement}%
+\end{figure}
 
 \subsection{Conducting analyses}
 % - Compare a few different travel time chains in Helsinki Capital Region. A few starting points and a few finishing points
