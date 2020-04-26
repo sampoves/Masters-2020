@@ -43,6 +43,9 @@
 \usepackage{hyperref}                       % Enable hyperlinks in thesis. Need to be activated before glossaries
 \usepackage[acronym,style=super4col]{glossaries} % Glossaries and lists of acronyms
 
+% Define new command \fullref to reference both section number and name
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1}, \nameref*{#1}}}
+
 % Abbreviations. Note the definition of plural forms
 \newacronym[plural=IDEs,firstplural=Integrated development environments (IDE)]{ide}{IDE}{Integrated Development Environment}
 \newacronym{php}{PHP}{Hypertext preprocessor}
