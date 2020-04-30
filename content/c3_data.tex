@@ -1,15 +1,22 @@
 \section{Data and methods}
 \subsection{General workflow}
 \justify
-This chapter describes the usage of methods in this study.
 
-\begin{itemize}
-    \item Kyselytutkimuksen teko
-    \item Kyselytutkimuksen toteuttaminen
-    \item geoprosessointi ja visualisointien tuotto
-    \item Kyselytutkimuksen tulostentutkimus
-    \item lopussa upea flowchartti
-\end{itemize}
+For this thesis, a spatial survey web application was designed and programmed. It was a long, multistage process involving changing technologies and research objectives. In this chapter the process to create the research survey is presented, from the design board to a functional web application to the end stage of data processing and visualisation. 
+
+Essential data for this research was provided by Statistics Finland, The research group Digital Geography Lab of University of Helsinki, municipalities of Helsinki Capital Region, Finnish Environment Institute, and European Environment Agency. The research area of this thesis is based on PAAVO open data by postal code area (\cite{StatisticsFinland2019a}. Data such as Urban Atlas 2012 forest polygons and areas of urban structure were utilised to provide additional explanatory variables in the survey data (\cite{EuropeanEnvironmentAgency2016}; \cite{Ristimaki2017}). For visualisation of the survey results, various data by Statistics Finland was used (\cite{StatisticsFinland2012}.
+
+Several programming languages and their libraries were used in the survey web application and subsequent data processing, analysis and visualisation. The survey itself was created with HTML, JavaScript and PHP, with the essential help of Leaflet, a JavaScript mapping library (\cite{Agafonkin2019}). Data processing was shared between Python and R, with most of the processing done in Python and most of the analysis and visualisation in R. In Python, the library GeoPandas was in central role, while the interactive analysis and visualisation application was created with Shiny (\cite{GeoPandasDevelopers2019}, \cite{Chang2019}). The thesis itself was programmed with LaTeX, using the online LaTeX editor Overleaf (\textcolor{red}{cite}).
+
+Initially the research survey strove to collect parking event data on the precise temporal and spatial resolutions of one parking event and the exact coordinates, respectively. This first version of the survey was released to a small group of people, but it was quickly decided that a spatial survey of a more general resolution was needed. After consideration, one was programmed from the ground up using HTML and JavaScript. In this new survey, which was rolled out in May 2019, the respondent would answer about their parking activities in specific postal code areas generally. The reduction in data resolution was substantial, but would still have more fidelity than the existing parking time data in Travel-time Matrix 2018.
+
+The survey was carried out in the four municipalities of Helsinki Capital Region. An invitation to participate in the survey was mostly spread in Facebook city district and neighborhood groups. Officially the response collection ended in June 2019, but the survey remained open until October 2019. The survey gathered, in total, 5222 responses from 4309 unique IP addresses.
+
+After finishing the data collection phase, the data was processed, analysed and visualised using Python and R programming languages. The process started with anonymisation of IP address data, and moved on to the processing proper. The objective of data processing in Python was to bind the survey data into a selection of open spatial data, in the effort to create new explanatory variables for the analysis phase.
+
+Most of the survey result analysis and visualisation was carried out in R. Utilising Shiny, a web application framework library for R, a data analysis and visualisation application was programmed for efficient and flexible analysis, but also to release the tool to the public, maintaining the mission of openness and transparency of this thesis.
+
+The general workflow of survey data processing can be viewed in figure~\ref{fig:gen_workflow}.
 
 \begin{figure}[H]
     \centering
@@ -17,6 +24,7 @@ This chapter describes the usage of methods in this study.
     \caption{General workflow of survey data processing in Python and R. \textcolor{red}{lisää "insert data back into records"}} 
     \label{fig:gen_workflow}
 \end{figure}
+\pagebreak
 
 \subsection{Study area}
 \justify
@@ -24,14 +32,31 @@ This chapter describes the usage of methods in this study.
 % https://www.hsl.fi/sites/default/files/19_2016_auton_omistus_helsingin_seudulla.pdf
 % https://www.hsl.fi/tutkimukset/muut-selvitykset
 % http://pxnet2.stat.fi/PXWeb/pxweb/fi/StatFin/StatFin__lii__mkan/
-The study area of this thesis is the Helsinki Capital Region. It comprises of municipalities of Helsinki, Espoo, Vantaa and Kauniainen. According to \textcolor{red}{LÄHDE}, the total population of the metropolitan area is 1.495 million. In practice the whole area amalgamates as one complete functional area with borders of the municipalities indistinguishable at the street level. The Helsinki Capital Region faces increasing pressure to manage its traffic because \textcolor{red}{LÄHDE}. Of these four municipalities Helsinki is the hub, and considered to contain the only inner city features of the municipalities (\textcolor{red}{syke-urbanareas}). Espoo, Vantaa and Kauniainen mostly consists of suburban areas with occasional industrial areas and large shopping complexes placed throughout the area. The Helsinki Capital Region is served with a high performance public transport system comprised of buses, train, subway, and tram in Helsinki. Recently, in 2017, the subway expanded from Helsinki to Espoo, triggering a new phase of quickly evolving cityscape in the surroundings of the new stations.
 
-(\textcolor{red}{Insert map of the research area})
+\textcolor{red}{kappaleen pituus ei vielä lopullinen} The study area of this thesis is the Helsinki Capital Region. It comprises of municipalities of Helsinki, Espoo, Vantaa and Kauniainen. According to \textcolor{red}{LÄHDE}, the total population of the metropolitan area is 1.495 million. In practice the whole area amalgamates as one complete functional area with borders of the municipalities indistinguishable at the street level. The Helsinki Capital Region faces increasing pressure to manage its traffic because \textcolor{red}{LÄHDE}. Of these four municipalities Helsinki is the hub, and considered to contain the only inner city features of the municipalities (\textcolor{red}{syke-urbanareas}). Espoo, Vantaa and Kauniainen mostly consists of suburban areas with occasional industrial areas and large shopping complexes placed throughout the area. The Helsinki Capital Region is served with a high performance public transport system comprised of buses, train, subway, and tram in Helsinki. Recently, in 2017, the subway expanded from Helsinki to Espoo, triggering a new phase of quickly evolving cityscape in the surroundings of the new stations.
+
+\begin{figure}[H]%
+    \includegraphics[width=\textwidth]{images/thesis_resarea.png}
+    \caption[Research area map]{Map of the Helsinki Capital Region, research area of this thesis. Specifically this research focuses on PAAVO postal code areas. The data has municipality value for each postal code area (see colouring of areas) but they do not completely align with the official municipality borders, as seen above. \textcolor{red}{osmcite}}%
+    \label{fig:thesis_resarea}%
+\end{figure}
 
 Despite the extensive service level of Helsinki Capital Region public transport, households especially in Espoo, Vantaa, and Kauniainen remain dependent on their personal vehicles (\textcolor{red}{LÄHDE}). 
 
 \subsection{Data}
 \justify
+
+\textcolor{red}{kappaleen pituus ei lopullinen, kuvat eri layereista?} Paavo chapter
+
+Urban Atlas chapter
+
+YKR zones chapter
+
+TTM18 metropaccess-grid chapter
+
+Subdivisions chapter
+
+Regional population density chapter
 
 % hyphenrules: prevent hyphenation temporarily
 \begin{hyphenrules}{nohyphenation}
@@ -64,26 +89,35 @@ Despite the extensive service level of Helsinki Capital Region public transport,
 \subsection{Used software}
 \justify
 
+\textcolor{red}{kappaleen pituus ei lopullinen} A wide variety of software was used in this thesis. The research survey application utilised JavaScript, HTML, CSS and PHP. Using the web mapping library Leaflet, a modern and easy-to-use survey application was created. Server-side, the programming language PHP was used to verify received records. 
+
+Data processing was completed using Python and R, with most of the processing done in Python and analysis and visualisation in R.
+
+% latex is not a programming language for the most part: https://www.quora.com/Is-LaTeX-a-programming-language
+The thesis was programmed using LaTeX and the online LaTeX editor Overleaf. LaTeX is a document preparation system, used to create documents such as scientific articles. LaTeX adheres to the WYSIWYM (what you see is what you mean) approach, as opposed to the "what you see is what you get" approach of text editors such as Microsoft Word, meaning that after establishing parameters LaTeX will compute document formatting, while the user can concentrate on the document content. While LaTeX can be considered a programming language, it is more closely related to HTML, a markup language (\textcolor{red}{cite}) In this LaTeX document, the LaTeX distribution TeX Live 2017 was used. Overleaf supports GitHub integration and as a result the complete thesis is available for viewing in the GitHub repository \textcolor{blue}{\url{https://github.com/sampoves/Masters-2020}} alongside with its entire development history. Additionally, the template of this thesis is provided at \textcolor{blue}{link}.
+
+In addition to the aforementioned technologies, the flowcharts in this thesis were created with the web application diagrams.net (\textcolor{red}{cite}). Most of the map visualisations of this thesis were made using the geographic information system application QGIS version 3.12.2, while the many code repositories associated with this thesis are hosted in GitHub, a service which hosts Git software development version control systems.
+
+% Consider! Removing \raggedright and hyphenrules will enable nice even table cells. Could be worth it to look into
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[Thesis programming languages]{Programming languages and \glspl{ide} utilised in the thesis. \textcolor{red}{delaa producer näistä}} 
+        \caption[Thesis programming languages]{Programming languages and \glspl{ide} utilised in the thesis.} 
         \label{tab:used_langs}
         \def\arraystretch{1.3}
         \setlength\tabcolsep{1.2ex}
-        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedleft\arraybackslash}p{3cm} @{} }
+        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{4.5cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedleft\arraybackslash}p{3.5cm} @{} }
             \toprule
-            Programming language and \gls{ide} & Description & Purpose in thesis & Developer & Citation \\
+            Programming language and \gls{ide} & Description & Purpose in thesis & Citation \\
             \midrule
-            HTML, CSS, JavaScript (NetBeans 8.2.0) & Web technologies which enable interactive web sites & Research survey programming & WHATWG, W3C, ECMA\footnotemark, Apache Software Foundation & \cite{WHATWG2020}, \cite{W3C2020}, \cite{ECMA2019}, \cite{ApacheSoftwareFoundation2016} \\
-            Python 3.7.6, Anaconda 2020.02 (Spyder 4.0.1) & Anaconda is a Python distribution for scientific computing & Survey data processing & Python Software Foundation, Anaconda, Inc., Spyder Project contributors & \cite{Python3Reference}, \cite{AnacondaInc.2020}, \cite{SpyderProjectContributors2020} \\
-            R for Windows 3.6.3 (RStudio 1.2.5033) & Programming language environment for statistical computing & Survey data analysis and visualisation & R Core Team, RStudio, Inc. & \cite{RCoreTeam2020}, \cite{RStudioTeam2015} \\
+            HTML, CSS, JavaScript (NetBeans 8.2.0) & Web technologies which enable interactive web sites & Research survey programming  & \cite{WHATWG2020}, \cite{W3C2020}, \cite{ECMA2019}, \cite{ApacheSoftwareFoundation2016} \\
+            Python 3.7.6, Anaconda 2020.02 (Spyder 4.0.1) & Anaconda is a Python distribution for scientific computing & Survey data processing & \cite{Python3Reference}, \cite{AnacondaInc.2020}, \cite{SpyderProjectContributors2020} \\
+            R for Windows 3.6.3 (RStudio 1.2.5033) & Programming language environment for statistical computing & Survey data analysis and visualisation & \cite{RCoreTeam2020}, \cite{RStudioTeam2015} \\
+            LaTeX (Overleaf) & LaTeX is a document preparation system. In this thesis, LaTeX distribution TeX Live 2017 is used. & Thesis format, structure, and writing & \textcolor{red}{latexcite, overleafcite} \\
             \bottomrule
         \end{tabular}
     \end{table} 
 \end{hyphenrules}
-% Normal footnotes in float objects do not work in Latex. Use \footnotemark and \footnotetext combo
-\footnotetext{JavaScript is a trademark of Oracle Corporation in the United States. JavaScript is defined by European Computer Manufacturers Association (ECMA). JavaScript development is guided by an ECMA committee called TC39 which includes browser developers such as Google, Mozilla and Microsoft but also non-corporate members.}
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
@@ -92,7 +126,7 @@ Despite the extensive service level of Helsinki Capital Region public transport,
         \label{tab:used_soft}
         \def\arraystretch{1.2}
         \setlength\tabcolsep{1.2ex}
-        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedleft\arraybackslash}p{3cm} @{} }
+        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedleft\arraybackslash}p{3cm} @{} }
             \toprule
             Programming language & Software package & Purpose in thesis & Citation \\
             \midrule
@@ -111,11 +145,10 @@ Despite the extensive service level of Helsinki Capital Region public transport,
 \end{hyphenrules}
 
 \subsection{Methods}
-\justify
-
 \subsubsection{Considering options for the survey}
 \justify
-(\textcolor{red}{Vois lisää kuvia näistä kokeiluista}) To collect the areal parking data, the study required an interactive survey which respondents could use to submit their parking habits in a spatial fashion. To attract a largest possible number of submissions, the survey also needed to be of modern design, easy to use and its purpose easy to understand. The survey would have to be clear-cut, effortless to internalise and short in length as to prevent users getting frustrated and leaving before submitting answers. Design-wise, the spatial resolution of the survey was in question. The particular concern was that in the case of insufficient amount of answers, what kind of area delineation would be at the same time detailed enough but also streamlined enough to realistically reach the good quality results? This chapter strives to describe the process that would lead to the implemented survey of the thesis to accentuate the challenges this kind of research entail.
+
+To collect the areal parking data, the study required an interactive survey which respondents could use to submit their parking habits in a spatial fashion. To attract a largest possible number of submissions, the survey also needed to be of modern design, easy to use and its purpose easy to understand. The survey would have to be clear-cut, effortless to internalise and short in length as to prevent users getting frustrated and leaving before submitting answers. Design-wise, the spatial resolution of the survey was in question. The particular concern was that in the case of insufficient amount of answers, what kind of area delineation would be at the same time detailed enough but also streamlined enough to realistically reach the good quality results? This chapter strives to describe the process that would lead to the implemented survey of the thesis to accentuate the challenges this kind of research entail.
 
 Once the consideration into options to produce the survey for this study had started, it quickly became apparent that there were few alternatives available and even fewer free, sufficiently customisable alternatives. Out of the proprietary options, Maptionnaire by the Finnish company Mapita was considered. They offer tailored map survey products with discounts for students. In return for the fee a subscriber receives a time window in which to carry out their survey accompanied with tailored features and customer support -- all according to the price plan. This price was considered too steep for the thesis and Maptionnaire was passed on. 
 
@@ -181,7 +214,7 @@ To achieve maximum transparency and repeatability for this research, in addition
     \end{table}
 \end{hyphenrules}
 
-Setting up the virtual machine for the use of the survey was a process of few stages. The LAMP stack was installed on the fresh virtual machine with the command \code{sudo apt install lamp-server\^}. \textcolor{red}{kuuluuko koodi graduun?} After the successful installation the MySQL tables were formed and relevant users created. The last step before a fully functioning web server was using root access to give the survey components permission to access relevant system directories. Please see the GitHub repository (\textcolor{blue}{\url{https://github.com/sampoves/parking-in-helsinki-region}}) for the full step-by-step install procedure used to set up the web server for this thesis.
+Setting up the virtual machine for the use of the survey was a process of few stages. The LAMP stack was installed on the fresh virtual machine with the command \code{sudo apt install lamp-server\^}. \textcolor{red}{kuuluuko koodi, tällaiset komennot, graduun?} After the successful installation the MySQL tables were formed and relevant users created. The last step before a fully functioning web server was using root access to give the survey components permission to access relevant system directories. Please see the GitHub repository (\textcolor{blue}{\url{https://github.com/sampoves/parking-in-helsinki-region}}) for the full step-by-step install procedure used to set up the web server for this thesis.
 
 \begin{figure}[H]%
     \includegraphics[width=\textwidth]{images/js_survey_welcome.png}
@@ -339,9 +372,7 @@ The source code for the survey described in this chapter and step-by-step inform
 \subsection{Processing survey data}
 \label{sec:processdata} % labeling to enable hyperref to this chapter
 \justify
-%% pidä postal df mukana, muuten on sekavaa
-
-%\begin{itemize}
+%\begin{itemize} %processingin tärkeimmät kohdat
 %    \item anonymisation of ip addresses
 %    \item Read in spatial data sources
 %    \item Read in survey data
@@ -359,11 +390,11 @@ The source code for the survey described in this chapter and step-by-step inform
 %    \item export results to R
 %\end{itemize}
 
-In this section various data are refered to with abbreviated names as this makes it easier to follow the data processing workflow. Please see table~\ref{tab:used_data} for the key. In this section, the dataframe containing survey responses is called \textit{records} and survey visits \textit{visitors}. \textcolor{red}{records,visitors uudelleennimeäminen kesken, en oo päättänyt yksityiskohtia vielä}
+In this section various data are refered to with abbreviated names as this makes it easier to follow the data processing workflow. Please see table~\ref{tab:used_data} for the key. In this section, the dataframe containing survey responses is called \textit{records} and survey visits \textit{visitors}. \textcolor{red}{kaikki kohdat tässä kappaleessa ei käytä lyhenteitä (records, visitors, postal) vielä. en oo päättänyt yksityiskohtia vielä tähän liittyen}
 
-The main objective of the thesis data processing was to merge \textit{records} with selected spatial data and prepare both  \textit{records} and \textit{visitors} for later analysis in R programming language environment. Using a selection of open spatial data (table~\ref{tab:used_data}), new explanatory factors would be available for analysis. This opened opportunities to compare the newly gathered survey data against that in Helsinki Travel-time Matrix 2018. In this phase, all data processing was carried out in Python programming language version 3.7.6, using Anaconda, a free and open-source Python distribution for scientific programming. Anaconda version 2020.02 included all essential packages for carrying out the script, except for GeoPandas 0.5.0, the package for geospatial data manipulation in Python. GeoPandas and its dependencies -- GDAL 2.4.1, Fiona 1.8.6, pyproj 2.1.3, rtree 0.8.3, and Shapely 1.6.4.post1 -- were manually installed through Python package installer pip.
+The main objective of the thesis data processing was to merge \textit{records} with selected spatial data and prepare \textit{records},  \textit{visitors}, \textit{postal}, and \textit{grid} for later analysis in R programming language environment. Using a selection of open spatial data (table~\ref{tab:used_data}), new explanatory variables would be available for analysis. This opened opportunities to compare the newly gathered survey data against that in Helsinki Travel-time Matrix 2018. In this phase, all data processing was carried out in Python programming language version 3.7.6, using Anaconda, a free and open-source Python distribution for scientific programming. Anaconda version 2020.02 included all essential packages for carrying out the script, except for GeoPandas 0.5.0, the package for geospatial data manipulation in Python. GeoPandas and its dependencies -- GDAL 2.4.1, Fiona 1.8.6, pyproj 2.1.3, rtree 0.8.3, and Shapely 1.6.4.post1 -- were manually installed through Python package installer pip.
 
-As the first step in the survey data processing, all IP addresses were anonymised with identifiers of ten characters consisting of numbers 0--9 and letters of English alphabet (figure~\ref{fig:gen_workflow}, section 1). The anonymisation was carried out in such a way that the random identifiers for respondents matched in both \textit{records} and \textit{visitors}, preserving the possibility to associate survey responses with survey visits. 
+As the first step in the survey data processing, all IP addresses were anonymised and replaced with identifiers of ten characters consisting of numbers 0--9 and letters of English alphabet (figure~\ref{fig:gen_workflow}, section 1). The anonymisation was carried out in such a way that the random identifiers for respondents matched in both \textit{records} and \textit{visitors}, preserving the possibility to associate survey responses with survey visits. 
 
 \begin{figure}[H]%
     \centering
@@ -374,7 +405,7 @@ As the first step in the survey data processing, all IP addresses were anonymise
     \label{fig:paavo_resarea}%
 \end{figure}
 
-The data processing proper started with loading the open spatial data presented in table~\ref{tab:used_data} and selecting only areas relevant to the research (figure~\ref{fig:gen_workflow}, section 2). For Urban Atlas 2012 data this meant selecting only areas marked 31000 Forests. YKR zones, a dataset that covers the entirety of Finland, was clipped with a research area shapefile \textit{postal} that had been extended with a 500 meter buffer. PAAVO postal code areas data was processed to only include areas reachable by car from the mainland (figure~\ref{fig:paavo_resarea}). Islands not reachable by car were approximated visually using Google Maps and were removed from the data. However, some islands in Helsinki Capital Region are technically accessible with a car from the mainland, but the access is limited. In these cases deliberation was used. For example, Suomenlinna islands and Korkeasaari were left in the data. Conversely, some technically car-accessible islands like Staffan in Espoo, and Mustasaari and Seurasaari in Helsinki were removed from the data with the grounds of them containing only private property, or no public parking spaces. \textcolor{red}{selitä laajemmin miksi näitä saaria poistellaan (analyysi ja visualisointi). lisäksi, mieti toi logiikka "yksityisalue tai ei yleisiä parkkiksia"}
+The data processing proper started with loading the open spatial data presented in table~\ref{tab:used_data} and selecting only areas relevant to the research (figure~\ref{fig:gen_workflow}, section 2). For \textit{Urban Atlas 2012} this meant selecting only areas marked 31000 Forests.\textit{YKR zones}, a dataset that covers the entirety of Finland, was clipped with spatial dimensions of PAAVO postal code areas data, \textit{postal}, that had been extended with a 500 meter buffer. \textit{postal} was processed to only include areas reachable by car from the mainland (figure~\ref{fig:paavo_resarea}). Islands not reachable by car were approximated visually using Google Maps and were removed from the data. However, some islands in Helsinki Capital Region are technically accessible with a car from the mainland, but in practice the access is limited. In these cases deliberation was used. For example, Suomenlinna islands and Korkeasaari were kept in the data. Conversely, some technically car-accessible islands like Staffan in Espoo, and Mustasaari and Seurasaari in Helsinki were removed from the data with the grounds of them containing only private property, or no public parking spaces. \textcolor{red}{selitä laajemmin miksi näitä saaria poistellaan (analyysi ja visualisointi). lisäksi, mieti toi logiikka "yksityisalue tai ei yleisiä parkkiksia"}
 
 \begin{figure}[H]%
     \includegraphics[width=\textwidth]{images/paavo-ykr.png}
@@ -382,17 +413,19 @@ The data processing proper started with loading the open spatial data presented 
     \label{fig:paavo_ykr}%
 \end{figure}
 
-Helsinki Travel-time Matrix 2018 and the survey data of this thesis operate in different spatial units. Travel-time Matrix 2018 uses the MetropAccess-YKR-grid, a spatial dataset based on the Statistics Finland statistical grid with the cell size of 250 x 250 meters. The basic spatial unit of the survey data is the postal code area based on PAAVO open data (\textcolor{red}{lisää lähteet}). Using Python, postal codes were added to each MetropAccess-YKR-grid cell with the logic that the largest area in PAAVO open data (figure~\ref{fig:paavo_ykr}) assigns the postal code in each grid cell. PAAVO postal code areas do not always intersect with the cells of MetropAccess-YKR-grid and because of this some cells were assigned a postal code of 99999 to denote missing data (\textcolor{red}{mieti 99999:n käyttö}). As a side product of this postal code assignment, the MetropAccess-YKR-grid was merged with data which tells how much of a cell was contained in the research area (PAAVO open data) and how large was the largest postal code area which dictated the postal code assignment of the current cell. \textcolor{red}{varmista että lukija ymmärtää PAAVO spatial datan ja tutkimusalueen yhteyden}
+Helsinki Travel-time Matrix 2018 and the survey data of this thesis operate in different spatial units. Travel-time Matrix 2018 uses the MetropAccess-YKR-grid (\textit{grid}), a spatial dataset based on the Statistics Finland statistical grid with the cell size of 250 x 250 meters. The basic spatial unit of the survey data is the postal code area based on PAAVO open data (\textcolor{red}{lisää lähteet}). Using Python, postal codes were added to each \textit{grid} cell with the logic that the largest area in \textit{postal} (figure~\ref{fig:paavo_ykr}) assigns the postal code in each \textit{grid} cell. \textit{postal} polygons do not always intersect with the cells of \textit{grid} and because of this some cells were assigned a postal code of 99999 to denote missing data (\textcolor{red}{mieti vielä 99999:n käyttö}). As a side product of this postal code assignment, \textit{grid} was merged with data which tells how much of a cell was contained in the research area (\textit{postal}) and how large was the largest postal code area which dictated the postal code assignment of the current cell. \textcolor{red}{varmista että lukija ymmärtää PAAVO spatial datan ja tutkimusalueen yhteyden}
 
-The data processing script created for this thesis contains detailed features to detect patterns in the survey data (figure~\ref{fig:gen_workflow}, section 3). To enhance pattern recognition \textit{records} and \textit{visitors} were purged of known false data, namely records and visits made by the author. In addition, one survey respondent reported that they had sent erroneous data to the web application server. These responses were identified and deleted.
+The data processing script created for this thesis contains detailed features to detect patterns in the survey data (figure~\ref{fig:gen_workflow}, section 3). To enhance pattern recognition \textit{records} and \textit{visitors} were purged of known false data, namely responses and visits made by the author. In addition, one survey respondent reported that they had sent erroneous data to the survey. These responses were identified and deleted.
 
 The data processing script creates two distinct reports about \textit{records}. Firstly, the data processing script aggregates \textit{records} by IP address code, resulting in an Excel file where one row represents each respondent. It is then possible to review the behaviour of each respondent, in detail. In addition to this report, the data processing script writes a text file report about IP address codes which submitted multiple responses from the same postal code area. The text file report also identifies whether the duplicate responses for each postal code area per IP address code have identical values or if they have changed between responses. These two reports were used to determine what to do about the duplicates and values which appear anomalous.
 
 It was decided that if the parking time or walking time value in a \textit{records} row was 60 minutes or greater, that data row would be deleted. This value is arbitrary. The research assumes that it is highly unlikely that anybody would generally park 60 minutes away from their final destination which they would reach on foot. A hour of searching for parking is plausible in the center of Helsinki but because it its unlikeliness the same 60 minutes limit was utilised in parktime. However, even though the Python script has the capability to delete data rows deemed illegal, all of the illegal data is preserved for later use in R.
 
-Next in the survey data processing workflow the additional spatial data was added to \textit{postal}, the dataset with one row for each postal code area (figure~\ref{fig:gen_workflow}, section 4). Utilising \textit{records}, functions \code{sum}, \code{mean}, and \code{median} were used to produce answer count, and means and medians for parktime and walktime for all postal code areas. Each postal code area also received seven columns to depict the share of \textit{YKR zones} classes in percentage. Using Urban Atlas 2012 data, the percentage of forest in each postal code area was calculated. 
+Next in the survey data processing workflow the additional spatial data was added to \textit{postal}, the dataset with one row for each postal code area (figure~\ref{fig:gen_workflow}, section 4). Utilising \textit{records}, functions \code{sum}, \code{mean}, and \code{median} were used to produce answer count, and means and medians for parktime and walktime for all postal code areas. Each postal code area also received seven columns to depict the share of \textit{YKR zones} classes in percentage. Using \textit{Urban Atlas 2012} data, the percentage of forest in each postal code area was calculated. 
 
-In the finalising section \textit{records} was prepared to be used for analysis and visualisation in R (figure~\ref{fig:gen_workflow}, section 5).  The software library for plotting in R, \textit{ggplot2}, prefers data inputted in long format. To study charasteristics of postal code areas in this research it meant adding repetitive data columns in \textit{records}, where values for Urban Atlas 2012 forest, YKR zone and subdivision remained unchanged for all rows in the same postal code area. For Urban Atlas 2012 forest, a custom Jenks breaks function (GitHub user Drewda, \textcolor{red}{add cite}) with five classes were utilised to find the applicable class for each postal code area. For YKR zones, the most common urban structure type in percentage was selected for each postal code area. In addition, \textit{records} was inserted with municipality subdivision information (figure~\ref{fig:subdiv_placement}). This was achieved by collecting data from the web sites of the municipalities of Helsinki Capital Region (\cite{Espoonkaupunki2020}, \cite{Helsinginkaupunkiymparistontoimiala2019}, \cite{Vantaankaupunki2019}). In these sources, each municipality broke the subdivisions down to city district level, from where it was possible to allot each postal code area with a subdivision. This was for the most part simplistic work, but in some cases the postal code areas and city districts did not align and author's own deliberation was used to help the placement. Some of the most glaring discrepancies between PAAVO postal code areas and subdivision borders occur in Espoo. In the case of Lippajärvi-Järvenperä, a postal code area north of Kaunianen, the subdivision Vanha-Espoo was chosen because Lippajärvi-Järvenperä as a whole does not fit into the charasteristics of Suur-Leppävaara, and at the same time the city districts Lippajärvi and Järvenperä do not fit into the distinctive features of the subdivision Pohjois-Espoo. In the same spirit the postal code area Sepänkylä-Kuurinniitty south of Kauniainen lies troublingly in the area of four subdivisions of Espoo. In the end Vanha-Espoo was chosen as Sepänkylä-Kuurinniitty lies for the most part in its area. Similar complications occurred in Helsinki and Vantaa (the partial placement of Kirkonkylä-Veromäki and Ruskeasanta-Ilola in subdivision of Tikkurila) and using author's best judgement, the classification shown in figure~\ref{fig:subdiv_placement} was used in the survey results analysis of this thesis.
+In the finalising section \textit{records} was prepared for analysis and visualisation in R (figure~\ref{fig:gen_workflow}, section 5).  The software library for plotting in R, \textit{ggplot2}, prefers data inputted in long format. To study charasteristics of postal code areas in this research it meant adding repetitive data columns in \textit{records}, where values for Urban Atlas 2012 forest, YKR zone and subdivision remained unchanged for all rows in the same postal code area. For Urban Atlas 2012 forest, a custom Jenks breaks function (GitHub user Drewda, \textcolor{red}{add cite}) with five classes were utilised to find the applicable Jenks breaks class for each postal code area. For YKR zones, the most common urban structure type in percentage was selected for each postal code area. In addition, \textit{records} was inserted with municipality subdivision information (figure~\ref{fig:subdiv_placement}). This was achieved by collecting data from the web sites of the municipalities of Helsinki Capital Region (\cite{Espoonkaupunki2020}, \cite{Helsinginkaupunkiymparistontoimiala2019}, \cite{Vantaankaupunki2019}). In these sources, each municipality broke the subdivisions down to city district level, from where it was possible to allot each postal code area with a subdivision. This was for the most part simplistic work, but in some cases the postal code areas and city districts did not align and author's own deliberation was used to help the placement. Some of the most glaring discrepancies between PAAVO postal code areas and subdivision borders occur in Espoo. In the case of Lippajärvi-Järvenperä, a postal code area north of Kaunianen, the subdivision Vanha-Espoo was chosen because Lippajärvi-Järvenperä as a whole does not fit into the charasteristics of Suur-Leppävaara, and at the same time the city districts Lippajärvi and Järvenperä do not fit into the distinctive features of the subdivision Pohjois-Espoo. In the same spirit the postal code area Sepänkylä-Kuurinniitty south of Kauniainen lies troublingly in the area of four subdivisions of Espoo. In the end Vanha-Espoo was chosen as Sepänkylä-Kuurinniitty lies for the most part in its area. Similar complications occurred in Helsinki and Vantaa (the partial placement of Kirkonkylä-Veromäki and Ruskeasanta-Ilola in subdivision of Tikkurila) and using author's best judgement, the classification shown in figure~\ref{fig:subdiv_placement} was used in the survey results analysis of this thesis.
+
+Finally, a tool to compare the thesis research survey data and that in Travel-time Matrix 2018 was developed. In this tool it was possible to insert any number of origin points and destination points in \textit{grid} id codes, and receive a detailed comparison of the two data sources. \textcolor{red}{jatka tätä kappaletta}
 
 The source code for the data processing described in this chapter is available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/Msc-thesis-data-analysis}}).
 
@@ -403,6 +436,7 @@ The source code for the data processing described in this chapter is available a
 \end{figure}
 
 \subsection{Conducting analyses}
+\justify
 % - Mostly R, but remember travelTimeComparison() in Pyytton
 % - Compare a few different travel time chains in Helsinki Capital Region. A few starting points and a few finishing points
 % - All of the statistics stuff to detect the variation 
@@ -418,8 +452,8 @@ The source code for the data processing described in this chapter is available a
 %    \item shinyapp map, nice to have, not at all important
 %    \item visitor shinyapp, see the accumulation of visits and received records
 %\end{itemize}
-\justify
-Once the data processing in Python was completed, \textit{records} and \textit{visitors} were carried over to R for its easy to access statistical analysis functionality (namely packages \textit{onewaytests} for ANOVA and Brown-Forsythe test, \textit{plotrix} for standard error, and \textit{moments} for quantiles) \textcolor{red}{citations}. To help study the large datasets, two Shiny applications were written, one for \textit{records} and a second for \textit{visitors}. Benefits of this decision were twofold. Firstly, approaching the survey results from an interactive perspective allowed countless combinations of active and inactive variables -- without constant tweaking of code -- which would be beneficial for the analysis of \textit{records}. Secondly, Shiny applications can be deployed to the internet using the website shinyapps.io. Combination of these two factors made it effortless to analyse results of the survey in a visual way and at the same time, publish the results to the public, upholding the thesis' mission of openness and transparency.
+
+Once the data processing in Python was completed, \textit{records} and \textit{visitors} were carried over to R for its easy to access statistical analysis functionality (namely packages \textit{onewaytests} for ANOVA and Brown-Forsythe test, \textit{plotrix} for standard error, and \textit{moments} for quantiles) \textcolor{red}{citations}. To help study the large datasets, two Shiny applications were written, one for \textit{records} and a second for \textit{visitors}. Benefits of this decision were twofold. Firstly, approaching the survey results from an interactive perspective allowed countless combinations of active and inactive variables -- without constant tweaking of code -- which would be beneficial for the analysis of \textit{records}. Secondly, Shiny applications can be deployed to the internet using the website shinyapps.io. Combination of these two factors made it effortless to analyse results of the survey in a visual way and at the same time, publish the results and used tools to the public, upholding the thesis' mission of openness and transparency.
 
 \begin{figure}[H]%
     \centering
@@ -430,7 +464,7 @@ Once the data processing in Python was completed, \textit{records} and \textit{v
     \label{fig:shinyapps}%
 \end{figure}
 
-In the Shiny application for \textit{records} users can view the survey responses from many different angles. Users are given control which variables are active at any moment (\hyperref[fig:shinyapps]{figure~\ref{fig:shinyapps}a}). Users control the variables through a side panel, with effects taking place in the larger main panel. The variables currently viewed are selected through two dropdown menus, Response (continuous) and Explanatory (ordinal). Continuous variables are \code{parktime} and \code{walktime} with their scale from 0--99. Ordinal variables include \code{likert}, \code{parkspot}, \code{timeofday}, \code{ua\_forest}, \code{ykr\_zone}, and \code{subdiv} with the values that can't be ordered in a sequence in the same way as continuous variables. One variable from each variable group can be selected at the same time. Any and all groups of values in the ordinal variables can be deactivated to better understand the significance of each value. In addition to the selection of the continuous and ordinal variable, users can deactivate \textit{records} data rows based on their spatial location in municipality subdivisions assigned in \hyperref[sec:processdata]{\fullref{sec:processdata}}. Most importantly, the analysis application allows selection of maximum allowed value for parktime and walktime. The default value is set at 59 minutes, but the user is free to choose any value between zero and 99.
+In the Shiny application for \textit{records} users can view the survey responses from many different angles. Users are given control which variables are active at any moment (\hyperref[fig:shinyapps]{figure~\ref{fig:shinyapps}a}). Users control the variables through a side panel, with effects taking place in the larger main panel. The variables currently viewed are selected through two dropdown menus, Response (continuous) and Explanatory (ordinal). Continuous variables are \code{parktime} and \code{walktime} with their scale from 0--99. Ordinal variables include \code{likert}, \code{parkspot}, \code{timeofday}, \code{ua\_forest}, \code{ykr\_zone}, and \code{subdiv} with the values that can't be unequivocally ordered in a sequence in the same way as continuous variables. One variable from each variable group can be selected at the same time. Any and all groups of values in the ordinal variables can be deactivated to better understand the significance of each value. In addition to the selection of the continuous and ordinal variable, users can deactivate \textit{records} data rows based on their spatial location in municipality subdivisions assigned in \hyperref[sec:processdata]{\fullref{sec:processdata}}. Most importantly, the analysis application allows selection of maximum allowed value for parktime and walktime. The default value for both is set at 59 minutes, as discussed in the \fullref{sec:processdata}, but the user is free to choose any value between zero and 99.
 
 \begin{table}[H]
     \centering
@@ -457,8 +491,8 @@ In the Shiny application for \textit{records} users can view the survey response
     \end{tabular}}
 \end{table} 
 
-When the user has selected a continuous and an ordinal variable to compare, they are presented a thorough set of descriptive statistics for currently active data rows with n, median, mean, standard deviation, standard error, confidence interval for lower and upper bound, minimum and maximum, 25 \% and 75 \% quantiles, skewness, and kurtosis. For the continuous variables, a histogram is available to visualise the distribution of walktime and parktime. Distribution of ordinal variables likert, parkspot and timeofday can be compared against other ordinal variables in a barplot. To study quartiles, a boxplot is available. Importantly, users can test their selection of variables using the test of homogeneity of variables (Levene's test), analysis of variance (ANOVA), and the Brown-Forsythe test. To provide a visual context, a map of the research area is included. The purpose of this map is to visualise which subdivisions the user has currently active and which are deactivated. Lastly, an interactive map of the research area is provided. This map, divided in postal areas, is affected with the options presented earlier in this paragraph. In addition, this interactive map is controlled by some options of its own. The map offers six different options for viewing the research area through Jenks breaks, alongside with the possibility to select amount of classes in the current view. Hovering the cursor over the map reveals a tooltip to view mean, median and percentage data about each postal code area in Helsinki Capital Region.
+When the user has selected a continuous and an ordinal variable to compare, they are presented a thorough set of descriptive statistics for currently active data rows with n, median, mean, standard deviation, standard error, confidence interval for lower and upper bound, minimum and maximum, 25 \% and 75 \% quantiles, skewness, and kurtosis. For the continuous variables, a histogram is available to visualise the distribution of walktime and parktime. Distribution of ordinal variables likert, parkspot and timeofday can be compared against other ordinal variables in a barplot. To study quartiles, a boxplot is available. Importantly, users can test their selection of variables with the test of homogeneity of variables (Levene's test), analysis of variance (ANOVA), and the Brown-Forsythe test \textcolor{red}{laajenna selityksiä}. To provide a visual context, a map of the research area is included. The purpose of this map is to visualise which subdivisions the user has currently active and which are deactivated. Lastly, an interactive map of the research area is provided. This map, divided in postal code areas, is affected with the options presented earlier in this paragraph. In addition, this interactive map is controlled by some options of its own. The map offers six distinct parameters for viewing the research area through Jenks breaks, alongside with the possibility to select amount of classes in the current view. Hovering the cursor over the map reveals a tooltip to view mean, median and percentage data about each postal code area in Helsinki Capital Region.
 
-In the Shiny application for \textit{visitors} users can view and examine events in the timeline of the survey research (figure~\ref{fig:shinyapps}). In an interactive view cumulative charts are presented for received responses and survey page first visits. The charts reveal the effect of advertisement on actual received responses and survey traffic. While not completely verifiable, the significance of different sources of responses can be viewed in the application.
+In the Shiny application for \textit{visitors} users can examine events in the timeline of the survey research (figure~\ref{fig:shinyapps}). In an interactive view cumulative charts are presented for received responses and survey page first visits. The charts reveal the effect of advertisement on actual received responses and survey traffic. While not completely verifiable, the significance of different sources of responses can be viewed in the application.
 
 Scripts described in this chapter were written in RStudio 1.2.5033 using R for Windows 3.6.3. The source code for the data analysis and visualisation scripts are available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/Msc_thesis_data_analysis}}). The interactive analysis tools are available for viewing on shinyapps.io (\textcolor{blue}{\url{https://sampoves.shinyapps.io/records}} and  \textcolor{blue}{\url{https://sampoves.shinyapps.io/visitors}}). 
