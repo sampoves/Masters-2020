@@ -46,17 +46,36 @@ Despite the extensive service level of Helsinki Capital Region public transport,
 \subsection{Data}
 \justify
 
-\textcolor{red}{kappaleen pituus ei lopullinen, kuvat eri layereista?} Paavo chapter
+\textcolor{red}{kuvat eri layereista?} The foundation of this research is the dataset \textit{PAAVO -- open data by postal code area} (abbreviated \textit{postal} in this thesis) (figure~\ref{fig:paavo_resarea}). For every postal code area in Finland, this data provides a large selection of data regarding the population. This includes demographics and data about employment by field. However, this thesis only utilises the spatial definitions of postal code areas, using these polygons in the web survey. This research makes use of the PAAVO 2018 dataset, released in January 2019. \textcolor{red}{discussioniin mahdollisuudet käyttää paavo-dataa laajemmin}
 
-Urban Atlas chapter
+% https://land.copernicus.eu/news/product-update-2013-urban-atlas-2018-lc-lu %newslink ua, released Apr 17, 2020, not stated in the news article
+In this thesis \textit{Urban Atlas Land Cover/Land Use 2012} (abbreviated \textit{Urban Atlas}, figure~\ref{fig:datalayers}) is used to locate forests in the Helsinki Capital Region (\cite{EuropeanEnvironmentAgency2016}). Provided by Copernicus Land Monitoring Service, which is coordinated by European Environment Agency, Urban Atlas consists of polygonal data about land cover and land use in populated areas which Urban Atlas calls Functional Urban Areas. For Finland, Urban Atlas data is available for Helsinki, Turku, Tampere, Lahti, Jyväskylä, Kuopio, and Oulu. In each dataset 27 different types of features are identified, forests being one of them.
 
-YKR zones chapter
+In Urban Atlas, forests include broad leaved, coniferous, and mixed forest. Counted as forest are also transitional woodland and shrub and areas with over 30 \% tree canopy and tree height over five meters, including shrub at the edges of forests. Furthermore, plantations such as Christmas tree plantations and forest regeneration area are included. As an exception Urban Atlas does not consider forests within urban areas or subject to high human pressure to belong in this class. (\cite{CopernicusLandMonitoringService2016})
 
-TTM18 metropaccess-grid chapter
+During the time of the writing of this thesis an updated version of Urban Atlas, Urban Atlas 2018 LCLU, was in the process of being launched. Unfortunately, the new dataset for Helsinki Functional Urban Area was not finished in time to be included in this work.
 
-Subdivisions chapter
+A main focus in this thesis was to compare the thesis survey results with \textit{Helsinki Region Travel Time Matrix 2018} (abbreviated \textit{TTM}), a dataset provided by Digital Geography Lab, a research group based in the University of Helsinki, the department of geosciences and geography (\cite{Tenkanen2018}). Their newest dataset provides travel times for public transport, private car, walking, and bicycling between all MetropAccess-YKR-grid cells (n=13231). All travel times were calculated using the door-to-door approach, which incorporates all parts of a journey from place A to place B into the travel time, be it walking from home door to the car or bus stop, or the time spent searching for parking. This thesis is only interested in journeys made by private car.
 
-Regional population density chapter
+\textit{MetropAccess-YKR-grid} (abbreviated \textit{grid}, figure~\ref{fig:datalayers}) is a spatial dataset consisting of cells with the dimensions of 250 by 250 meters (\cite{Toivonen2014a}). The dataset is used in the MetropAccess project of Digital Geography Lab and is based on the YKR data provided by Finnish Environment Institute and Statistics Finland (\cite{StatisticsFinland2020}). \textit{Grid} is a simple dataset and contains the spatial coordinates of cells and their identifiers, called the YKR ID. Using the YKR ID it is easy to connect \textit{TTM} data with the statistical data provided by Statistics Finland, allowing wide-ranging possibilities for further research.
+
+\textcolor{red}{huom, aineiston alkuperäiset yhdistelmäluokat poistettu/yhdistetty, muista mainita}
+All postal code areas in the survey results would be classified with the \textit{zones of urban structures} (officially \textit{Yhdyskuntarakenteen vyöhykkeet}, abbreviated \textit{YKR zones}, figure~\ref{fig:datalayers}) (\cite{Ristimaki2017}). Utilising the same statistical grid of 250 x 250 meters as MetropAccess-YKR-grid, \textit{YKR zones} classifies grid cells to produce pedestrian, public transport, and automobile zones in and around Finland's urban regions using the theory of urban fabrics according to which these three zones have developed during different times in the urban region's history (\cite{Newman2016}). In this thesis every postal code area is assigned with a class defined in the \textit{YKR zones} based on which class has the largest presence. Adding this data into the survey results aimed to deepen the possibilities to explain the hypothetical dissimilarity of survey results in different parts of the Helsinki Capital Region. 
+
+\textit{The regional division maps of Helsinki Capital Region} (officially \textit{Pääkaupunkiseudun aluejakokartat}, abbreviated \textit{subdivisions}, figure~\ref{fig:subdiv_placement}) was used in this thesis to analyse and visualise the survey results by subdivisions of Helsinki Capital Region (\cite{HelsinginEspoonVantaanjaKauniaistenmittausorganisaatiot2011}). Dividing the survey results into subdivisions would potentially give rise to local phenomena which would not be perceptible in the finest available level of resolution, the postal code areas.
+
+The dataset \textit{Regional population density 2012} (figure~\ref{fig:subdiv_placement}) was used in this thesis to visualise borders of municipalities in Helsinki Capital Region (\cite{StatisticsFinland2012}). 
+
+\begin{figure}[H]%
+    \centering
+    % use percentage of pagewidth with the syntax ".00\textwidth"
+    \subfloat[Urban Atlas 2012 forests. \textcolor{red}{liian pieni selite, mieti kokoja}]{{\includegraphics[width=.5\textwidth]{images/thesis_data_ua_forest.png} }}%
+    \subfloat[Zones of urban structure.]{{\includegraphics[width=.5\textwidth]{images/thesis_data_ykr_zones.png} }}%
+    \quad
+    \subfloat[MetropAccess-YKR-grid.]{{\includegraphics[width=\textwidth]{images/thesis_data_grid.png} }}%
+    \caption[Spatial data]{Some of the spatial data used in the thesis.}%
+    \label{fig:datalayers}%
+\end{figure}
 
 % hyphenrules: prevent hyphenation temporarily
 \begin{hyphenrules}{nohyphenation}
@@ -74,13 +93,13 @@ Regional population density chapter
             \toprule
             Data & Description & Purpose in thesis & Abbreviation in thesis & Citation \\
             \midrule
-            Paavo -- Open data by postal code area & Helsinki Capital Region postal code areas & Thesis research area & \textit{postal} & \cite{StatisticsFinland2019a} \\
-            Urban Atlas LCLU 2012 & Land use and land cover data in vector format for functional urban area of Helsinki & Source of forest data & \textit{Urban Atlas 2012} & \cite{EuropeanEnvironmentAgency2016} \\
+            Paavo -- Open data by postal code area 2018 & Helsinki Capital Region postal code areas & Thesis research area & \textit{postal} & \cite{StatisticsFinland2019a} \\
+            Urban Atlas LCLU 2012 & Land use and land cover data in vector format for functional urban area of Helsinki & Source of forest data & \textit{Urban Atlas} & \cite{EuropeanEnvironmentAgency2016} \\
             Zones of urban structure (Yhdyskuntarakenteen vyöhykkeet) 2017 & Delineation of urban areas based on the theory of urban fabrics & Source of data on spatial structure of urban areas & \textit{YKR zones} & \cite{Ristimaki2017} \\
-            Helsinki Region-Travel Time Matrix 2018 & Travel time and distance information for routes between all MetropAccess-YKR-grid cell centroids in the Capital Region of Helsinki & Use on travel time comparison calculations & \textit{TTM18} & \cite{Tenkanen2018} \\
+            Helsinki Region Travel Time Matrix 2018 & Travel time and distance information for routes between all MetropAccess-YKR-grid cell centroids in the Capital Region of Helsinki & Use on travel time comparison calculations & \textit{Travel Time Matrix} & \cite{Tenkanen2018} \\
             MetropAccess-YKR-grid & Statistical grid of 250 x 250 meter cells for monitoring urban structure, Helsinki Capital Region area & Use on travel time comparison calculations & \textit{grid} & \cite{Toivonen2014a}, \cite{StatisticsFinland2020} \\
             Regional population density 2012 & Population density with municipality boundaries & Visualisation in R & \textit{hcr\_muns} & \cite{StatisticsFinland2012} \\
-            Subdivisions in Helsinki Capital Region & Subdivisions in the municipalities of Helsinki Capital Region & Visualisation in R & \textit{subdivs} & \cite{HelsinginEspoonVantaanjaKauniaistenmittausorganisaatiot2011} \\
+            Subdivisions in Helsinki Capital Region & Subdivisions in the municipalities of Helsinki Capital Region & Visualisation in R & \textit{subdivisions} & \cite{HelsinginEspoonVantaanjaKauniaistenmittausorganisaatiot2011} \\
             \bottomrule
         \end{tabular}}
     \end{table} 
@@ -89,9 +108,9 @@ Regional population density chapter
 \subsection{Used software}
 \justify
 
-\textcolor{red}{kappaleen pituus ei lopullinen} A wide variety of software was used in this thesis. The research survey application utilised JavaScript, HTML, CSS and PHP. Using the web mapping library Leaflet, a modern and easy-to-use survey application was created. Server-side, the programming language PHP was used to verify received records. 
+A wide variety of software was used in this thesis. The thesis strives for maximum openness and transparency and therefore much of the software employed in this work is free, open-source or both. The research survey application utilised several essential web technologies such as JavaScript, HTML, CSS and PHP. Using the web mapping library Leaflet, with the assistance of jQuery and other libraries, a modern and easy-to-use survey web application was created. Server-side, the programming language PHP was used to verify received records.
 
-Data processing was completed using Python and R, with most of the processing done in Python and analysis and visualisation in R.
+Data processing was carried out with Python 3.7.6 and R for Windows 3.6.3, with most of the processing done in Python and most of the analysis and visualisation in R. Much of the work was supported by libraries available for the programming languages. In Python Anaconda version 2020.02 -- a distribution for Python for statistical computing -- provides majority of the needed software libraries, with the exception of GeoPandas, a library for geospatial pandas DataFrames in Python. In R, many libraries are available for a comprehensive set of descriptive statistics. In addition to libraries helping with the analysis, libraries Shiny, ggplot, and ggiraph formed the basis of the visualisation of the survey results.
 
 % latex is not a programming language for the most part: https://www.quora.com/Is-LaTeX-a-programming-language
 The thesis was programmed using LaTeX and the online LaTeX editor Overleaf. LaTeX is a document preparation system, used to create documents such as scientific articles. LaTeX adheres to the WYSIWYM (what you see is what you mean) approach, as opposed to the "what you see is what you get" approach of text editors such as Microsoft Word, meaning that after establishing parameters LaTeX will compute document formatting, while the user can concentrate on the document content. While LaTeX can be considered a programming language, it is more closely related to HTML, a markup language (\textcolor{red}{cite}) In this LaTeX document, the LaTeX distribution TeX Live 2017 was used. Overleaf supports GitHub integration and as a result the complete thesis is available for viewing in the GitHub repository \textcolor{blue}{\url{https://github.com/sampoves/Masters-2020}} alongside with its entire development history. Additionally, the template of this thesis is provided at \textcolor{blue}{link}.
@@ -431,7 +450,7 @@ The source code for the data processing described in this chapter is available a
 
 \begin{figure}[H]%
     \includegraphics[width=\textwidth]{images/thesis_subdiv_place.png}
-    \caption[Placing postal code areas in subdivisions]{For the purposes of analysis in R, all postal code areas in \textit{postal} were assigned with subdivision information. In this figure, distinct colors depict the subdivision classification chosen for this thesis.}%
+    \caption[Placing postal code areas in subdivisions]{For the purposes of analysis in R, all postal code areas in \textit{postal} were assigned with subdivision information. In this figure, distinct colors depict the postal code areas with the subdivision classification chosen for this thesis.}%
     \label{fig:subdiv_placement}%
 \end{figure}
 
