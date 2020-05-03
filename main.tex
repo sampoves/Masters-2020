@@ -115,11 +115,12 @@
 \setlength{\cellspacebottomlimit}{6pt}
 \addparagraphcolumntypes{X}
 \newcolumntype{?}{!{\vrule width 1.5pt}}    % thicker vline for tabularx
-\newcommand\Tstrut{\rule{0pt}{2.2ex}}       % "top" strut
-\newcommand\Bstrut{\rule[-4.0ex]{0pt}{0pt}} % "bottom" strut
-\newcommand{\TBstrut}{\Tstrut\Bstrut}       % top & bottom struts
+\newcommand\Tstrut{\rule{0pt}{2.2ex}}       % Define "top" strut
+\newcommand\Bstrut{\rule[-4.0ex]{0pt}{0pt}} % Define "bottom" strut
+\newcommand{\TBstrut}{\Tstrut\Bstrut}       % Run top & bottom struts for rows
 \usepackage{booktabs}
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
 
 % Translator command setup
 % this enables us to use multilanguage strings which works with package babel

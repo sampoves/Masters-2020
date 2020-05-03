@@ -2,12 +2,12 @@
 \begin{spacing}{1}
 \footnotesize % set table font size to small
 
-% Tabularx table notes:
+% tabularx table notes:
 %%% Circumvent having to use halves of columns by using six default columns. Smallest field has the width of two columns
 %%% In this table '?' means thicker vline. See definitions for tables in the preamble of the main document
-%%% Idea from: https://tex.stackexchange.com/questions/236155/tabularx-and-multicolumn
-%%% TBstrut is also defined in the preamble of the main document. See following address for the full explanation:
-%%%%% https://tex.stackexchange.com/questions/126539/padding-at-the-top-of-a-table-cell-in-latex
+%%% Idea from: https://tex.stackexchange.com/a/236156/182586
+%%% TBstrut is also defined in the preamble of the main document. See the following for the full explanation:
+%%%%% https://tex.stackexchange.com/a/126542/182586
 \begin{tabularx}{\linewidth}{|S{X}S{X}|S{X}|S{X}|S{X}|S{X}|}
     \Xhline{3\arrayrulewidth}
     % FIRST ROW ENGLISH, FACULTY AND DEPARTMENT
@@ -29,7 +29,7 @@
     \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \mypages} \TBstrut\\
     \hline    
     % SIXTH ROW, ABSTRACT. \hsize+10 widens abstract text to cover the page width
-    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+10\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract} \myabstract} \\ [540pt]
+    \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+10\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract} \myabstract} \\ [475pt]
     \hline
     % SEVENTH ROW, KEYWORDS
     \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax} S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline \mykeywords} \TBstrut\\

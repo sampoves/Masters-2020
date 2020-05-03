@@ -46,7 +46,7 @@ Despite the extensive service level of Helsinki Capital Region public transport,
 \subsection{Data}
 \justify
 
-\textcolor{red}{kuvat eri layereista?} The foundation of this research is the dataset \textit{PAAVO -- open data by postal code area} (abbreviated \textit{postal} in this thesis) (figure~\ref{fig:paavo_resarea}). For every postal code area in Finland, this data provides a large selection of data regarding the population. This includes demographics and data about employment by field. However, this thesis only utilises the spatial definitions of postal code areas, using these polygons in the web survey. This research makes use of the PAAVO 2018 dataset, released in January 2019. \textcolor{red}{discussioniin mahdollisuudet käyttää paavo-dataa laajemmin}
+The foundation of this research is the dataset \textit{PAAVO -- open data by postal code area} (abbreviated \textit{postal} in this thesis) (figure~\ref{fig:paavo_resarea}). For every postal code area in Finland, this data provides a large selection of data regarding the population. This includes demographics and data about employment by field. However, this thesis only utilises the spatial definitions of postal code areas, using these polygons in the web survey. This research makes use of the PAAVO 2018 dataset, released in January 2019. \textcolor{red}{discussioniin mahdollisuudet käyttää paavo-dataa laajemmin}
 
 % https://land.copernicus.eu/news/product-update-2013-urban-atlas-2018-lc-lu %newslink ua, released Apr 17, 2020, not stated in the news article
 In this thesis \textit{Urban Atlas Land Cover/Land Use 2012} (abbreviated \textit{Urban Atlas}, figure~\ref{fig:datalayers}) is used to locate forests in the Helsinki Capital Region (\cite{EuropeanEnvironmentAgency2016}). Provided by Copernicus Land Monitoring Service, which is coordinated by European Environment Agency, Urban Atlas consists of polygonal data about land cover and land use in populated areas which Urban Atlas calls Functional Urban Areas. For Finland, Urban Atlas data is available for Helsinki, Turku, Tampere, Lahti, Jyväskylä, Kuopio, and Oulu. In each dataset 27 different types of features are identified, forests being one of them.
@@ -337,11 +337,11 @@ The source code for the survey described in this chapter and step-by-step inform
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \setlength\tabcolsep{1pt}
+        \setlength\tabcolsep{2pt}
         \caption[MySQL table records]{The data content of the survey MySQL table \textit{records}.} 
         \label{tab:mysql_records}
-        \scalebox{0.92}
-        {\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedleft\arraybackslash}p{1.5cm} @{} }
+        \scalebox{0.9}
+        {\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} @{} }
             \toprule
             id & timestamp & ip & zipcode & likert & parkspot & parktime & walktime & timeofday \\
             \midrule
@@ -472,6 +472,7 @@ The source code for the data processing described in this chapter is available a
 %    \item visitor shinyapp, see the accumulation of visits and received records
 %\end{itemize}
 
+\textcolor{red}{en ole vielä puhunut travelTimeComparison()ista}
 Once the data processing in Python was completed, \textit{records} and \textit{visitors} were carried over to R for its easy to access statistical analysis functionality (namely packages \textit{onewaytests} for ANOVA and Brown-Forsythe test, \textit{plotrix} for standard error, and \textit{moments} for quantiles) \textcolor{red}{citations}. To help study the large datasets, two Shiny applications were written, one for \textit{records} and a second for \textit{visitors}. Benefits of this decision were twofold. Firstly, approaching the survey results from an interactive perspective allowed countless combinations of active and inactive variables -- without constant tweaking of code -- which would be beneficial for the analysis of \textit{records}. Secondly, Shiny applications can be deployed to the internet using the website shinyapps.io. Combination of these two factors made it effortless to analyse results of the survey in a visual way and at the same time, publish the results and used tools to the public, upholding the thesis' mission of openness and transparency.
 
 \begin{figure}[H]%
@@ -485,9 +486,10 @@ Once the data processing in Python was completed, \textit{records} and \textit{v
 
 In the Shiny application for \textit{records} users can view the survey responses from many different angles. Users are given control which variables are active at any moment (\hyperref[fig:shinyapps]{figure~\ref{fig:shinyapps}a}). Users control the variables through a side panel, with effects taking place in the larger main panel. The variables currently viewed are selected through two dropdown menus, Response (continuous) and Explanatory (ordinal). Continuous variables are \code{parktime} and \code{walktime} with their scale from 0--99. Ordinal variables include \code{likert}, \code{parkspot}, \code{timeofday}, \code{ua\_forest}, \code{ykr\_zone}, and \code{subdiv} with the values that can't be unequivocally ordered in a sequence in the same way as continuous variables. One variable from each variable group can be selected at the same time. Any and all groups of values in the ordinal variables can be deactivated to better understand the significance of each value. In addition to the selection of the continuous and ordinal variable, users can deactivate \textit{records} data rows based on their spatial location in municipality subdivisions assigned in \hyperref[sec:processdata]{\fullref{sec:processdata}}. Most importantly, the analysis application allows selection of maximum allowed value for parktime and walktime. The default value for both is set at 59 minutes, as discussed in the \fullref{sec:processdata}, but the user is free to choose any value between zero and 99.
 
+% levene, anova, boxplot, lue: https://www.itl.nist.gov/div898/handbook/eda/section3/eda35a.htm. On legit lähde
 \begin{table}[H]
     \centering
-    \caption[Records Shiny application features]{Records Shiny application features \textcolor{red}{käy läpi outputsit erityisesti statistiikassa}} 
+    \caption[Records Shiny application features]{Records Shiny application features \textcolor{red}{käy läpi outputsit erityisesti statistiikassa, katso \%-linkk}} 
     \label{tab:records_shiny_features}
     \scalebox{0.8}
     {\def\arraystretch{1.3}
@@ -500,7 +502,6 @@ In the Shiny application for \textit{records} users can view the survey response
         2 Histogram & Analysis, chart & Histogram, kernel density estimate, mean, median & - Maximum permitted \code{parktime} and \code{walktime} values \linebreak - Currently active response and explanatory variable \linebreak - Histogram binwidth \linebreak - Inactive subdivisions \\
         3 Distribution of ordinal variables & Analysis, chart & Distribution plot by explanatory variable value group & - Maximum permitted \code{parktime} and \code{walktime} values \linebreak - Currently active explanatory variable \linebreak - Explanatory variable for the distribution plot Y axis \linebreak - Inactive subdivisions \\
         4 Boxplot & Analysis, chart & Quartile data & - Maximum permitted \code{parktime} and \code{walktime} values \linebreak - Currently active response and explanatory variable \linebreak - Inactive subdivisions \\
-        % levene, anova, boxplot, lue: https://www.itl.nist.gov/div898/handbook/eda/section3/eda35a.htm
         5 Test of homogeneity of variances (Levene's test) & Analysis, table & Equality of variances for a variable calculated for the currently active response and explanatory variable & - Maximum permitted \code{parktime} and \code{walktime} values \linebreak - Currently active response and explanatory variable \linebreak - Inactive subdivisions \\
         6 Analysis of variance (ANOVA) & Analysis, table & Analysis of differences among group means in a sample & - Maximum permitted \code{parktime} and \code{walktime} values \linebreak - Currently active response and explanatory variable \linebreak - Inactive subdivisions \\
         7 Brown-Forsythe test & Analysis, table & Analysis of equality of group variances & - Maximum permitted \code{parktime} and \code{walktime} values \linebreak - Currently active response and explanatory variable \linebreak - Inactive subdivisions \\
