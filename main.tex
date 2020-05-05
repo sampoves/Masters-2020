@@ -1,7 +1,4 @@
-% Sampo notes
-% Tämä on mun gradu. Tässä alussa vähän löpinää siitä, mistä kyse ja varmaan jotain linkkejä
-
-%%% LAITOKSEN (FLAMMA) VANHAT GRADUOHJEET
+% Laitoksen vanhat graduohjeet (FLAMMA)
 %%% https://flamma.helsinki.fi/portal/units/matlu?_nfpb=true&_pageLabel=P9806621561360920311893&contentId=HY358060&placeId=HY357991&lang=fi
 % Multifile LaTeX project:
 %%% https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects
@@ -11,31 +8,30 @@
 
 \documentclass[a4paper,11pt]{article}
 
-% Set margins
+% Set margins -----------------------------------------------------------
 \usepackage{geometry}
 \geometry{a4paper,total={170mm,257mm},left=20mm,right=20mm,}
 
-% Font and layout settings
+
+% Font and layout settings ----------------------------------------------
 % See Microtype for thesis: http://www.khirevich.com/latex/microtype/
 \usepackage[activate={true,nocompatibility},tracking=true,kerning=true,factor=1100,stretch=10,shrink=10]{microtype}
-
-\renewcommand{\baselinestretch}{1.5}        % Set line spacing
 \usepackage[finnish,english]{babel}         % Set languages. Last in list is main language
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[font=small,labelfont=bf,labelsep=period]{caption}
-\setlength{\abovecaptionskip}{15pt plus 3pt minus 2pt}
-\setlength{\belowcaptionskip}{15pt plus 3pt minus 2pt}
 \usepackage{ragged2e}                       % justify text. Command: \justify
 \usepackage{lastpage}                       % Get amount of pages
-%\usepackage{subfiles}                      % multi-file .tex support
 \usepackage{color}                          % Enable \textcolor{}{}
 \usepackage{minted}                         % Format and highlight code
 \usepackage{enumitem}                       % Control layout of itemize, enumerate, description
 \usepackage{pdfpages}                       % pdf graphics
+\renewcommand{\baselinestretch}{1.5}        % Set line spacing
+\setlength{\abovecaptionskip}{15pt plus 3pt minus 2pt}
+\setlength{\belowcaptionskip}{15pt plus 3pt minus 2pt}
 
 % define \code{}: StackExchange style inline code
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
 \definecolor{light-gray}{gray}{0.95}        % Define inline code background color
 \newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}} % define command
 
@@ -43,14 +39,12 @@
 \usepackage{hyperref}                       % Hyperlinks. Need to be activated before glossaries
 \usepackage[acronym,style=super4col]{glossaries} % Glossaries and lists of acronyms
 
-% Define new command \fullref to reference both section number and name
-\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1}, \nameref*{#1}}}
 
-% Abbreviations. Note the definition of plural forms
+% Abbreviations. Note the definition of plural forms ----------------------
 \newacronym[plural=IDEs,firstplural=Integrated development environments (IDE)]{ide}{IDE}{Integrated Development Environment}
 \newacronym{php}{PHP}{Hypertext preprocessor}
 
-% Nomenclature for glossary. Note the definition of plural forms
+% Nomenclature for glossary. Note the definition of plural forms ----------
 \newglossaryentry{mysql}{
   name = {MySQL},
   description = {Open-source relational database management system},
@@ -72,7 +66,7 @@
 
 \makeglossaries
 
-% Datetime settings
+% Datetime settings  ------------------------------------------------------
 \usepackage[ddmmyyyy]{datetime}             % Change format of datetime
 %\newdateformat{mydate}{%
 %    \onedigit{\THEDAY}.\onedigit{\THEMONTH}.\THEYEAR} % remove unnecessary zeroes in date
@@ -83,16 +77,22 @@
 \newcommand*{\printfindate}{%               % Get Finnish months and year for Finnish abstract
    \ifcase \month\or Tammikuu\or Helmikuu\or Maaliskuu\or Huhtikuu\or Toukokuu\or Kesäkuu\or Heinäkuu\or Elokuu\or Syyskuu\or Lokakuu\or Marraskuu\or Joulukuu\fi \space \number\year}
 
-% Images related packages and settings
+
+% Images related packages and settings ------------------------------------
 \usepackage{rotating, graphicx}
 \graphicspath{ {images/} }
 
-% references and reference styles
+
+% references and reference styles -----------------------------------------
 \usepackage{natbib}                         % Flexible bibliography support
 \bibliographystyle{apalike2}                
 \setcitestyle{authoryear,open={},close={}}  % Removes citation parentheses
 
-% Other packages
+% Define new command \fullref to reference both section number and name
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1}, \nameref*{#1}}}
+
+
+% Other packages ----------------------------------------------------------
 %\usepackage{alphabeta}                      % Greek alphabet
 %\usepackage{amsmath}                        % AMS mathematical facilities
 \usepackage{subfig}
@@ -104,13 +104,15 @@
 \usepackage{listings}                       % Typeset source code listings using LATEX
 \usepackage{import}                         % Establish input relative to a directory
 
-% Tables
+
+% Tables -----------------------------------------------------------------
 %\usepackage[showframe]{geometry}           % Double load of geometry? what does showframe do?
 \usepackage{tabularx}                       % Tabulars with adjustable-width columns
 \usepackage{makecell}                       % Thicker vline
 \usepackage{chngpage}                       % Allows for temporary adjustment of side margins
 \usepackage{longtable}                      % Allows tables to span multiple pages
 \usepackage{cellspace}                      % Ensure minimal spacing of table cells
+\usepackage{booktabs}
 \setlength{\cellspacetoplimit}{6pt}
 \setlength{\cellspacebottomlimit}{6pt}
 \addparagraphcolumntypes{X}
@@ -118,9 +120,10 @@
 \newcommand\Tstrut{\rule{0pt}{2.2ex}}       % Define "top" strut
 \newcommand\Bstrut{\rule[-4.0ex]{0pt}{0pt}} % Define "bottom" strut
 \newcommand{\TBstrut}{\Tstrut\Bstrut}       % Run top & bottom struts for rows
-\usepackage{booktabs}
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 
+% \usepackage[table]{xcolor} and \usepackage{booktabs} to define a lighter midrule
+\newcommand{\greyrule}{\arrayrulecolor{black!30}\midrule\arrayrulecolor{black}}
 
 % Translator command setup
 % this enables us to use multilanguage strings which works with package babel
@@ -132,9 +135,10 @@
     }%
 }
 
-% Title page settings
+
+% Title page settings -----------------------------------------------------
 \usepackage{setspace}                       % Different line spacing than document default
-\newcommand{\myname}{                       % THIS STRING REPRESENTS THESIS AUTHOR IN THE DOCUMENT
+\newcommand{\myname}{                       % This string represents thesis author in the document
     Sampo Vesanen%
 }
 \newcommand{\mysupervisors}{%
@@ -148,7 +152,8 @@
     00014 Helsingin yliopisto%
 }
 
-% Abstract page settings
+
+% Abstract page settings --------------------------------------------------
 % THESIS MULTILANGUAGE STRINGS
 % Multilanguage code is adapted from here:
 % https://tex.stackexchange.com/questions/42784/language-dependent-custom-command
@@ -247,7 +252,7 @@
 \date{\today}
 
 
-% BEGIN DOCUMENT PROPER
+% BEGIN DOCUMENT PROPER ---------------------------------------------------
 \begin{document}
 
 % TITLE PAGE
@@ -279,8 +284,10 @@
 \listoftables
 
 % LIST OF ABBREVIATIONS
+\newpage
 \printglossary[type=\acronymtype,title=List of abbreviations]
 \printglossary[title=Nomenclature]
+\thispagestyle{empty}
 
 % INTRODUCTION AND RESEARCH QUESTIONS
 \newpage
@@ -313,7 +320,7 @@
 
 % APPENDICES
 \newpage
-\pagenumbering{gobble} % Suppress appendices page numbering from page and table of contents 
+\pagenumbering{gobble} % Suppress appendices page numbering from page and table of contents
 \appendix
 \import{content/}{appendices.tex}%
 

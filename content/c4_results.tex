@@ -9,9 +9,9 @@
 %- Compare parking with original Travel Time Matrix values and values collected by me
 %- Charts, statistics
 %-Just show your findings, no nonsense
-In this chapter we will discuss survey results which fit the criteria discussed in \hyperref[sec:processdata]{\fullref{sec:processdata}}. The survey received visits from 4320 unique IP addresses with a total of 5579 visits. 848 unique IP addresses visited the survey more than one time and in total 1060 unique IP addresses sent data to the survey. 24.5 percent of all visitors submitted at least one data row. On average one respondent submitted 4.9 data rows. 
+In this chapter we will discuss survey results which fit the criteria discussed in \hyperref[sec:processdata]{\fullref{sec:processdata}}. The survey received a total of 5579 visits from 4320 unique IP addresses. 848 unique IP addresses visited the survey more than one time and in total 1060 unique IP addresses sent data to the survey. 24.5 percent of all visitors submitted at least one data row. On average one respondent submitted 4.9 data rows. 
 
-The survey received in total 5183 data rows. All postal code areas were represented, median amount being 17 data rows per postal code area, but the value range was heavily skewed to the right, with first quartile being 8 data rows, second 17 data rows and third 42 data rows.
+The survey received in total 5183 data rows. All postal code areas were represented in the survey results (figure~\ref{fig:postalvis_answers}), but the data row count histogram was heavily skewed to the right, with first quartile being 8 data rows, second (median) 17 data rows and third 42 data rows (table~\ref{tab:muns_answer_stats}). There were five postal code areas with more than one hundred data rows and 55 postal code areas with less than ten data rows. In \textit{postal} there are 167 postal code areas in Helsinki, Espoo, Vantaa, and Kauniainen combined.
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
@@ -22,13 +22,14 @@ The survey received in total 5183 data rows. All postal code areas were represen
         \label{tab:muns_answer_stats}
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} @{} }
             \toprule
-            Municipality & Data rows total & Max & Mean & Median \\
+            Municipality & Data rows total & Most data rows in municipality & Mean & Median \\
             \midrule
             Helsinki & 3777 & 271 (00100 Helsinki Keskusta - Etu-Töölö) & 45.0 & 34.5 \\
             Espoo & 637 & 84 (02600 Etelä-Leppävaara) & 17.7 & 9.0 \\
             Vantaa & 746 & 91 (01510 Kirkonkylä-Veromäki) & 16.2 & 8.0 \\
             Kauniainen & 23 & 23 (02700 Kauniainen) & 23 & 23 \\
-            \midrule
+            % use \usepackage[table]{xcolor} and \usepackage{booktabs} to define \greyrule
+            \greyrule
             All & 5183 & 271 (00100 Helsinki Keskusta - Etu-Töölö) & 31.0 & 17.0 \\
             \bottomrule
         \end{tabular}
@@ -37,7 +38,7 @@ The survey received in total 5183 data rows. All postal code areas were represen
 
 \begin{figure}[H]%
     \includegraphics[width=\textwidth]{images/thesis_postalvis_answers.png}
-    \caption[Data rows received per postal code area]{This figure illustrates the data rows received in the survey per postal code area. Classes are in natural breaks (Jenks).}%
+    \caption[Data rows received per postal code area]{This figure illustrates the data rows received in the survey per postal code area. Classes are in natural breaks (Jenks). Municipality borders are based on \textit{postal} data.}%
     \label{fig:postalvis_answers}%
 \end{figure}
 
