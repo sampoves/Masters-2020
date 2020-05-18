@@ -141,7 +141,7 @@ In addition to the aforementioned technologies, the flowcharts in this thesis we
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[Essential software packages in thesis]{Essential software packages used in the thesis. The complete list is available at the script repositories in GitHub. \textcolor{red}{kuuluuko citee kaikki libraryt?}} 
+        \caption[Essential software packages in thesis]{Essential software packages used in the thesis. The complete list is available at the script repositories in GitHub. \textcolor{red}{kuuluuko citee kaikki libraryt?, tsekkaa toi keskitys}} 
         \label{tab:used_soft}
         \def\arraystretch{1.2}
         \setlength\tabcolsep{1.2ex}
@@ -150,14 +150,16 @@ In addition to the aforementioned technologies, the flowcharts in this thesis we
             Programming language & Software package & Purpose in thesis & Citation \\
             \midrule
             JavaScript & Leaflet 1.4.0 & Web mapping library for the research survey & \cite{Agafonkin2019} \\
-            Python & pandas 1.0.1 & Data analysis and manipulation & \cite{McKinney2011a} \\
-                & GeoPandas 0.5.0 & Geographic data operations & \cite{GeoPandasDevelopers2019} \\
-                & Shapely 1.6.4.post1 & Geometric objects, predicates, and operations & \cite{Gillies2019} \\
-                & rtree 0.8.3 & Spatial indexing & \cite{Gillies2014} \\
-            R & Shiny 1.4.0 & Web application framework for R & \cite{Chang2019} \\
-                & ggplot2 3.3.0 & Data visualisation & \cite{Wickham2016} \\
-                & ggiraph 0.7.0 & Interactive ggplot2 graphics & \cite{Gohel2019} \\
-                & dygraphs 1.1.1.6 & Interactive time series charting & \cite{Vanderkam2018} \\
+            \greyrule
+            \multirow{4}{*}{Python} & pandas 1.0.1 & Data analysis and manipulation & \cite{McKinney2011a} \\
+            & GeoPandas 0.5.0 & Geographic data operations & \cite{GeoPandasDevelopers2019} \\
+            & Shapely 1.6.4.post1 & Geometric objects, predicates, and operations & \cite{Gillies2019} \\
+            & rtree 0.8.3 & Spatial indexing & \cite{Gillies2014} \\
+            \greyrule
+            \multirow{4}{*}{R} & Shiny 1.4.0 & Web application framework for R & \cite{Chang2019} \\
+            & ggplot2 3.3.0 & Data visualisation & \cite{Wickham2016} \\
+            & ggiraph 0.7.0 & Interactive ggplot2 graphics & \cite{Gohel2019} \\
+            & dygraphs 1.1.1.6 & Interactive time series charting & \cite{Vanderkam2018} \\
             \bottomrule
         \end{tabular}
     \end{table} 
@@ -472,7 +474,8 @@ The source code for the data processing described in this chapter is available a
 %    \item visitor shinyapp, see the accumulation of visits and received records
 %\end{itemize}
 
-\textcolor{red}{en ole vielä puhunut travelTimeComparison()ista}
+\textcolor{red}{en ole vielä puhunut travelTimeComparison()ista} \\
+\textcolor{red}{shinyappsissa aimo päivitys, puhu lisää siitä} \\
 Once the data processing in Python was completed, \textit{records} and \textit{visitors} were carried over to R for its easy to access statistical analysis functionality (namely packages \textit{onewaytests} for ANOVA and Brown-Forsythe test, \textit{plotrix} for standard error, and \textit{moments} for quantiles) \textcolor{red}{citations}. To help study the large datasets, two Shiny applications were written, one for \textit{records} and a second for \textit{visitors}. Benefits of this decision were twofold. Firstly, approaching the survey results from an interactive perspective allowed countless combinations of active and inactive variables -- without constant tweaking of code -- which would be beneficial for the analysis of \textit{records}. Secondly, Shiny applications can be deployed to the internet using the website shinyapps.io. Combination of these two factors made it effortless to analyse results of the survey in a visual way and at the same time, publish the results and used tools to the public, upholding the thesis' mission of openness and transparency.
 
 \begin{figure}[H]%
