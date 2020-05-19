@@ -3,15 +3,17 @@
 \justify
 
 %- Present results in the order of the research questions
-%- Amount of records, amount of faulty records
+%- (Amount of records, amount of faulty records)
 %- Uncertainties
 %- Present logically all results and interesting specific questions
 %- Compare parking with original Travel Time Matrix values and values collected by me
 %- Charts, statistics
-%-Just show your findings, no nonsense
+%- Just show your findings, no nonsense
 In this chapter we will discuss the survey results which fit the criteria discussed in \hyperref[sec:processdata]{\fullref{sec:processdata}}. The survey received a total of 5579 visits from 4320 unique IP addresses. 848 unique IP addresses visited the survey more than one time and in total 1060 unique IP addresses sent data to the survey. 24.5 percent of all visitors submitted at least one data row. On average one respondent submitted 4.9 data rows. 
 
-The survey received in total 5183 data rows. All postal code areas were represented in the survey results (figure~\ref{fig:postalvis_answers}), but the data row count histogram was heavily skewed to the right, with the first quartile being eight data rows, second (median) 17 data rows and third 42 data rows (table~\ref{tab:muns_answer_stats}). There were five postal code areas with more than one hundred data rows and 55 postal code areas with less than ten data rows. There are 167 postal code areas in Helsinki, Espoo, Vantaa, and Kauniainen in \textit{postal} combined.
+The survey received in total 5183 data rows. All postal code areas were represented in the survey results (figure~\ref{fig:postalvis_answers}), but the data row count histogram was heavily skewed to the right, with the first quartile being eight data rows, second (median) 17 data rows and third 42 data rows (table~\ref{tab:muns_answer_stats}). There were five postal code areas with more than one hundred data rows and 55 postal code areas with less than ten data rows. In the research area the answers strongly cluster around the center of Helsinki, with other centers of activity being Herttoniemi and Itäkeskus-Marjaniemi in Helsinki, Tapiola-Otaniemi and Leppävaara in Espoo, and Tikkurila-Vantaanportti in Vantaa.
+
+On closer look to the municipalities, finer details become apparent. For example, in Helsinki a rough line of survey activity in the direction of southwest-northeast is visible. From the west, this area spans from Lauttasaari to the center of Helsinki and moving on all the way to Malmi. Many of the mostly residential areas are left with little activity.
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
@@ -39,7 +41,7 @@ The survey received in total 5183 data rows. All postal code areas were represen
 \begin{figure}[H]%
     \centering
     \includegraphics[width=.88\textwidth]{images/thesis_postalvis_answers.png}
-    \caption[Data rows received per postal code area]{This figure illustrates the data rows received in the survey per postal code area. Classes are in natural breaks (Jenks). Municipality borders are based on \textit{postal} data.}%
+    \caption[Data rows received per postal code area]{This figure illustrates the data rows received in the survey per postal code area (n=167). Classes are in natural breaks (Jenks). Municipality borders are based on \textit{postal} data.}%
     \label{fig:postalvis_answers}%
 \end{figure}
 
@@ -74,7 +76,9 @@ The survey received in total 5183 data rows. All postal code areas were represen
 \subsection{Statistics}
 \justify
 
-The survey data shows that there are spatial differences in parking times and walking times between municipalities and regions of Helsinki Capital Region (table~\ref{tab:parktimes_walktimes}). In is shown by the one-way analysis of variance test (ANOVA) that for parktime and walktime, there are statistically significant differences between groups (municipality subdivisions). These differences are wide ranging, with mean parking time in Helsinki being 5.2 minutes and in Espoo 3.2 minutes. Parking times vary inside municipalities; in the subdivision of Pohjois-Espoo mean parking time was 1.7 minutes while the same value for Suur-Matinkylä was 4.3 minutes. In the vast majority of subdivision groups the group sizes were sufficiently large for ANOVA analysis to be significant. This was also true for sample sizes across the board.
+The survey data shows that there are spatial differences in the parking times and walking times between municipalities and regions of Helsinki Capital Region (table~\ref{tab:parktimes_walktimes}). It is shown by the one-way analysis of variance test (ANOVA) that for parktime and walktime there are statistically significant differences between groups (municipality subdivisions). These differences are wide ranging, with mean parking time in Helsinki being 5.2 minutes, 3.8 minutes in Vantaa, 3.2 minutes in Espoo and lastly, 2.1 minutes in Kauniainen. Parking times vary inside municipalities; in Espoo, in the subdivision of Pohjois-Espoo mean parking time was 1.7 minutes while the same value for Suur-Matinkylä was 4.3 minutes. From all the subdivisions in the research area, the subdivision representing the center of Helsinki, Helsinki Southern, had the the longest mean parking time, 7.3 minutes. In the vast majority of subdivision groups the group sizes were sufficiently large for ANOVA analysis to be significant. This was also true for sample sizes across the board.
+
+The mean walking times follow the same order as parking times: On average, in Helsinki it took 4.8 minutes to walk from one's parked car to the final destination of the journey. In Vantaa this process was 4.0 minutes, while Espoo had mean parking time of 3.9 minutes and Kauniainen 2.2 minutes. Of the entire research area, Espoo's Suur-Kauklahti stood out with a mean walking time of 6.3 minutes to one's destination. It is notable that this subdivision received 10 answers, ranking second to the last after Helsinki's Östersundom's total of 6 answers.
 
 %https://www.researchgate.net/post/Is_there_a_minimum_number_per_group_neccessary_for_an_ANOVA
 %anova - ryhmän koko anovassa
@@ -100,7 +104,7 @@ The survey data shows that there are spatial differences in parking times and wa
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[Parktime and walktime descriptive statistics]{Parking times and walking times descriptive statistics displayed by municipalities and subdivisions (n=5183).}
+        \caption[Parktime and walktime descriptive statistics]{Parking times and walking times descriptive statistics displayed by municipalities and subdivisions (n=5183). The unit in median and mean is minutes.}
         \label{tab:parktimes_walktimes}
         \scalebox{0.8}
         % Column type C is a custom column which adds space to its position. Used to separate important features of this table. L aligns left.
