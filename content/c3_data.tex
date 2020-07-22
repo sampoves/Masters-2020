@@ -73,6 +73,8 @@ The dataset \textit{Regional population density 2012} (figure~\ref{fig:subdiv_pl
     \label{fig:datalayers}%
 \end{figure}
 
+\textcolor{green}{jäin tähän 210720}
+
 % hyphenrules: prevent hyphenation temporarily
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
@@ -500,7 +502,8 @@ The source code for the data processing described in this chapter is available a
 \end{figure}
 
 \newpage
-\subsection{Conducting analyses}
+\subsection{Creating applications and conducting analyses}
+\subsubsection{Analysis application}
 \justify
 % - Mostly R, but remember travelTimeComparison() in Pyytton
 % - Compare a few different travel time chains in Helsinki Capital Region. A few starting points and a few finishing points
@@ -527,7 +530,7 @@ Once the data processing in Python was completed, \textit{records} and \textit{v
     \subfloat[A segment of the shinyapps.io deployment of \textit{records}. The web application provides a wide array of analysis and visualisation tools for the results of the thesis survey research.]{{\includegraphics[width=8.1cm]{images/shinyapps_analysis.png} }}%
     \quad
     \subfloat[The shinyapps.io deployment of \textit{visitors}. In this web application users may examine how the amounts of submitted responses and unique first visits of the survey web application developed over time.]{{\includegraphics[width=8.1cm]{images/shinyapps_visitors.png} }}%
-    \caption[Survey results as shinyapps.io web applications]{shinyapps.io deployments of the two survey datasets.}%
+    \caption[Survey results as shinyapps.io web applications]{shinyapps.io deployments of the two survey dataset analysis applications.}%
     \label{fig:shinyapps}%
 \end{figure}
 
@@ -561,6 +564,18 @@ When the user has selected a continuous and an ordinal variable to compare, they
 
 Much additional work was put into the analysis application to make it as clear and easy to use tool as possible. The application features a number of links to move between the features and the settings, while smooth scrolling and animations help orientate the attention of the user. Each application feature can be switched on and off to make space for exactly the thing the user wants to examine. The analysis application allows downloading all the results, outputting tables into comma separated value files (CSV) and charts and the map into high resolution images (PNG). The files are named intuitively automatically informing of used application settings and the date of file download. In case ordinal variable value groups or subdivisions are turned off, the output images are appended with appropriate notification. Attention was given to ensure the usage of the analysis application on mobile phones. To this end, the CSS style sheet of the application detects mobile phone screen sizes and adjusts the application content accordingly. The sidebar tends to block the view of the main panel on mobile screens and for this situation a switch is provided to hide the sidebar at any given time. All graphical elements of the application are flexible SVG graphics which support effortless zooming.
 
+\subsubsection{Visitors application}
+
 In the Shiny application for \textit{visitors} users can examine events in the timeline of the survey research (figure~\ref{fig:shinyapps}). In an interactive view cumulative charts are presented for received responses and survey page first visits. The charts reveal the effect of advertisement on actual received responses and survey traffic. While not completely verifiable, the significance of different sources of responses can be viewed in the application.
+
+\subsubsection{Comparison application}
+
+Add content
+
+\begin{figure}[H]%
+    \includegraphics[width=\textwidth]{images/shinyapps_comparison.png}
+    \caption[Comparison application screenshot]{Travel time matrix and survey data comparison application, shinyapps.io deployment with the hovering tooltip visible for 01200 Hakunila.}%
+    \label{fig:shinyapps_comparison}%
+\end{figure}
 
 Scripts described in this chapter were written in RStudio 1.2.5033 using R for Windows 3.6.3. The source code for the data analysis and visualisation scripts are available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/Msc_thesis_data_analysis}}). The interactive analysis tools are available for viewing on shinyapps.io (\textcolor{blue}{\url{https://sampoves.shinyapps.io/records}} and  \textcolor{blue}{\url{https://sampoves.shinyapps.io/visitors}}).
