@@ -492,29 +492,29 @@ Next in the survey data processing workflow the additional spatial data was adde
         \centering
         \def\arraystretch{1.2}
         \setlength\tabcolsep{1.2ex}
-        \caption[CORINE data levels]{CORINE land cover 2018 data level hierarchy under artificial surfaces. \textcolor{red}{wonky multirows}}
+        \caption[CORINE data levels]{CORINE land cover 2018 data level hierarchy under artificial surfaces.}
         \label{tab:corine_artificial}
         \scalebox{0.85}
-        {\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} @{} }
+        {\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{4cm} @{} >{\raggedright\arraybackslash}p{4cm} @{} >{\raggedright\arraybackslash}p{4.25cm} @{} >{\raggedright\arraybackslash}p{4cm} @{} }
             \toprule
             Level1, Level1Eng & Level2, Level2Eng & Level3, Level3Eng & Level4, Level4Eng \\
             \midrule
-            \multirow{16}{4cm}{1 Artificial surfaces} & \multirow{2}{4cm}{11 Urban fabric} & 111 Continuous urban fabric 
+            \multirow{16}{4cm}[-15ex]{1 Artificial surfaces} & \multirow{2}{4cm}[-4ex]{11 Urban fabric} & 111 Continuous urban fabric 
  & 1111 Continuous urban fabric \\
             \arrayrulecolor{black!30}\cmidrule(lr){3-4}
             & & 112 Discontinuous urban fabric & 1121 Discontinuous urban fabric \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-4}
-            & \multirow{2}{*}{12 Urban fabric} & \multirow{2}{4cm}{121 Industrial or commercial units} & 1211 Commercial units \\
+            & \multirow{2}{4cm}[-0.5ex]{12 Urban fabric} & \multirow{2}{4cm}{121 Industrial or commercial units} & 1211 Commercial units \\
             \arrayrulecolor{black!30}\cmidrule(lr){4-4}
             & & & 1212 Industrial units \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-4}
-            & \multirow{3}{4cm}{12 Industrial, commercial and transport units} & 122 Road and rail networks and associated land & 1221 Road and rail networks and associated land \\
+            & \multirow{3}{4cm}[-4ex]{12 Industrial, commercial and transport units} & 122 Road and rail networks and associated land & 1221 Road and rail networks and associated land \\
             \arrayrulecolor{black!30}\cmidrule(lr){3-4}
             & & 123 Port areas & 1231 Port areas \\
             \arrayrulecolor{black!30}\cmidrule(lr){3-4}
             & & 124 Airports & 1241 Airports \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-4}
-            & \multirow{4}{4cm}{13 Mine, dump and construction sites} & \multirow{2}{4cm}{131 Mineral extraction sites} & 1311 Mineral extraction sites \\
+            & \multirow{4}{4cm}[-4ex]{13 Mine, dump and construction sites} & \multirow{2}{4cm}[-2.5ex]{131 Mineral extraction sites} & 1311 Mineral extraction sites \\
             \arrayrulecolor{black!30}\cmidrule(lr){4-4}
             & & & 1312 Open cast mines \\
             \arrayrulecolor{black!30}\cmidrule(lr){3-4}
@@ -522,9 +522,9 @@ Next in the survey data processing workflow the additional spatial data was adde
             \arrayrulecolor{black!30}\cmidrule(lr){3-4}
             & & 133 Construction sites & 1331 Construction sites \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-4}
-            & \multirow{5}{4cm}{14 Artificial, non-agricultural vegetated areas} & 141 Green urban areas & 1411 Green urban areas \\
+            & \multirow{5}{4cm}[-2ex]{14 Artificial, non-agricultural vegetated areas} & 141 Green urban areas & 1411 Green urban areas \\
             \arrayrulecolor{black!30}\cmidrule(lr){3-4}
-            & & \multirow{4}{4cm}{142 Sport and leisure facilities} & 1421 Summer cottages \\
+            & & \multirow{4}{4cm}[-3ex]{142 Sport and leisure facilities} & 1421 Summer cottages \\
             \arrayrulecolor{black!30}\cmidrule(lr){4-4}
             & & & 1422 Sport and leisure areas \\
             \arrayrulecolor{black!30}\cmidrule(lr){4-4}
@@ -536,11 +536,7 @@ Next in the survey data processing workflow the additional spatial data was adde
     \end{table} 
 \end{hyphenrules}
 
-\textcolor{blue}{tilanne 230720}
-
-In the finalising section \textit{records} was prepared for analysis and visualisation in R (figure~\ref{fig:gen_workflow}, section 5).  The software library for plotting in R, \textit{ggplot2}, prefers data inputted in long format. To study charasteristics of postal code areas in this research it meant adding repetitive data columns in \textit{records}, where values for Urban Atlas 2012 forest, YKR zone and subdivision remained unchanged for all rows in the same postal code area. For Urban Atlas 2012 forest, a custom Jenks breaks function (GitHub user Drewda, \textcolor{red}{add cite}) with five classes were utilised to find the applicable Jenks breaks class for each postal code area. For YKR zones, the most common urban structure type in percentage was selected for each postal code area. In addition, \textit{records} was inserted with municipality subdivision information (figure~\ref{fig:subdiv_placement}). This was achieved by collecting data from the web sites of the municipalities of Helsinki Capital Region (\cite{Espoonkaupunki2020}, \cite{Helsinginkaupunkiymparistontoimiala2019}, \cite{Vantaankaupunki2019}). In these sources, each municipality broke the subdivisions down to city district level, from where it was possible to allot each postal code area with a subdivision. This was for the most part simplistic work, but in some cases the postal code areas and city districts did not align and author's own deliberation was used to help the placement. Some of the most glaring discrepancies between PAAVO postal code areas and subdivision boundaries occur in Espoo. In the case of Lippajärvi-Järvenperä, a postal code area north of Kauniainen, the subdivision Vanha-Espoo was chosen because Lippajärvi-Järvenperä as a whole does not fit into the charasteristics of Suur-Leppävaara, and at the same time the city districts Lippajärvi and Järvenperä do not fit into the distinctive features of the subdivision Pohjois-Espoo. In the same spirit the postal code area Sepänkylä-Kuurinniitty south of Kauniainen lies troublingly in the area of four subdivisions of Espoo. In the end Vanha-Espoo was chosen as Sepänkylä-Kuurinniitty lies for the most part in its area. Similar complications occurred in Helsinki and Vantaa (the partial placement of Kirkonkylä-Veromäki and Ruskeasanta-Ilola in subdivision of Tikkurila) and using author's best judgement, the classification shown in figure~\ref{fig:subdiv_placement} was used in the survey results analysis of this thesis.
-
-Finally, a tool to compare the thesis research survey data and that in Travel-time Matrix 2018 was developed. In this tool it was possible to insert any number of origin points and destination points in \textit{grid} id codes, and receive a detailed comparison of the two data sources. \textcolor{red}{jatka tätä kappaletta}
+In the finalising section \textit{records} was prepared for analysis and visualisation in R (figure~\ref{fig:gen_workflow}, section 5).  The software library for plotting in R, \textit{ggplot2}, prefers data inputted in long format. To study charasteristics of postal code areas in this research it meant adding repetitive data columns in \textit{records}, where values for CORINE land cover 2018 artificial surfaces, YKR zone and subdivision remained unchanged for all rows in the same postal code area. For artificial surfaces, a custom Jenks breaks function (GitHub user Drewda, \textcolor{red}{add cite}) with five classes were utilised to find the applicable Jenks breaks class for each postal code area. For YKR zones, the most common urban structure type in percentage was selected for each postal code area. In addition, \textit{records} was inserted with municipality subdivision information (figure~\ref{fig:subdiv_placement}). This was achieved by collecting data from the web sites of the municipalities of Helsinki Capital Region (\cite{Espoonkaupunki2020}, \cite{Helsinginkaupunkiymparistontoimiala2019}, \cite{Vantaankaupunki2019}). In these sources, each municipality broke the subdivisions down to city district level, from where it was possible to allot each postal code area with a subdivision. This was for the most part simplistic work, but in some cases the postal code areas and city districts did not align and author's own deliberation was used to help the placement. Some of the most glaring discrepancies between PAAVO postal code areas and subdivision boundaries occur in Espoo. In the case of Lippajärvi-Järvenperä, a postal code area north of Kauniainen, the subdivision Vanha-Espoo was chosen because Lippajärvi-Järvenperä as a whole does not fit into the charasteristics of Suur-Leppävaara, and at the same time the city districts Lippajärvi and Järvenperä do not fit into the distinctive features of the subdivision Pohjois-Espoo. In the same spirit the postal code area Sepänkylä-Kuurinniitty south of Kauniainen lies troublingly in the area of four subdivisions of Espoo. In the end Vanha-Espoo was chosen as Sepänkylä-Kuurinniitty lies for the most part in its area. Similar complications occurred in Helsinki and Vantaa (the partial placement of Kirkonkylä-Veromäki and Ruskeasanta-Ilola in subdivision of Tikkurila) and using author's best judgement, the classification shown in figure~\ref{fig:subdiv_placement} was used in the survey results analysis of this thesis.
 
 The source code for the data processing described in this chapter is available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/Msc-thesis-data-analysis}}).
 
@@ -566,14 +562,16 @@ The source code for the data processing described in this chapter is available a
 %    \item visitor shinyapp, see the accumulation of visits and received records
 %\end{itemize}
 
+\textcolor{blue}{tilanne 230720}
+
 \textcolor{red}{shinyappsissa aimo päivitys, puhu lisää siitä} \\
-Once the data processing in Python was completed, \textit{records} and \textit{visitors} were carried over to R to utilise its easy to access statistical analysis functionality. For this thesis this meant namely packages \textit{onewaytests} for ANOVA and Brown-Forsythe test, \textit{plotrix} for standard error, and \textit{moments} for quantiles (\textcolor{red}{citations}). To help study the large datasets, two Shiny applications were written, one for \textit{records} and a second for \textit{visitors}. Benefits of this decision were twofold. Firstly, approaching the survey results from an interactive perspective allowed countless combinations of active and inactive variables -- without constant tweaking of code -- which would be beneficial for the analysis of \textit{records}. Secondly, Shiny applications can be deployed to the internet using the website shinyapps.io. Combination of these two factors made it effortless to analyse results of the survey in a visual way and at the same time, publish the results and used tools to the public, upholding the thesis' mission of openness and transparency.
+Once the data processing in Python was completed, \textit{records} and \textit{visitors} were carried over to R to utilise its easy to access statistical analysis functionality. For this thesis this meant namely packages \textit{onewaytests} for ANOVA and Brown-Forsythe test, \textit{plotrix} for standard error, and \textit{moments} for quantiles (\textcolor{red}{citations}). To help study the large datasets, three Shiny applications were written, one for \textit{records} and a second for \textit{visitors}, and a third one to study differences between survey results and Helsinki Region Travel Time Matrix 2018. Benefits in creating these applications were twofold. Firstly, approaching the survey results from an interactive perspective allowed countless combinations of active and inactive variables -- without constant tweaking of code -- which would be beneficial for the analysis of \textit{records}. Secondly, Shiny applications can be deployed to the internet using the website shinyapps.io. Combination of these two factors made it effortless to analyse results of the survey in a visual way and at the same time, publish the results and used tools to the public, upholding the thesis' mission of openness and transparency.
 
 \begin{figure}[H]%
     \centering
-    \subfloat[A segment of the shinyapps.io deployment of \textit{records}. The web application provides a wide array of analysis and visualisation tools for the results of the thesis survey research.]{{\includegraphics[width=8.1cm]{images/shinyapps_analysis.png} }}%
+    \subfloat[A segment of the shinyapps.io deployment of \textit{records} application. The web application provides a wide array of analysis and visualisation tools for the results of the thesis survey research.]{{\includegraphics[width=8.1cm]{images/shinyapps_analysis.png} }}%
     \quad
-    \subfloat[The shinyapps.io deployment of \textit{visitors}. In this web application users may examine how the amounts of submitted responses and unique first visits of the survey web application developed over time.]{{\includegraphics[width=8.1cm]{images/shinyapps_visitors.png} }}%
+    \subfloat[The shinyapps.io deployment of \textit{visitors} application. In this web application users may examine how the amounts of submitted responses and unique first visits to the thesis web survey developed over time.]{{\includegraphics[width=8.1cm]{images/shinyapps_visitors.png} }}%
     \caption[Survey results as shinyapps.io web applications]{shinyapps.io deployments of the two survey dataset analysis applications.}%
     \label{fig:shinyapps}%
 \end{figure}
@@ -614,7 +612,7 @@ In the Shiny application for \textit{visitors} users can examine events in the t
 
 \subsubsection{Comparison application}
 
-Add content
+insert content
 
 \begin{figure}[H]%
     \includegraphics[width=\textwidth]{images/shinyapps_comparison.png}
