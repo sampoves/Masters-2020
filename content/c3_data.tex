@@ -52,7 +52,7 @@ The foundation of this research is the dataset \textit{PAAVO -- open data by pos
 
 In this thesis, the \textit{CORINE Land Cover 2018} (abbreviated \textit{CORINE}, figure~\ref{fig:datalayers}) vector format dataset is used to locate built area, or artificial surface, in the Helsinki Capital Region (\textcolor{red}{corinecite}). Provided by Finnish Environment Institute, CORINE contains polygonal data about land cover and land use for the entire nation in different hierarchy levels. In this thesis, the hierarchy level 1 value \textit{Artificial surfaces} is used. The minimum unit depicted in this dataset is 25 hectares in area or 100 meters in width. This slightly coarse data fits well with the spatially simplified nature of PAAVO postal code areas. CORINE dataset is an integration of automated satellite image interpretation and existing digital map data. \textcolor{red}{lisää taulukko siitä mitä level 1 artificial surfaces sisältää}
 
-A main focus in this thesis was to compare the thesis survey results with \textit{Helsinki Region Travel Time Matrix 2018} (abbreviated \textit{TTM}), a dataset provided by Digital Geography Lab, a research group based in the University of Helsinki, the department of geosciences and geography (\cite{Tenkanen2018}). Their newest dataset provides travel times for public transport, private car, walking, and bicycling between all MetropAccess-YKR-grid cells (n=13231) \textcolor{red}{varmista että selitetty tätä ennen metropaccess ykr}. All travel times in this dataset were calculated using the door-to-door approach, which incorporates all parts of a journey from place A to place B into the travel time, including walking from one's home door to the car or bus stop and the time spent searching for parking. This thesis focuses on journeys made by private car. \textcolor{red}{lisää se door2door-kuva jonnekin}
+A main focus in this thesis was to compare the thesis survey results with \textit{Helsinki Region Travel Time Matrix 2018} (abbreviated \textit{TTM}), a dataset provided by Digital Geography Lab, a research group based in the University of Helsinki, the department of geosciences and geography (\cite{Tenkanen2018}). Their newest dataset provides travel times for public transport, private car, walking, and bicycling between all MetropAccess-YKR-grid cells (n=13231) \textcolor{red}{varmista että selitetty tätä ennen metropaccess ykr}. All travel times in this dataset were calculated using the door-to-door approach, which incorporates all parts of a journey from place A to place B into the travel time, including walking from one's home door to the car or bus stop and the time spent searching for parking. This thesis focuses on journeys made by private car.
 
 \textit{MetropAccess-YKR-grid} (abbreviated \textit{grid}, figure~\ref{fig:datalayers}) is a spatial dataset consisting of cells with the dimensions of 250 by 250 meters (\cite{Toivonen2014a}). The dataset is used in the MetropAccess project of Digital Geography Lab and is based on the YKR data provided by Finnish Environment Institute and Statistics Finland (\cite{StatisticsFinland2020}). \textit{Grid} is a simple dataset and contains the spatial coordinates of cells and their identifiers, called the YKR ID. Using the YKR ID it is easy to connect \textit{TTM} data with the statistical data provided by Statistics Finland, allowing wide-ranging possibilities for further research.
 
@@ -138,7 +138,7 @@ In addition to the aforementioned technologies, the flowcharts in this thesis we
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[Essential software packages in thesis]{Essential software libraries used in the thesis. Please see the complete list of libraries in \textcolor{red}{appendix number something}.} 
+        \caption[Essential software packages in thesis]{Essential software libraries used in the thesis. The complete list of libraries can be viewed in \textcolor{red}{appendix number something}.} 
         \label{tab:used_soft}
         \def\arraystretch{1.2}
         \setlength\tabcolsep{1.2ex}
@@ -236,7 +236,7 @@ To achieve maximum transparency and repeatability for this research, in addition
     \end{table}
 \end{hyphenrules}
 
-Setting up the virtual machine for the use of the survey was a process of a few stages. The LAMP stack was installed on the fresh virtual machine with the command \code{sudo apt install lamp-server\^}. After the successful installation the MySQL tables were formed and relevant users created. The last step before a fully functioning web server was using root access to give the survey components permission to access relevant system directories. Please see the GitHub repository (\textcolor{blue}{\url{https://github.com/sampoves/parking-in-helsinki-region}}) for the full step-by-step install procedure used to set up the web server for this thesis.
+Setting up the virtual machine for the use of the survey was a process of a few stages. The LAMP stack was installed on the fresh virtual machine with the command \code{sudo apt install lamp-server\^}. After the successful installation the MySQL tables were formed and relevant users created. The last step before a fully functioning web server was using root access to give the survey components permission to access relevant system directories. The parking survey's GitHub repository (\textcolor{blue}{\url{https://github.com/sampoves/parking-in-helsinki-region}}) may be viewed for the full step-by-step install procedure used to set up the web server for this thesis.
 
 \begin{figure}[H]%
     \includegraphics[width=\textwidth]{images/js_survey_welcome.png}
@@ -246,7 +246,7 @@ Setting up the virtual machine for the use of the survey was a process of a few 
 
 The survey front-end was programmed in NetBeans \gls{ide} 8.2 in mostly JavaScript using an open-source mapping library Leaflet (software version 1.4.0) in January--May 2019. In the survey, the respondent was presented with a map view of Helsinki Capital Region with its 167 postal code areas with the ability to drag the view, zoom in and out, search for places and addresses, choose the language between English and Finnish, and tweak various other settings to their liking. In this web survey, the respondent was asked to pick as many postal code areas as they could remember parking in in the last two years, and answer to five questions per each postal code area (table~\ref{tab:js_survey_questions} and figure~\ref{fig:js_survey_questions}). In each question, the respondent was asked to estimate their parking experience in that postal code area usually during the past two years. The last two years was chosen as the timeframe to allow respondents to comfortably recall parking events which happened during the subjective notion of "recent memory" while also forbidding the submission of out of date parking times. 
 
-\textcolor{red}{lisää kappale, jossa selitän kysymysten sisällön auki, tsekkaa apu surveystä} parktime, walktime: The maximum values in these fields were consciously placed to 99 in an effort for the range to not feel restrictive for user.
+\textcolor{red}{lisää kappale, jossa selitän kysymysten sisällön auki, tsekkaa apu surveystä} The maximum values for searching for parking and walking to destination were consciously placed to 99 in an effort for the range to not feel restrictive for thes survey respondent.
 
 In the introduction to the survey, it was explained to respondents that all answers were meant to be estimates as the survey was not about an exact time and place. To mitigate confusion and errors made by respondents a comprehensive help functionality and a location search tool were implemented in the parking survey. Once the respondent was finished with the survey, they would send their responses to the server. Respondents were welcomed to return to the survey to send additional data on any postal code areas they had missed the last time.
 
@@ -282,7 +282,7 @@ In the introduction to the survey, it was explained to respondents that all answ
 
 When data was received from the respondent, a script written in \gls{php} verified the data contents. This was an effort to prevent attacks on the web server running the study survey. Only specific variables of specific types were accepted from the front-end. Additionally, the \gls{php} verification made sure falsified or incomplete data would not be accepted into the database containing the verified results. If the server-side verification test failed in any way, the respondent was informed about it. 
 
-In addition to the data verification, a PHP script tracked the IP addresses which accessed the survey web server. By using the survey, respondents agreed that their IP addresses were recorded for the use of this thesis solely to identify falsified or overlapping data and detect unique visits. All IP addresses were anonymised with a Python script and original sensitive data deleted. The anonymisation script is available for viewing at the thesis data analysis repository at GitHub (\textcolor{red}{repolink}).
+In addition to the data verification, a PHP script tracked the IP addresses which accessed the survey web server. By using the survey, respondents agreed that their IP addresses were recorded for the use of this thesis solely to identify falsified or overlapping data and detect unique visits. All IP addresses were anonymised with a Python script and original sensitive data deleted. The anonymisation script is available for viewing at the thesis data analysis repository at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/Msc-thesis-data-analysis}}).
 
 As a final survey component, the server side contained two MySQL datatables, one for received data (table~\ref{tab:mysql_records}) and another for survey web page hits (table~\ref{tab:mysql_visitors}). In the table \textit{records}, the following data was recorded: time of sending (column name \code{timestamp}), IP address (\code{ip}), postal area code (\code{zipcode}), a value in the sequence 1--5 for the likert question (\code{likert}), a value in the sequence 1--5 for the question what type of parking spot was used (\code{parkspot}), an integer value for how long it usually took to park in this location (\code{parktime}), an integer value for how long it usually took to walk from parking place to one's destination (\code{walktime}), and a value in the sequence 1--4 for the question at what time of the day one usually parks in the location (\code{timeofday}) (table~\ref{tab:mysql_records_str}). In the table \textit{records}, it is notable that in the case an respondent sent the web server data for multiple postal code areas each of the postal code areas would take up their own row in the data table. Consequently, it was theoretically possible for one respondent to simultaneously submit 167 rows of data.
 
@@ -340,14 +340,14 @@ $\text{Espoo}\rightarrow\text{Helsinki}\rightarrow\text{Vantaa}\rightarrow\text{
 
 In addition to Facebook, an effort was also made to get faculty members of geosciences and geography and students of University of Helsinki to participate in the survey. A small amount of answers were collected with a tweet sent from the Twitter account of Digital Geography Lab. After the initial invitation to participate, reminders were sent to the largest Facebook groups one month after the original posts.
 
-The source code for the survey described in this chapter and step-by-step information to set up an identical system is available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/parking-in-helsinki-region}}). As a side product, a variant of this survey was created where respondents pick precise points instead of areas. This point-based survey template is, too, available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/leaflet-map-survey-point}}).
+The source code for the survey described in this chapter and step-by-step information to set up an identical system is available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/parking-in-helsinki-region}}). As a side product, a variant of this survey was created where respondents pick precise points instead of areas. This point-based survey template is, too, available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/leaflet-map-survey-point}}). The parking survey web application as it was used in this thesis may be tested in the following web address: \textcolor{blue}{\url{https://parking-survey.socialsawblade.fi}}.
 
 % \scalebox to prevent table going too wide
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
         \setlength\tabcolsep{2pt}
-        \caption[MySQL table records]{An excerpt of the data content of the survey MySQL table \textit{records}.} 
+        \caption[MySQL table records]{An excerpt of the data content of the research survey MySQL table \textit{records}.} 
         \label{tab:mysql_records}
         \scalebox{0.9}
         {\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} @{} }
@@ -368,7 +368,7 @@ The source code for the survey described in this chapter and step-by-step inform
     \begin{table}[H]
         \centering
         \setlength\tabcolsep{1pt}
-        \caption[MySQL table visitors]{An excerpt of the data content of the survey MySQL table \textit{visitors}.} 
+        \caption[MySQL table visitors]{An excerpt of the data content of the research survey MySQL table \textit{visitors}.} 
         \label{tab:mysql_visitors}
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedleft\arraybackslash}p{1cm} @{} }
             \toprule
@@ -430,7 +430,7 @@ As the first step in the survey data processing, all IP addresses were anonymise
     \subfloat[Unedited PAAVO postal code areas for Helsinki Capital Region.]{{\includegraphics[width=8.1cm]{resarea_unedited.png} }}%
     \quad
     \subfloat[PAAVO postal code areas for Helsinki Capital Region, islands unreachable by car removed.]{{\includegraphics[width=8.1cm]{resarea_edited.png} }}%
-    \caption[Process to remove islands not reachable by car]{Islands unreachable by car were removed from the postal code area data in the Python data processing. \textcolor{red}{could be better by only showing one pic with mainland and unreachable islands in different colors}}%
+    \caption[Process to remove islands not reachable by car]{Islands unreachable by car were removed from the postal code area data in the Python data processing.}%
     \label{fig:paavo_resarea}%
 \end{figure}
 
@@ -492,7 +492,7 @@ Next in the survey data processing workflow the additional spatial data was adde
         \centering
         \def\arraystretch{1.2}
         \setlength\tabcolsep{1.2ex}
-        \caption[CORINE data levels]{CORINE land cover 2018 data level hierarchy under artificial surfaces.}
+        \caption[CORINE data levels]{CORINE land cover 2018 data hierarchy under attribute data column Level1Eng, Artificial surfaces.}
         \label{tab:corine_artificial}
         \scalebox{0.85}
         {\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{4cm} @{} >{\raggedright\arraybackslash}p{4cm} @{} >{\raggedright\arraybackslash}p{4.25cm} @{} >{\raggedright\arraybackslash}p{4cm} @{} }
@@ -601,22 +601,34 @@ In the Shiny application for \textit{records}, users can view the survey respons
 
 When the user has selected a continuous and an ordinal variable to compare, they are presented a thorough set of descriptive statistics for the currently active data rows with n, median, mean, standard deviation, standard error, confidence interval for lower and upper bound, minimum and maximum, 25 \% and 75 \% quantiles, skewness, and kurtosis (table~\ref{tab:records_shiny_features}). For the continuous variables, a histogram is available to visualise the distribution of \code{walktime} and \code{parktime}. Distribution of ordinal variables \code{likert}, \code{parkspot}, and \code{timeofday} can be compared against other ordinal variables in a barplot. To study quartiles, a boxplot is available. Importantly, users can test their selection of variables with the test of homogeneity of variables (Levene's test), analysis of variance (ANOVA), and the Brown-Forsythe test \textcolor{red}{laajenna selityksiä}. Lastly, a versatile interactive map of the research area is provided. This map, divided in postal code areas, reveals the survey results in a spatial fashion. The interactive map is affected by the maximum parking time and walking time, selection of an ordinal variable and any inactive subdivisions to provide a flexible view into the details of the data. In addition, this interactive map is controlled by some exclusive settings of its own. The interactive map settings offers six distinct parameters for viewing the research area through Jenks natural breaks classification, alongside with the possibility to select the amount of classes in the map view. Hovering the cursor over the map reveals a tooltip which the application users can use to view mean, median, and percentage data about each postal code area in Helsinki Capital Region. Tooltips are also available for the barplot of distribution of ordinal variables and the boxplot.
 
-Much additional work was put into the analysis application to make it as clear and easy to use as possible. The application features a number of links to move between the features and the settings, while smooth scrolling and animations help in directing the attention of the user. Each application feature can be switched on and off to make space for exactly the topic the user wants to examine. The analysis application allows downloading all the results, outputting tables into comma separated value files (CSV). Charts and the map are outputted into high resolution images (PNG). \textcolor{red}{too much detail?} \textcolor{purple}{The files are intuitively named informing of the used application settings and the date of file download. In case ordinal variable value groups or subdivisions are turned off, the output images are appended with an appropriate notification.} Attention was given to ensure the usage of the analysis application on mobile phones. To this end, the CSS style sheet of the application detects mobile phone screen sizes and adjusts the application content accordingly. The sidebar tends to block the view of the main panel on mobile screens and for this situation a switch is provided to hide the sidebar at any given time. All graphical elements of the application are of flexible SVG graphics format which support effortless zooming without any loss of detail.
+Much additional work was put into the analysis application to make it as clear and easy to use as possible. The application features a number of links to move between the features and the settings, while smooth scrolling and animations help in directing the attention of the user. Each application feature can be switched on and off to make space for exactly the topic the user wants to examine. The analysis application allows downloading all the results, outputting tables into comma separated value files (CSV). Charts and the map are outputted into high resolution images (PNG). \textcolor{red}{too much detail?} \textcolor{purple}{The files are intuitively named informing of the used application settings and the date of file download. In case ordinal variable value groups or subdivisions are turned off, the output images are appended with an appropriate notification.} Attention was given to ensure the usage of the analysis application on mobile phones. To this end, the CSS style sheet of the application detects mobile phone screen sizes and adjusts the application content accordingly. The sidebar tends to block the view of the main panel on mobile screens and for this situation a switch is provided to hide the sidebar at any given time. All graphical elements of the application are in SVG (Scalable Vector Graphics) format which supports effortless zooming without loss of detail.
 
-\textcolor{blue}{tilanne 240720}
+The source code for the \textit{records} analysis application is available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/thesis-records-shinyapps}}). The application may be viewed on shinyapps.io (\textcolor{blue}{\url{https://sampoves.shinyapps.io/records}}).
 
 \subsubsection{Visitors application}
 
-In the Shiny application for \textit{visitors}, users can examine events in the timeline of the survey research (figure~\ref{fig:shinyapps}). In an interactive view, cumulative charts are presented for received responses and survey page first visits. The charts reveal the effect of advertisement on actual received responses and survey traffic. While not completely verifiable, the significance of different sources of responses can be viewed in the application.
+In the Shiny application for \textit{visitors}, users can examine events in the timeline of the survey research (figure~\ref{fig:shinyapps}). In this interactive view, cumulative charts are presented for received survey responses and survey page first visits. The charts reveal the effect and importance of advertisement on actual received responses and survey traffic. While not completely verifiable, the significance of different sources of responses can be viewed in the application.
 
-\subsubsection{Comparison application}
+Compared to the other two analysis applications programmed for this thesis, the \textit{visitors} application is relatively simple in its function and features. The user controls the chart view with mouse clicks or dragging the cursor and no additional settings are provided.
 
-insert content
+The source code for the \textit{visitors} analysis application is available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/thesis-visitors-shinyapps}}). The application may be viewed on shinyapps.io (\textcolor{blue}{\url{https://sampoves.shinyapps.io/visitors}}).
+
+\subsubsection{Travel time comparison application}
+
+Despite potential for extensive analysis, the applications described in previous chapters do not provide means to study the third research question of this thesis:
+
+\begin{displayquote}
+III What is the significance of the parking process to the overall travel time?
+\end{displayquote}
+
+To answer this research question, the travel time comparison application was programmed. In this application, the user can view multiple descriptive values calculated from Helsinki Region Travel Time Matrix 2018, the thesis survey data, and a dataset created by comparing the two other datasets. 
+
+\textcolor{green}{tilanne 250720}
 
 \begin{figure}[H]%
     \includegraphics[width=\textwidth]{images/shinyapps_comparison.png}
-    \caption[Comparison application screenshot]{Travel time matrix and survey data comparison application, shinyapps.io deployment with the hovering tooltip visible for 01200 Hakunila.}%
+    \caption[Comparison application screenshot]{Helsinki Region Travel Time Matrix 2018 and thesis survey data comparison application's shinyapps.io deployment. The cursor hovers over 01200 Hakunila with the appropriate tooltip shown.}%
     \label{fig:shinyapps_comparison}%
 \end{figure}
 
-The source code for the data analysis and visualisation scripts are available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/Msc_thesis_data_analysis}}). The interactive analysis tools are available for viewing on shinyapps.io (\textcolor{blue}{\url{https://sampoves.shinyapps.io/records}} and  \textcolor{blue}{\url{https://sampoves.shinyapps.io/visitors}}).
+The source code for the travel time comparison application is available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/thesis-comparison-shinyapps}}). The application may be viewed on shinyapps.io (\textcolor{blue}{\url{https://sampoves.shinyapps.io/comparison}}).
