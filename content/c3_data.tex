@@ -156,10 +156,11 @@ In addition to the aforementioned technologies, the flowcharts in this thesis we
             & Shapely 1.6.4.post1 & Geometric objects, predicates, and operations & \cite{Gillies2019} \\
             & rtree 0.8.3 & Spatial indexing & \cite{Gillies2014} \\
             \greyrule
-            \multirow{4}{*}[-4.5ex]{R} & Shiny 1.4.0 & Web application framework for R & \cite{Chang2019} \\
+            \multirow{4}{*}[-7.0ex]{R} & Shiny 1.4.0.2 & Web application framework for R & \cite{Chang2019} \\
             & ggplot2 3.3.0 & Data visualisation & \cite{Wickham2016} \\
             & ggiraph 0.7.0 & Interactive ggplot2 graphics & \cite{Gohel2019} \\
             & dygraphs 1.1.1.6 & Interactive time series charting & \cite{Vanderkam2018} \\
+            & fst 0.9.2 & High-performance writing and loading of data & \textcolor{red}{cite} \\
             \bottomrule
         \end{tabular}
     \end{table} 
@@ -536,7 +537,8 @@ Next in the survey data processing workflow the additional spatial data was adde
     \end{table} 
 \end{hyphenrules}
 
-In the finalising section, \textit{records} was prepared for analysis and visualisation in R (figure~\ref{fig:gen_workflow}, section 5). The software library for plotting in R, \textit{ggplot2}, prefers data inputted in long format. To study charasteristics of postal code areas in this research, it meant adding repetitive data columns in \textit{records}, where values for CORINE land cover 2018 artificial surfaces, YKR zone and subdivision remained unchanged for all rows in the same postal code area. For artificial surfaces, a custom Jenks natural breaks function (GitHub user Drewda, \textcolor{red}{add cite, add jenks cite}) with five classes were utilised to find the applicable Jenks breaks class for each postal code area. For YKR zones, the most common urban structure type in percentage was selected for each postal code area. In addition, \textit{records} was inserted with municipality subdivision information (figure~\ref{fig:subdiv_placement}). This was achieved by collecting data from the web sites of the municipalities of Helsinki Capital Region (\cite{Espoonkaupunki2020}, \cite{Helsinginkaupunkiymparistontoimiala2019}, \cite{Vantaankaupunki2019}). In these sources, each municipality broke the subdivisions down to city district level, from where it was possible to allot each postal code area with a subdivision. This was for the most part simplistic work, but in some cases the postal code areas and city districts did not align and author's own deliberation was used to help the placement. Some of the most glaring discrepancies between PAAVO postal code areas and subdivision boundaries occur in Espoo. In the case of Lippajärvi-Järvenperä, a postal code area north of Kauniainen, the subdivision Vanha-Espoo was chosen because Lippajärvi-Järvenperä as a whole does not fit into the charasteristics of Suur-Leppävaara, and at the same time the city districts Lippajärvi and Järvenperä do not fit into the distinctive features of the subdivision Pohjois-Espoo. In the same spirit the postal code area Sepänkylä-Kuurinniitty south of Kauniainen lies troublingly in the area of four subdivisions of Espoo. In the end Vanha-Espoo was chosen as Sepänkylä-Kuurinniitty lies for the most part in its area. Similar complications occurred in Helsinki and Vantaa (the partial placement of Kirkonkylä-Veromäki and Ruskeasanta-Ilola in subdivision of Tikkurila) and using my best judgement, the classification shown in figure~\ref{fig:subdiv_placement} was used in the survey results analysis of this thesis.
+% https://www.spatialanalysisonline.com/HTML/index.html?classification_and_clustering.htm
+In the finalising section, \textit{records} was prepared for analysis and visualisation in R (figure~\ref{fig:gen_workflow}, section 5). The software library for plotting in R, \textit{ggplot2}, prefers data inputted in long format. To study charasteristics of postal code areas in this research, it meant adding repetitive data columns in \textit{records}, where values for CORINE land cover 2018 artificial surfaces, YKR zone and subdivision remained unchanged for all rows in the same postal code area. For artificial surfaces, a custom Jenks natural breaks function (GitHub user Drewda, \textcolor{red}{add cite, add jenks cite, kato kommenttilinkki}) with five classes were utilised to find the applicable Jenks breaks class for each postal code area. For YKR zones, the most common urban structure type in percentage was selected for each postal code area. In addition, \textit{records} was inserted with municipality subdivision information (figure~\ref{fig:subdiv_placement}). This was achieved by collecting data from the web sites of the municipalities of Helsinki Capital Region (\cite{Espoonkaupunki2020}, \cite{Helsinginkaupunkiymparistontoimiala2019}, \cite{Vantaankaupunki2019}). In these sources, each municipality broke the subdivisions down to city district level, from where it was possible to allot each postal code area with a subdivision. This was for the most part simplistic work, but in some cases the postal code areas and city districts did not align and author's own deliberation was used to help the placement. Some of the most glaring discrepancies between PAAVO postal code areas and subdivision boundaries occur in Espoo. In the case of Lippajärvi-Järvenperä, a postal code area north of Kauniainen, the subdivision Vanha-Espoo was chosen because Lippajärvi-Järvenperä as a whole does not fit into the charasteristics of Suur-Leppävaara, and at the same time the city districts Lippajärvi and Järvenperä do not fit into the distinctive features of the subdivision Pohjois-Espoo. In the same spirit the postal code area Sepänkylä-Kuurinniitty south of Kauniainen lies troublingly in the area of four subdivisions of Espoo. In the end Vanha-Espoo was chosen as Sepänkylä-Kuurinniitty lies for the most part in its area. Similar complications occurred in Helsinki and Vantaa (the partial placement of Kirkonkylä-Veromäki and Ruskeasanta-Ilola in subdivision of Tikkurila) and using my best judgement, the classification shown in figure~\ref{fig:subdiv_placement} was used in the survey results analysis of this thesis.
 
 The source code for the data processing described in this chapter is available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/Msc-thesis-data-analysis}}).
 
@@ -621,9 +623,51 @@ Despite potential for extensive analysis, the applications described in previous
 III What is the significance of the parking process to the overall travel time?
 \end{displayquote}
 
-To answer this research question, the travel time comparison application was programmed. In this application, the user can view multiple descriptive values calculated from Helsinki Region Travel Time Matrix 2018, the thesis survey data, and a dataset created by comparing the two other datasets. 
+To answer this research question, an application to compare travel time datasets was programmed. In this application, the user can view a variety of descriptive values calculated from Helsinki Region Travel Time Matrix 2018, the thesis survey data, and a dataset created by comparing the two other datasets. The user is given control a set of features, such as the travel times origin postal area code, a parameter to visualise on the map, and the amount of symbology classes. The map view can be customised with a number of visualisation options, such as visible regional boundaries and physical features (inland water, main roads), and options for the labelling of postal code areas.
 
-\textcolor{green}{tilanne 250720}
+It was decided that the basic spatial unit for the comparison application would be the PAAVO postal code area as that is the spatial extent of the thesis survey results. This decision necessitated extensive processing of the \textit{TTM} data. Firstly, the application needed to be able to recalculate the map view as quickly as possible. Secondly, the original \textit{TTM} dataset is unwieldy to be used in its original format in a web application (data stored in uncompressed txt files, data scope much too detailed for the application). Thirdly, the hosting service shinyapps.io places technical limitations on the resource intensity of the application. For these three main reasons, the library fst (table~\ref{tab:used_soft}) was first used to convert the \textit{TTM} private car columns into the data format used by the library (table~\ref{tab:comparison_fst1}), and then using the dataset \textit{grid} preprocessed in Python to correctly aggregate all \textit{TTM} grid cells according to PAAVO postal code areas and writing the results using the fast fst format (table~\ref{tab:comparison_fst2}). For data completeness, \textit{TTM} searching for parking (0.42 minutes) and walking to destination (2.0--2.5 minutes) data was added to these aggregated \textit{TTM} files. This aggregation method reduced unnecessary processing drastically, minimised disk space needed, and kept application memory footprint in manageable figures. The other main dataset used in the comparison application, the thesis survey data, is  aggregated to postal code areas each time the application initialises, as the complete survey results dataset is miniscule in size compared to \textit{TTM}.
+
+\begin{hyphenrules}{nohyphenation}
+    \begin{table}[H]
+        \centering
+        \setlength\tabcolsep{1pt}
+        \caption[Comparison application fst structure I]{An excerpt of the data content of \textit{TTM} converted to fst format for further processing (table~\ref{tab:comparison_fst2}). Original file 5785xxx/travel\_times\_to\_ 5785640.txt.} 
+        \label{tab:comparison_fst1}
+        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{1cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} @{} }
+            \toprule
+            & from\_id & to\_id & car\_r\_t & car\_m\_t & car\_sl\_t \\
+            \midrule
+            10 & 5787549 & 5785640 & 22 & 21 & 16 \\
+            11 & 5787550 & 5785640 & 22 & 21 & 16 \\
+            12 & 5789447 & 5785640 & 10 & 9 & 8 \\
+            13 & 5789448 & 5785640 & 10 & 9 & 8 \\
+            14 & 5789449 & 5785640 & 11 & 10 & 9 \\
+            \bottomrule
+        \end{tabular}
+    \end{table} 
+\end{hyphenrules}
+
+\begin{hyphenrules}{nohyphenation}
+    \begin{table}[H]
+        \centering
+        \setlength\tabcolsep{5pt}
+        \caption[Comparison application fst structure II]{An excerpt of the data content of \textit{TTM} aggregated to postal code area level for the use of the comparison application. The origin postal code area of the shown data table is 00100 Helsinki Keskusta -- Etu-Töölö.} 
+        \label{tab:comparison_fst2}
+        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{1cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} @{} }
+            \toprule
+            & zipcode & from\_zip & ttm\_r\_avg & ttm\_m\_avg & ttm\_sl\_avg & ttm\_wtd & ttm\_sfp \\
+            \midrule
+            5 & 00150 & 00100 & 14.89 & 13.24 & 9.48 & 2.33 & 0.42 \\
+            6 & 00160 & 00100 & 15.48 & 13.97 & 9.77 & 2.50 & 0.42 \\
+            7 & 00170 & 00100 & 14.41 & 13.10 & 9.09 & 2.50 & 0.42 \\
+            8 & 00180 & 00100 & 12.77 & 11.34 & 8.40 & 2.50 & 0.42 \\
+            9 & 00190 & 00100 & 24.27 & 22.31 & 17.04 & 2.00 & 0.42 \\
+            \bottomrule
+        \end{tabular}
+    \end{table} 
+\end{hyphenrules}
+
+Table 15 final comparison app data table structure
 
 \begin{figure}[H]%
     \includegraphics[width=\textwidth]{images/shinyapps_comparison.png}
