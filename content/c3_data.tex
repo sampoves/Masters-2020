@@ -623,9 +623,9 @@ Despite potential for extensive analysis, the applications described in previous
 III What is the significance of the parking process to the overall travel time?
 \end{displayquote}
 
-To answer this research question, an application to compare travel time datasets was programmed. In this application, the user can view a variety of descriptive values calculated from Helsinki Region Travel Time Matrix 2018, the thesis survey data, and a dataset created by comparing the two other datasets. The user is given control a set of features, such as the travel times origin postal area code, a parameter to visualise on the map, and the amount of symbology classes. The map view can be customised with a number of visualisation options, such as visible regional boundaries and physical features (inland water, main roads), and options for the labelling of postal code areas.
+To answer this research question, an application to compare travel time datasets was programmed (figure~\ref{fig:shinyapps_comparison}). In this application, the user can view a variety of descriptive values calculated from Helsinki Region Travel Time Matrix 2018, the thesis survey data, and a dataset created by comparing the two other datasets. The user is given control a set of features, such as the travel times origin postal area code, a parameter to visualise on the map, and the amount of symbology classes. The map view can be customised with a number of visualisation options, such as visible regional boundaries and physical features (inland water, main roads), and options for the labelling of postal code areas.
 
-It was decided that the basic spatial unit for the comparison application would be the PAAVO postal code area as that is the spatial extent of the thesis survey results. This decision necessitated extensive processing of the \textit{TTM} data. Firstly, the application needed to be able to recalculate the map view as quickly as possible. Secondly, the original \textit{TTM} dataset is unwieldy to be used in its original format in a web application (data stored in uncompressed txt files, data scope much too detailed for the application). Thirdly, the hosting service shinyapps.io places technical limitations on the resource intensity of the application. For these three main reasons, the library fst (table~\ref{tab:used_soft}) was first used to convert the \textit{TTM} private car columns into the data format used by the library (table~\ref{tab:comparison_fst1}), and then using the dataset \textit{grid} preprocessed in Python to correctly aggregate all \textit{TTM} grid cells according to PAAVO postal code areas and writing the results using the fast fst format (table~\ref{tab:comparison_fst2}). For data completeness, \textit{TTM} searching for parking (0.42 minutes) and walking to destination (2.0--2.5 minutes) data was added to these aggregated \textit{TTM} files. This aggregation method reduced unnecessary processing drastically, minimised disk space needed, and kept application memory footprint in manageable figures. The other main dataset used in the comparison application, the thesis survey data, is  aggregated to postal code areas each time the application initialises, as the complete survey results dataset is miniscule in size compared to \textit{TTM}.
+It was decided that the basic spatial unit for the comparison application would be the PAAVO postal code area as the thesis survey results exist in that resolution. This decision necessitated extensive processing of \textit{TTM} data. Firstly, the application needed to be able to recalculate the map view as quickly as possible. Secondly, the original \textit{TTM} dataset is unwieldy to be used in its original format in a web application (data stored in uncompressed txt files, data scope much too detailed for the application). Thirdly, the hosting service shinyapps.io places technical limitations on the resource intensity of the application. For these three main reasons, the library fst (table~\ref{tab:used_soft}) was first used to convert the \textit{TTM} private car columns into the data format used by the library (table~\ref{tab:comparison_fst1}), and then using the dataset \textit{grid} preprocessed in Python to aggregate all \textit{TTM} grid cell values to the PAAVO postal code area level and writing the results using the optimised fst format (table~\ref{tab:comparison_fst2}). For data completeness, \textit{TTM} searching for parking (0.42 minutes) and walking to destination (2.0--2.5 minutes) data was added to these aggregated \textit{TTM} files. This aggregation method drastically reduced unnecessary processing, minimised disk space needed, and kept application memory footprint in manageable figures for the deployment to the internet. The other main dataset used in the comparison application, the thesis survey data, is aggregated to postal code area level each time the application initialises, as the complete survey results dataset is miniscule in size compared to \textit{TTM}.
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
@@ -667,7 +667,47 @@ It was decided that the basic spatial unit for the comparison application would 
     \end{table} 
 \end{hyphenrules}
 
-Table 15 final comparison app data table structure
+\begin{hyphenrules}{nohyphenation}
+    \begin{table}[H]
+        \centering
+        \setlength\tabcolsep{5pt}
+        \caption[Comparison application tooltip content]{Comparison application tooltip content meaning.} 
+        \label{tab:comparison_tooltip_content}
+        \scalebox{0.85}
+        {\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{8.5cm} >{\raggedright\arraybackslash}p{5cm} @{} }
+            \toprule
+            & Column name & Description & Formula \\
+            \midrule
+            \multirow{3}{3cm}[-1ex]{timeofday} & r & Rush hour traffic (09:00–11.00, 15.00–17.00) & -- \\
+            & m & Midday traffic (09.00–15.00) & -- \\
+            & all & An average of all available data. For TTM18, these are Rush hour traffic, Midday traffic, and Route following speed limits without any additional impedances. For thesis survey data, these are the values of the survey question timeofday: Weekday, rush hour, Weekday, other than rush hour, Weekend, and Can't specify, no usual time. & -- \\
+            \greyrule
+            \multirow{5}{3cm}[-1ex]{Travel Time Matrix 2018} & sfp & Time consumed in searching for parking. In TTM18, this is 0.42 minutes for all YKR IDs (in the case of this application, postal code areas) in the entirety of Helsinki Capital Region (Toivonen et al. 2014). & -- \\
+            & wtd\_avg & An averaged value (per postal code area, unit minutes) of walking time from one's parked private car to the final destination of the travel chain. In TTM18 this is 2.0 minutes for all YKR IDs in the entirety of Helsinki Capital Region, except in a square defined over the center of Helsinki, where the value is 2.5 minutes for all YKR IDs (Toivonen et al. 2014). See the switch "Helsinki walking center (TTM18)" in the toolbar to the left. & -- \\
+            & avg & A mean duration (per postal code area, unit minutes) of the complete travel chain with private car from origin postal code area to the destination postal code area. & car\_x\_t1 + car\_x\_t2 + ... + car\_x\_tn / n, where x is r, m, or all. car\_ represents unchanged TTM18 data columns. \\
+            & drivetime & The length of the driving segment (unit minutes) of the mean duration of the complete travel chain from origin postal code area to the destination postal code area without searching for parking (using the TTM18 value) or walking to the final destination of the travel chain (TTM18 value). & ttm\_x\_avg - ttm\_sfp - ttm\_wtd\_avg, where x is r, m, or all. \\
+            & pct & How much does searching for parking and walking from one's parked car to the final destination of the travel chain constitute of the mean duration of the complete travel chain? Value per postal code area, unit percent, where 1 equals 100 \%. & (ttm\_sfp + ttm\_wtd\_avg) / ttm\_x\_avg, where x is r, m, or all. \\
+            \greyrule
+            \multirow{4}{3cm}[-1ex]{Thesis data} & sfp\_avg & Time consumed, on average, in searching for parking in a postal code area, according to the thesis survey respondents. The thesis data variable parktime was averaged for the current postal code area for the use of this application. & parktime1 + parktime2 + ... + parktimen / n, while postal code value is constant. \\
+            & wtd\_avg & Average walking time from one's parked private car to the final destination in a postal code area, according to the thesis survey respondents. The thesis data variable walktime was averaged for the current postal code area for the of this application. & walktime1 + walktime2 + ... + walktimen / n, while postal code value is constant. \\
+            & drivetime & The length of the driving segment (value per postal code area, unit minutes) of the mean duration of the complete travel chain (TTM18 data) from the origin postal code area to the destination postal code area, without searching for parking (thesis survey mean) or walking to destination (thesis survey mean). & ttm\_x\_avg - thesis\_x\_sfp - thesis\_x\_wtd, where x is r, m, or all. \\
+            & pct & How much do the thesis mean values for searching for parking and walking from one's parked car to the final destination constitute of the mean duration of the complete travel chain (calculated from TTM18 data)? Value per postal code area, unit percent, where 1 equals 100 \%. & (thesis\_x\_sfp + thesis\_x\_wtd) / ttm\_x\_avg, where x is r, m, or all. \\
+            \greyrule
+            \multirow{4}{3cm}[-1ex]{Compare TTM and thesis} & sfp & Compare TTM18 and thesis survey values for searching for parking. If this comparison value is smaller than one, searching for parking takes longer in TTM18. If value is larger than one, searching for parking takes longer in thesis data. & thesis\_x\_sfp / ttm\_sfp, where x is r, m, or all. \\
+            & wtd & Compare TTM18 and thesis survey values for the duration to walk from one's parked car to the final destination of the travel chain. & thesis\_x\_wtd / ttm\_wtd\_avg, where x is r, m, or all. \\
+            & drivetime & Compare the driving time segment of the mean duration of the complete travel chain in TTM18 and thesis data. & thesis\_x\_drivetime / ttm\_x\_drivetime, where x is r, m, or all. \\
+            & pct & Compare the percentual value of the significance of searching for parking and walking to one's final destination of the mean duration of the complete travel chain in TTM18 and thesis data. & thesis\_x\_pct / ttm\_x\_pct, where x is r, m, or all. \\
+            \bottomrule
+        \end{tabular}}
+    \end{table} 
+\end{hyphenrules}
+
+\begin{figure}[H]%
+    \centering
+    \includegraphics[width=0.33\textwidth]{images/shinyapps_comparison_detail.png}
+    \caption[Comparison application data]{Close-up of a tooltip for a travel chain from 02150 Otaniemi to 02170 Haukilahti. The cell coloured green tells the user that currently visualised on map is thesis data, the travel chain without searching for parking or walking to one's destination, in rush hour traffic.}%
+    \label{fig:shinyapps_comparison_detail}%
+\end{figure}
 
 \begin{figure}[H]%
     \includegraphics[width=\textwidth]{images/shinyapps_comparison.png}
