@@ -670,33 +670,37 @@ It was decided that the basic spatial unit for the comparison application would 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
+        \def\arraystretch{1.2}
         \setlength\tabcolsep{5pt}
-        \caption[Comparison application tooltip content]{Comparison application tooltip content meaning.} 
+        \caption[Comparison application tooltip content]{Comparison application tooltip content meaning. All values are per postal code area.} 
         \label{tab:comparison_tooltip_content}
-        \scalebox{0.85}
-        {\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{8.5cm} >{\raggedright\arraybackslash}p{5cm} @{} }
+        \scalebox{0.8}
+        {\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{9.0cm} >{\raggedright\arraybackslash}p{5.5cm} @{} }
             \toprule
-            & Column name & Description & Formula \\
+            & Column name, unit & Description & Formula \\
             \midrule
             \multirow{3}{3cm}[-1ex]{timeofday} & r & Rush hour traffic (09:00–11.00, 15.00–17.00) & -- \\
             & m & Midday traffic (09.00–15.00) & -- \\
-            & all & An average of all available data. For TTM18, these are Rush hour traffic, Midday traffic, and Route following speed limits without any additional impedances. For thesis survey data, these are the values of the survey question timeofday: Weekday, rush hour, Weekday, other than rush hour, Weekend, and Can't specify, no usual time. & -- \\
+            & all & An average of all available data. For \textit{TTM}, these are Rush hour traffic, Midday traffic, and Route following speed limits without any additional impedances. For thesis survey data, these are the values of the survey question timeofday: Weekday, rush hour, Weekday, other than rush hour, Weekend, and Can't specify, no usual time. & $\frac{value_1 + value_2 + ... + value_n}{n}$ \\
             \greyrule
-            \multirow{5}{3cm}[-1ex]{Travel Time Matrix 2018} & sfp & Time consumed in searching for parking. In TTM18, this is 0.42 minutes for all YKR IDs (in the case of this application, postal code areas) in the entirety of Helsinki Capital Region (Toivonen et al. 2014). & -- \\
-            & wtd\_avg & An averaged value (per postal code area, unit minutes) of walking time from one's parked private car to the final destination of the travel chain. In TTM18 this is 2.0 minutes for all YKR IDs in the entirety of Helsinki Capital Region, except in a square defined over the center of Helsinki, where the value is 2.5 minutes for all YKR IDs (Toivonen et al. 2014). See the switch "Helsinki walking center (TTM18)" in the toolbar to the left. & -- \\
-            & avg & A mean duration (per postal code area, unit minutes) of the complete travel chain with private car from origin postal code area to the destination postal code area. & car\_x\_t1 + car\_x\_t2 + ... + car\_x\_tn / n, where x is r, m, or all. car\_ represents unchanged TTM18 data columns. \\
-            & drivetime & The length of the driving segment (unit minutes) of the mean duration of the complete travel chain from origin postal code area to the destination postal code area without searching for parking (using the TTM18 value) or walking to the final destination of the travel chain (TTM18 value). & ttm\_x\_avg - ttm\_sfp - ttm\_wtd\_avg, where x is r, m, or all. \\
-            & pct & How much does searching for parking and walking from one's parked car to the final destination of the travel chain constitute of the mean duration of the complete travel chain? Value per postal code area, unit percent, where 1 equals 100 \%. & (ttm\_sfp + ttm\_wtd\_avg) / ttm\_x\_avg, where x is r, m, or all. \\
+            
+            \multirow{5}{3cm}[-1ex]{Travel Time Matrix 2018} & sfp, min & Time consumed in searching for parking. In \textit{TTM}, this is 0.42 minutes for all YKR IDs in the entirety of Helsinki Capital Region (\cite{Toivonen2014a}). & -- \\
+            & wtd\_avg, min & An averaged value of walking time from one's parked private car to the final destination of the travel chain. In \textit{TTM}, this is 2.0 minutes for all \textit{grid} cells in the entirety of Helsinki Capital Region, except in a square defined over the center of Helsinki, where the value is 2.5 minutes for all \textit{grid} cells (\cite{Toivonen2014a}). & -- \\
+            & avg, min & A mean duration of the complete travel chain with private car from origin postal code area to the destination postal code area. & $\frac{car\_x\_t_1 + car\_x\_t_2 + ... + car\_x\_t_n}{n}$, where $x$ is $r$, $m$, or $all$. $car\_$ represents unchanged \textit{TTM} data columns. \\
+            & drivetime, min & The length of the driving segment of the mean duration of the complete travel chain from origin postal code area to the destination postal code area without searching for parking (using the \textit{TTM} value) or walking to the final destination of the travel chain (\textit{TTM} value). & $ttm\_x\_avg - ttm\_sfp - ttm\_wtd\_avg$ \\
+            & pct, \% & How much does searching for parking and walking from one's parked car to the final destination of the travel chain constitute of the mean duration of the complete travel chain? & $\frac{ttm\_sfp + ttm\_wtd\_avg}{ttm\_x\_avg}$ \\
             \greyrule
-            \multirow{4}{3cm}[-1ex]{Thesis data} & sfp\_avg & Time consumed, on average, in searching for parking in a postal code area, according to the thesis survey respondents. The thesis data variable parktime was averaged for the current postal code area for the use of this application. & parktime1 + parktime2 + ... + parktimen / n, while postal code value is constant. \\
-            & wtd\_avg & Average walking time from one's parked private car to the final destination in a postal code area, according to the thesis survey respondents. The thesis data variable walktime was averaged for the current postal code area for the of this application. & walktime1 + walktime2 + ... + walktimen / n, while postal code value is constant. \\
-            & drivetime & The length of the driving segment (value per postal code area, unit minutes) of the mean duration of the complete travel chain (TTM18 data) from the origin postal code area to the destination postal code area, without searching for parking (thesis survey mean) or walking to destination (thesis survey mean). & ttm\_x\_avg - thesis\_x\_sfp - thesis\_x\_wtd, where x is r, m, or all. \\
-            & pct & How much do the thesis mean values for searching for parking and walking from one's parked car to the final destination constitute of the mean duration of the complete travel chain (calculated from TTM18 data)? Value per postal code area, unit percent, where 1 equals 100 \%. & (thesis\_x\_sfp + thesis\_x\_wtd) / ttm\_x\_avg, where x is r, m, or all. \\
+            
+            \multirow{4}{3cm}[-1ex]{Thesis data} & sfp\_avg, min & Time consumed, on average, in searching for parking in a postal code area, according to the thesis survey respondents. & $\frac{parktime_1 + parktime_2 + ... + parktime_n}{n}$, while postal code value is constant. \\
+            & wtd\_avg, min & Average walking time from one's parked private car to the final destination in a postal code area, according to the thesis survey respondents. & $\frac{walktime_1 + walktime_2 + ... + walktime_n}{n}$, while postal code value is constant. \\
+            & drivetime, min & The length of the driving segment of the mean duration of the complete travel chain (\textit{TTM} data) from the origin postal code area to the destination postal code area, without searching for parking (thesis survey mean) or walking to destination (thesis survey mean). & $ttm\_x\_avg - thesis\_x\_sfp - thesis\_x\_wtd$, where $x$ is $r$, $m$, or $all$. \\
+            & pct, \% & How much do the thesis mean values for searching for parking and walking from one's parked car to the final destination constitute of the mean duration of the complete travel chain? & $\frac{(thesis\_x\_sfp + thesis\_x\_wtd)}{ttm\_x\_avg}$ \\
             \greyrule
-            \multirow{4}{3cm}[-1ex]{Compare TTM and thesis} & sfp & Compare TTM18 and thesis survey values for searching for parking. If this comparison value is smaller than one, searching for parking takes longer in TTM18. If value is larger than one, searching for parking takes longer in thesis data. & thesis\_x\_sfp / ttm\_sfp, where x is r, m, or all. \\
-            & wtd & Compare TTM18 and thesis survey values for the duration to walk from one's parked car to the final destination of the travel chain. & thesis\_x\_wtd / ttm\_wtd\_avg, where x is r, m, or all. \\
-            & drivetime & Compare the driving time segment of the mean duration of the complete travel chain in TTM18 and thesis data. & thesis\_x\_drivetime / ttm\_x\_drivetime, where x is r, m, or all. \\
-            & pct & Compare the percentual value of the significance of searching for parking and walking to one's final destination of the mean duration of the complete travel chain in TTM18 and thesis data. & thesis\_x\_pct / ttm\_x\_pct, where x is r, m, or all. \\
+            
+            \multirow{4}{3cm}[-1ex]{Compare TTM and thesis} & sfp, \% & Compare \textit{TTM} and thesis survey values for searching for parking. & $\frac{thesis\_x\_sfp}{ttm\_sfp}$, where $x$ is $r$, $m$, or $all$. \\
+            & wtd, \% & Compare \textit{TTM} and thesis survey values for the duration to walk from one's parked car to the final destination of the travel chain. & $\frac{thesis\_x\_wtd}{ttm\_wtd\_avg}$ \\
+            & drivetime, \% & Compare the driving time segment of the mean duration of the complete travel chain in TTM and thesis data. & $\frac{thesis\_x\_drivetime}{ttm\_x\_drivetime}$ \\
+            & pct, \% & Compare the percentual value of the significance of searching for parking and walking to one's final destination of the mean duration of the complete travel chain in \textit{TTM} and thesis data. & $\frac{thesis\_x\_pct}{ttm\_x\_pct}$ \\
             \bottomrule
         \end{tabular}}
     \end{table} 
