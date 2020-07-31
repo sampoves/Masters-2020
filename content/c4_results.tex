@@ -77,7 +77,26 @@ On a closer look to the municipalities, finer details become apparent. For examp
 \subsection{Statistics}
 \justify
 
-The survey data shows that there are spatial differences in the parking times and walking times between municipalities and regions of Helsinki Capital Region (table~\ref{tab:parktimes_walktimes}). It is shown by the one-way analysis of variance test (ANOVA) that for parktime and walktime there are statistically significant differences between groups (municipality subdivisions). These differences are wide ranging, with mean parking time in Helsinki being 5.2 minutes, 3.8 minutes in Vantaa, 3.2 minutes in Espoo and lastly, 2.1 minutes in Kauniainen. Parking times vary inside municipalities; in Espoo, in the subdivision of Pohjois-Espoo mean parking time was 1.7 minutes while the same value for Suur-Matinkylä was 4.3 minutes. From all the subdivisions in the research area, the subdivision representing the center of Helsinki, Helsinki Southern, had the the longest mean parking time, 7.3 minutes. In the vast majority of subdivision groups, the group sizes were sufficiently large for ANOVA analysis to be significant. This was also true for sample sizes across the board.
+The survey data shows that there are spatial differences in the parking times and walking times between municipalities and regions of Helsinki Capital Region (table~\ref{tab:parktimes_walktimes}). It is shown by the one-way analysis of variance test (ANOVA) that for parktime and walktime there are statistically significant differences (p < 0.05) between the 23 groups (municipality subdivisions). These differences are wide ranging, with mean parking time in Helsinki being 5.2 minutes, 3.8 minutes in Vantaa, 3.2 minutes in Espoo and lastly, 2.1 minutes in Kauniainen. Parking times vary inside municipalities; in Espoo, in the subdivision of Pohjois-Espoo mean parking time was 1.7 minutes while the same value for Suur-Matinkylä was 4.3 minutes. From all the subdivisions in the research area, the subdivision representing the center of Helsinki, Helsinki Southern, had the the longest mean parking time, 7.3 minutes. In the vast majority of subdivision groups, the group sizes were sufficiently large for ANOVA analysis to be significant. This was also true for sample sizes across the board.
+
+\textcolor{red}{kun verrataan kahta subdiviä (2 ryhmää), käytetään anovaa ja katsotaan merkitsevyys. Suur-Tapiola ja Aviapolis oli " ", ei-merkitsevä, Suur-Tapiola ja Helsinki SOuthern ***. Kirjoita muutamasta parista, joissa ***. Vois mainita yhden kiinnostavan, missä parkkiaikojen ero on kohinaa (Tapiola ja Aviapolis). Muista tää sama walktimelle.}
+
+% 290720
+% t-test-vaihtóehto 2 ryhmän anovalle:
+% t.test(thesisdata[thesisdata$subdiv == "Helsinki Southern", ]["parktime"], thesisdata[thesisdata$subdiv == "Espoo Suur-Tapiola", ]["parktime"], alternative="greater")
+% - panu tsekkaa että sopiiks kahden ryhmän vertailuu tehdä anovalla vai t.test
+% stddev yksikkö on minuutti!
+% pieni stdev on pakkautuneempi, iso on leveämpi kuvio
+
+\textcolor{red}{290720 katso muut muuttujat niin, että mukana kaikki subdivit, onko merkitsevyyttä anovassa}
+\textcolor{red}{290720 parktime: verrataan arki-viikonloppu, **, walktime: ei ole ollenkaan!}
+\textcolor{red}{voi tutkii myös kaupunkien erot pareina}
+\textcolor{red}{parktime espoossa ja helsingissä (eri tarkastelut), epsoosssa ei niin väliä milloin pysäköi, kun taas helsingisså merkittävämmät erot}
+\textcolor{red}{raportoi nyt ne mun omatkin variaapelit!}
+\textcolor{red}{comparison-sovelluksen tulokset: muutama esimerkkireitti ja kerro pct:stä}
+
+% 290720 vantaan timeofday arkiruuhka ja arkiei-ruuhka oudot tulokset, arkiruuhka nopeampi. Mutta tämä on ei-merkitsevä anovan mukaan! synninpäästö
+% espoon timeofdayn pienet erot ovat kohinaa anovan mukaan (ei-merkitsevä), can't specify ei mukana
 
 In the finest resolution available, the postal code areas, the parking times closely follow those described in the subdivision scale. The longest mean parking times are encountered in the center of Helsinki, where the value for Punavuori is 10.6 minutes (91 data rows) and Meilahden sairaala-alue 9.4 minutes (42 data rows). Mean parking times over five minutes are recorded in all over the center area, but also in Kulosaari (5.3 minutes, 48 data rows) and Kaitalahti (6.5 minutes, 16 data rows). In Espoo, the longest mean parking times were found from Matinkylä (5.1 minutes, 62 data rows) and Tapiola (4.6 minutes, 71 data rows) and in Espoonlahti with 4.3 minutes to generally find a parking spot (30 data rows). In Vantaa, the vicinity of Helsinki-Vantaa airport is not as apparent as with subdivisions. It took the longest to find a parking spot in Tikkurila with 6.4 minutes (85 data rows). According to the results it was relatively hard to find a parking spot in Keimola (5.9 minutes, 7 data rows) and Kivistö (5.7 minutes, 30 data rows), too.
 
@@ -91,7 +110,7 @@ When viewed through postal code areas, walking time shows somewhat different res
 %http://www.understandingdata.net/2017/05/11/anova-tables-in-r/
 %https://www.statisticssolutions.com/sample-size-calculation-for-one-way-anovas-in-dissertations-and-theses/
 
-%levene näyttää vain vähän eri, niin ei oo välii, sitten pitäis kattoo keskihajontaa
+% levene näyttää vain vähän eri, niin ei oo välii, sitten pitäis kattoo keskihajontaa
 %anova pitäis olla ok koska 20 tapausta jo riittävä tuloksen löytymiseen 
 %voin todeta, että on tilastolliseti merkitsevä ero, sitten vaan raportoi mikä on ero, esim espoo vs helsinki
 %anova todistaa, että kaikilla esim "subdiveillä" ei ole samoja arvoja
@@ -156,6 +175,10 @@ When viewed through postal code areas, walking time shows somewhat different res
         \end{tabular}}
     \end{table}
 \end{hyphenrules}
+
+% 290720 anova kertoo että onks vähintään JOKU 1 ryhmå merkitsevästi eri kuin muut, sitten seuraavaksi pitäis tutkii lisää, vaikka pareittain
+
+\textcolor{red}{tee tää sama ylläoleva kaavio timeofday, parkspot, likert!!! tärkee. ilmoita myös että on tilastollinen merkitsevyys.}
 
 %Preliminary findings
 % old, these are probably counted using muncodes, that yields different results than what I have above with subdivs

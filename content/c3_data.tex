@@ -2,6 +2,7 @@
 \subsection{General workflow}
 \justify
 
+% selitä vähän mikä on jenks breaks
 A selection of web applications were designed and programmed for this thesis. In this chapter the process to create these applications is presented, from the design board to a functional web application to the end stage of data processing and visualisation. Four applications are presented in this chapter: a spatial web survey for data collection, and three separate web applications for the analysis and visualisation of the survey results.
 
 Essential data for this research was provided by Statistics Finland, the research group Digital Geography Lab of University of Helsinki, the municipalities of Helsinki Capital Region, and Finnish Environment Institute. The research area of this thesis was based on PAAVO open data by postal code area (\cite{StatisticsFinland2019a}. Data such as the CORINE Land Cover 2018 artificial surface polygons and areas of urban structure were utilised to provide additional explanatory variables in the survey data (\textcolor{red}{cite corine}; \cite{Ristimaki2017}). For the visualisation of the survey results, various data by Statistics Finland was used (\cite{StatisticsFinland2012}).
@@ -693,8 +694,8 @@ It was decided that the basic spatial unit for the comparison application would 
             
             \multirow{4}{3cm}[-1ex]{Thesis data} & sfp\_avg, min & Time consumed, on average, in searching for parking in a postal code area, according to the thesis survey respondents. & $\frac{parktime_1 + parktime_2 + ... + parktime_n}{n}$, while postal code value is constant. \\
             & wtd\_avg, min & Average walking time from one's parked private car to the final destination in a postal code area, according to the thesis survey respondents. & $\frac{walktime_1 + walktime_2 + ... + walktime_n}{n}$, while postal code value is constant. \\
-            & drivetime, min & The length of the driving segment of the mean duration of the complete travel chain (\textit{TTM} data) from the origin postal code area to the destination postal code area, without searching for parking (thesis survey mean) or walking to destination (thesis survey mean). & $ttm\_x\_avg - thesis\_x\_sfp - thesis\_x\_wtd$, where $x$ is $r$, $m$, or $all$. \\
-            & pct, \% & How much do the thesis mean values for searching for parking and walking from one's parked car to the final destination constitute of the mean duration of the complete travel chain? & $\frac{(thesis\_x\_sfp + thesis\_x\_wtd)}{ttm\_x\_avg}$ \\
+            & drivetime, min & The length of the driving segment of the mean duration of the complete travel chain (\textit{TTM} data) from the origin postal code area to the destination postal code area, without searching for parking (thesis survey mean) or walking to destination (thesis survey mean). & $ttm\_x\_drivetime - thesis\_x\_sfp - thesis\_x\_wtd$, where $x$ is $r$, $m$, or $all$. \\
+            & pct, \% & How much do the thesis mean values for searching for parking and walking from one's parked car to the final destination constitute of the mean duration of the complete travel chain? & $\frac{(thesis\_x\_sfp + thesis\_x\_wtd)}{ttm\_x\_drivetime}$ \\
             \greyrule
             
             \multirow{4}{3cm}[-1ex]{Compare TTM and thesis} & sfp, \% & Compare \textit{TTM} and thesis survey values for searching for parking. & $\frac{thesis\_x\_sfp}{ttm\_sfp}$, where $x$ is $r$, $m$, or $all$. \\
