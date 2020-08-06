@@ -136,54 +136,54 @@ When viewed through postal code areas, walking time shows somewhat different res
         \centering
         \caption[Parktime and walktime descriptive statistics with explanatory variable subdivision]{Parking times and walking times descriptive statistics displayed by municipalities and subdivisions (n=5183). The unit of median, mean, and standard deviation is minutes.}
         \label{tab:park_walk_subdiv}
-        \scalebox{0.8}
+        \scalebox{0.66}
         % Column type C is a custom column which adds space to its position. Used to separate important features of this table. L aligns left.
-        {\begin{tabular}{clLcccCccccc}
+        {\begin{tabular}{clLccccCcccccc}
             \toprule
-            & & &                                       \multicolumn{4}{c}{parktime} &      \multicolumn{4}{c}{walktime} \\
-                                                        \cmidrule(lr{\tbspace}){4-7}        \cmidrule(lr){8-11}
-            & & n &                                     Median & Mean & Std.dev & Std.err & Median & Mean & Std.dev & Std.err \\
+		    & & &                                       \multicolumn{5}{c}{parktime} &          \multicolumn{5}{c}{walktime} \\
+														\cmidrule(lr{\tbspace}){4-8}            \cmidrule(lr){9-13}
+			& & n &                                     Median & Mean & Std.dev & Std.err & p-value & Median & Mean & Std.dev & Std.err & p-value \\
             
             \midrule
-            \multirow{7}{*}{Espoo} & Pohjois-Espoo &    29 & 1 & 1.69 & 2.12 & 0.39 &    1 & 1.86 & 1.55 & 0.29 \\
-            & Suur-Espoonlahti &                        99 & 2 & 2.88 & 3.27 & 0.33 &    2 & 2.83 & 2.67 & 0.27 \\
-            & Suur-Kauklahti &                          10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Suur-Leppävaara &                         176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Suur-Matinkylä &                          95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            & Suur-Tapiola &                            257 & 2 & 3.33 & 3.94 & 0.25 &   2 & 3.84 & 3.41 & 0.21 \\
-            & Vanha-Espoo &                             80 & 2 & 2.81 & 4.00 & 0.45 &    3 & 3.89 & 3.81 & 0.43 \\
+            \multirow{7}{*}{Espoo} & Pohjois-Espoo &    29 & 1 & 1.69 & 2.12 & 0.39 & &         1 & 1.86 & 1.55 & 0.29 & \\
+            & Suur-Espoonlahti &                        99 & 2 & 2.88 & 3.27 & 0.33 & &         2 & 2.83 & 2.67 & 0.27 & \\
+            & Suur-Kauklahti &                          10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Suur-Leppävaara &                         176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Suur-Matinkylä &                          95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
+            & Suur-Tapiola &                            257 & 2 & 3.33 & 3.94 & 0.25 & &        2 & 3.84 & 3.41 & 0.21 & \\
+            & Vanha-Espoo &                             80 & 2 & 2.81 & 4.00 & 0.45 & &         3 & 3.89 & 3.81 & 0.43 & \\
             % Use \arrayrulecolor to get a grey cmidrule, then revert \midrule color back to black
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                          746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                          746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{8}{*}{Helsinki} & Central &       704 & 5 & 5.54 & 5.72 & 0.22 &   5 & 4.91 & 3.92 & 0.15 \\
-            & Eastern &                                 360 & 2 & 3.61 & 3.41 & 0.18 &   3 & 3.91 & 3.51 & 0.18 \\
-            & Northeastern &                            308 & 2 & 3.19 & 3.83 & 0.22 &   3 & 3.63 & 3.47 & 0.20 \\
-            & Northern &                                162 & 1 & 2.38 & 2.73 & 0.21 &   2 & 3.16 & 3.21 & 0.25 \\
-            & Southeastern &                            315 & 2 & 3.42 & 3.72 & 0.21 &   2 & 3.70 & 3.79 & 0.21 \\
-            & Southern &	                            1310 & 5 & 7.26 & 6.47 & 0.18 &  5 & 6.23 & 4.56 & 0.13 \\
-            & Western &                                 612 & 2 & 4.28 & 5.04 & 0.20 &   3 & 3.63 & 3.15 & 0.13 \\
-            & Östersundom &                             6 & 0.5 & 0.67 & 0.82 & 0.33 &   1 & 0.83 & 0.75 & 0.31 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                          3777 & 4 & 5.24 & 5.60 & 0.09 &  4 & 4.78 & 4.10 & 0.07 \\
+            \multirow{8}{*}{Helsinki} & Central &       704 & 5 & 5.54 & 5.72 & 0.22 & &        5 & 4.91 & 3.92 & 0.15 & \\
+            & Eastern &                                 360 & 2 & 3.61 & 3.41 & 0.18 & &        3 & 3.91 & 3.51 & 0.18 & \\
+            & Northeastern &                            308 & 2 & 3.19 & 3.83 & 0.22 & &        3 & 3.63 & 3.47 & 0.20 & \\
+            & Northern &                                162 & 1 & 2.38 & 2.73 & 0.21 & &        2 & 3.16 & 3.21 & 0.25 & \\
+            & Southeastern &                            315 & 2 & 3.42 & 3.72 & 0.21 & &        2 & 3.70 & 3.79 & 0.21 & \\
+            & Southern &	                            1310 & 5 & 7.26 & 6.47 & 0.18 & &       5 & 6.23 & 4.56 & 0.13 & \\
+            & Western &                                 612 & 2 & 4.28 & 5.04 & 0.20 & &        3 & 3.63 & 3.15 & 0.13 & \\
+            & Östersundom &                             6 & 0.5 & 0.67 & 0.82 & 0.33 & &        1 & 0.83 & 0.75 & 0.31 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                          3777 & 4 & 5.24 & 5.60 & 0.09 & *** &   4 & 4.78 & 4.10 & 0.07 & *** \\
             \arrayrulecolor{black}\midrule
             
-            Kauniainen & Kauniainen &                   23 & 2 & 2.13 & 1.60 & 0.33 &    2 & 2.22 & 1.28 & 0.27 \\
+            Kauniainen & Kauniainen &                   23 & 2 & 2.13 & 1.60 & 0.33 & &         2 & 2.22 & 1.28 & 0.27 & \\
             \midrule
             
-            \multirow{7}{*}{Vantaa} & Aviapolis &       184 & 3 & 3.93 & 4.09 & 0.30 &   3 & 4.51 & 4.27 & 0.31 \\
-            & Hakunila &                                44 & 1.5 & 2.41 & 2.89 & 0.44 &  2 & 2.59 & 2.47 & 0.37 \\
-            & Kivistö &                                 48 & 1 & 4.69 & 6.37 & 0.92 &    3 & 4.88 & 4.99 & 0.72 \\
-            & Koivukylä &                               40 & 1 & 2.80 & 3.74 & 0.59 &    2 & 3.33 & 3.69 & 0.58 \\
-            & Korso &                                   50 & 2 & 2.92 & 4.43 & 0.63 &    2 & 2.50 & 1.59 & 0.23 \\
-            & Myyrmäki &                                161 & 2 & 2.98 & 4.13 & 0.33 &   2 & 2.83 & 3.08 & 0.24 \\
-            & Tikkurila &                               110 & 5 & 5.84 & 5.60 & 0.53 &   5 & 5.85 & 5.15 & 0.49 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                          637 & 2 & 3.82 & 4.65 & 0.18 &   3 & 3.98 & 4.11 & 0.16 \\
+            \multirow{7}{*}{Vantaa} & Aviapolis &       184 & 3 & 3.93 & 4.09 & 0.30 & &        3 & 4.51 & 4.27 & 0.31 & \\
+            & Hakunila &                                44 & 1.5 & 2.41 & 2.89 & 0.44 & &       2 & 2.59 & 2.47 & 0.37 & \\
+            & Kivistö &                                 48 & 1 & 4.69 & 6.37 & 0.92 & &         3 & 4.88 & 4.99 & 0.72 & \\
+            & Koivukylä &                               40 & 1 & 2.80 & 3.74 & 0.59 & &         2 & 3.33 & 3.69 & 0.58 & \\
+            & Korso &                                   50 & 2 & 2.92 & 4.43 & 0.63 & &         2 & 2.50 & 1.59 & 0.23 & \\
+            & Myyrmäki &                                161 & 2 & 2.98 & 4.13 & 0.33 & &        2 & 2.83 & 3.08 & 0.24 & \\
+            & Tikkurila &                               110 & 5 & 5.84 & 5.60 & 0.53 & &        5 & 5.85 & 5.15 & 0.49 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                          637 & 2 & 3.82 & 4.65 & 0.18 & *** &    3 & 3.98 & 4.11 & 0.16 & *** \\
             \arrayrulecolor{black}\midrule
             
-            All & \textbf{Total} &                      5183 & 3 & 4.76 & 5.29 & 0.07 &  3 & 4.49 & 3.99 & 0.06 \\
+            All & \textbf{Total} &                      5183 & 3 & 4.76 & 5.29 & 0.07 & *** &   3 & 4.49 & 3.99 & 0.06 & *** \\
             \bottomrule
         \end{tabular}}
     \end{table}
@@ -199,44 +199,44 @@ When viewed through postal code areas, walking time shows somewhat different res
         \scalebox{0.66}
         {\begin{tabular}{clLccccCcccccc}
             \toprule
-            & & &                                           \multicolumn{5}{c}{parktime} &    \multicolumn{5}{c}{walktime} \\
-                                                            \cmidrule(lr{\tbspace}){4-8}      \cmidrule(lr){9-13}
+            & & &                                           \multicolumn{5}{c}{parktime} &          \multicolumn{5}{c}{walktime} \\
+                                                            \cmidrule(lr{\tbspace}){4-8}            \cmidrule(lr){9-13}
             & & n &                                         Median & Mean & Std.dev & Std.err & p-value & Median & Mean & Std.dev & Std.err & p-value \\
             
             \midrule
-            \multirow{5}{*}{Espoo} & Weekday, rush hour &   99 & 2 & 2.88 & 3.27 & 0.33 & &    2 & 2.83 & 2.67 & 0.27 & \\
-            & Weekday, other than rush hour &               10 & 2 & 3.50 & 3.69 & 1.17 & &    5.5 & 6.30 & 4.81 & 1.52 & \\
-            & Weekend &                                     176 & 2 & 3.12 & 2.94 & 0.22 & &   3 & 3.27 & 2.41 & 0.18 & \\
-            & Can't specify, no usual time &                95 & 3 & 4.28 & 4.05 & 0.42 & &    3 & 3.76 & 2.81 & 0.29 & \\
+            \multirow{5}{*}{Espoo} & Weekday, rush hour &   99 & 2 & 2.88 & 3.27 & 0.33 & &         2 & 2.83 & 2.67 & 0.27 & \\
+            & Weekday, other than rush hour &               10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Weekend &                                     176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Can't specify, no usual time &                95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &   2 & 3.52 & 3.09 & 0.11 & *** \\
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{5}{*}{Helsinki} & Weekday, rush hour & 99 & 2 & 2.88 & 3.27 & 0.33 & &    2 & 2.83 & 2.67 & 0.27 & \\
-            & Weekday, other than rush hour &               10 & 2 & 3.50 & 3.69 & 1.17 & &    5.5 & 6.30 & 4.81 & 1.52 & \\
-            & Weekend &                                     176 & 2 & 3.12 & 2.94 & 0.22 & &   3 & 3.27 & 2.41 & 0.18 & \\
-            & Can't specify, no usual time &                95 & 3 & 4.28 & 4.05 & 0.42 & &    3 & 3.76 & 2.81 & 0.29 & \\
+            \multirow{5}{*}{Helsinki} & Weekday, rush hour & 99 & 2 & 2.88 & 3.27 & 0.33 & &        2 & 2.83 & 2.67 & 0.27 & \\
+            & Weekday, other than rush hour &               10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Weekend &                                     176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Can't specify, no usual time &                95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** & 2 & 3.52 & 3.09 & 0.11 & *** \\
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{5}{*}{Kauniainen} & Weekday, rush hour & 99 & 2 & 2.88 & 3.27 & 0.33 & &    2 & 2.83 & 2.67 & 0.27 & \\
-            & Weekday, other than rush hour &               10 & 2 & 3.50 & 3.69 & 1.17 & &    5.5 & 6.30 & 4.81 & 1.52 & \\
-            & Weekend &                                     176 & 2 & 3.12 & 2.94 & 0.22 & &   3 & 3.27 & 2.41 & 0.18 & \\
-            & Can't specify, no usual time &                95 & 3 & 4.28 & 4.05 & 0.42 & &    3 & 3.76 & 2.81 & 0.29 & \\
+            \multirow{5}{*}{Kauniainen} & Weekday, rush hour & 99 & 2 & 2.88 & 3.27 & 0.33 & &      2 & 2.83 & 2.67 & 0.27 & \\
+            & Weekday, other than rush hour &               10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Weekend &                                     176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Can't specify, no usual time &                95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** & 2 & 3.52 & 3.09 & 0.11 & *** \\
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{5}{*}{Vantaa} & Weekday, rush hour &  99 & 2 & 2.88 & 3.27 & 0.33 & &    2 & 2.83 & 2.67 & 0.27 & \\
-            & Weekday, other than rush hour &               10 & 2 & 3.50 & 3.69 & 1.17 & &    5.5 & 6.30 & 4.81 & 1.52 & \\
-            & Weekend &                                     176 & 2 & 3.12 & 2.94 & 0.22 & &   3 & 3.27 & 2.41 & 0.18 & \\
-            & Can't specify, no usual time &                95 & 3 & 4.28 & 4.05 & 0.42 & &   3 & 3.76 & 2.81 & 0.29 & \\
+            \multirow{5}{*}{Vantaa} & Weekday, rush hour &  99 & 2 & 2.88 & 3.27 & 0.33 & &         2 & 2.83 & 2.67 & 0.27 & \\
+            & Weekday, other than rush hour &               10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Weekend &                                     176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Can't specify, no usual time &                95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &   2 & 3.52 & 3.09 & 0.11 & *** \\
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            All & \textbf{Total} &                          5183 & 3 & 4.76 & 5.29 & 0.07 & *** &  3 & 4.49 & 3.99 & 0.06 & *** \\
+            All & \textbf{Total} &                          5183 & 3 & 4.76 & 5.29 & 0.07 & *** &   3 & 4.49 & 3.99 & 0.06 & *** \\
             \bottomrule
         \end{tabular}}
     \end{table}
@@ -247,51 +247,51 @@ When viewed through postal code areas, walking time shows somewhat different res
         \centering
         \caption[timeofday descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{parkspot}. The unit of median, mean, and standard deviation is minutes.\textcolor{red}{luvut väärin}}
         \label{tab:park_walk_parkspot}
-        \scalebox{0.8}
-        {\begin{tabular}{clLcccCccccc}
+        \scalebox{0.66}
+        {\begin{tabular}{clLccccCcccccc}
             \toprule
-            & & &                                           \multicolumn{4}{c}{parktime} &    \multicolumn{4}{c}{walktime} \\
-                                                            \cmidrule(lr{\tbspace}){4-7}      \cmidrule(lr){8-11}
-            & & n &                                         Median & Mean & Std.dev & Std.err & Median & Mean & Std.dev & Std.err \\
+			& & &                                           \multicolumn{5}{c}{parktime} &          \multicolumn{5}{c}{walktime} \\
+															\cmidrule(lr{\tbspace}){4-8}            \cmidrule(lr){9-13}
+			& & n &                                         Median & Mean & Std.dev & Std.err & p-value & Median & Mean & Std.dev & Std.err & p-value \\
             
             \midrule
-            \multirow{6}{*}{Espoo} & On the side of street & 99 & 2 & 2.88 & 3.27 & 0.33 &   2 & 2.83 & 2.67 & 0.27 \\
-            & Parking lot &                                 10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Parking garage &                              176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Private or reserved &                         176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Other &                                       95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \multirow{6}{*}{Espoo} & On the side of street & 99 & 2 & 2.88 & 3.27 & 0.33 & &        2 & 2.83 & 2.67 & 0.27 & \\
+            & Parking lot &                                 10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Parking garage &                              176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Private or reserved &                         176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Other &                                       95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{6}{*}{Helsinki} & On the side of street & 99 & 2 & 2.88 & 3.27 & 0.33 & 2 & 2.83 & 2.67 & 0.27 \\
-            & Parking lot &                                 10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Parking garage &                              176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Private or reserved &                         176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Other &                                       95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \multirow{6}{*}{Helsinki} & On the side of street & 99 & 2 & 2.88 & 3.27 & 0.33 & & 2 & 2.83 & 2.67 & 0.27 & \\
+            & Parking lot &                                 10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Parking garage &                              176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Private or reserved &                         176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Other &                                       95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{6}{*}{Kauniainen} & On the side of street & 99 & 2 & 2.88 & 3.27 & 0.33 & 2 & 2.83 & 2.67 & 0.27 \\
-            & Parking lot &                                 10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Parking garage &                              176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Private or reserved &                         176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Other &                                       95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \multirow{6}{*}{Kauniainen} & On the side of street & 99 & 2 & 2.88 & 3.27 & 0.33 & &   2 & 2.83 & 2.67 & 0.27 & \\
+            & Parking lot &                                 10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & & \\
+            & Parking garage &                              176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Private or reserved &                         176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Other &                                       95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{6}{*}{Vantaa} & On the side of street & 99 & 2 & 2.88 & 3.27 & 0.33 &  2 & 2.83 & 2.67 & 0.27 \\
-            & Parking lot &                                 10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Parking garage &                              176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Private or reserved &                         176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Other &                                       95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \multirow{6}{*}{Vantaa} & On the side of street & 99 & 2 & 2.88 & 3.27 & 0.33 & &       2 & 2.83 & 2.67 & 0.27 & \\
+            & Parking lot &                                 10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Parking garage &                              176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Private or reserved &                         176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Other &                                       95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            All & \textbf{Total} &                          5183 & 3 & 4.76 & 5.29 & 0.07 &  3 & 4.49 & 3.99 & 0.06 \\
+            All & \textbf{Total} &                          5183 & 3 & 4.76 & 5.29 & 0.07 & *** &   3 & 4.49 & 3.99 & 0.06 & *** \\
             \bottomrule
         \end{tabular}}
     \end{table}
@@ -302,51 +302,51 @@ When viewed through postal code areas, walking time shows somewhat different res
         \centering
         \caption[likert descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{likert}. The unit of median, mean, and standard deviation is minutes.\textcolor{red}{luvut väärin}}
         \label{tab:park_walk_likert}
-        \scalebox{0.8}
-        {\begin{tabular}{clLcccCccccc}
+        \scalebox{0.66}
+        {\begin{tabular}{clLccccCcccccc}
             \toprule
-            & & &                                           \multicolumn{4}{c}{parktime} &    \multicolumn{4}{c}{walktime} \\
-                                                            \cmidrule(lr{\tbspace}){4-7}      \cmidrule(lr){8-11}
-            & & n &                                         Median & Mean & Std.dev & Std.err & Median & Mean & Std.dev & Std.err \\
+			& & &                                           \multicolumn{5}{c}{parktime} &          \multicolumn{5}{c}{walktime} \\
+															\cmidrule(lr{\tbspace}){4-8}            \cmidrule(lr){9-13}
+			& & n &                                         Median & Mean & Std.dev & Std.err & p-value & Median & Mean & Std.dev & Std.err & p-value \\
             
             \midrule
-            \multirow{6}{*}{Espoo} & Extremely familiar &   99 & 2 & 2.88 & 3.27 & 0.33 &    2 & 2.83 & 2.67 & 0.27 \\
-            & Moderately familiar &                         10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Somewhat familiar &                           176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Slightly familiar &                           176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Not at all familiar &                         95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \multirow{6}{*}{Espoo} & Extremely familiar &   99 & 2 & 2.88 & 3.27 & 0.33 & &         2 & 2.83 & 2.67 & 0.27 & \\
+            & Moderately familiar &                         10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Somewhat familiar &                           176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Slightly familiar &                           176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Not at all familiar &                         95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{6}{*}{Helsinki} & Extremely familiar & 99 & 2 & 2.88 & 3.27 & 0.33 &   2 & 2.83 & 2.67 & 0.27 \\
-            & Moderately familiar &                         10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Somewhat familiar &                           176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Slightly familiar &                           176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Not at all familiar &                         95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \multirow{6}{*}{Helsinki} & Extremely familiar & 99 & 2 & 2.88 & 3.27 & 0.33 & &        2 & 2.83 & 2.67 & 0.27 & \\
+            & Moderately familiar &                         10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Somewhat familiar &                           176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Slightly familiar &                           176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Not at all familiar &                         95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{6}{*}{Kauniainen} & Extremely familiar & 99 & 2 & 2.88 & 3.27 & 0.33 & 2 & 2.83 & 2.67 & 0.27 \\
-            & Moderately familiar &                         10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Somewhat familiar &                           176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Slightly familiar &                           176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Not at all familiar &                         95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \multirow{6}{*}{Kauniainen} & Extremely familiar & 99 & 2 & 2.88 & 3.27 & 0.33 & &      2 & 2.83 & 2.67 & 0.27 & \\
+            & Moderately familiar &                         10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Somewhat familiar &                           176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Slightly familiar &                           176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Not at all familiar &                         95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{6}{*}{Vantaa} & Extremely familiar &  99 & 2 & 2.88 & 3.27 & 0.33 &    2 & 2.83 & 2.67 & 0.27 \\
-            & Moderately familiar &                         10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Somewhat familiar &                           176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Slightly familiar &                           176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Not at all familiar &                         95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \multirow{6}{*}{Vantaa} & Extremely familiar &  99 & 2 & 2.88 & 3.27 & 0.33 & &         2 & 2.83 & 2.67 & 0.27 & \\
+            & Moderately familiar &                         10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Somewhat familiar &                           176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Slightly familiar &                           176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Not at all familiar &                         95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            All & \textbf{Total} &                          5183 & 3 & 4.76 & 5.29 & 0.07 &  3 & 4.49 & 3.99 & 0.06 \\
+            All & \textbf{Total} &                          5183 & 3 & 4.76 & 5.29 & 0.07 & *** &   3 & 4.49 & 3.99 & 0.06 & *** \\
             \bottomrule
         \end{tabular}}
     \end{table}
@@ -357,51 +357,51 @@ When viewed through postal code areas, walking time shows somewhat different res
         \centering
         \caption[likert descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{articifial}. The unit of median, mean, and standard deviation is minutes.\textcolor{red}{luvut väärin}}
         \label{tab:park_walk_artificial}
-        \scalebox{0.8}
-        {\begin{tabular}{clLcccCccccc}
+        \scalebox{0.66}
+        {\begin{tabular}{clLccccCcccccc}
             \toprule
-            & & &                                           \multicolumn{4}{c}{parktime} &    \multicolumn{4}{c}{walktime} \\
-                                                            \cmidrule(lr{\tbspace}){4-7}      \cmidrule(lr){8-11}
-            & & n &                                         Median & Mean & Std.dev & Std.err & Median & Mean & Std.dev & Std.err \\
+			& & &                                           \multicolumn{5}{c}{parktime} &          \multicolumn{5}{c}{walktime} \\
+															\cmidrule(lr{\tbspace}){4-8}            \cmidrule(lr){9-13}
+			& & n &                                         Median & Mean & Std.dev & Std.err & p-value & Median & Mean & Std.dev & Std.err & p-value \\
             
             \midrule
-            \multirow{6}{*}{Espoo} & Fully built &          99 & 2 & 2.88 & 3.27 & 0.33 &    2 & 2.83 & 2.67 & 0.27 \\
-            & Predominantly built &                         10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Moderately built &                            176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Some built &                                  176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Scarcely built &                              95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \multirow{6}{*}{Espoo} & Fully built &          99 & 2 & 2.88 & 3.27 & 0.33 & &         2 & 2.83 & 2.67 & 0.27 & \\
+            & Predominantly built &                         10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Moderately built &                            176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Some built &                                  176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Scarcely built &                              95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{6}{*}{Helsinki} & Fully built &       99 & 2 & 2.88 & 3.27 & 0.33 &    2 & 2.83 & 2.67 & 0.27 \\
-            & Predominantly built &                         10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Moderately built &                            176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Some built &                                  176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Scarcely built &                              95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \multirow{6}{*}{Helsinki} & Fully built &       99 & 2 & 2.88 & 3.27 & 0.33 & &         2 & 2.83 & 2.67 & 0.27 & \\
+            & Predominantly built &                         10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Moderately built &                            176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Some built &                                  176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Scarcely built &                              95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{6}{*}{Kauniainen} & Fully built &     99 & 2 & 2.88 & 3.27 & 0.33 &    2 & 2.83 & 2.67 & 0.27 \\
-            & Predominantly built &                         10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Moderately built &                            176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Some built &                                  176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Scarcely built &                              95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \multirow{6}{*}{Kauniainen} & Fully built &     99 & 2 & 2.88 & 3.27 & 0.33 & &         2 & 2.83 & 2.67 & 0.27 & \\
+            & Predominantly built &                         10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Moderately built &                            176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Some built &                                  176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Scarcely built &                              95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{6}{*}{Vantaa} & Fully built &         99 & 2 & 2.88 & 3.27 & 0.33 &    2 & 2.83 & 2.67 & 0.27 \\
-            & Predominantly built &                         10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Moderately built &                            176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Some built &                                  176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Scarcely built &                              95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \multirow{6}{*}{Vantaa} & Fully built &         99 & 2 & 2.88 & 3.27 & 0.33 & &         2 & 2.83 & 2.67 & 0.27 & \\
+            & Predominantly built &                         10 & 2 & 3.50 & 3.69 & 1.17 & &         5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Moderately built &                            176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Some built &                                  176 & 2 & 3.12 & 2.94 & 0.22 & &        3 & 3.27 & 2.41 & 0.18 & \\
+            & Scarcely built &                              95 & 3 & 4.28 & 4.05 & 0.42 & &         3 & 3.76 & 2.81 & 0.29 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &    2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            All & \textbf{Total} &                          5183 & 3 & 4.76 & 5.29 & 0.07 &  3 & 4.49 & 3.99 & 0.06 \\
+            All & \textbf{Total} &                          5183 & 3 & 4.76 & 5.29 & 0.07 & *** &   3 & 4.49 & 3.99 & 0.06 & *** \\
             \bottomrule
         \end{tabular}}
     \end{table}
@@ -412,59 +412,59 @@ When viewed through postal code areas, walking time shows somewhat different res
         \centering
         \caption[likert descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{ykr\_zone}. The unit of median, mean, and standard deviation is minutes.\textcolor{red}{luvut väärin}}
         \label{tab:park_walk_ykrzone}
-        \scalebox{0.75}
-        {\begin{tabular}{clLcccCccccc}
+        \scalebox{0.6}
+        {\begin{tabular}{clLccccCcccccc}
             \toprule
-            & & &                                           \multicolumn{4}{c}{parktime} &    \multicolumn{4}{c}{walktime} \\
-                                                            \cmidrule(lr{\tbspace}){4-7}      \cmidrule(lr){8-11}
-            & & n &                                         Median & Mean & Std.dev & Std.err & Median & Mean & Std.dev & Std.err \\
+        	& & &                                           \multicolumn{5}{c}{parktime} &              \multicolumn{5}{c}{walktime} \\
+        													\cmidrule(lr{\tbspace}){4-8}                \cmidrule(lr){9-13}
+        	& & n &                                         Median & Mean & Std.dev & Std.err & p-value & Median & Mean & Std.dev & Std.err & p-value \\
             
             \midrule
-            \multirow{8}{*}{Espoo} & Keskustan jalankulkuvyöhyke &  99 & 2 & 2.88 & 3.27 & 0.33 &    2 & 2.83 & 2.67 & 0.27 \\
-            & Keskustan reunavyöhyke &                              10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Alakeskuksen jalankulkuvyöhyke &                      176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Intensiivinen joukkoliikennevyöhyke &                 176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Joukkoliikennevyöhyke &                               95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            & Autovyöhyke &                                         95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            & novalue &                                             95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \multirow{8}{*}{Espoo} & Keskustan jalankulkuvyöhyke &  99 & 2 & 2.88 & 3.27 & 0.33 & &     2 & 2.83 & 2.67 & 0.27 & \\
+            & Keskustan reunavyöhyke &                              10 & 2 & 3.50 & 3.69 & 1.17 & &     5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Alakeskuksen jalankulkuvyöhyke &                      176 & 2 & 3.12 & 2.94 & 0.22 & &    3 & 3.27 & 2.41 & 0.18 & \\
+            & Intensiivinen joukkoliikennevyöhyke &                 176 & 2 & 3.12 & 2.94 & 0.22 & &    3 & 3.27 & 2.41 & 0.18 & \\
+            & Joukkoliikennevyöhyke &                               95 & 3 & 4.28 & 4.05 & 0.42 & &     3 & 3.76 & 2.81 & 0.29 & \\
+            & Autovyöhyke &                                         95 & 3 & 4.28 & 4.05 & 0.42 & &     3 & 3.76 & 2.81 & 0.29 & \\
+            & novalue &                                             95 & 3 & 4.28 & 4.05 & 0.42 & &     3 & 3.76 & 2.81 & 0.29 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &        2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{8}{*}{Helsinki} & Keskustan jalankulkuvyöhyke & 99 & 2 & 2.88 & 3.27 & 0.33 &  2 & 2.83 & 2.67 & 0.27 \\
-            & Keskustan reunavyöhyke &                              10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Alakeskuksen jalankulkuvyöhyke &                      176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Intensiivinen joukkoliikennevyöhyke &                 176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Joukkoliikennevyöhyke &                               95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            & Autovyöhyke &                                         95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            & novalue &                                             95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \multirow{8}{*}{Helsinki} & Keskustan jalankulkuvyöhyke & 99 & 2 & 2.88 & 3.27 & 0.33 & &   2 & 2.83 & 2.67 & 0.27 & \\
+            & Keskustan reunavyöhyke &                              10 & 2 & 3.50 & 3.69 & 1.17 & &     5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Alakeskuksen jalankulkuvyöhyke &                      176 & 2 & 3.12 & 2.94 & 0.22 & &    3 & 3.27 & 2.41 & 0.18 & \\
+            & Intensiivinen joukkoliikennevyöhyke &                 176 & 2 & 3.12 & 2.94 & 0.22 & &    3 & 3.27 & 2.41 & 0.18 & \\
+            & Joukkoliikennevyöhyke &                               95 & 3 & 4.28 & 4.05 & 0.42 & &     3 & 3.76 & 2.81 & 0.29 & \\
+            & Autovyöhyke &                                         95 & 3 & 4.28 & 4.05 & 0.42 & &     3 & 3.76 & 2.81 & 0.29 & \\
+            & novalue &                                             95 & 3 & 4.28 & 4.05 & 0.42 & &     3 & 3.76 & 2.81 & 0.29 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &        2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{8}{*}{Kauniainen} & Keskustan jalankulkuvyöhyke & 99 & 2 & 2.88 & 3.27 & 0.33 & 2 & 2.83 & 2.67 & 0.27 \\
-            & Keskustan reunavyöhyke &                              10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Alakeskuksen jalankulkuvyöhyke &                      176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Intensiivinen joukkoliikennevyöhyke &                 176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Joukkoliikennevyöhyke &                               95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            & Autovyöhyke &                                         95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            & novalue &                                             95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \multirow{8}{*}{Kauniainen} & Keskustan jalankulkuvyöhyke & 99 & 2 & 2.88 & 3.27 & 0.33 & & 2 & 2.83 & 2.67 & 0.27 & \\
+            & Keskustan reunavyöhyke &                              10 & 2 & 3.50 & 3.69 & 1.17 & &     5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Alakeskuksen jalankulkuvyöhyke &                      176 & 2 & 3.12 & 2.94 & 0.22 & &    3 & 3.27 & 2.41 & 0.18 & \\
+            & Intensiivinen joukkoliikennevyöhyke &                 176 & 2 & 3.12 & 2.94 & 0.22 & &    3 & 3.27 & 2.41 & 0.18 & \\
+            & Joukkoliikennevyöhyke &                               95 & 3 & 4.28 & 4.05 & 0.42 & &     3 & 3.76 & 2.81 & 0.29 & \\
+            & Autovyöhyke &                                         95 & 3 & 4.28 & 4.05 & 0.42 & &     3 & 3.76 & 2.81 & 0.29 & \\
+            & novalue &                                             95 & 3 & 4.28 & 4.05 & 0.42 & &     3 & 3.76 & 2.81 & 0.29 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &        2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{8}{*}{Vantaa} & Keskustan jalankulkuvyöhyke & 99 & 2 & 2.88 & 3.27 & 0.33 &    2 & 2.83 & 2.67 & 0.27 \\
-            & Keskustan reunavyöhyke &                              10 & 2 & 3.50 & 3.69 & 1.17 &    5.5 & 6.30 & 4.81 & 1.52 \\
-            & Alakeskuksen jalankulkuvyöhyke &                      176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Intensiivinen joukkoliikennevyöhyke &                 176 & 2 & 3.12 & 2.94 & 0.22 &   3 & 3.27 & 2.41 & 0.18 \\
-            & Joukkoliikennevyöhyke &                               95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            & Autovyöhyke &                                         95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            & novalue &                                             95 & 3 & 4.28 & 4.05 & 0.42 &    3 & 3.76 & 2.81 & 0.29 \\
-            \arrayrulecolor{black!30}\cmidrule(lr){2-11}
-            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 &   2 & 3.52 & 3.09 & 0.11 \\
+            \multirow{8}{*}{Vantaa} & Keskustan jalankulkuvyöhyke & 99 & 2 & 2.88 & 3.27 & 0.33 & &     2 & 2.83 & 2.67 & 0.27 & \\
+            & Keskustan reunavyöhyke &                              10 & 2 & 3.50 & 3.69 & 1.17 & &     5.5 & 6.30 & 4.81 & 1.52 & \\
+            & Alakeskuksen jalankulkuvyöhyke &                      176 & 2 & 3.12 & 2.94 & 0.22 & &    3 & 3.27 & 2.41 & 0.18 & \\
+            & Intensiivinen joukkoliikennevyöhyke &                 176 & 2 & 3.12 & 2.94 & 0.22 & &    3 & 3.27 & 2.41 & 0.18 & \\
+            & Joukkoliikennevyöhyke &                               95 & 3 & 4.28 & 4.05 & 0.42 & &     3 & 3.76 & 2.81 & 0.29 & \\
+            & Autovyöhyke &                                         95 & 3 & 4.28 & 4.05 & 0.42 & &     3 & 3.76 & 2.81 & 0.29 & \\
+            & novalue &                                             95 & 3 & 4.28 & 4.05 & 0.42 & &     3 & 3.76 & 2.81 & 0.29 & \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-13}
+            & \textbf{Total} &                              746 & 2 & 3.23 & 3.63 & 0.13 & *** &        2 & 3.52 & 3.09 & 0.11 & *** \\
             \arrayrulecolor{black}\midrule
             
-            All & \textbf{Total} &                          5183 & 3 & 4.76 & 5.29 & 0.07 &  3 & 4.49 & 3.99 & 0.06 \\
+            All & \textbf{Total} &                          5183 & 3 & 4.76 & 5.29 & 0.07 & *** &       3 & 4.49 & 3.99 & 0.06 & *** \\
             \bottomrule
         \end{tabular}}
     \end{table}
