@@ -11,7 +11,7 @@
 %- Just show your findings, no nonsense
 In this chapter, the thesis research survey results which fit the criteria as per shown in \hyperref[sec:processdata]{\fullref{sec:processdata}} is discussed. Within the selected criteria, the survey received a total of 5579 visits from 4320 unique IP addresses. 848 unique IP addresses visited the survey more than one time and in total 1060 unique IP addresses sent data to the survey. 24.5 percent of all visitors submitted at least one data row. On average one respondent submitted 4.9 data rows.
 
-The survey received in total 5183 data rows. All postal code areas were represented in the survey results (figure~\ref{fig:postalvis_answers}), but the data row count histogram was heavily skewed to the right, with the first quartile being eight data rows, second (median) 17 data rows and third 42 data rows (table~\ref{tab:muns_answer_stats}, figures~\ref{fig:parktime_hist},~\ref{fig:walktime_hist}). There were five postal code areas with more than one hundred data rows and 55 postal code areas with less than ten data rows. In Helsinki, the answers strongly clustered around the center of Helsinki, with other centers of activity being Herttoniemi and Itäkeskus-Marjaniemi in Helsinki, Tapiola-Otaniemi and Leppävaara in Espoo, and Tikkurila-Vantaanportti in Vantaa.
+The survey received in total 5183 data rows. All postal code areas were represented in the survey results (figure~\ref{fig:postalvis_answers}), but the data row count histogram was heavily skewed to the right, with the first quartile being eight data rows, second (median) 17 data rows and third 42 data rows (table~\ref{tab:muns_answer_stats}, figures~\ref{fig:parktime_hist},~\ref{fig:walktime_hist}). Most respondents reported short parking times below ten minutes, but the histograms do not smoothly lessen in values from the right to left, as people have preferred to report round figures such as five, ten, or fifteen minutes. There were five postal code areas with more than one hundred data rows and 55 postal code areas with less than ten data rows. In Helsinki, the answers strongly clustered around the center of Helsinki, with other centers of activity being Herttoniemi and Itäkeskus-Marjaniemi in Helsinki, Tapiola-Otaniemi and Leppävaara in Espoo, and Tikkurila-Vantaanportti in Vantaa.
 
 \begin{figure}[H]%
     \centering
@@ -26,8 +26,6 @@ The survey received in total 5183 data rows. All postal code areas were represen
     \caption[Histogram, walk to destination]{All permitted thesis survey \code{walktime} values (< 60) shown on histogram.}%
     \label{fig:walktime_hist}%
 \end{figure}
-
-On a closer look to the municipalities, finer details become apparent. For example, in Helsinki a wedge-like area of survey activity in the direction of southwest-northeast is visible. Starting out from the west, this area spans from Lauttasaari to the center of Helsinki and moving on all the way to Malmi. Many of the areas which could be roughly characterised as residential areas, were left with little activity. Furthermore, in the survey instructions respondents were requested to refrain from including parking activity in private property, as it was assumed that these areas would provide near to instantaneous parking. The lightness of activity in residential areas corresponds with the made request.
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
@@ -52,40 +50,41 @@ On a closer look to the municipalities, finer details become apparent. For examp
     \end{table} 
 \end{hyphenrules}
 
+On a closer look to the municipalities, finer details become apparent (figure~\ref{fig:postalvis_answers}). For example, in Helsinki, a wedge-like area of survey activity in the direction of southwest-northeast is visible. Starting out from the west, this area spans from Lauttasaari to the center of Helsinki and moving on all the way east to Malmi. Many of the areas which could be roughly characterised as residential areas were left with little activity. Furthermore, in the survey instructions respondents were requested to refrain from including parking activity in private property, as it was assumed that these areas would provide near to instantaneous parking. The lightness of activity in residential areas corresponds with the made request.
+
 % A known issue with these five maps: Vartiosaari is represented on these maps. As an unreachable island, it shouldn't.
-% NB! That municipality border is not strictly correct! It's the borders using PAAVO data and therefore not entirely correct!
 \begin{figure}[H]%
     \centering
-    \includegraphics[width=.88\textwidth]{images/thesis_postalvis_answers.png}
-    \caption[Data rows received per postal code area]{This figure illustrates the data rows received in the survey per postal code area (n=167). Classes are in natural breaks (Jenks). Municipality borders are based on \textit{postal} data.}%
+    \includegraphics[width=\textwidth]{images/thesis_postalvis_answers.png}
+    \caption[Data rows received per postal code area]{This figure illustrates the responses received in the thesis survey per postal code area (n=167). Classes are in natural breaks (Jenks). Municipality borders are based on \textit{postal} data. There are slight differences to the actual municipality boundaries.}%
     \label{fig:postalvis_answers}%
 \end{figure}
 
 \begin{figure}[H]%
     \centering
     \includegraphics[width=.88\textwidth]{images/thesis_postalvis_parkmean.png}
-    \caption[Parktime, mean, in the reseach area]{This figure illustrates the mean duration of searching for parking and parking one's car, usually, in each postal code area.}%
+    \caption[Parktime, mean, in the reseach area]{This figure illustrates the mean duration of searching for parking and parking one's car in each postal code area.}%
     \label{fig:postalvis_parkmean}%
 \end{figure}
 
 \begin{figure}[H]%
     \centering
     \includegraphics[width=.88\textwidth]{images/thesis_postalvis_parkmedian.png}
-    \caption[Parktime, median, in the reseach area]{This figure illustrates the median duration of searching for parking and parking one's car, usually, in each postal code area.}%
+    \caption[Parktime, median, in the reseach area]{This figure illustrates the median duration of searching for parking and parking one's car in each postal code area.}%
     \label{fig:postalvis_parkmedian}%
 \end{figure}
 
 \begin{figure}[H]%
     \centering
     \includegraphics[width=.88\textwidth]{images/thesis_postalvis_walkmean.png}
-    \caption[Walktime, mean, in the research area]{This figure illustrates the mean duration of walking from one's parked car to the final destination, usually, in each postal code area.}%
+    \caption[Walktime, mean, in the research area]{This figure illustrates the mean duration of walking from one's parked car to the final destination in each postal code area.}%
     \label{fig:postalvis_walkmean}%
 \end{figure}
 
 \begin{figure}[H]%
     \centering
     \includegraphics[width=.88\textwidth]{images/thesis_postalvis_walkmedian.png}
-    \caption[Walktime, median, in the research area]{This figure illustrates the median duration of walking from one's parked car to the final destination, usually, in each postal code area.}%
+    \caption[Walktime, median, in the research area]{This figure illustrates the median duration of walking from one's parked car to the final destination in each postal code area.}%
     \label{fig:postalvis_walkmedian}%
 \end{figure}
 
@@ -93,7 +92,11 @@ On a closer look to the municipalities, finer details become apparent. For examp
 \subsection{Statistics}
 \justify
 
-The survey data shows that there are spatial differences in the parking times and walking times between municipalities and regions of Helsinki Capital Region (table~\ref{tab:park_walk_subdiv}). It is shown by the one-way analysis of variance test (ANOVA) that for parktime and walktime there are statistically significant differences (p < 0.05) between the 23 groups (municipality subdivisions). These differences are wide ranging, with mean parking time in Helsinki being 5.2 minutes, 3.8 minutes in Vantaa, 3.2 minutes in Espoo and lastly, 2.1 minutes in Kauniainen. Parking times vary inside municipalities; in Espoo, in the subdivision of Pohjois-Espoo mean parking time was 1.7 minutes while the same value for Suur-Matinkylä was 4.3 minutes. From all the subdivisions in the research area, the subdivision representing the center of Helsinki, Helsinki Southern, had the the longest mean parking time, 7.3 minutes. In the vast majority of subdivision groups, the group sizes were sufficiently large for ANOVA analysis to be significant. This was also true for sample sizes across the board.
+The thesis survey data shows that there are spatial differences between municipalities and regions of Helsinki Capital Region (table~\ref{tab:park_walk_subdiv}) in the durations to find a parking spot, and walking from one's parked car to the final destination. It is shown by the one-way analysis of variance test (ANOVA) that for \code{parktime} and \code{walktime} there are statistically significant differences (p < 0.05) between the 23 groups (municipality subdivisions). In the vast majority of subdivision groups, the group sizes were sufficiently large for ANOVA analysis to be significant. The spatial differences between subdivisions were wide-ranging, with a 5.2 minutes mean \code{parktime} in Helsinki, 3.8 minutes in Vantaa, 3.2 minutes in Espoo and lastly, 2.1 minutes in Kauniainen. Median \code{parktime} for the municipalities were 4.0, 2.0, 2.0, and 2.0 minutes, respectively. Durations to find a parking spot vary inside municipalities; in Espoo, in the subdivision of Pohjois-Espoo mean \code{parktime} was 1.7 minutes (median 1.0 minute) while the same value for Suur-Matinkylä was 4.3 minutes (median 3.0 minutes). From all the subdivisions in the research area, the subdivision representing the center of Helsinki, Helsinki Southern, had the the longest mean \code{parktime}, 7.3 minutes (median 5.0 minutes). In the case of this survey dataset it is important to not lose sight of median, as mean is susceptible to outliers, of which there are many present. One such situation may be viewed in 01750 Keimola, where the mean \code{parktime} is 5.9 minutes, and median reads at 1.0 minute. In Keimola's situation, one respondent entered a \code{parktime} of 25 minutes, severely skewing the total sample of seven values. It may be argued that when detecting areas of long duration of searching for parking, median is the better measure to identify areas of interest.
+
+In walking from one's parked car to the final destination of the journey, mostly the same areas are highlighted as in \code{parktime}. Viewing the data through municipalities, Helsinki has the longest \code{walktime} with 4.8 minutes, followed by Vantaa's 4.0 minutes, then 3.5 minutes in Espoo and finally 2.2 minutes in Kauniainen. Median values are 4.0, 3.0, 2.0, and 2.0 minutes, respectively. Viewing the spatial data more closely, becomes apparent that recreational trips to Nuuksio National Park may nudge the municipality's values upward, while in Vantaa, the Helsinki-Vantaa airport walking seems to be a factor. A summarising feature about \code{walktime} is that areas of long walking times are not as apparently clustered as those of \code{parktime} are.
+
+When comparing two specific subdivisions, further details can be observed. \textcolor{red}{comparison of 2 groups, interesting examples}
 
 % \textcolor{red}{290720 kun verrataan kahta subdiviä (2 ryhmää), käytetään anovaa ja katsotaan merkitsevyys. Suur-Tapiola ja Aviapolis oli " ", ei-merkitsevä, Suur-Tapiola ja Helsinki Southern ***. Kirjoita muutamasta parista, joissa ***. Vois mainita yhden kiinnostavan, missä parkkiaikojen ero on kohinaa (Tapiola ja Aviapolis). Muista tää sama walktimelle.} \\
 % \textcolor{red}{290720 katso muut muuttujat niin, että mukana kaikki subdivit, onko merkitsevyyttä anovassa} \\
