@@ -628,7 +628,7 @@ To answer this research question, an application to compare travel time datasets
 
 \begin{figure}[H]%
     \includegraphics[width=\textwidth]{images/shinyapps_comparison.png}
-    \caption[Comparison application screenshot]{Helsinki Region Travel Time Matrix 2018 and thesis survey data comparison application's shinyapps.io deployment. The cursor hovers over 01200 Hakunila with the appropriate tooltip shown.}%
+    \caption[Comparison application screenshot]{Helsinki Region Travel Time Matrix 2018 and thesis survey data comparison application's shinyapps.io deployment. The cursor hovers over 01200 Hakunila with the a data tooltip active.}%
     \label{fig:shinyapps_comparison}%
 \end{figure}
 
@@ -674,47 +674,48 @@ It was decided that the basic spatial unit for the comparison application would 
     \end{table} 
 \end{hyphenrules}
 
-The survey data gathered in for this thesis does not contain any additional data about the driving segment of travel chains in Helsinki Capital Region. For the use of this application the driving segment from an origin postal code area to all other postal code areas was extracted from \textit{TTM} data by substracting the total parking process (2.42--2.92 minutes). This driving time segment was then summed with the thesis survey parking data, enabling comparable travel chains using original \textit{TTM} data and the newly collected survey data. In the travel time comparison application the user can see all calculated values by hovering the cursor over a postal code area (figure~\ref{fig:shinyapps_comparison_detail}). The calculation formulas and abbreviated column names are further explained in table~\ref{tab:comparison_tooltip_content}.
+The survey data gathered in for this thesis does not contain any additional data about the driving segment of travel chains in Helsinki Capital Region. For the use of this application the driving segment from an origin postal code area to all other postal code areas was extracted from \textit{TTM} data by substracting the total parking process (2.42--2.92 minutes). This driving time segment was then added up with the thesis survey parking data, enabling comparable travel chains using original \textit{TTM} data and the newly collected survey data. In the travel time comparison application the user can see all calculated values by hovering the cursor over a postal code area (figure~\ref{fig:shinyapps_comparison_detail}). The calculation formulas and abbreviated column names are further explained in table~\ref{tab:comparison_tooltip_content}.
 
-With the help of this travel time comparison application it is effortless to get an overall picture of travel time charasteristics in the Helsinki Capital Region and most importantly, to answer the third research question of this thesis, view the share of the driving segment and parking process segment in aggregated travel chains from a postal code area to another. Moreover, the application advances the communication of the results of this thesis in a tangible way while being transparent of its inner workings.
+With the help of this travel time comparison application it is effortless to get an overall picture of private car parking time charasteristics in the Helsinki Capital Region and most importantly, to answer the third research question of this thesis, view the share of the driving segment and parking process segment in aggregated travel chains from a postal code area to another. Moreover, the application advances the communication of the results of this thesis in a tangible way while being transparent of its inner workings.
 
 The source code for the \textit{comparison} analysis application is available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/thesis-comparison-shinyapps}}). The application may be viewed on shinyapps.io (\textcolor{blue}{\url{https://sampoves.shinyapps.io/comparison}}).
 
 % note about multirows: it seems that it is not straightforward to vertically center multirows when other cells in the influence of that multirow have wrapped text. Have to hack the vertical positions manually.
+% Forced newlines: Use \vtop with \hbox and \strut to force newlines on data column names
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \def\arraystretch{1.6}
+        \def\arraystretch{1.4}
         \setlength\tabcolsep{5pt}
-        \caption[Comparison application tooltip content]{Comparison application tooltip content meaning. All values are per postal code area.} 
+        \caption[Comparison application tooltip content]{Travel time comparison application's tooltip (figure~\ref{fig:shinyapps_comparison_detail}) content legend. All values are per postal code area.} 
         \label{tab:comparison_tooltip_content}
-        \scalebox{0.75}
-        {\begin{tabular}{ l p{2cm} p{10cm} >{\raggedright\arraybackslash}p{6cm} }
+        \scalebox{0.7}
+        {\begin{tabular}{ l >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} p{1cm} p{10cm} >{\raggedright\arraybackslash}p{5cm} }
             \toprule
-            & Column name, unit & Description & Formula \\
+            & Column name in app & Column name in data & Unit & Description & Formula \\
             \midrule
-            \multirow{3}{2cm}[-6ex]{timeofday} & r & Rush hour traffic (09:00–11.00, 15.00–17.00) & -- \\
-            & m & Midday traffic (09.00–15.00) & -- \\
-            & all & An average of all available data. For \textit{TTM}, these are \textit{Rush hour traffic}, \textit{Midday traffic}, and \textit{Route following speed limits without any additional impedances}. For thesis survey data, these are the values of the survey question \code{timeofday}: \textit{Weekday, rush hour}, \textit{Weekday, other than rush hour}, \textit{Weekend}, and \textit{Can't specify, no usual time}. & $\frac{value_1 + value_2 + ... + value_n}{n}$ \\
+            \multirow{3}{2cm}[-6ex]{timeofday} & r & r & N/A & Rush hour traffic (09:00–11.00, 15.00–17.00) & -- \\
+            & m & m & N/A & Midday traffic (09.00–15.00) & -- \\
+            & all & all & N/A & An average of all available data. For \textit{TTM}, these are \textit{Rush hour traffic}, \textit{Midday traffic}, and \textit{Route following speed limits without any additional impedances}. For thesis survey data, these are the values of the survey question \code{timeofday}: \textit{Weekday, rush hour}, \textit{Weekday, other than rush hour}, \textit{Weekend}, and \textit{Can't specify, no usual time} (table~\ref{tab:js_survey_questions}). & $\frac{value_1 + value_2 + ... + value_n}{n}$ \\
             \greyrule
             
-            \multirow{5}{2cm}[-23ex]{Travel Time Matrix 2018} & sfp, min & Time consumed in searching for parking. In \textit{TTM}, this is 0.42 minutes for all YKR IDs in the entirety of Helsinki Capital Region (\cite{Toivonen2014a}). & -- \\
-            & wtd\_avg, min & An averaged value of walking time from one's parked private car to the final destination of the travel chain. In \textit{TTM}, this is 2.0 minutes for all \textit{grid} cells in the entirety of Helsinki Capital Region, except in a square defined over the center of Helsinki, where the value is 2.5 minutes for all \textit{grid} cells (\cite{Toivonen2014a}). & -- \\
-            & avg, min & A mean duration of the complete travel chain with private car from origin postal code area to the destination postal code area. & $\frac{car\_x\_t_1 + car\_x\_t_2 + ... + car\_x\_t_n}{n}$, where $x$ is $r$, $m$, or $all$. $car\_$ represents unchanged \textit{TTM} data columns. \\
-            & drivetime, min & The length of the driving segment of the mean duration of the complete travel chain from origin postal code area to the destination postal code area without searching for parking (using the \textit{TTM} value) or walking to the final destination of the travel chain (\textit{TTM} value). & $ttm\_x\_avg - ttm\_sfp - ttm\_wtd\_avg$ \\
-            & pct, \% & How much does searching for parking and walking from one's parked car to the final destination of the travel chain constitute of the mean duration of the complete travel chain? & $\frac{ttm\_sfp + ttm\_wtd\_avg}{ttm\_x\_avg}$ \\
+            \multirow{5}{2cm}[-23ex]{Travel Time Matrix 2018} & sfp & ttm\_sfp & min & Time consumed in searching for parking. In \textit{TTM}, this is 0.42 minutes for all YKR IDs in the entirety of Helsinki Capital Region (\cite{Toivonen2014a}). & -- \\
+            & wtd\_avg & \vtop{\hbox{\strut ttm\_wtd\_}\hbox{\strut avg}} & min & An averaged value of walking time from one's parked private car to the final destination of the travel chain. In \textit{TTM}, this is 2.0 minutes for all \textit{grid} cells in the entirety of Helsinki Capital Region, except in a square defined over the center of Helsinki, where the value is 2.5 minutes for all \textit{grid} cells (\cite{Toivonen2014a}). & -- \\
+            & avg & \vtop{\hbox{\strut ttm\_x\_}\hbox{\strut avg}} & min & A mean duration of the complete travel chain with private car from origin postal code area to the destination postal code area. & $\frac{car\_x\_t_1 + car\_x\_t_2 + ... + car\_x\_t_n}{n}$, where $x$ is $r$, $m$, or $all$. $car\_$ represents unchanged \textit{TTM} data columns. \\
+            & drivetime & \vtop{\hbox{\strut ttm\_x\_}\hbox{\strut drivetime}} & min & The length of the driving segment of the mean duration of the complete travel chain from origin postal code area to the destination postal code area without searching for parking (using the \textit{TTM} value) or walking to the final destination of the travel chain (\textit{TTM} value). & $ttm\_x\_avg - ttm\_sfp - ttm\_wtd\_avg$ \\
+            & pct & \vtop{\hbox{\strut ttm\_x\_}\hbox{\strut pct}} & \% & How much does searching for parking and walking from one's parked car to the final destination of the travel chain constitute of the mean duration of the complete travel chain? & $\frac{ttm\_sfp + ttm\_wtd\_avg}{ttm\_x\_avg}$ \\
             \greyrule
             
-            \multirow{4}{2cm}[-14ex]{Thesis data} & sfp\_avg, min & Time consumed, on average, in searching for parking in a postal code area, according to the thesis survey respondents. & $\frac{parktime_1 + parktime_2 + ... + parktime_n}{n}$, while postal code value is constant. \\
-            & wtd\_avg, min & Average walking time from one's parked private car to the final destination in a postal code area, according to the thesis survey respondents. & $\frac{walktime_1 + walktime_2 + ... + walktime_n}{n}$, while postal code value is constant. \\
-            & drivetime, min & The length of the driving segment of the mean duration of the complete travel chain (\textit{TTM} data) from the origin postal code area to the destination postal code area, without searching for parking (thesis survey mean) or walking to destination (thesis survey mean). & $ttm\_x\_drivetime - thesis\_x\_sfp - thesis\_x\_wtd$, where $x$ is $r$, $m$, or $all$. \\
-            & pct, \% & How much do the thesis mean values for searching for parking and walking from one's parked car to the final destination constitute of the mean duration of the complete travel chain? & $\frac{thesis\_x\_sfp + thesis\_x\_wtd}{ttm\_x\_drivetime}$ \\
+            \multirow{4}{2cm}[-14ex]{Thesis data} & sfp\_avg & \vtop{\hbox{\strut thesis\_x\_}\hbox{\strut sfp}} & min & Time consumed, on average, in searching for parking in a postal code area, according to the thesis survey respondents. & $\frac{parktime_1 + parktime_2 + ... + parktime_n}{n}$, while postal code value is constant. \\
+            & wtd\_avg & \vtop{\hbox{\strut thesis\_x\_}\hbox{\strut wtd}} & min & Average walking time from one's parked private car to the final destination in a postal code area, according to the thesis survey respondents. & $\frac{walktime_1 + walktime_2 + ... + walktime_n}{n}$, while postal code value is constant. \\
+            & drivetime & \vtop{\hbox{\strut thesis\_x\_}\hbox{\strut drivetime}} & min & The length of the driving segment of the mean duration of the complete travel chain (\textit{TTM} data) from the origin postal code area to the destination postal code area, without searching for parking (thesis survey mean) or walking to destination (thesis survey mean). & $ttm\_x\_drivetime - thesis\_x\_sfp - thesis\_x\_wtd$, where $x$ is $r$, $m$, or $all$. \\
+            & pct & \vtop{\hbox{\strut thesis\_x\_}\hbox{\strut pct}} & \% & How much do the thesis mean values for searching for parking and walking from one's parked car to the final destination constitute of the mean duration of the complete travel chain? & $\frac{thesis\_x\_sfp + thesis\_x\_wtd}{ttm\_x\_drivetime}$ \\
             \greyrule
             
-            \multirow{4}{2cm}[-9ex]{Compare TTM and thesis} & sfp, \% & Compare \textit{TTM} and thesis survey values for searching for parking. & $\frac{thesis\_x\_sfp}{ttm\_sfp}$, where $x$ is $r$, $m$, or $all$. \\
-            & wtd, \% & Compare \textit{TTM} and thesis survey values for the duration to walk from one's parked car to the final destination of the travel chain. & $\frac{thesis\_x\_wtd}{ttm\_wtd\_avg}$ \\
-            & drivetime, \% & Compare the driving time segment of the mean duration of the complete travel chain in TTM and thesis data. & $\frac{thesis\_x\_drivetime}{ttm\_x\_drivetime}$ \\
-            & pct, \% & Compare the percentual value of the significance of searching for parking and walking to one's final destination of the mean duration of the complete travel chain in \textit{TTM} and thesis data. & $\frac{thesis\_x\_pct}{ttm\_x\_pct}$ \\
+            \multirow{4}{2cm}[-9ex]{Compare TTM and thesis} & sfp & \vtop{\hbox{\strut compare\_x\_}\hbox{\strut sfp}} & \% & Compare \textit{TTM} and thesis survey values for searching for parking. & $\frac{thesis\_x\_sfp}{ttm\_sfp}$, where $x$ is $r$, $m$, or $all$. \\
+            & wtd & \vtop{\hbox{\strut compare\_x\_}\hbox{\strut wtd}} & \% & Compare \textit{TTM} and thesis survey values for the duration to walk from one's parked car to the final destination of the travel chain. & $\frac{thesis\_x\_wtd}{ttm\_wtd\_avg}$ \\
+            & drivetime & \vtop{\hbox{\strut compare\_x\_}\hbox{\strut drivetime}} & \% & Compare the driving time segment of the mean duration of the complete travel chain in TTM and thesis data. & $\frac{thesis\_x\_drivetime}{ttm\_x\_drivetime}$ \\
+            & pct & \vtop{\hbox{\strut compare\_x\_}\hbox{\strut pct}} & \% & Compare the percentual value of the significance of searching for parking and walking to one's final destination of the mean duration of the complete travel chain in \textit{TTM} and thesis data. & $\frac{thesis\_x\_pct}{ttm\_x\_pct}$ \\
             \bottomrule
         \end{tabular}}
     \end{table} 
