@@ -148,7 +148,7 @@ Differences of Espoo's Vanha-Espoo and Helsinki's Östersundom subdivisions view
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[Parktime and walktime descriptive statistics with explanatory variable subdivision]{Parking times and walking times descriptive statistics displayed by municipalities and subdivisions (the explanatory variable \code{subdiv}). The unit of median, mean, and standard deviation is minutes. Significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
+        \caption[Parktime and walktime descriptive statistics with explanatory variable subdiv]{Parking times and walking times descriptive statistics displayed by municipalities and subdivisions (the explanatory variable \code{subdiv}). The unit of median, mean, and standard deviation is minutes. Significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
         \label{tab:park_walk_subdiv}
         \scalebox{0.66}
         % Column type C is a custom column which adds space to its position. Used to separate important features of this table. L aligns left.
@@ -203,9 +203,13 @@ Differences of Espoo's Vanha-Espoo and Helsinki's Östersundom subdivisions view
     \end{table}
 \end{hyphenrules}
 
-The municipalities of Helsinki Capital Region show varying results when \code{parktime} and \code{walktime} were viewed against the thesis survey variable \code{timeofday}, the time of day for parking one's car (table~\ref{tab:park_walk_timeofday}). Highest values were found in Helsinki, where parking and walking times were of the highest in the entire research area.
+The municipalities of Helsinki Capital Region show varying results when \code{parktime} and \code{walktime} were viewed against the thesis survey variable \code{timeofday}, the time of day for parking one's car (table~\ref{tab:park_walk_timeofday}). Highest values for each choice were found in Helsinki, where \code{parktime} mean was highest for \textit{Weekday, rush hour} (mean 5.7 min, median 5 min). Interestingly, none of the other municipalities had \textit{Weekday, rush hour} as the longest choice. In Espoo the choice \textit{Can't specify, no usual time} was the longest (mean 3.8 min, median 2.0 min), while in Vantaa the choice \textit{Weekday, other than rush hour} took the top position (mean 4.2 min, median 2.0 min). In Kauniainen survey participants reported the longest \code{parktime} values during the weekend (mean 3.0 min, median 3.0 min).
 
-Interestingly, the time of day for parking one's car yielded varying results when comparing choices of \code{timeofday} inside municipalities of Helsinki Capital Region.
+Furthermore, Helsinki also had the longest \code{walktime} values when viewed against \code{timeofday}. In the capital it took the longest to walk from one's car to the final destination on weekend (mean 5.1 min, median 5.0 min). For Espoo, survey participants again reported the highest \code{walktime} value for the choice \textit{Can't specify, no usual time} (mean 4.0 min, median 3.0 min). In Vantaa one had to walk the longest from the car to the final destination during weekday's rush hour (mean 4.7 min, median 3.0 min), while in Kauniainen weekend private car users spent the longest time walking from their car to their destination (mean 2.6 min, median 2.0 min).
+
+The ANOVA test yielded varying results when comparing choices of \code{timeofday} inside municipalities of Helsinki Capital Region. Highly significant differences between the time of day of parking and walking from one's car to the final destination were only detected in Helsinki, where both \code{parktime} and \code{walktime} received significance code of ***. The corresponding test for Espoo produced a weaker statistical significance with \code{parktime} ('*', $p = 0.04$) and \code{walktime} ('*', $p = 0.02$). The ANOVA tests were entirely non-significant while Vantaa's ANOVA test testing \code{timeofday} produced a non-significant result for \code{parktime} and a weak significance for \code{walktime} ('.', $p = 0.07$).
+
+Groups were excluded from the variable \code{timeofday} in a test to see if it would enhance statistical significance of differences between the rest of the groups. This proved unsuccessful. For example, statistically significant differences could not be found for \code{timeofday} groups when concentrating on Vantaa and \code{parktime}. Each group was successively excluded from the test and additionally hypothetically different times of day were compared to each other (\textit{Weekday, rush hour}--\textit{Weekend}).
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
@@ -258,10 +262,14 @@ Interestingly, the time of day for parking one's car yielded varying results whe
     \end{table}
 \end{hyphenrules}
 
+The thesis survey data showed marked differences between parking place types in the research area (table~\ref{tab:park_walk_parkspot}).
+
+The ANOVA test for \code{parkspot} showed strong statistical significance for parking spot types and study area municipalities. However, in contrast, Kauniainen received non-significant results from the ANOVA test for both \code{parktime} and \code{walktime}. 
+
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[timeofday descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{parkspot}. The unit of median, mean, and standard deviation is minutes. Significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
+        \caption[parkspot descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{parkspot}. The unit of median, mean, and standard deviation is minutes. Significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
         \label{tab:park_walk_parkspot}
         \scalebox{0.66}
         {\begin{tabular}{clLccccCcccccc}
@@ -371,7 +379,7 @@ Interestingly, the time of day for parking one's car yielded varying results whe
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[likert descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{articifial}. The unit of median, mean, and standard deviation is minutes. Significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
+        \caption[articifial descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{articifial}. The unit of median, mean, and standard deviation is minutes. Significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
         \label{tab:park_walk_artificial}
         \scalebox{0.66}
         {\begin{tabular}{clLccccCcccccc}
@@ -426,7 +434,7 @@ Interestingly, the time of day for parking one's car yielded varying results whe
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[likert descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{ykr\_zone}. The unit of median, mean, and standard deviation is minutes. Significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
+        \caption[ykr\_zones descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{ykr\_zone}. The unit of median, mean, and standard deviation is minutes. Significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
         \label{tab:park_walk_ykrzone}
         \scalebox{0.6}
         {\begin{tabular}{clLccccCcccccc}
