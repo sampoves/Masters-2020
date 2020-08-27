@@ -41,24 +41,25 @@
 \usepackage[acronym,style=super4col]{glossaries} % Glossaries and lists of acronyms
 
 
-% Abbreviations. Note the definition of plural forms ----------------------
+% Abbreviations. Note the definition of plural forms where applicable -----
+\newacronym{anova}{ANOVA}{Analysis of Variance test}
 \newacronym[plural=IDEs,firstplural=Integrated development environments (IDE)]{ide}{IDE}{Integrated Development Environment}
 \newacronym{php}{PHP}{Hypertext preprocessor}
 
 % Nomenclature for glossary. Note the definition of plural forms ----------
-\newglossaryentry{mysql}{
-  name = {MySQL},
-  description = {Open-source relational database management system},
-}
-\newglossaryentry{GB}{
-  name = {GB},
-  description = {Gigabyte is a multiple of the unit used to store digital information. A gigabyte is 1 000 megabytes},
-}
 \newglossaryentry{CPU}{
   name = {CPU},
   description = {Central Processing Unit},
   plural = {CPUs},
   firstplural = {\glsentrydesc{CPU}s (\glsentryplural{CPU})}
+}
+\newglossaryentry{GB}{
+  name = {GB},
+  description = {Gigabyte is a multiple of the unit used to store digital information. A gigabyte is 1 000 megabytes},
+}
+\newglossaryentry{mysql}{
+  name = {MySQL},
+  description = {Open-source relational database management system},
 }
 \newglossaryentry{RAM}{
   name = {RAM},
