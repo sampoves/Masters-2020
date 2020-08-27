@@ -386,7 +386,13 @@ The statistical significance of differences between groups for the explanatory v
     \end{table}
 \end{hyphenrules}
 
-(table~\ref{tab:park_walk_artificial})
+Viewing response variables \code{parktime} and \code{walktime} through the explanatory variable \code{artificial} shows that parking times and walking times are generally longer the more built the urban environment is (table~\ref{tab:park_walk_artificial}). This variable was calculated using spatial data in the data processing phase of this thesis. The \hyperref[sec:processdata]{\fullref{sec:processdata}} explains in detail the development procedure of \code{artificial}. Because each postal code area is assigned a singular \code{artificial} value, Kauniainen does not yield meaningful additional information in this context.
+
+Explanatory variable \code{parktime} values follow a descending trend from the most intensively built group \textit{Fully built} to the group representing areas of most scattered urban features, \textit{Scarcely built}. In Helsinki, parking one's car took longest in the areas designated \textit{Predominantly built} (mean 6.1 minutes, median 5.0 minutes), with \textit{Fully built} following as the second longest (5.3, 4.0 min). In Espoo and Vantaa, the longest parking times could be found in fully built areas (Espoo's mean 3.7 minutes, median 2.0 minutes, while in Vantaa corresponding values were 5.7 minutes and 5.0 minutes).
+
+As with \code{parktime}, \code{walktime} follows a downward trend from most built to scarcely built areas. In Helsinki the longest walks from one's car to the final destination of one's journey was in the areas marked \textit{Predominantly built}, with a mean duration of 5.1 minutes (5.0 minutes median). In Vantaa and Espoo, longest walking times were recorded in designated \textit{Fully built} with 5.6 minutes mean and 5.0 minutes median in Vantaa, and 4.0 minutes mean and 3.0 minutes median in Espoo. Espoo's comparatively long value for \textit{Scarcely built} is a detail worthy of attention. A mean duration to walk from one's car to one's destination in those areas was 3.9 minutes (3.0 minutes mean), surpassing or reaching the same values as in more intensively built areas \textit{Predominantly built}, \textit{Moderately built}, and \textit{Some built}.
+
+As for the \acrshort{anova} test, \code{artificial} produces strong statistical significances for differences between groups in applicable municipalities. A slight exception to this is the p-value for Espoo's \code{parktime}, which received a result of '**', $p \leq 0.01$. Comparing specific groups instead of all of them, statistically significant sections could be identified most frequently in Vantaa. For example, there is a '***' $p \leq 0.001$ statistical significance between the differences of the groups \textit{Fully built} and \textit{Some built}, or \textit{Fully built}--\textit{Scarcely built}. This was true for both \code{parktime} and \code{walktime}. Reducing the amount of groups in the ANOVA test for the other municipalities would usually lead to weaker statistical significances.
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
@@ -443,7 +449,9 @@ The statistical significance of differences between groups for the explanatory v
     \end{table}
 \end{hyphenrules}
 
-(table~\ref{tab:park_walk_ykrzone})
+A persisting descending trend is observed in the values of \code{parktime} and \code{walktime} when viewing with the explanatory variable of \code{ykr\_zones} (table~\ref{tab:park_walk_ykrzone}). This variable was calculated using spatial data in the data processing phase of this thesis. The \hyperref[sec:processdata]{\fullref{sec:processdata}} explains in detail this development process. As in the case of the variable \code{artificial}, \code{ykr\_zones} is a singular value assigned each postal code area in the reseach area, resulting in meager additional information gain from the municipality of Kauniainen.
+
+Strong statistical significances were found for the explanatory variable \code{ykr\_zones} in the \acrshort{anova} test.
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
@@ -507,6 +515,8 @@ The statistical significance of differences between groups for the explanatory v
         \end{tabular}}
     \end{table}
 \end{hyphenrules}
+
+\textcolor{red}{huom, vain subdivissä on huomioitu pienempiä alueita kuin kuntia: mieti, josko likertiä, parkspotia ja kaikkia muita voisi anovassa katsoa tarkemmin kuin kunnan mukaan: poistele tarpeen mukaan käytössä olevia subdivejä appissa!}
 
 \newpage
 \subsection{Travel time comparison application findings}
