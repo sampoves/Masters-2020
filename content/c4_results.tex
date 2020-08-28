@@ -4,7 +4,6 @@
 
 %- Present results in the order of the research questions
 %- (Amount of records, amount of faulty records)
-%- Uncertainties
 %- Present logically all results and interesting specific questions
 %- Compare parking with original Travel Time Matrix values and values collected by me
 %- Charts, statistics
@@ -123,8 +122,6 @@ Differences of Espoo's Vanha-Espoo and Helsinki's Östersundom subdivisions view
 % 290720 vantaan timeofday arkiruuhka ja arkiei-ruuhka oudot tulokset, arkiruuhka nopeampi. Mutta tämä on ei-merkitsevä anovan mukaan! synninpäästö
 % 290720 espoon timeofdayn pienet erot ovat kohinaa anovan mukaan (ei-merkitsevä), can't specify ei mukana
 % 290720 anova kertoo että onks vähintään JOKU 1 ryhmä merkitsevästi eri kuin muut, sitten seuraavaksi pitäis tutkii lisää, vaikka pareittain
-
-
 
 %https://www.researchgate.net/post/Is_there_a_minimum_number_per_group_neccessary_for_an_ANOVA
 %anova - ryhmän koko anovassa
@@ -449,14 +446,18 @@ As for the \acrshort{anova} test, \code{artificial} produces strong statistical 
     \end{table}
 \end{hyphenrules}
 
-A persisting descending trend is observed in the values of \code{parktime} and \code{walktime} when viewing with the explanatory variable of \code{ykr\_zones} (table~\ref{tab:park_walk_ykrzone}). This variable was calculated using spatial data in the data processing phase of this thesis. The \hyperref[sec:processdata]{\fullref{sec:processdata}} explains in detail this development process. As in the case of the variable \code{artificial}, \code{ykr\_zones} is a singular value assigned each postal code area in the reseach area, resulting in meager additional information gain from the municipality of Kauniainen.
+A persisting descending trend is observed in the values of \code{parktime} and \code{walktime} when the data is viewed with the explanatory variable of \code{ykr\_zone} (table~\ref{tab:park_walk_ykrzone}). This variable was calculated using spatial data in the data processing phase of this thesis. The \hyperref[sec:processdata]{\fullref{sec:processdata}} explains in detail this development process. As in the case of the variable \code{artificial}, \code{ykr\_zone} is a singular value assigned each postal code area in the reseach area, resulting in meager additional information gain from the municipality of Kauniainen. Additionally, due to their urban structure and the method of the original spatial data, not all \code{ykr\_zone} groups are present in Espoo and Vantaa.
 
-Strong statistical significances were found for the explanatory variable \code{ykr\_zones} in the \acrshort{anova} test.
+Longest \code{parktime} values were recorded in the groups \textit{Keskustan jalankulkuvyöhyke} and \textit{Keskustan reunavyöhyke}, these groups can only be assigned to areas that are in the immediate vicinity of a regional center, Helsinki in this case. In the center of Helsinki, parking received a mean duration of 7.6 minutes (5.0 minutes median). In Espoo and Vantaa, the group with longest parking times was \textit{Alakeskuksen jalankulkuvyöhyke}, with 3.8 minutes mean (3.0 min median) for Espoo and 4.5 minutes mean (3.0 min median) for Vantaa. In all research area municipalities parking times steadily shortened with each consecutive group, excluding the group \textit{novalue}.
+
+Longest walking times from one's parked car to the journey's end is observed in Helsinki's \textit{Keskustan jalankulkuvyöhyke} with a mean duration of 6.4 minutes (5.0 min median). Espoo's longest \code{walktime} value was in \textit{Alakeskuksen jalankulkuvyöhyke} with a 4.1 minutes mean duration (3.0 min median). In Vantaa, some northern postal code areas received \code{walktime} values that can be considered aberrations, causing the longest walking times appear in the group \textit{novalue} with a mean duration of 4.9 minutes and 3.0 minutes median.
+
+Strong statistical significances were found for the explanatory variable \code{ykr\_zone} in the \acrshort{anova} test. All test combinations with \textit{ykr\_zone} produced a $p$ value under $0.001$, with the exception of Vantaa's \code{parktime}. This result could be slightly improved by excluding the group \textit{novalue} from the \acrshort{anova} test. In other combinations the statistical significance was sufficiently strong so that this same removal had a negligible effect in test results. Carrying out the \acrshort{anova} test with a narrower set of groups produced, too, statistically strong results. Some exceptions, however, could be found. In Espoo, where an \acrshort{anova} test with the groups \textit{Alakeskuksen jalankulkuvyöhyke}, \textit{Intensiivinen joukkoliikennevyöhyke}, and \textit{novalue} resulted in a non-significant result ($p = 0.16$). The same non-significant results were achieved with the same groups in Vantaa, using \code{parktime} or \code{walktime} ($p = 0.30$, and $p = 0.44$, respectively).
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[ykr\_zones descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{ykr\_zone}. The unit of median, mean, and standard deviation is minutes. Significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
+        \caption[ykr\_zone descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{ykr\_zone}. The unit of median, mean, and standard deviation is minutes. Significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
         \label{tab:park_walk_ykrzone}
         \scalebox{0.6}
         {\begin{tabular}{clLccccCcccccc}
@@ -522,4 +523,4 @@ Strong statistical significances were found for the explanatory variable \code{y
 \subsection{Travel time comparison application findings}
 \justify
 
-moi
+Utilising the travel time comparison application, we can find results pertaining to the third research question of this thesis: what is the significance of the parking process to the overall travel time? In the application, the data of interest is denoted as \code{pct}. This is a percentual depiction of how much the parking process is of the entire travel chain (figure~\ref{fig:shinyapps_comparison_detail}).
