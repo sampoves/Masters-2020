@@ -532,12 +532,12 @@ Utilising the travel time comparison application, we can find results pertaining
         \centering
         \def\arraystretch{1.2}
         \setlength\tabcolsep{1.2ex}
-        \caption[YKR zones example selections for results]{YKR zone and postal code area example selections. Population data is from PAAVO dataset (\cite{StatisticsFinland2019a}).}
+        \caption[YKR zones example selections for results]{Zone of urban structure (YKR zone) and postal code area example selections. Population data is from PAAVO dataset (\cite{StatisticsFinland2019a}).}
         \label{tab:ykrzone_selections_for_results}
         \scalebox{0.9}
         {\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2cm} @{} }
             \toprule
-            YKR zone & YKR zone population mean & Selected postal code area & Postal code area population \\
+            Zone of urban structure (YKR zone) & YKR zone population mean & Selected postal code area & Postal code area population \\
             \midrule
             Center walking zone & 9556.80 & 00150 Eira - Hernesaari & 9496 \\
             \greyrule
@@ -559,3 +559,129 @@ Utilising the travel time comparison application, we can find results pertaining
 
 % note to self: esim 00640 Oulunkylä-Patola, harkitse msc_r_pct-arvossa sitä, että jos ei ole pysäköintitietoa siitä postinumeroalueesta, näyttää lopputulos NA:ta eikä nollaa, kuten nyt. Mielestäni NA parempi kuin nolla, nolla sanoo että ei tarvii ollenkaan odottaa pysäköintipaikkaa. ei realistista. NA käytössä menestyksekkäästi esim msc_r_sfp:ssä
 % tarkennus: surveyssä saattaa olla ihan legit 0 parktimessa tai walktimessa. siksi puuttuvan datan, NA:n, erottaminen oikeasta ilmoitetusta nollasta on tärkeää! varmista tää vielä itselle, mutta yöllä oli mun mielestä täysin selvää että NA pitää lisätä pct:hen
+
+\begin{hyphenrules}{nohyphenation}
+    \begin{table}[H]
+        \centering
+        \def\arraystretch{1.2}
+        \setlength\tabcolsep{1.2ex}
+        \caption[Parking process significance]{Significance of the parking process in example travel chains.}
+        \label{tab:comparison_parkingprocess_signif}
+        \scalebox{0.8}
+        {\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2.5cm} @{} }
+            \toprule
+            Travel chain origin, example postal code area & Time of day & Destination municipality & Mean parking process duration (min) & Parking process share of the total travel chain (\%) \\
+            \midrule
+            \multirow{16}{4cm}{00150 Eira - Hernesaari (Center walking zone)} & \multirow{5}{*}{Rush hour} & Helsinki & & val \\
+            & & Espoo & & val \\
+            & & Vantaa & & val \\
+            & & Kauniainen & & val \\
+            \arrayrulecolor{black!30}\cmidrule(lr){3-5}
+            & & all & & val \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-5}
+            
+            & \multirow{5}{*}{Midday} & Helsinki & & val \\
+            & & Espoo & & val \\
+            & & Vantaa & & val \\
+            & & Kauniainen & & val \\
+            \arrayrulecolor{black!30}\cmidrule(lr){3-5}
+            & & all & & val \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-5}
+            
+            & \multirow{5}{*}{All values} & Helsinki & & val \\
+            & & Espoo & & val \\
+            & & Vantaa & & val \\
+            & & Kauniainen & & val \\
+            \arrayrulecolor{black!30}\cmidrule(lr){3-5}
+            & & all & & val \\
+            \arrayrulecolor{black}\midrule
+            
+            00520 Itä-Pasila (Center periphery zone) & & & & 7306 \\
+            \greyrule
+            02650 Pohjois-Leppävaara (Subcenter walking zone) & & & & 10595 \\
+            \greyrule
+            00640 Oulunkylä-Patola (Intensive transit zone) & & & & 8171 \\
+            \greyrule
+            00430 Maununneva (Transit zone) & & & & 5454 \\ 
+            \greyrule
+            02920 Niipperi (Automobile zone) & & & & 5347 \\
+            \greyrule
+            01690 Ylästö (novalue) & & & & 4787 \\
+            \bottomrule
+        \end{tabular}}
+    \end{table}
+\end{hyphenrules}
+
+
+\begin{hyphenrules}{nohyphenation}
+    \begin{table}[H]
+        \centering
+        \caption[Parking process significance]{Significance of the parking process in example travel chains.}
+        \label{tab:comparison_parkingprocess_signif2}
+        \scalebox{0.9}
+        {\begin{tabular}{>{\raggedleft\arraybackslash}p{4cm} lccCccc}
+            \toprule
+        	& & \multicolumn{3}{>{\centering}p{3cm}}{Mean parking process duration (min)} & \multicolumn{3}{>{\centering}p{3cm}}{Parking process share of the total travel chain (\%)} \\
+        	\cmidrule(lr{\tbspace}){3-5} \cmidrule(lr){6-8}
+        	& &                                                                 rush & mid & all &  rush & mid & all \\
+            
+            \midrule
+            \multirow{5}{4cm}{00150 Eira - Hernesaari (Center walking zone)} & Helsinki & --- & --- & --- & --- & --- & --- \\
+            & Espoo &                                                           --- & --- & --- &   --- & --- & --- \\
+            & Vantaa &                                                          3 & 3.78 & 3.62 &   3 & 4.12 & 2.98 \\
+            & Kauniainen &                                                      2 & 3.72 & 4.05 &   3 & 3.58 & 3.02 \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-8}
+            & \textbf{All} &                                                    2 & 3.23 & 3.63 &   2 & 3.52 & 3.09 \\
+            \arrayrulecolor{black}\midrule
+            
+            \multirow{5}{4cm}{00520 Itä-Pasila (Center periphery zone)} & Helsinki & --- & --- & --- & --- & --- & --- \\
+            & Espoo &                                                           --- & --- & --- &   --- & --- & --- \\
+            & Vantaa &                                                          3 & 3.78 & 3.62 &   3 & 4.12 & 2.98 \\
+            & Kauniainen &                                                      2 & 3.72 & 4.05 &   3 & 3.58 & 3.02 \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-8}
+            & \textbf{All} &                                                    2 & 3.23 & 3.63 &   2 & 3.52 & 3.09 \\
+            \arrayrulecolor{black}\midrule
+            
+            \multirow{5}{4cm}{02650 Pohjois-Leppävaara (Subcenter walking zone)} & Helsinki & --- & --- & --- & --- & --- & --- \\
+            & Espoo &                                                           --- & --- & --- &   --- & --- & --- \\
+            & Vantaa &                                                          3 & 3.78 & 3.62 &   3 & 4.12 & 2.98 \\
+            & Kauniainen &                                                      2 & 3.72 & 4.05 &   3 & 3.58 & 3.02 \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-8}
+            & \textbf{All} &                                                    2 & 3.23 & 3.63 &   2 & 3.52 & 3.09 \\
+            \arrayrulecolor{black}\midrule
+            
+            \multirow{5}{4cm}{00640 Oulunkylä-Patola (Intensive transit zone)} & Helsinki & --- & --- & --- & --- & --- & --- \\
+            & Espoo &                                                           --- & --- & --- &   --- & --- & --- \\
+            & Vantaa &                                                          3 & 3.78 & 3.62 &   3 & 4.12 & 2.98 \\
+            & Kauniainen &                                                      2 & 3.72 & 4.05 &   3 & 3.58 & 3.02 \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-8}
+            & \textbf{All} &                                                    2 & 3.23 & 3.63 &   2 & 3.52 & 3.09 \\
+            \arrayrulecolor{black}\midrule
+            
+            \multirow{5}{4cm}{00430 Maununneva (Transit zone)} & Helsinki &     --- & --- & --- &   --- & --- & --- \\
+            & Espoo &                                                           --- & --- & --- &   --- & --- & --- \\
+            & Vantaa &                                                          3 & 3.78 & 3.62 &   3 & 4.12 & 2.98 \\
+            & Kauniainen &                                                      2 & 3.72 & 4.05 &   3 & 3.58 & 3.02 \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-8}
+            & \textbf{All} &                                                    2 & 3.23 & 3.63 &   2 & 3.52 & 3.09 \\
+            \arrayrulecolor{black}\midrule
+            
+            \multirow{5}{4cm}{02920 Niipperi (Automobile zone)} & Helsinki &    --- & --- & --- &   --- & --- & --- \\
+            & Espoo &                                                           --- & --- & --- &   --- & --- & --- \\
+            & Vantaa &                                                          3 & 3.78 & 3.62 &   3 & 4.12 & 2.98 \\
+            & Kauniainen &                                                      2 & 3.72 & 4.05 &   3 & 3.58 & 3.02 \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-8}
+            & \textbf{All} &                                                    2 & 3.23 & 3.63 &   2 & 3.52 & 3.09 \\
+            \arrayrulecolor{black}\midrule
+            
+            \multirow{5}{4cm}{01690 Ylästö (novalue)} & Helsinki &              --- & --- & --- &   --- & --- & --- \\
+            & Espoo &                                                           --- & --- & --- &   --- & --- & --- \\
+            & Vantaa &                                                          3 & 3.78 & 3.62 &   3 & 4.12 & 2.98 \\
+            & Kauniainen &                                                      2 & 3.72 & 4.05 &   3 & 3.58 & 3.02 \\
+            \arrayrulecolor{black!30}\cmidrule(lr){2-8}
+            & \textbf{All} &                                                    2 & 3.23 & 3.63 &   2 & 3.52 & 3.09 \\
+
+            \bottomrule
+        \end{tabular}}
+    \end{table}
+\end{hyphenrules}
