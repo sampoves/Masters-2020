@@ -522,10 +522,8 @@ Strong statistical significances were found for the explanatory variable \code{y
 \newpage
 \subsection{Travel time comparison application findings}
 \justify
-% muutama karttaesimerkki, mielestäni pct-tuloksia ei kunnolla voi esittää taulussa, koska y- ja x-akselit pitäis olla pituudeltaan kumpikin 167. Liian iso möhkäle
-% ehkäpä tämä tutkimuskysymys ei vaadi tilastoja?
 
-Utilising the travel time comparison application, we can find results pertaining to the third research question of this thesis: \textit{what is the significance of the parking process to the overall travel time?} In the application, the data of interest is denoted as \code{pct}. This is a percentual depiction of how much the parking process is of an entire travel chain (figure~\ref{fig:shinyapps_comparison_detail}). We will approach these results by selecting examples, specific origin postal code areas, from the explanatory variable \code{ykr\_zone} groups to examine urban areas different from each other (figure~\ref{fig:postalvis_ykrzone}). One postal code area was selected from each \code{ykr\_zone} group by finding the group mean population and the postal code area closest to it (table~\ref{tab:ykrzone_selections_for_results}).
+Utilising the travel time comparison application, we can find results pertaining to the third research question of this thesis: \textit{what is the significance of the parking process to the overall travel time?} In the application, the data of interest is denoted as \code{pct}. This is a percentual depiction of how much the parking process is of an entire travel chain (figure~\ref{fig:shinyapps_comparison_detail}). We will approach these results by selecting examples, specific origin postal code areas, using the explanatory variable \code{ykr\_zone} groups to examine urban areas different from each other (figure~\ref{fig:postalvis_ykrzone}). One postal code area was selected from each \code{ykr\_zone} group by finding the group mean population and the postal code area closest to it (table~\ref{tab:ykrzone_selections_for_results}).
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
@@ -557,18 +555,19 @@ Utilising the travel time comparison application, we can find results pertaining
     \end{table} 
 \end{hyphenrules}
 
-% note to self: esim 00640 Oulunkylä-Patola, harkitse msc_r_pct-arvossa sitä, että jos ei ole pysäköintitietoa siitä postinumeroalueesta, näyttää lopputulos NA:ta eikä nollaa, kuten nyt. Mielestäni NA parempi kuin nolla, nolla sanoo että ei tarvii ollenkaan odottaa pysäköintipaikkaa. ei realistista. NA käytössä menestyksekkäästi esim msc_r_sfp:ssä
-% tarkennus: surveyssä saattaa olla ihan legit 0 parktimessa tai walktimessa. siksi puuttuvan datan, NA:n, erottaminen oikeasta ilmoitetusta nollasta on tärkeää! varmista tää vielä itselle, mutta yöllä oli mun mielestä täysin selvää että NA pitää lisätä pct:hen
+The selected postal code areas represent functionally different parts of the research area. 00150 Eira-Hernesaari (Center walking zone) is located at the southern tip of Helsinginniemi where all possible exit options are time intensive for the private car. 00540 Oulunkylä-Patola (Intensive transit zone) is closer to the major road infrastructure of Helsinki Capital Region, namely the Ring I beltway and the Finnish national road 3 leading to Tampere. 02920 Niipperi (Automobile zone) is characterised as an area of detached housing where public transport coverage is scarce. It is then indicative to use these areas as representatives of the whole research area, as the breadth of the data the travel time comparison application is much too plentiful to be written out in tables or individual images.
+
+Table~\ref{tab:comparison_parkingprocess_signif} presents the driving parts and parking process parts of several different example travel chains. In these examples, the parking process is a significant part of the travel chains. In most cases the parking process share diminishes the longer the travel chain is in duration and kilometers, but this driving to the center of Helsinki is an exception of this because of the long mean \code{parktime} and \code{walktime} values. When comparing the parking process length between thesis survey and the durations used in \textit{TTM}, thesis parking process can be up to six times longer than that of \textit{TTM}.
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[Parking process significance]{Significance of the parking process in example travel chains. Mean parking process duration is static data and does not change for individual destination postal code areas. The asterisk denotes cases where survey data parking process is longer than the entire driving time calculated from Helsinki Region Travel Time Matrix 2018.}
+        \caption[Parking process significance]{Significance of the parking process in example travel chains utilising thesis survey data. Mean parking process duration is static data and does not change for individual destination postal code areas. The asterisk denotes cases where survey data parking process is longer than the entire driving time calculated from Helsinki Region Travel Time Matrix 2018.}
         \label{tab:comparison_parkingprocess_signif}
         \scalebox{0.75}
         {\begin{tabular}{>{\raggedleft\arraybackslash}p{4cm} lccCccCccc}
             \toprule
-        	& & \multicolumn{3}{>{\centering}p{3cm}}{Mean driving time duration (min)} & \multicolumn{3}{>{\centering}p{3cm}}{Mean parking process duration (min)} & \multicolumn{3}{>{\centering}p{3cm}}{Parking process share of the total travel chain (\%)} \\
+        	& & \multicolumn{3}{>{\centering}p{3cm}}{Mean driving time duration, \textit{TTM} data (min)} & \multicolumn{3}{>{\centering}p{3cm}}{Mean parking process duration, survey data (min)} & \multicolumn{3}{>{\centering}p{3cm}}{Parking process share of the total travel chain (\%)} \\
         	\cmidrule(lr{\tbspace}){3-5} \cmidrule(lr{\tbspace}){6-8} \cmidrule(lr){9-11}
         	Origin & Destination &          rush & mid & all &  rush & mid & all &  rush & mid & all \\
             
@@ -639,3 +638,72 @@ Utilising the travel time comparison application, we can find results pertaining
         \end{tabular}}
     \end{table}
 \end{hyphenrules}
+
+Talk about Eira
+
+\begin{figure}[H]%
+    \centering
+    \includegraphics[width=.91\textwidth]{images/compare_traveltimes_mapfill-msc_r_pct_fromzip-00150.png}
+    \caption[Parking process significance from Eira-Hernesaari, rush hour traffic]{The parking process significance in the total travel chain, in rush hour traffic, starting from 00150 Eira-Hernesaari.}%
+    \label{fig:compare_msc_r_pct_00150}%
+\end{figure}
+
+\begin{figure}[H]%
+    \centering
+    \includegraphics[width=.91\textwidth]{images/compare_traveltimes_mapfill-msc_m_pct_fromzip-00150.png}
+    \caption[Parking process significance from Eira-Hernesaari, midday traffic]{The parking process significance in the total travel chain, in midday traffic, starting from 00150 Eira-Hernesaari.}%
+    \label{fig:compare_msc_m_pct_00150}%
+\end{figure}
+
+\begin{figure}[H]%
+    \centering
+    \includegraphics[width=.91\textwidth]{images/compare_traveltimes_mapfill-msc_all_pct_fromzip-00150.png}
+    \caption[Parking process significance from Eira-Hernesaari, all temporal values]{The parking process significance in the total travel chain, using all available temporal values, starting from 00150 Eira-Hernesaari.}%
+    \label{fig:compare_msc_all_pct_00150}%
+\end{figure}
+
+Talk about Oulunkylä
+
+\begin{figure}[H]%
+    \centering
+    \includegraphics[width=.91\textwidth]{images/compare_traveltimes_mapfill-msc_r_pct_fromzip-00640.png}
+    \caption[Parking process significance from Oulunkylä-Patola, rush hour traffic]{The parking process significance in the total travel chain, in rush hour traffic, starting from 00640 Oulunkylä-Patola.}%
+    \label{fig:compare_msc_r_pct_00640}%
+\end{figure}
+
+\begin{figure}[H]%
+    \centering
+    \includegraphics[width=.91\textwidth]{images/compare_traveltimes_mapfill-msc_m_pct_fromzip-00640.png}
+    \caption[Parking process significance from Oulunkylä-Patola, midday traffic]{The parking process significance in the total travel chain, in midday traffic, starting from 00640 Oulunkylä-Patola.}%
+    \label{fig:compare_msc_m_pct_00640}%
+\end{figure}
+
+\begin{figure}[H]%
+    \centering
+    \includegraphics[width=.91\textwidth]{images/compare_traveltimes_mapfill-msc_all_pct_fromzip-00640.png}
+    \caption[Parking process significance from Oulunkylä-Patola, all temporal values]{The parking process significance in the total travel chain, using all temporal values, starting from 00640 Oulunkylä-Patola.}%
+    \label{fig:compare_msc_all_pct_00640}%
+\end{figure}
+
+Talk about Niipperi
+
+\begin{figure}[H]%
+    \centering
+    \includegraphics[width=.91\textwidth]{images/compare_traveltimes_mapfill-msc_r_pct_fromzip-02920.png}
+    \caption[Parking process significance from Niipperi, rush hour traffic]{The parking process significance in the total travel chain, in rush hour traffic, starting from 02920 Niipperi.}%
+    \label{fig:compare_msc_r_pct_02920}%
+\end{figure}
+
+\begin{figure}[H]%
+    \centering
+    \includegraphics[width=.91\textwidth]{images/compare_traveltimes_mapfill-msc_m_pct_fromzip-02920.png}
+    \caption[Parking process significance from Niipperi, midday traffic]{The parking process significance in the total travel chain, in midday traffic, starting from 02920 Niipperi.}%
+    \label{fig:compare_msc_m_pct_02920}%
+\end{figure}
+
+\begin{figure}[H]%
+    \centering
+    \includegraphics[width=.91\textwidth]{images/compare_traveltimes_mapfill-msc_all_pct_fromzip-02920.png}
+    \caption[Parking process significance from Niipperi, all temporal values]{The parking process significance in the total travel chain, using all temporal values, starting from 02920 Niipperi.}%
+    \label{fig:compare_msc_all_pct_02920}%
+\end{figure}
