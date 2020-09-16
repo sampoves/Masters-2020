@@ -1,10 +1,15 @@
-% Laitoksen vanhat graduohjeet (FLAMMA)
-%%% https://flamma.helsinki.fi/portal/units/matlu?_nfpb=true&_pageLabel=P9806621561360920311893&contentId=HY358060&placeId=HY357991&lang=fi
+
+% Welcome to the University of Helsinki Master's thesis of Sampo Vesanen. This is the main document of this thesis, which sets up the software packages and document properties and calls individual tex files (thesis chapters) to complete this multifile LaTeX project. Please find below some links which I used as a basis in the technical structure of the thesis. Additionally, I have extensively commented the thesis in appropriate places to establish programmatical aspects of this LaTeX project.
+
 % Multifile LaTeX project:
 %%% https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects
 %%% https://en.wikibooks.org/wiki/LaTeX/Modular_Documents
 % How to write a thesis in LaTeX
 %%% https://www.overleaf.com/learn/latex/How_to_Write_a_Thesis_in_LaTeX_(Part_1):_Basic_Structure
+% Microtype for thesis: 
+%%% http://www.khirevich.com/latex/microtype/
+% Multilanguage code adaptation from:
+%%% https://tex.stackexchange.com/q/42784/182586
 
 \documentclass[a4paper,11pt]{article}
 
@@ -14,7 +19,6 @@
 
 
 % Font and layout settings ----------------------------------------------
-% See Microtype for thesis: http://www.khirevich.com/latex/microtype/
 \usepackage[activate={true,nocompatibility},tracking=true,kerning=true,factor=1100,stretch=10,shrink=10]{microtype}
 \usepackage[finnish,english]{babel}         % Set languages. Last in list is main language
 \usepackage[T1]{fontenc}
@@ -31,14 +35,15 @@
 \setlength{\belowcaptionskip}{15pt plus 3pt minus 2pt}
 \usepackage{csquotes}                       % Enable displayquote
 
-% define \code{}: StackExchange style inline code
+% define \code{}: StackExchange style inline code ----------------------
 \usepackage[table]{xcolor}
 \definecolor{light-gray}{gray}{0.95}        % Define inline code background color
 \newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}} % define command
 
-% Generate list of abbreviations
-\usepackage{hyperref}                       % Hyperlinks. Need to be activated before glossaries
-\usepackage[acronym,style=super4col]{glossaries} % Glossaries and lists of acronyms
+% Generate list of abbreviations ---------------------------------------
+\usepackage{xurl}                               % xurl linebreaks long links
+\usepackage[breaklinks=true]{hyperref}          % Hyperlinks. Need to be activated before glossaries
+\usepackage[acronym,style=super4col]{glossaries}% Glossaries and lists of acronyms
 
 
 % Abbreviations. Note the definition of plural forms where applicable -----
@@ -99,7 +104,6 @@
 %\usepackage{amsmath}                        % AMS mathematical facilities
 \usepackage{subfig}
 \usepackage{gensymb}                        % Generic symbols for both text and math mode
-%\usepackage[colorinlistoftodos]{todonotes}  % Marking things to do in a LATEX document
 %\usepackage{amsthm}                         % Typesetting theorems (AMS style)
 \usepackage{float}                          % Improved interface for floating objects
 \usepackage{pdfpages}                       % Include PDF documents in LATEX
@@ -108,7 +112,6 @@
 
 
 % Tables -----------------------------------------------------------------
-%\usepackage[showframe]{geometry}           % Double load of geometry? what does showframe do?
 \usepackage{array}                          % For table properties such as p{2cm}
 \usepackage{tabularx}                       % Tabulars with adjustable-width columns
 \usepackage{makecell}                       % Thicker vline
@@ -136,7 +139,7 @@
 \newcolumntype{C}{c<{\hspace{\tbspace}}}%
 \newcolumntype{L}{l<{\hspace{\tbspace}}}%
 
-% Translator command setup
+% Translator command setup -----------------------------------------------
 % this enables us to use multilanguage strings which works with package babel
 \newcommand{\newtranslatorcommand}[3]{%
     \newcommand{#1}{%
@@ -166,8 +169,7 @@
 
 % Abstract page settings --------------------------------------------------
 % THESIS MULTILANGUAGE STRINGS
-% Multilanguage code is adapted from here:
-% https://tex.stackexchange.com/questions/42784/language-dependent-custom-command
+
 \newtranslatorcommand{\mytitle}{%
     Parking private cars and accessibility in Helsinki Capital Region%
 }{%
@@ -181,49 +183,49 @@
     \printfindate%
 }
 
-% PAGE COUNT MULTILANUAGE STRING
+% PAGE COUNT
 \newtranslatorcommand{\mypages}{%
     \pageref{myLastPage} pages and appendices%
 }{%
     \pageref{myLastPage} sivua ja liitteet%
 }
 
-% UNIVERSITY MULTILANGUAGE STRING
+% UNIVERSITY NAME
 \newtranslatorcommand{\myuni}{%
     University of Helsinki%
 }{%
     Helsingin yliopisto%
 }
 
-% FACULTY MULTILANGUAGE STRING
+% FACULTY NAME
 \newtranslatorcommand{\myfaculty}{%
     Faculty of Science%
 }{%
     Matemaattisluonnontieteellinen tiedekunta%
 }
 
-% DEPARTMENT MULTILANGUAGE STRING
+% DEPARTMENT NAME
 \newtranslatorcommand{\mydept}{%
     Department of Geosciences and Geography%
 }{%
     Geotieteiden ja maantieteen osasto%
 }
 
-% GEOGRAPHY MULTILANGUAGE STRING
+% SUBJECT NAME
 \newtranslatorcommand{\mysubject}{%
     Geography
 }{%
     Maantiede
 }
 
-% GEOINFORMATICS MULTILANGUAGE STRING
+% SPECIFIC SUBJECT NAME
 \newtranslatorcommand{\mySpecSubject}{%
     Geoinformatics%
 }{%
     geoinformatiikka%
 }
 
-% THESIS TYPE MULTILANGUAGE STRING
+% THESIS TYPE
 \newtranslatorcommand{\mythesis}{%
     Master's thesis%
 }{%
@@ -237,21 +239,21 @@
     \import{content/}{abstract_fi.tex}%
 }
 
-% KEYWORDS MULTILANGUAGE STRING
+% KEYWORDS
 \newtranslatorcommand{\mykeywords}{%
     GIS, R, parking, Python, accessibility%
 }{%
     GIS, R, pysäköinti, Python, saavutettavuus%
 }
 
-% LIBRARY MULTILANGUAGE STRING
+% LIBRARY TYPE
 \newtranslatorcommand{\mylibrary}{%
     E-Thesis%
 }{%
     E-Thesis%
 }
 
-% OTHER INFO MULTILANGUAGE STRING
+% OTHER INFO
 \newtranslatorcommand{\myotherinfo}{%
     -%
 }{%
