@@ -1,32 +1,42 @@
 \section{Discussion}
+\subsection{Measuring survey success}
 \justify
 
-%\begin{itemize}
-%  \item Discuss hypotheses stated in introduction here
-%  \item In discussion have dialogue with introduction chapter
-%  \item The kind of feedback I received in the process of gathering my survey data
-%  \item HRI data about Helsinki center parking places, what would it mean if this data would encompass the entire HCR?
-%  \item discuss data uncertainties
-%  \item Conclusions
-%  \item discussioniin: tulevaisuuden mahdollisuudet käyttää paavo-dataa (paljon kaikkea demografiatietoa) laajemmin keräämieni tutkimustulosten kanssa
-%\end{itemize}
+\textcolor{red}{Research questions as chapter backbone} \\
+\textcolor{red}{Discuss hypotheses stated in introduction, keep intro in mind at all times}
 
-%\begin{itemize}
-%    \item Expected \code{likert} to be a better descriptor
-%    \item disparity between mean and median in explanatory variables
-%    \item likert familiarity: finding parking spots has a prominent luck factor on likert results?
-%\end{itemize}
+This study shows that there are, in fact, spatial differences in the time that it takes to park one's car in the Helsinki Capital Region. This was the hypothesis going in to the research, as it seemed to be a clear oversimplification on the part of Helsinki Region Travel Time Matrix to assume that one static value would represent the parking process length in the functionally diverse urban region.
 
-Discuss hypotheses stated in introduction
+\textcolor{red}{Some words about thesis result findings (expected likert to be better descriptions, disparity between mean and median values in explanatory variables [skewness of gathered data], finding parking spot has prominent luck factor based on weak significance of likert variable)}
 
-Discuss feedback I received during the process of gathering survey data
+The survey successfully withstood accidential and intentional misuse. Using safeguards such as serverside filtering of incoming data prevented possible attempts at mischief. Later, the analysis Python script made sure the amount of questionable responses were at a minimum. The survey program front-end made a great effort to appear easy to use to prevent frustration and premature exiting from the site.
 
-Some words about thesis result findings (expected likert to be better descriptions, disparity between mean and median values in explanatory variables [skewness of gathered data], finding parking spot has prominent luck factor based on weak significance of likert variable)
+\textcolor{red}{Discuss feedback I received during the process of gathering survey data (pitää kaivaa fabosta) In essence, how well did this survey succeed in collection of spatial data?}
 
-Possibilities of more available spatial data such as HRI's Helsinki parking places (currently only immediate center of Helsinki). What if this area would encompass the totality of Helsinki Capital Region? What would that mean for my research or future research?
+\newpage
+\subsection{Analysis uncertainties}
+\justify
 
-Discussion of data uncertainties (wording of survey questions open to interpretation, meaning of large parktime and walktime values, my own assumptions such as classification of postal code areas into one YKR zone and artificial surface value). The survey data processing script written in Python has a feature to detect duplicate responses in the survey results. Using this tool, it is possible to conclude that 19 IP addresses sent responses with the same postal code areas. It can be discussed what has happened in these cases but no definite answer can be drawn. It is possible that people sharing a connection to the Internet may have legitimately sent their own responses, and indeed, in these cases the individual questions should have varying answers. The tool detects if the duplicate responses have identical answers to the individual questions. This could possibly indicate an attempt to influence the results of the survey. Mostly the duplicates have none or some identical answers, with some having the maximum of five identical answers. If the timestamps of these identical answers are close to each other, we can deduce that these are real duplicates. Four fully identical answers were found. In the case of one IP address, the postal code 00790 Viikki was entered a total of nine times. It is possible, as no identically answered questions were detected, that these responses originated from a public network. With no definite way to answer the questions regarding the duplicate responses, these answers were left in in the survey results. Furthermore, the 19 suspect IP addresses is ultimately a negligible fraction of the total visits.
+\textcolor{red}{Discussion of data uncertainties (wording of survey questions open to interpretation, meaning of large parktime and walktime values, my own assumptions such as classification of postal code areas into one YKR zone and artificial surface value).}
 
-How to carry on this research (Wider use of PAAVO data, demographic data was not at all used in the thesis)
+\textcolor{red}{The wording of the survey request (two years?) and people's memories? The significance of construction sites during these years to the responses?}
+
+The survey data processing script written in Python has a feature to detect duplicate responses in the survey results. Using this tool, it is possible to conclude that 19 IP addresses sent responses with the same postal code areas. It can be discussed what has happened in these cases but no definite answer can be drawn. It is possible that people sharing a connection to the Internet may have legitimately sent their own responses, and indeed, in these cases the individual questions should have varying answers. The tool detects if the duplicate responses have identical answers to the individual questions. This could possibly indicate an attempt to influence the results of the survey. Mostly the duplicates have none or some identical answers, with some having the maximum of five identical answers. If the timestamps of these identical answers are close to each other, we can deduce that these are real duplicates. Four fully identical answers were found. In the case of one IP address, the postal code 00790 Viikki was entered a total of nine times. It is possible, as no identically answered questions were detected, that these responses originated from a public network such as a campus of the University of Helsinki. With no definite way to answer the questions regarding the duplicate responses, these answers were left in in the survey results. Furthermore, the 19 suspect IP address codes is ultimately a negligible fraction of the total visits.
+
+\newpage
+\subsection{Avenues for future research}
+\justify
+
+The research survey carried out for this thesis can be considered a success with the total of 5579 visits to the survey website and the 5183 received data rows. The collected datasets \textit{visitors} and \textit{records} are voluminous troves of data and this study observed them from a carefully defined angle leaving many other aspects untouched. Combining the collected datasets with pre-existing spatial datasets and other sources of data could potentially lead to new findings about the parking habits of people that answered to the survey. In particular, the dataset \textit{visitors} was used in a superficial manner because of the arrangement of research questions and the survey's statement of privacy, which promised minimal use of personal data. In another context, the respondent behaviour could be used to find additional patterns in the \textit{records} dataset.
+
+The study made use of only a narrow cross section of the PAAVO dataset, which includes dozens of columns of demographic and business data for each postal code area in Finland. The study did not include the social structure or the location of work places in the analyses. Including these variables back in can bear deeper understanding about the parking behaviour in Helsinki Capital Region.
+
+\textcolor{red}{Possibilities of more available spatial data such as Helsinki Region Infoshare's Helsinki parking places (currently only immediate center of Helsinki). What if this area would encompass the totality of Helsinki Capital Region? What would that mean for my research or future research?}
+
+\newpage
+\subsection{Conclusions}
+\justify
+
+\textcolor{red}{Conclude with private cars and urban environment talk. Realistic and optimistic thoughts.}
 
 The source code repositories for \textit{records}, \textit{visitors}, \textit{comparison} analysis applications are available at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/thesis-records-shinyapps}}, \textcolor{blue}{\url{https://github.com/sampoves/thesis-visitors-shinyapps}}, \textcolor{blue}{\url{https://github.com/sampoves/thesis-comparison-shinyapps}}). The applications may be viewed on shinyapps.io (\textcolor{blue}{\url{https://sampoves.shinyapps.io/records}}, \textcolor{blue}{\url{https://sampoves.shinyapps.io/visitors}}, \textcolor{blue}{\url{https://sampoves.shinyapps.io/comparison}}).

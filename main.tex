@@ -11,6 +11,7 @@
 % Multilanguage code adaptation from:
 %%% https://tex.stackexchange.com/q/42784/182586
 
+%  NB: It can be argued that the \documentclass should be {report} for a thesis
 \documentclass[a4paper,11pt]{article}
 
 % Set margins -----------------------------------------------------------
@@ -46,12 +47,14 @@
 \usepackage[acronym,style=super4col]{glossaries}% Glossaries and lists of acronyms
 
 
-% Abbreviations. Note the definition of plural forms where applicable -----
+% Abbreviations --------------------------------------------------------
+% Note the definition of plural forms where applicable
 \newacronym{anova}{ANOVA}{Analysis of Variance test}
 \newacronym[plural=IDEs,firstplural=Integrated development environments (IDE)]{ide}{IDE}{Integrated Development Environment}
 \newacronym{php}{PHP}{Hypertext preprocessor}
 
-% Nomenclature for glossary. Note the definition of plural forms ----------
+% Nomenclature for glossary --------------------------------------------
+% Note the definition of plural forms
 \newglossaryentry{CPU}{
   name = {CPU},
   description = {Central Processing Unit},
@@ -81,7 +84,7 @@
     {\THEDAY}.{\THEMONTH}.\THEYEAR}         % The one above causes undefined control sequence   
 \newdateformat{monthyeardate}{%
     \monthname[\THEMONTH] \THEYEAR}         % mm/yyyy date format for English abstract
-\newcommand*{\printfindate}{%               % Get Finnish months and year for Finnish abstract
+\newcommand*{\printfindate}{%               % Get Finnish months and year for the Finnish abstract
    \ifcase \month\or Tammikuu\or Helmikuu\or Maaliskuu\or Huhtikuu\or Toukokuu\or Kesäkuu\or Heinäkuu\or Elokuu\or Syyskuu\or Lokakuu\or Marraskuu\or Joulukuu\fi \space \number\year}
 
 
@@ -90,7 +93,7 @@
 \graphicspath{ {images/} }
 
 
-% references and reference styles -----------------------------------------
+% References and reference styles -----------------------------------------
 \usepackage{natbib}                         % Flexible bibliography support
 \bibliographystyle{apalike2}                
 \setcitestyle{authoryear,open={},close={}}  % Removes citation parentheses
@@ -101,13 +104,12 @@
 
 % Other packages ----------------------------------------------------------
 %\usepackage{alphabeta}                      % Greek alphabet
-%\usepackage{amsmath}                        % AMS mathematical facilities
-\usepackage{subfig}
+\usepackage{amsmath}                        % AMS mathematical facilities, equations
+\usepackage{subfig}                         % Enable collections of subfigures as a single figure
 \usepackage{gensymb}                        % Generic symbols for both text and math mode
-%\usepackage{amsthm}                         % Typesetting theorems (AMS style)
 \usepackage{float}                          % Improved interface for floating objects
-\usepackage{pdfpages}                       % Include PDF documents in LATEX
-\usepackage{listings}                       % Typeset source code listings using LATEX
+\usepackage{pdfpages}                       % Include PDF documents in LaTeX
+\usepackage{listings}                       % Typeset source code listings using LaTeX
 \usepackage{import}                         % Establish input relative to a directory
 
 
