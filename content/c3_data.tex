@@ -452,10 +452,10 @@ The data processing script creates two distinct reports about \textit{records}. 
 
 It was decided that if the parking time or walking time value in a \textit{records} row was 60 minutes or greater, that data row would be deleted. This value is arbitrary. The research assumes that it is highly unlikely that anybody would generally park 60 minutes away from their final destination to which they would then proceed on foot. A hour of searching for parking is plausible in the center of Helsinki but because of its unlikeliness the same 60 minutes limit was utilised in searching for parking. It is not possible to determine why multiple survey responses contain the maximum value for parktime and walktime, 99, but it can not be ruled out that these data rows are protest votes meant to declare that reliable parking is hard to find in certain parts of Helsinki Capital Region. When advertising the thesis survey on Facebook, some people took the opportunity to voice their displeasure at the perceivedly difficult parking conditions in the Helsinki Capital Region. In conclusion, even though the Python script has the capability to delete data rows deemed illegal, all of the illegal data in \textit{records} was preserved a more versatile analysis in R.
 
-Next in the survey data processing workflow the additional spatial data was added to \textit{postal}, the dataset with one row for each postal code area (figure~\ref{fig:gen_workflow}, section 4). Utilising \textit{records}, functions \code{sum}, \code{mean}, and \code{median} were used to produce answer count, and means and medians for parktime and walktime for all postal code areas. Each postal code area also received seven columns to depict the share of \textit{YKR zones} classes in percentage. It must be noted that before applying the \textit{YKR zones} data to the thesis data, classification in the source data was simplified with following the notation presented by the research group at the websites of the zones of urban structure (table~\ref{tab:ykr_zones_simplify}, \cite{FinnishEnvironmentInstitute2013}). Using \textit{CORINE} data, the percentage of artificial surface in each postal code area was calculated (table~\ref{tab:corine_artificial}).
+Next in the survey data processing workflow the additional spatial data was added to \textit{postal}, the dataset with one row for each postal code area (figure~\ref{fig:gen_workflow}, section 4). Utilising \textit{records}, functions \code{sum}, \code{mean}, and \code{median} were used to produce answer count, and means and medians for parktime and walktime for all postal code areas. Each postal code area also received seven columns to depict the share of \textit{YKR zones} classes in percentage. It must be noted that before applying the \textit{YKR zones} data to the thesis data, classification in the source data was simplified with following the notation presented by the research group at the websites of the zones of urban structure (table~\ref{tab:ykr_zones_simplify}, \cite{FinnishEnvironmentInstitute2013}). Using \textit{CORINE} data, the percentage of artificial surface in each postal code area was calculated and these values were then used to determine class breaks for variable analysis (table~\ref{tab:artificial_jenks_breaks}).
 
 \begin{hyphenrules}{nohyphenation}
-    \begin{table}[H]
+    \begin{table}[H]%
         \centering
         \def\arraystretch{1.2}
         \setlength\tabcolsep{1.2ex}
@@ -544,6 +544,31 @@ Next in the survey data processing workflow the additional spatial data was adde
         \end{tabular}}
     \end{table} 
 \end{hyphenrules}
+
+\begin{hyphenrules}{nohyphenation}
+    \begin{table}[H]%
+        \centering
+        \def\arraystretch{1.2}
+        \setlength\tabcolsep{1.2ex}
+        \caption[Built surfaces Jenks breaks classes]{Using a custom algorithm, the variable \code{artificial} was divided to classes using Jenks natural breaks method.}
+        \label{tab:artificial_jenks_breaks}
+        \scalebox{0.9}
+        {\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{2.5cm} @{} }
+            \toprule
+            \code{artificial} value & Description & Amount of postal code areas \\
+            \midrule
+            < 100 \% & Fully built & 71 \\
+            < 92.7 \% & Predominantly built & 28 \\
+            < 81.5 \% & Moderately built & 20 \\ 
+            < 64.7 \% & Some built & 28 \\
+            < 38.5 \% & Scarcely built & 20 \\
+            \bottomrule
+        \end{tabular}}
+    \end{table} 
+\end{hyphenrules}
+
+\textcolor{red}{NB! These classes breaks are actually \textbf{WRONG}, need to recalculate} \\
+\textcolor{red}{histogram noista \code{artificial}-valueista ja tee kartta, samanlainen kuin ykr-zonesit postalista}
 
 % https://www.spatialanalysisonline.com/HTML/index.html?classification_and_clustering.htm
 In the finalising section, \textit{records} was prepared for analysis and visualisation in R (figure~\ref{fig:gen_workflow}, section 5). The software library for plotting in R, \textit{ggplot2}, prefers data inputted in long format. To study charasteristics of postal code areas in this research, it meant adding repetitive data columns in \textit{records}, where values for CORINE land cover 2018 artificial surfaces, YKR zone and subdivision remained unchanged for all rows in the same postal code area. For artificial surfaces, a custom Jenks natural breaks function (GitHub user Drewda, \textcolor{red}{add cite, add jenks cite, kato kommenttilinkki}) with five classes were utilised to find the applicable Jenks breaks class for each postal code area. For YKR zones, the most common urban structure type in percentage was selected for each postal code area. In addition, \textit{records} was inserted with municipality subdivision information (figure~\ref{fig:subdiv_placement}). This was achieved by collecting data from the web sites of the municipalities of Helsinki Capital Region (\cite{Espoonkaupunki2020}, \cite{Helsinginkaupunkiymparistontoimiala2019}, \cite{Vantaankaupunki2019}). In these sources, each municipality broke the subdivisions down to city district level, from where it was possible to allot each postal code area with a subdivision. This was for the most part simplistic work, but in some cases the postal code areas and city districts did not align and author's own deliberation was used to help the placement. Some of the most glaring discrepancies between PAAVO postal code areas and subdivision boundaries occur in Espoo. In the case of Lippajärvi-Järvenperä, a postal code area north of Kauniainen, the subdivision Vanha-Espoo was chosen because Lippajärvi-Järvenperä as a whole does not fit into the charasteristics of Suur-Leppävaara, and at the same time the city districts Lippajärvi and Järvenperä do not fit into the distinctive features of the subdivision Pohjois-Espoo. In the same spirit the postal code area Sepänkylä-Kuurinniitty south of Kauniainen lies troublingly in the area of four subdivisions of Espoo. In the end Vanha-Espoo was chosen as Sepänkylä-Kuurinniitty lies for the most part in its area. Similar complications occurred in Helsinki and Vantaa (the partial placement of Kirkonkylä-Veromäki and Ruskeasanta-Ilola in subdivision of Tikkurila) and using my best judgement, the classification shown in figure~\ref{fig:subdiv_placement} was used in the survey results analysis of this thesis.
