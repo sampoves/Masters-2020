@@ -564,17 +564,17 @@ Next in the survey data processing workflow the additional spatial data was adde
             \toprule
             \code{artificial} value & Description & Amount of postal code areas \\
             \midrule
-            < 100 \% & Fully built & 78 \\
+            < 100 \% & Fully built & 77 \\
             < 89.6 \% & Predominantly built & 39 \\
             < 69.0 \% & Moderately built & 28 \\ 
             < 44.3 \% & Some built & 14 \\
-            < 16.6 \% & Scarcely built & 8 \\
+            < 16.6 \% & Scarcely built & 9 \\
             \bottomrule
         \end{tabular}}
     \end{table}
 \end{hyphenrules}
 
-\textcolor{red}{histogram noista \code{artificial}-valueista? (pythonissa yks versio)}
+\textcolor{red}{histogram noista \code{artificial}-valueista? (pythonissa yks versio, R:ssä helppo classIntervals(postal\$artificial, 5, style = "jenks"))}
 
 % https://www.spatialanalysisonline.com/HTML/index.html?classification_and_clustering.htm
 In the finalising section, \textit{records} was prepared for analysis and visualisation in R (figure~\ref{fig:gen_workflow}, section 5). The software library for plotting in R, \textit{ggplot2}, prefers data inputted in long format. To study charasteristics of postal code areas in this research, it meant adding repetitive data columns in \textit{records}, where values for CORINE land cover 2018 artificial surfaces, YKR zone and subdivision remained unchanged for all rows in the same postal code area. For artificial surfaces, a custom Jenks natural breaks function (GitHub user Drewda, \textcolor{red}{add cite, add jenks cite, kato kommenttilinkki}) with five classes were utilised to find the applicable Jenks breaks class for each postal code area. For YKR zones, the most common urban structure type in percentage was selected for each postal code area. In addition, \textit{records} was inserted with municipality subdivision information (figure~\ref{fig:subdiv_placement}). This was achieved by collecting data from the web sites of the municipalities of Helsinki Capital Region (\cite{Espoonkaupunki2020}, \cite{Helsinginkaupunkiymparistontoimiala2019}, \cite{Vantaankaupunki2019}). In these sources, each municipality broke the subdivisions down to city district level, from where it was possible to allot each postal code area with a subdivision. This was for the most part simplistic work, but in some cases the postal code areas and city districts did not align and author's own deliberation was used to help the placement. Some of the most glaring discrepancies between PAAVO postal code areas and subdivision boundaries occur in Espoo. In the case of Lippajärvi-Järvenperä, a postal code area north of Kauniainen, the subdivision Vanha-Espoo was chosen because Lippajärvi-Järvenperä as a whole does not fit into the charasteristics of Suur-Leppävaara, and at the same time the city districts Lippajärvi and Järvenperä do not fit into the distinctive features of the subdivision Pohjois-Espoo. In the same spirit the postal code area Sepänkylä-Kuurinniitty south of Kauniainen lies troublingly in the area of four subdivisions of Espoo. In the end Vanha-Espoo was chosen as Sepänkylä-Kuurinniitty lies for the most part in its area. Similar complications occurred in Helsinki and Vantaa (the partial placement of Kirkonkylä-Veromäki and Ruskeasanta-Ilola in subdivision of Tikkurila) and using my best judgement, the classification shown in figure~\ref{fig:subdiv_placement} was used in the survey results analysis of this thesis.
