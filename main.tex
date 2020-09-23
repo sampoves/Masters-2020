@@ -37,9 +37,27 @@
 \usepackage{csquotes}                       % Enable displayquote
 
 % define \code{}: StackExchange style inline code ----------------------
-\usepackage[table]{xcolor}
-\definecolor{light-gray}{gray}{0.95}        % Define inline code background color
-\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}} % define command
+\usepackage{soul}                           % typesetting with colour, supports linebreak (\colorbox on its own does not)
+\usepackage[table]{xcolor}                  % use in horizontal lines in tables
+
+% \ctext colorbox height
+\makeatletter
+    \def\SOUL@hlpreamble{%
+        \setul{}{3.33ex}%                   default is 2.5ex
+        \let\SOUL@stcolor\SOUL@hlcolor
+        \SOUL@stpreamble
+    }
+\makeatother
+
+% make note of thinspaces, enable thin whitespace inside \ctext colorbox
+\newcommand{\ctext}[3][RGB]{%               Define \ctext
+    \begingroup
+        \definecolor{hlcolor}{#1}{#2}\sethlcolor{hlcolor}%
+        \hl{\thinspace #3\thinspace}%
+    \endgroup
+}
+\newcommand{\code}[1]{\texttt{\ctext[RGB]{242,242,242}{#1}}} % define \code command
+
 
 % Generate list of abbreviations ---------------------------------------
 \usepackage{xurl}                               % xurl linebreaks long links
@@ -250,9 +268,9 @@
 
 % LIBRARY TYPE
 \newtranslatorcommand{\mylibrary}{%
-    E-Thesis%
+    E-Thesis / Helda%
 }{%
-    E-Thesis%
+    E-Thesis / Helda%
 }
 
 % OTHER INFO
