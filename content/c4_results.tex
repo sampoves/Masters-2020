@@ -524,7 +524,7 @@ Strong statistical significances were found for the explanatory variable \code{y
 \subsection{Travel time comparison application findings}
 \justify
 
-Utilising the travel time comparison application, we can find results pertaining to the third research question of this thesis: \textit{What is the significance of the parking process to the overall travel time?} In the application, the data of interest is denoted as \code{pct}. This is a percentual depiction of how much the parking process is of an entire travel chain from an origin postal code area to a destination postal code area (figure~\ref{fig:shinyapps_comparison_detail}). We will approach these results by selecting examples -- specific origin postal code areas -- using the explanatory variable \code{ykr\_zone} groups to examine urban areas different from each other (figure~\ref{fig:postalvis_ykrzone}). One postal code area was selected from each \code{ykr\_zone} group by finding the group mean population and the postal code area closest to it (table~\ref{tab:ykrzone_selections_for_results}, figure~\ref{fig:ykrzone_selections_map}). In this subsection the thesis data \code{pct} is of interest. The calculation logic for this variable is explained in table~\ref{tab:comparison_tooltip_content}.
+Utilising the travel time comparison application, we can find results pertaining to the third research question of this thesis: \textit{What is the significance of the parking process to the overall travel time?} In the application, the data of interest is denoted as \code{pct}. This is a percentual depiction of how much the parking process is of an entire travel chain from an origin postal code area to a destination postal code area (figure~\ref{fig:shinyapps_comparison_detail}). We will approach these results by selecting examples -- specific origin postal code areas -- using the explanatory variable \code{ykr\_zone} groups to examine urban areas different from each other (figure~\ref{fig:postalvis_ykrzone}). One postal code area was selected from each \code{ykr\_zone} group by finding the group mean population in the entire research area and the postal code area closest to that value (table~\ref{tab:ykrzone_selections_for_results}, figure~\ref{fig:ykrzone_selections_map}). In this subsection the thesis data \code{pct} is of interest. The calculation method for \code{ykr\_zone} is explained in table~\ref{tab:comparison_tooltip_content}.
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
@@ -558,27 +558,26 @@ Utilising the travel time comparison application, we can find results pertaining
 
 \begin{figure}[H]%
     \centering
-    \includegraphics[width=\textwidth]{images/results_comparison_examplezips.png}
-    \caption[YKR zone selections for comparison results]{YKR zone selections for comparison results.}%
+    \includegraphics[trim={0 0.2cm 0 0},clip,width=\textwidth]{images/results_comparison_examplezips.png}
+    \caption[Postal code areas selected for in-depth results review]{Postal code areas selected for in-depth results review.}%
     \label{fig:ykrzone_selections_map}%
 \end{figure}
 
-The selected postal code areas represent functionally different parts of the research area. 00150 Eira-Hernesaari (Center walking zone) is located at the southern tip of Helsinginniemi where all possible travel options for private car are time intensive. 00520 Itä-Pasila (Center periphery zone) is in the immediate vicinity of the center of Helsinki, is densely built, and is equipped with better travel options for the private car. 02650 Pohjois-Leppävaara (Subcenter walking zone) represents an important subcenter in the research area with large amounts of office space, a major shopping mall, and it is a major residential area in Espoo. Pohjois-Leppävaara's access to major roads is good. 00640 Oulunkylä-Patola (Intensive transit zone) is also mostly a residential area with extensive public transport connections as well as access to major road infrastructure of Helsinki Capital Region, namely the Ring I beltway and the Finnish national road 3 leading to Tampere. 00430 Maununneva (Transit zone) is a residential area situated just next to the Finnish national highway 3, but with limited motorway interchanges. Its eastern side hugs the Central Park of Helsinki and is littered with small neighborhood roads. 02920 Niipperi (Automobile zone) is characterised as an area of detached housing where public transport coverage is scarce. 01690 Ylästö (novalue) was selected to represent postal code areas which were outside of the YKR zones classification. These areas can be centers of local activity, but lack a combination of population, commercial interaction and public transport connections to belong in any of the proper \code{ykr\_zone} groups (\textcolor{red}{cite ykrvyöhykkeet}). It is then indicative to use these areas as representatives of the whole research area, as the breadth of the data the travel time comparison application is much too plentiful to be presented in full in tables or individual images. The results will delve further into the parking process significance in the cases of 00150 Eira-Hernesaari, 00640 Oulunkylä-Patola, and 02920 Niipperi.
+The selected postal code areas represent functionally different parts of the research area. 00150 Eira-Hernesaari (Center walking zone) is located at the southern tip of Helsinginniemi where all possible travel options for private car are time intensive. 00520 Itä-Pasila (Center periphery zone) is in the immediate vicinity of the center of Helsinki, is densely built, and is equipped with better travel options for the private car than Eira-Hernesaari. 02650 Pohjois-Leppävaara (Subcenter walking zone) represents an important subcenter in the research area with large amounts of office space, a major shopping mall, and a large population. It is a major residential area in Espoo, and it has a good access to major roads. 00640 Oulunkylä-Patola (Intensive transit zone) is also mostly a residential area with extensive public transport connections as well as access to major road infrastructure of Helsinki Capital Region, namely the Ring I beltway and the Finnish national road 3 to Tampere. 00430 Maununneva (Transit zone) is a residential area situated just next to the Finnish national highway 3, but with limited motorway interchanges. Its eastern side hugs the Central Park of Helsinki and is littered with small neighborhood roads. 02920 Niipperi (Automobile zone) is characterised as an area of detached housing where public transport coverage is scarce. 01690 Ylästö (novalue) was selected to represent postal code areas which were outside of the YKR zones classification according to the thesis calculation method. These areas can be centers of local activity, but lack a combination of population, commercial interaction and public transport connections to belong in any of the proper \code{ykr\_zone} groups (\textcolor{red}{cite ykrvyöhykkeet}). It is then indicative to use these areas as representatives of the whole research area, as the breadth of the data available in the travel time comparison application is much too plentiful to be presented in full in tables or individual images. The results will delve further into the proportion of the parking process in the cases of 00150 Eira-Hernesaari, 00640 Oulunkylä-Patola, and 02920 Niipperi.
 
-Table~\ref{tab:comparison_parkingprocess_signif} presents the driving parts and parking process parts of several different example travel chains. In these examples, the parking process is a significant part of the travel chains. In most cases the parking process share diminishes the longer the travel chain is in duration and kilometers, but driving to the center of Helsinki is an exception of this because of the long mean \code{parktime} and \code{walktime} values. When comparing the parking process length between thesis survey and the durations used in \textit{TTM}, thesis parking process can be up to six times longer than that of \textit{TTM}. Please note that the figures shown below follow individual classifications. The symbology colours are not interchangeable between figures.
+Table~\ref{tab:comparison_parkingprocess_signif} presents the driving segments and parking process segments of several different example travel chains. In these examples, the parking process is a significant part of the travel chains. In most cases the parking process share diminishes the longer the travel chain is in duration and kilometers, but driving to the center of Helsinki is an exception of this because of the long mean \code{parktime} and \code{walktime} values. When comparing the parking process length between thesis survey and the durations used in \textit{TTM}, thesis parking process can be up to six times longer than that of in \textit{TTM}.
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[Parking process significance]{Significance of the parking process in example travel chains utilising thesis survey data. Mean parking process duration is static data and does not change for individual destination postal code areas. The asterisk denotes cases where survey data parking process is longer than the entire driving time calculated from Helsinki Region Travel Time Matrix 2018.}
+        \caption[Parking process significance]{Proportion of the parking process in example travel chains utilising thesis survey data. Mean parking process duration is static data and does not change for individual destination postal code areas.}
         \label{tab:comparison_parkingprocess_signif}
         \scalebox{0.75}
         {\begin{tabular}{>{\raggedleft\arraybackslash}p{4cm} lccCccCccc}
             \toprule
         	& & \multicolumn{3}{>{\centering}p{3cm}}{Mean driving time duration, \textit{TTM} data (min)} & \multicolumn{3}{>{\centering}p{3cm}}{Mean parking process duration, survey data (min)} & \multicolumn{3}{>{\centering}p{3cm}}{Parking process share of the total travel chain (\%)} \\
         	\cmidrule(lr{\tbspace}){3-5} \cmidrule(lr{\tbspace}){6-8} \cmidrule(lr){9-11}
-        	Origin & Destination &          rush & mid & all &  rush & mid & all &  rush & mid & all \\
-            
+        	Origin & Destination &          rush & mid & all &          rush & mid & all &      rush & mid & all \\
             \midrule
             \multirow{7}{4cm}{00150 Eira - Hernesaari (Center walking zone)} & 00150 & 5.12 & 4.68 & 4.48 & 11.25 & 17.40 & 14.16 & 2.20* & 3.72* & 3.16*
  \\
@@ -643,90 +642,93 @@ Table~\ref{tab:comparison_parkingprocess_signif} presents the driving parts and 
             & 02920 &                       29.88 & 26.41 & 24.35 &     4.00 & 6.00 & 4.33 &    0.13 & 0.23 & 0.18 \\
             & 01690 &                       8.45 & 7.87 & 7.56 &        0.00 & 7.00 & 3.75 &    0.00 & 0.89 & 0.50 \\
             \bottomrule
+            
+            % A multicolumn pretending to be a footnote, works well for this cause
+            \multicolumn{11}{ p{18cm} }{\textsuperscript{*}\footnotesize{Thesis research survey data parking process is longer than the entire driving time segment calculated from Helsinki Region Travel Time Matrix 2018.}}
         \end{tabular}}
     \end{table}
 \end{hyphenrules}
 
-The significance of the parking process from the starting postal code area of 00150 Eira-Hernesaari appears relatively even when viewing the survey data with equal intervals. The southern part of Helsinginniemi accumulates the largest parking process shares. In the thesis \code{pct} data, additionally, it is quite commonplace to end up in a situation where the calculated parking process duration is longer than the calculated \textit{TTM} mean travel time to that postal code area.
+The proportion of the parking process from the starting postal code area of 00150 Eira-Hernesaari appears relatively even when viewing the survey data with equal intervals. The southern part of Helsinginniemi accumulates the largest parking process shares. In the \code{pct} data, additionally, it is quite commonplace to end up in a situation where the calculated parking process duration is longer than the calculated \textit{TTM} mean driving time to a destination postal code area.
 
-During rush hour traffic, the significance of the parking process from 00150 Eira-Hernesaari is highest in the center of Helsinki (figure~\ref{fig:compare_msc_r_pct_00150}). Outside the center, 00670 Paloheinä (parking process 39 \% of the total travel chain duration), 00870 Etelä-Laajasalo (43 \%), and 01400 Rekola (66 \%) stand out with lengthy parking processes compared to \code{drivetime}. In addition to the occassionally alarmingly long parking processes, some postal code areas report parking processes of zero percent, according to the survey data. Some of these are, for example, 00830 Tammisalo, 02940 Lippajärvi-Järvenperä, and 01690 Ylästö.
+During rush hour traffic, the proportion of the parking process in travel chains starting from 00150 Eira-Hernesaari is highest in the center of Helsinki (figure~\ref{fig:compare_msc_r_pct_00150}). Outside the center, 00670 Paloheinä, Helsinki (parking process 39 \% of the total travel chain duration), 00870 Etelä-Laajasalo, Helsinki (43 \%), and 01400 Rekola, Vantaa (66 \%) stand out with lengthy parking processes compared to \code{drivetime}. In addition to the occasionally alarmingly long parking processes, some postal code areas report parking process proportions of zero percent, according to the survey data. Some of these are, for example, 00830 Tammisalo in Helsinki, 02940 Lippajärvi-Järvenperä in Espoo, and 01690 Ylästö in Vantaa.
 
-During midday traffic, the general outline of the parking process significance from 00150 Eira-Hernesaari stays similar compared to rush hour traffic (figure~\ref{fig:compare_msc_m_pct_00150}). Some particularly long parking processes may be found from 01750 Keimola (parking process 95 \% of the total travel chain duration, an anomalous survey result), 00590 Kaitalahti (43 \%), and 02100 Tapiola (43 \%). A midday parking process share of 0 \% is only present in 02820 Nupuri-Nuuksio.
+During midday traffic, the general outline of the parking process durations starting from 00150 Eira-Hernesaari stays similar compared to rush hour traffic (figure~\ref{fig:compare_msc_m_pct_00150}). Some particularly long parking processes may be found from 01750 Keimola, Vantaa (parking process 95 \% of the total travel chain duration, an anomalous survey result), 00590 Kaitalahti, Helsinki (42 \%), and 02100 Tapiola, Espoo (43 \%). A midday parking process share of 0 \% is only present in 02820 Nupuri-Nuuksio, Espoo.
 
-Using all available survey data and the full \textit{TTM} data, all postal code areas can be represented (figure~\ref{fig:compare_msc_all_pct_00150}). This data largely follows the trend of rush hour and midday data of the origin 00150 Eira-Hernesaari. Using this aggregated variable, long parking processes are found from 02100 Tapiola (55 \%), Kulosaari (58 \%), and 00590 Kaitalahti (44 \%). Subcenters of the Helsinki Capital Region may be observed from the data, but this is inconclusive as sparsely populated locations such as 01750 Keimola may receive large parking process shares.
+Using all available survey data and the full \textit{TTM} data, all postal code areas can be represented (figure~\ref{fig:compare_msc_all_pct_00150}). This data largely follows the trend of rush hour and midday data of the origin postal code area 00150 Eira-Hernesaari. Utilising this aggregated variable, long parking processes are found from 02100 Tapiola in Espoo (55 \%), Kulosaari in Helsinki (58 \%), and 00590 Kaitalahti in Helsinki (44 \%). The parking process proportions of subcenters of the Helsinki Capital Region slightly stand out from the data, but this is an inconclusive observation as sparsely populated locations such as 01750 Keimola may also receive large parking process shares.
 
 % trim={<left> <lower> <right> <upper>}
 \begin{figure}[H]%
     \centering
     \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_r_pct_fromzip-00150_28-09-2020.png}
-    \caption[Parking process significance from Eira-Hernesaari, rush hour traffic]{The parking process significance in the total travel chain, in rush hour traffic, starting from 00150 Eira-Hernesaari.}%
+    \caption[Parking process proportion from Eira-Hernesaari, rush hour traffic]{The parking process proportion in the total travel chain, in rush hour traffic, starting from 00150 Eira-Hernesaari.}%
     \label{fig:compare_msc_r_pct_00150}%
 \end{figure}
 
 \begin{figure}[H]%
     \centering
     \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_m_pct_fromzip-00150_28-09-2020.png}
-    \caption[Parking process significance from Eira-Hernesaari, midday traffic]{The parking process significance in the total travel chain, in midday traffic, starting from 00150 Eira-Hernesaari.}%
+    \caption[Parking process proportion from Eira-Hernesaari, midday traffic]{The parking process proportion in the total travel chain, in midday traffic, starting from 00150 Eira-Hernesaari.}%
     \label{fig:compare_msc_m_pct_00150}%
 \end{figure}
 
 \begin{figure}[H]%
     \centering
     \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_all_pct_fromzip-00150_28-09-2020.png}
-    \caption[Parking process significance from Eira-Hernesaari, all temporal values]{The parking process significance in the total travel chain, using all available temporal values, starting from 00150 Eira-Hernesaari.}%
+    \caption[Parking process proportion from Eira-Hernesaari, all temporal values]{The parking process proportion in the total travel chain, using all available temporal values, starting from 00150 Eira-Hernesaari.}%
     \label{fig:compare_msc_all_pct_00150}%
 \end{figure}
 
-The significance of the parking process fluctuates considerably when viewing the percentual data with 00640 Oulunkylä-Patola as the origin postal code area. For rush hour traffic, the largest shares of the total travel chains can be found in the general vicinity of the origin postal code area, with prongs extending to the center of Helsinki and to eastern Helsinki (figure~\ref{fig:compare_msc_r_pct_00640}). Excluding destination postal code areas where the parking process is longer than the calculated \code{drivetime}, long parking process shares may be located at 00270 Pohjois-Meilahti (87 \% of the total travel chain duration), 00920 Myllypuro (72 \%), and 01530 Veromiehenkylä (68 \%). It is notable that 00640 Oulunkylä-Patola has generally more valid percentual values (parking process share is less than the total driving segment of the travel chain) than 00150 Eira-Hernesaari as less postal code areas have their parking process durations exceed that of their \code{drivetime} values.
+The proportion of the parking process fluctuates spatially when viewing the percentual data with 00640 Oulunkylä-Patola as the origin postal code area. For rush hour traffic, the largest shares of the total travel chains can be found in the general vicinity of the origin postal code area, with prongs extending to the center of Helsinki and to eastern Helsinki (figure~\ref{fig:compare_msc_r_pct_00640}). Excluding the destination postal code areas where the parking process is longer than the calculated \code{drivetime}, long parking process shares may be located at 00270 Pohjois-Meilahti in Helsinki (87 \% of the total travel chain duration), 00920 Myllypuro in Helsinki (72 \%), and 01530 Veromiehenkylä in Vantaa (68 \%). It is notable that 00640 Oulunkylä-Patola has generally more valid percentual values (parking process share is less than the total driving segment of the travel chain) than 00150 Eira-Hernesaari as fewer postal code areas have their parking process durations exceed that of their \code{drivetime} values.
 
-In midday traffic, the significance of the parking process from the origin 00640 Oulunkylä-Patola shows long parking process shares for the most parts of Helsinki and for a branch reaching northeast to Vantaa (figure~\ref{fig:compare_msc_m_pct_00640}). For midday traffic, long parking process shares were calculated for 01300 Tikkurila (68 \%), and 00510 Etu-Vallila--Alppila (83 \%). In most of Espoo parking process shares are less than 30 percent, with the longest found from 02650 Pohjois-Leppävaara (41 \%).
+In midday traffic, the proportion of the parking process in travel chains from the origin 00640 Oulunkylä-Patola shows long parking process shares for the most parts of Helsinki and for a branch reaching northeast to Vantaa (figure~\ref{fig:compare_msc_m_pct_00640}). For midday traffic, long parking process shares are calculated for 01300 Tikkurila in Vantaa (68 \%), and 00510 Etu-Vallila--Alppila in Helsinki (83 \%). In most of Espoo parking process shares are less than 30 percent, with the longest found from 02650 Pohjois-Leppävaara in Espoo (41 \%).
 
-If all available temporal data is employed in thesis survey data and \textit{TTM}, extreme values recorded in \code{parktime} and \code{walktime} are honed away and a rough circular shape of long parking shares may be observed around 00640 Oulunkylä-Patola (figure~\ref{fig:compare_msc_all_pct_00640}). Using this variable the majority of the center of Helsinki receives parking process shares of more than 60 \%. In general, most of the largest parking process shares are located inside the Ring I beltway with the exception of Vantaa's 01300 Tikkurila (76 \%), and 01530 Veromiehenkylä (71 \%).
+If all available temporal data is employed in thesis survey data and \textit{TTM}, extreme values recorded in \code{parktime} and \code{walktime} are honed away and a rough circular shape of long parking process shares may be observed around 00640 Oulunkylä-Patola (figure~\ref{fig:compare_msc_all_pct_00640}). Using this variable the majority of the center of Helsinki receives parking process shares of more than 60 percent. In general, most of the largest parking process shares are located inside the Ring I beltway with the exception of Vantaa's 01300 Tikkurila (76 \%) and 01530 Veromiehenkylä (71 \%).
 
 \begin{figure}[H]%
     \centering
     \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_r_pct_fromzip-00640_28-09-2020.png}
-    \caption[Parking process significance from Oulunkylä-Patola, rush hour traffic]{The parking process significance in the total travel chain, in rush hour traffic, starting from 00640 Oulunkylä-Patola.}%
+    \caption[Parking process proportion from Oulunkylä-Patola, rush hour traffic]{The parking process proportion in the total travel chain, in rush hour traffic, starting from 00640 Oulunkylä-Patola.}%
     \label{fig:compare_msc_r_pct_00640}%
 \end{figure}
 
 \begin{figure}[H]%
     \centering
     \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_m_pct_fromzip-00640_28-09-2020.png}
-    \caption[Parking process significance from Oulunkylä-Patola, midday traffic]{The parking process significance in the total travel chain, in midday traffic, starting from 00640 Oulunkylä-Patola.}%
+    \caption[Parking process proportion from Oulunkylä-Patola, midday traffic]{The parking process proportion in the total travel chain, in midday traffic, starting from 00640 Oulunkylä-Patola.}%
     \label{fig:compare_msc_m_pct_00640}%
 \end{figure}
 
 \begin{figure}[H]%
     \centering
     \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_all_pct_fromzip-00640_28-09-2020.png}
-    \caption[Parking process significance from Oulunkylä-Patola, all temporal values]{The parking process significance in the total travel chain, using all temporal values, starting from 00640 Oulunkylä-Patola.}%
+    \caption[Parking process proportion from Oulunkylä-Patola, all temporal values]{The parking process proportion in the total travel chain, using all temporal values, starting from 00640 Oulunkylä-Patola.}%
     \label{fig:compare_msc_all_pct_00640}%
 \end{figure}
 
-The significance of the parking process in the total travel chain, starting from 02920 Niipperi, during rush hour traffic, is generally large in all parts of Helsinki Capital Region (figure~\ref{fig:compare_msc_r_pct_02920}). In Espoo, long parking process shares are found from the beltway Ring III postal code areas such as 02780 Kauklahti (42~\%), 02770 Espoon keskus (40 \%), and 02740 Bemböle-Pakankylä (37 \%). In Vantaa, largest shares could be found from 01400 Rekola (73 \%), 01530 Veromiehenkylä (54 \%), and 01520 Tammisto (49 \%). Helsinki's largest parking process share is located in 00270 Pohjois-Meilahti (49~\%) with all of the postal code areas of the center of Helsinki reaching lower shares. According to the survey and \textit{TTM} data, the parking process share on a rush hour traffic travel chain from Niipperi to 00160 Katajanokka is 19 percent.
+The proportion of the parking process in total travel chains starting from 02920 Niipperi, during rush hour traffic, is generally large in all parts of Helsinki Capital Region (figure~\ref{fig:compare_msc_r_pct_02920}). In Espoo, long parking process shares are found from the beltway Ring III postal code areas such as 02780 Kauklahti (42~\%), 02770 Espoon keskus (40 \%), and 02740 Bemböle-Pakankylä (37 \%). In Vantaa, largest shares are found from 01400 Rekola (73 \%), 01530 Veromiehenkylä (54 \%), and 01520 Tammisto (49 \%). Helsinki's largest parking process share is located in 00270 Pohjois-Meilahti (49~\%) with all of the postal code areas of the center of Helsinki reaching lower shares. According to the survey and \textit{TTM} data, the parking process share in a rush hour traffic travel chain from Niipperi to 00160 Katajanokka is a proportionally low 19 percent.
 
-During midday traffic the significance of the parking process from the origin of 02920 Niipperi shows relatively low values (figure~\ref{fig:compare_msc_m_pct_02920}). In fact, the largest parking process share in Espoo is found from a travel chain that starts and ends in Niipperi (67 \%). All other values are equal or below 40 percent. In Helsinki, largest midday traffic parking process shares are found from 00270 Pohjois-Meilahti (47 \%) and 00340 Länsi-Pasila (46 \%) with the center of Helsinki again exhibiting lower parking process values across the board. In Vantaa, large parking process shares were located in 01700 Kivistö (70 \%), 01710 Pähkinärinne (52 \%), and 01680 Askisto (48 \%).
+During midday traffic the proportion of the parking process in travel chains starting from the origin postal code area of 02920 Niipperi shows relatively low values (figure~\ref{fig:compare_msc_m_pct_02920}). In fact, the largest parking process share in Espoo is found from the travel chain that starts and ends in Niipperi (67 \%). All other values are equal or below 40 percent. In Helsinki, largest midday traffic parking process shares are found from 00270 Pohjois-Meilahti (47 \%) and 00340 Länsi-Pasila (46 \%) with the center of Helsinki again exhibiting lower parking process values across the board. In Vantaa, large parking process shares were located in 01700 Kivistö (70 \%), 01710 Pähkinärinne (52 \%), and 01680 Askisto (48 \%).
 
-When utilising all available data from the survey and \textit{TTM}, a wholesome picture of the parking process significance from 02920 Niipperi can be examined (figure~\ref{fig:compare_msc_all_pct_02920}). Many hotspots for large parking process shares may be studied in the different municipalities of Helsinki Capital Region, and no parking process duration is anomalously longer than the total driving segment in any particular travel chain. In Espoo, largest parking process shares were located west from Niipperi, with 02940 Lippajärvi-Järvenperä (44 \%) and 02740 Bemböle-Pakankylä (42 \%) at the top. In Helsinki, northwestern part of the center of Helsinki stands out. Largest shares are located in 00270 Pohjois-Meilahti (52 \%) and 00290 Meilahden sairaala-alue (48 \%). Vantaa's largest parking process shares were located in 01530 Veromiehenkylä (54 \%) and 01700 Kivistö (52 \%). 
+When utilising all available data from the survey and \textit{TTM}, a wholesome picture of the parking process proportion in travel chains from 02920 Niipperi can be gathered (figure~\ref{fig:compare_msc_all_pct_02920}). Many hotspots for large parking process shares may be studied in the different municipalities of Helsinki Capital Region, and no parking process duration is anomalously longer than the total driving segment in any particular travel chain. In Espoo, largest parking process shares are located west from Niipperi, with 02940 Lippajärvi-Järvenperä (44 \%) and 02740 Bemböle-Pakankylä (42 \%) at the top. In Helsinki, northwestern part of the center of Helsinki stands out. Largest shares are located in 00270 Pohjois-Meilahti (52 \%) and in 00290 Meilahden sairaala-alue (48 \%). Vantaa's largest parking process shares were located in 01530 Veromiehenkylä (54 \%) and 01700 Kivistö (52 \%). 
 
 \begin{figure}[H]%
     \centering
     \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_r_pct_fromzip-02920_28-09-2020.png}
-    \caption[Parking process significance from Niipperi, rush hour traffic]{The parking process significance in the total travel chain, in rush hour traffic, starting from 02920 Niipperi.}%
+    \caption[Parking process proportion from Niipperi, rush hour traffic]{The parking process proportion in the total travel chain, in rush hour traffic, starting from 02920 Niipperi.}%
     \label{fig:compare_msc_r_pct_02920}%
 \end{figure}
 
 \begin{figure}[H]%
     \centering
     \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_m_pct_fromzip-02920_28-09-2020.png}
-    \caption[Parking process significance from Niipperi, midday traffic]{The parking process significance in the total travel chain, in midday traffic, starting from 02920 Niipperi.}%
+    \caption[Parking process proportion from Niipperi, midday traffic]{The parking process proportion in the total travel chain, in midday traffic, starting from 02920 Niipperi.}%
     \label{fig:compare_msc_m_pct_02920}%
 \end{figure}
 
 \begin{figure}[H]%
     \centering
     \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_all_pct_fromzip-02920_28-09-2020.png}
-    \caption[Parking process significance from Niipperi, all temporal values]{The parking process significance in the total travel chain, using all temporal values, starting from 02920 Niipperi.}%
+    \caption[Parking process proportion from Niipperi, all temporal values]{The parking process proportion in the total travel chain, using all temporal values, starting from 02920 Niipperi.}%
     \label{fig:compare_msc_all_pct_02920}%
 \end{figure}
