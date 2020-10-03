@@ -3,17 +3,22 @@
 \justify
 
 % Potentiaalisesti hyödyllisiä linkkejä Helsingin autoilusta
+%---liikennemäärät
 %https://www.hel.fi/hel2/Helsinginseutu/HS_tunnusluvut/liikennemaara_ja_autonomistus.pdf
-%https://www.hsl.fi/sites/default/files/19_2016_auton_omistus_helsingin_seudulla.pdf
+%https://www.hsl.fi/tutkimukset/liikenne-ja-matkustajalaskennat-ja-mittaukset %arcgis-kartat!
+
 %https://www.hsl.fi/tutkimukset/muut-selvitykset
 %https://www.hel.fi/helsinki/fi/kartat-ja-liikenne/kadut-ja-liikennesuunnittelu/tutkimus-ja-tilastot/moottoriajoneuvoliikenteen-maarat/
 %https://www.hel.fi/helsinki/fi/kartat-ja-liikenne/kadut-ja-liikennesuunnittelu/tutkimus-ja-tilastot/liikenteen-sujuvuus/
 %http://pxnet2.stat.fi/PXWeb/pxweb/fi/StatFin/StatFin__lii__mkan/
+%--HLT
 %https://julkaisut.vayla.fi/pdf8/lti_2018-01_henkiloliikennetutkimus_2016_web.pdf
 %--liikkumistottumukset
 %https://www.hsl.fi/sites/default/files/hsl_julkaisu_9_2019_netti.pdf 
 %-- autojen määrä viime vuosikymmeninä suomessa
 %https://www.stat.fi/til/mkan/2019/mkan_2019_2020-02-28_tie_001_fi.html
+%-- HSL aukee
+%https://www.hsl.fi/sites/default/files/19_2016_auton_omistus_helsingin_seudulla.pdf
 
 \begin{itemize}
     \item Donald Shoup searching for parking
@@ -25,9 +30,16 @@
 
 The Helsinki Capital Region faces increasing pressure to manage its traffic because (\textcolor{red}{LÄHDE}).
 
-%tsek helsingin raportit ja HLT, sitten päätä mitä päätä mitä kirjoitat
+%tsek helsingin raportit ja henkilöliikennetutkimus, sitten päätä mitä päätä mitä kirjoitat
 A high-performance public transport system operates in the Helsinki Capital Region and is comprised of buses, train, subway, and tram. In 2017, the subway expanded from Helsinki to Espoo, triggering a new phase of quickly evolving cityscape in the surroundings of the new stations. A host of large scale additions to the system are being planned, with some, like Jokeri Light Rail, already in construction. Despite the extensive service level of Helsinki Capital Region public transport, households especially in Espoo, Vantaa, and Kauniainen remain dependent on personal vehicles (\textcolor{red}{cite}).
 
+\begin{figure}[H]%
+    \includegraphics[width=\textwidth]{images/traffic_amount_autumn2018.png}
+    \caption[Motor vehicle traffic on main roads in Helsinki Capital Region]{Motor vehicle traffic on an average autumn weekday in the Helsinki Capital Region. Screen capture from the web map service, colors enhanced (\cite{Helsinginseudunliikenne2019}; \cite{OpenStreetMap}). Please note that in this view map smaller roads and their labels sometimes obscure the labels of larger roads, for example, Finnish national road 1 to Turku is obstructed by the labels of the old highway to Turku.}%
+    \label{fig:traffic_amount_autumn2018}%
+\end{figure}
+
+% \calcin is calculate increase in percentage. #1 new number, #2 original number
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
@@ -39,14 +51,14 @@ A high-performance public transport system operates in the Helsinki Capital Regi
             \toprule
                                             & 2011      & 2015      & 2019      & Growth 2011--2019 \\
             \midrule
-            Helsinki                        & 207 639   & 206 229   & 214 583   & 3.2 \% \\
-            Espoo                           & 107 833   & 115 446   & 122 185   & 11.7 \% \\
-            Vantaa                          & 91 844    & 98 963    & 109 068   & 15.8 \% \\
-            Kauniainen                      & 3 815     & 4 105     & 4 324     & 11.8 \% \\
+            Helsinki                        & 207 639   & 206 229   & 214 583   & \calcin{214583}{207639} \\
+            Espoo                           & 107 833   & 115 446   & 122 185   & \calcin{122185}{107833} \\
+            Vantaa                          & 91 844    & 98 963    & 109 068   & \calcin{109068}{91844} \\
+            Kauniainen                      & 3 815     & 4 105     & 4 324     & \calcin{4324}{3815} \\
             \greyrule
-            KUUMA municipalities*           & 149 930   & 157 984   & 169 760   & 11,7 \% \\
+            KUUMA municipalities*           & 149 930   & 157 984   & 169 760   & \calcin{169760}{149930} \\
             \greyrule
-            Finland                         & 2 978 729 & 3 257 581 & 3 574 570 & 16.7 \% \\
+            Finland                         & 2 978 729 & 3 257 581 & 3 574 570 & \calcin{3574570}{2978729} \\
             \bottomrule
             \multicolumn{5}{ p{12cm} }{\textsuperscript{*}\footnotesize{KUUMA municipalities are the Greater Helsinki municipalities without the Helsinki Capital Region: Hyvinkää, Järvenpää, Kirkkonummi, Kerava, Mäntsälä, Nurmijärvi, Pornainen, Sipoo, Tuusula, and Vihti (\cite{KUUMA-seutuliikelaitos2020}).}}
         \end{tabular}
@@ -55,28 +67,33 @@ A high-performance public transport system operates in the Helsinki Capital Regi
 
 % tarkempaa aineistoa autotiheydestä:
 %https://www.hel.fi/hel2/helsinginseutu/hs_tunnusluvut/liikennemaara_ja_autonomistus.pdf
+
+% use package xfp for density calculations. This makes the calculations much more transparent
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
         \def\arraystretch{1.2}
         \setlength\tabcolsep{1.2ex}
-        \caption[Density of private cars in Helsinki Capital Region in 2019]{Density of private cars in Helsinki Capital Region municipalities, in KUUMA municipalities, and in the entire Finland in 2019 (\cite{StatisticsFinland2020}, \citeyear{StatisticsFinland2020b}). Private cars decommissioned from traffic are not included in this table.} 
+        \caption[Density of private cars in Helsinki Capital Region in 2019]{Density of private cars in Helsinki Capital Region municipalities, in KUUMA municipalities, and in the entire Finland in 2019 (\cite{StatisticsFinland2020b}, \citeyear{StatisticsFinland2020}). Private cars decommissioned from traffic are not included in this table. Density is formulated as cars/1000 inhabitants.} 
         \label{tab:car_density}
-        \begin{tabular}{ l @{} >{\raggedleft\arraybackslash}p{2cm} >{\raggedleft\arraybackslash}p{2cm} >{\raggedleft\arraybackslash}p{3.5cm} @{} }
+        \scalebox{0.9}
+        {\begin{tabular}{ lllLlll }
             \toprule
-                                            & Population 2019   & Private cars 2019 & Private car density (cars/1000 inhabitants) \\
-            \midrule
-            Helsinki                        & 656 970           & 214 583           & 326 \\
-            Espoo                           & 291 490           & 122 185           & 419 \\
-            Vantaa                          & 236 434           & 109 068           & 462 \\
-            Kauniainen                      & 9 990             & 4 324             & 432 \\
+            			            & \multicolumn{3}{c}{2011} & \multicolumn{3}{c}{2019} \\
+						            \cmidrule(lr{\tbspace}){2-4} \cmidrule(lr){5-7}
+                                    & Population & Private cars & Density & Population & Private cars & Density \\
+            \midrule    
+            Helsinki                & 595 384   & 207 639   & \fpeval{round(207639/(595384/1000),0)}  & 656 970   & 214 583   & \fpeval{round(214583/(656970/1000),0)} \\
+            Espoo                   & 252 439   & 107 833   & \fpeval{round(107833/(252439/1000),0)}  & 291 490   & 122 185   & \fpeval{round(122185/(291490/1000),0)} \\
+            Vantaa                  & 203 001   & 91 844    & \fpeval{round(91844/(203001/1000),0)}   & 236 434   & 109 068   & \fpeval{round(109068/(291490/1000),0)} \\
+            Kauniainen              & 8 807     & 3 815     & \fpeval{round(3815/(8807/1000),0)}      & 9 990     & 4 324     & \fpeval{round(4324/(9990/1000),0)} \\
             \greyrule
-            KUUMA municipalities*           & 326 211           & 169 760           & 520 \\
+            KUUMA municipalities*   & 315 094   & 149 930   & \fpeval{round(149930/(315094/1000),0)}  & 326 211   & 169 760   & \fpeval{round(169760/(326211/1000),0)} \\
             \greyrule
-            Finland                         & 5 532 333         & 2 745 074         & 496 \\
+            Finland                 & 5 401 267 & 2 978 729 & \fpeval{round(2978729/(5401267/1000),0)}& 5 532 333 & 3 574 570 & \fpeval{round(3574570/(5532333/1000),0)} \\
             \bottomrule
-            \multicolumn{4}{ p{12cm} }{\textsuperscript{*}\footnotesize{KUUMA municipalities are the Greater Helsinki municipalities without the Helsinki Capital Region: Hyvinkää, Järvenpää, Kirkkonummi, Kerava, Mäntsälä, Nurmijärvi, Pornainen, Sipoo, Tuusula, and Vihti (\cite{KUUMA-seutuliikelaitos2020}).}}
-        \end{tabular}
+            \multicolumn{7}{ p{16cm} }{\textsuperscript{*}\footnotesize{KUUMA municipalities are the Greater Helsinki municipalities without the Helsinki Capital Region: Hyvinkää, Järvenpää, Kirkkonummi, Kerava, Mäntsälä, Nurmijärvi, Pornainen, Sipoo, Tuusula, and Vihti (\cite{KUUMA-seutuliikelaitos2020}).}}
+        \end{tabular}}
     \end{table}
 \end{hyphenrules}
 

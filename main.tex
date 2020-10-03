@@ -95,11 +95,10 @@
 \makeglossaries
 
 % Datetime settings  ------------------------------------------------------
-\usepackage[ddmmyyyy]{datetime}             % Change format of datetime
-%\newdateformat{mydate}{%
-%    \onedigit{\THEDAY}.\onedigit{\THEMONTH}.\THEYEAR} % remove unnecessary zeroes in date
+\usepackage[ddmmyyyy]{datetime}             % Change the format of datetime
+
 \newdateformat{mydate}{%
-    {\THEDAY}.{\THEMONTH}.\THEYEAR}         % The one above causes undefined control sequence   
+    {\THEDAY}.{\THEMONTH}.\THEYEAR}
 \newdateformat{monthyeardate}{%
     \monthname[\THEMONTH] \THEYEAR}         % mm/yyyy date format for English abstract
 \newcommand*{\printfindate}{%               % Get Finnish months and year for the Finnish abstract
@@ -129,7 +128,10 @@
 \usepackage{pdfpages}                       % Include PDF documents in LaTeX
 \usepackage{listings}                       % Typeset source code listings using LaTeX
 \usepackage{import}                         % Establish input relative to a directory
+\usepackage{xfp}                            % Math processing such as \fpeval
 
+% Calculate increase in percentage. #1 new number, #2 original number
+\newcommand\calcin[2]{\FPeval\result{round(((#1 - #2) / #2) * 100, 1)}\result~\%}
 
 % Tables -----------------------------------------------------------------
 \usepackage{array}                          % For table properties such as p{2cm}
@@ -198,11 +200,14 @@
     Henkilöauton pysäköinti ja spatiaalinen saavutettavuus pääkaupunkiseudulla%
 }
 
-% Choose correct date format for abstract
+% Choose correct date format for abstract.
+% Dates are now frozen for thesis release. Remove the date and restore the corresponding command if needed.
 \newtranslatorcommand{\translatedate}{%
-    \monthyeardate\today%
+    October 2020%
+    %\monthyeardate\today%
 }{%
-    \printfindate%
+    Lokakuu 2020%
+    %\printfindate%
 }
 
 % PAGE COUNT
@@ -284,7 +289,7 @@
 
 \title{\mytitle}
 \author{\myname}
-\date{\today}
+\date{8.10.2020} % Date is now frozen. Use \today to get, today.
 
 
 % BEGIN DOCUMENT PROPER ---------------------------------------------------
