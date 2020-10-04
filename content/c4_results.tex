@@ -11,7 +11,7 @@
 \textcolor{red}{selitä auki parktime ja walktime kerran ennen lyhenteiden käyttöä}\\
 In this chapter, the thesis research survey results are presented. Within the selected criteria (\code{parktime < 60} and \code{walktime < 60}, see \hyperref[sec:processdata]{\fullref{sec:processdata}}), the survey received a total of 5579 visits from 4320 unique IP addresses. 848 unique IP addresses visited the survey more than one time and in total 1060 unique IP addresses sent data to the survey. 24.5 percent of all visitors submitted at least one data row. On average one respondent submitted 4.9 data rows.
 
-The survey received in total 5183 data rows. All postal code areas were represented in the survey results, but the data row count histogram was heavily skewed to the right, with the first quartile being eight data rows, second (median) 17 data rows and third 42 data rows (table~\ref{tab:muns_answer_stats}, figures~\ref{fig:parktime_hist},~\ref{fig:walktime_hist}). Most respondents reported short parking times below ten minutes, but the histograms do not smoothly lessen in values from the right to left, as people have preferred to report round figures such as five, ten, or fifteen minutes. There were five postal code areas with more than one hundred data rows and 55 postal code areas with less than ten data rows. In Helsinki, the answers strongly clustered around the center of Helsinki, with other centers of activity being Herttoniemi and Itäkeskus-Marjaniemi in Helsinki, Tapiola-Otaniemi and Leppävaara in Espoo, and Tikkurila-Vantaanportti in Vantaa.
+The survey received in total 5183 data rows. All postal code areas were represented in the survey results, but the data row count histogram was heavily skewed to the right, with the first quartile being eight data rows, second (median) 17 data rows and third 42 data rows (table~\ref{tab:muns_answer_stats}, figures~\ref{fig:parktime_hist},~\ref{fig:walktime_hist}). Most respondents reported short parking times below ten minutes, but the histograms do not smoothly lessen in values from the right to left, as respondents have preferred to report round figures such as five, ten, or fifteen minutes. There were five postal code areas with more than one hundred data rows and 55 postal code areas with less than ten data rows. In Helsinki, the answers strongly clustered around the center of Helsinki, with other centers of activity being Herttoniemi and Itäkeskus-Marjaniemi in Helsinki, Tapiola-Otaniemi and Leppävaara in Espoo, and Tikkurila-Vantaanportti in Vantaa.
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
@@ -60,7 +60,7 @@ On a closer look to the municipalities, finer details become apparent (figure~\r
     \label{fig:postalvis_answers}%
 \end{figure}
 
-In the finest resolution available, the postal code areas, long \code{parktime} values closely follow areas with most survey activity (figures~\ref{fig:postalvis_parkmean},~\ref{fig:postalvis_parkmedian}). The longest \code{parktime} values were encountered in the center of Helsinki, where the mean value for 00120 Punavuori was 10.6 minutes (median 10.0 minutes, 91 data rows) and 00290 Meilahden sairaala-alue 9.4 minutes (5.0 min, 42 data rows). Long parking times over five minutes were recorded in all over the center area, but also in 00570 Kulosaari (mean 5.3 minutes, median 5.0 minutes, 48 rows) and 00590 Kaitalahti (6.5 min, 3.5 min, 16 rows). In Espoo, the longest \code{parktime} values were found in 02230 Matinkylä (5.1 min, 5.0 min, 62 rows), 02100 Tapiola (4.6 min, 3.0 min, 71 rows), and in 02320 Espoonlahti (4.3 min, 3.0 min, 30 rows). In Vantaa, it took the longest to find a parking spot in 01300 Tikkurila (6.4 min, 5.0 min, 85 rows). According to the survey results, it was relatively hard to find a parking spot in 01700 Kivistö (5.7 min, 4.0 min, 30 rows), too.
+In the finest resolution available, the postal code areas, long \code{parktime} values closely follow areas with most survey activity (figures~\ref{fig:postalvis_parkmean},~\ref{fig:postalvis_parkmedian}). The longest \code{parktime} values were encountered in the center of Helsinki, where the mean value for 00120 Punavuori was 10.6 minutes (median 10.0 minutes, 91 data rows) and 00290 Meilahden sairaala-alue 9.4 minutes (5.0 min, 42 rows). Long parking times over five minutes were recorded in all over the center area, but also in 00570 Kulosaari (5.3 min, 5.0 min, 48 rows) and 00590 Kaitalahti (6.5 min, 3.5 min, 16 rows). In Espoo, the longest \code{parktime} values were found in 02230 Matinkylä (5.1 min, 5.0 min, 62 rows), 02100 Tapiola (4.6 min, 3.0 min, 71 rows), and in 02320 Espoonlahti (4.3 min, 3.0 min, 30 rows). In Vantaa, it took the longest to find a parking spot in 01300 Tikkurila (6.4 min, 5.0 min, 85 rows). According to the survey results, it was relatively hard to find a parking spot in 01700 Kivistö (5.7 min, 4.0 min, 30 rows), too.
 
 In the case of this survey dataset it is important to not lose sight of median, as mean is susceptible to outliers, of which there are many present. One such situation may be viewed in 01750 Keimola, where the mean \code{parktime} is 5.9 minutes, and median reads at 1.0 minute. In Keimola's situation, one respondent entered a \code{parktime} value of 25 minutes, severely skewing the total sample of seven values. It may be argued that when detecting areas of long duration of searching for parking, median is the better measure to identify areas of interest.
 
@@ -75,7 +75,7 @@ It is difficult to try and determine the causes behind these long \code{walktime
 \begin{figure}[H]%
     \centering
     \includegraphics[width=\textwidth]{images/thesis_postalvis_parkmean.png}
-    \caption[Parktime, mean, in the reseach area]{This figure illustrates the mean duration of searching for parking and parking one's car in each postal code area. \textcolor{red}{possibly larger fonts needed}}%
+    \caption[Parktime, mean, in the reseach area]{This figure illustrates the mean duration of searching for parking and parking one's car in each postal code area.}%
     \label{fig:postalvis_parkmean}%
 \end{figure}
 
@@ -103,6 +103,12 @@ It is difficult to try and determine the causes behind these long \code{walktime
 \newpage
 \subsection{Explanatory data analysis}
 \justify
+
+%https://www.thoughtco.com/population-vs-sample-standard-deviations-3126372
+%--- ilmeisesti sample standard deviation on yleisesti parempi kuin population! ja ehkäpä mun aineisto on useammin sample kuin koko population, joten voinen unohtaa tuon!
+%https://towardsdatascience.com/understanding-descriptive-statistics-c9c2b0641291
+%https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
+%https://towardsdatascience.com/analysis-of-variance-and-its-variations-6ef3f8fbeb05
 
 The thesis survey data reveals that there are spatial differences between municipalities and regions of Helsinki Capital Region (table~\ref{tab:park_walk_subdiv}) in the durations to find a parking spot (\code{parktime}), and walking from one's parked car to the final destination (\code{walktime}). This is shown by the one-way \acrfull{anova} that for \code{parktime} and \code{walktime} there are statistically significant differences ($p < 0.05$) between the 23 groups (municipality subdivisions, figure~\ref{fig:subdiv_placement}). In the vast majority of subdivision groups, the group sizes were sufficiently large for \acrshort{anova} analysis to be highly significant ($p < 0.001$). An exception to this is the \acrshort{anova} test for Espoo's subdivisions using \code{parktime}. This test finishes with a less significant $p = 0.015$.
 
