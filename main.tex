@@ -3,8 +3,8 @@
 
 
 
-% VIESTI Henkalle, Petterille ja Tuulille: 
-% su 4.10.2020 ilta: olen juuri nyt kirjoittamassa discussionin viimeisiä osia, ja sitten siirryn introon ja backgroundiin vielä tänään.
+% VIESTI HENKALLE, PETTERILLE JA TUULILLE:
+% tilanne sunnuntai-iltana 4.10.2020: minulta puuttuu aukikirjoitettu teksti enää kappaleesta "2 Background". Teen sen valmiiksi huomenna 5.10.2020.
 
 
 
@@ -79,7 +79,10 @@
 \newacronym{php}{PHP}{Hypertext preprocessor}
 
 % Nomenclature for glossary --------------------------------------------
-% Note the definition of plural forms
+% Note the definition of plural forms.
+% \glssetwidest together with \printglossary parameters helps prevent overlong nomenclature lines
+\glssetwidest[0]{...................}
+
 \newglossaryentry{CPU}{
   name = {CPU},
   description = {Central Processing Unit},
@@ -98,7 +101,6 @@
   name = {RAM},
   description = {Random Access Memory},
 }
-
 \makeglossaries
 
 % Datetime settings  ------------------------------------------------------
@@ -140,6 +142,7 @@
 % Calculate increase in percentage. #1 new number, #2 original number
 \newcommand\calcin[2]{\FPeval\result{round(((#1 - #2) / #2) * 100, 1)}\result~\%}
 
+
 % Tables -----------------------------------------------------------------
 \usepackage{array}                          % For table properties such as p{2cm}
 \usepackage{tabularx}                       % Tabulars with adjustable-width columns
@@ -163,11 +166,12 @@
 % \usepackage[table]{xcolor} and \usepackage{booktabs} to define a lighter midrule
 \newcommand{\greyrule}{\arrayrulecolor{black!30}\midrule\arrayrulecolor{black}}
 
-% Define extra wide column separators C (centering) and L (left-align)
+% Define extra wide column separators "C" (centering) and "L" (left-align)
 \newlength\tbspace
 \setlength\tbspace{0.5cm}
 \newcolumntype{C}{c<{\hspace{\tbspace}}}%
 \newcolumntype{L}{l<{\hspace{\tbspace}}}%
+
 
 % Translator command setup -----------------------------------------------
 % this enables us to use multilanguage strings which works with package babel
@@ -330,10 +334,11 @@
 % LIST OF TABLES
 \listoftables
 
-% LIST OF ABBREVIATIONS
+% LIST OF ABBREVIATIONS AND NOMENCLATURE
+% NB, nomenclature labels will not line break if parameters nonumberlist and style=alttree are not combined with \glssetwidest.
 \newpage
 \printglossary[type=\acronymtype,title=List of abbreviations]
-\printglossary[title=Nomenclature]
+\printglossary[nonumberlist,style=alttree,title=Nomenclature]
 \thispagestyle{empty}
 
 % INTRODUCTION AND RESEARCH QUESTIONS
