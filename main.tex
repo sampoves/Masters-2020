@@ -4,8 +4,8 @@
 
 
 % VIESTI HENKALLE, PETTERILLE JA TUULILLE:
-% tilanne sunnuntai-iltana 4.10.2020: 
-%- minulta puuttuu aukikirjoitettu teksti enää kappaleesta "2 Background". Teen sen valmiiksi huomenna 5.10.2020.
+% tilanne tiistai-iltapäivänä 6.10.2020: 
+%- minulta puuttuu aukikirjoitettu teksti enää kappaleesta "2 Background", kohdasta PPGIS. Työstän sitä juuri nyt
 %- Backgroundin jälkeen heti tiivistelmien kimppuun
 %- Henkka antanut kommentteja 4.10., teen muutokset mahdollisimman nopeasti täyden tekstimitan saavuttamisen jälkeen
 
@@ -91,6 +91,10 @@
   plural = {CPUs},
   firstplural = {\glsentrydesc{CPU}s (\glsentryplural{CPU})}
 }
+\newglossaryentry{GIS}{
+  name = {GIS},
+  description = {Geographic Information System},
+}
 \newglossaryentry{GB}{
   name = {GB},
   description = {Gigabyte is a multiple of the unit used to store digital information. A gigabyte is 1 000 megabytes},
@@ -128,6 +132,9 @@
 
 % Define new command \fullref to reference both section number and name
 \newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1}, \nameref*{#1}}}
+
+% Define \citeintext to get citeauthor and citeyear in the same command
+\newcommand*{\citeintext}[1]{\citeauthor{#1} (\citeyear{#1})}
 
 
 % Other packages ----------------------------------------------------------
