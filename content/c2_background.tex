@@ -1,109 +1,78 @@
 \section{Background}
-\subsection{Importance of accessibility studies}
+\subsection{Private cars as a mode of transport in urban settings}
 \justify
 
-% Potentiaalisesti hyödyllisiä linkkejä Helsingin autoilusta
-%---liikennemäärät
-%https://www.hel.fi/hel2/Helsinginseutu/HS_tunnusluvut/liikennemaara_ja_autonomistus.pdf
-%https://www.hsl.fi/tutkimukset/liikenne-ja-matkustajalaskennat-ja-mittaukset %arcgis-kartat!
+%--talking points in this subsection
+%Donald Shoup searching for parking
+%city congestion
+%private car mobility
+%amount of cars in urban settings
+%the space parked cars take
 
-%https://www.hsl.fi/tutkimukset/muut-selvitykset
-%https://www.hel.fi/helsinki/fi/kartat-ja-liikenne/kadut-ja-liikennesuunnittelu/tutkimus-ja-tilastot/moottoriajoneuvoliikenteen-maarat/
-%https://www.hel.fi/helsinki/fi/kartat-ja-liikenne/kadut-ja-liikennesuunnittelu/tutkimus-ja-tilastot/liikenteen-sujuvuus/
-%http://pxnet2.stat.fi/PXWeb/pxweb/fi/StatFin/StatFin__lii__mkan/
-%--HLT
-%https://julkaisut.vayla.fi/pdf8/lti_2018-01_henkiloliikennetutkimus_2016_web.pdf
-%--liikkumistottumukset
-%https://www.hsl.fi/sites/default/files/hsl_julkaisu_9_2019_netti.pdf 
-%-- autojen määrä viime vuosikymmeninä suomessa
-%https://www.stat.fi/til/mkan/2019/mkan_2019_2020-02-28_tie_001_fi.html
-%-- HSL aukee
-%https://www.hsl.fi/sites/default/files/19_2016_auton_omistus_helsingin_seudulla.pdf
+% parking policy:
+%Goals of parking policy are numerous, for example optimal accessibility and traffic flow and maximising turn-over for shops (\cite{Marsden2006}).
+The number of private cars is globally on the rise. According to one estimation, the world reached one billion cars in 2020 (\cite{Sperling2009}). International Organization of Motor Vehicle Manufacturers (OICA) estimates, that we were already at 950 million private cars in 2015 (\cite{OICA2020}). As the production of private cars is expected to continue, eyes must turn to managing the vast quantity of personal transportation in cities and in their surroundings. This is a question of mitigation of climate change, but also ensuring the economic performance of cities, and maximising the quality of life for urban citizens (\cite{Bertolini2003}).
 
-\begin{itemize}
-    \item Donald Shoup searching for parking
-    \item city congestion
-    \item private car mobility
-    \item amount of cars in urban settings
-    \item the space parked cars take
-\end{itemize}
+Since the last century, urban landscapes have experienced change toward car based mobility, where streets have incrementally widened and parking standards continually increased. Much of the time this space has been taken from all other users of public space to accommodate cars (\cite{Cervero2017}). As cars have become a most common sight in cities, the mitigation of their adverse effects have become an important focus in policy. A major challenge cities face today is the relation of mobility of people and the urban land use. It has been shown that parking policy is an effective tool in the management of this challenge (\cite{Diallo2015}; \cite{Marsden2006}).
 
-The Helsinki Capital Region faces increasing pressure to manage its traffic because (\textcolor{red}{LÄHDE}).
-
-%tsek helsingin raportit ja henkilöliikennetutkimus, sitten päätä mitä päätä mitä kirjoitat
-A high-performance public transport system operates in the Helsinki Capital Region and is comprised of buses, train, subway, and tram. In 2017, the subway expanded from Helsinki to Espoo, triggering a new phase of quickly evolving cityscape in the surroundings of the new stations. A host of large scale additions to the system are being planned, with some, like Jokeri Light Rail, already in construction. Despite the extensive service level of Helsinki Capital Region public transport, households especially in Espoo, Vantaa, and Kauniainen remain dependent on personal vehicles (\textcolor{red}{cite}).
-
-\begin{figure}[H]%
-    \includegraphics[width=\textwidth]{images/traffic_amount_autumn2018.png}
-    \caption[Motor vehicle traffic on main roads in Helsinki Capital Region]{Motor vehicle traffic on an average autumn weekday in the Helsinki Capital Region. Screen capture from the web map service, colors enhanced (\cite{Helsinginseudunliikenne2019}; \cite{OpenStreetMap}). Please note that in this view map smaller roads and their labels sometimes obscure the labels of larger roads, for example, Finnish national road 1 to Turku is obstructed by the labels of the old highway to Turku.}%
-    \label{fig:traffic_amount_autumn2018}%
-\end{figure}
-
-% \calcin is calculate increase in percentage. #1 new number, #2 original number
-\begin{hyphenrules}{nohyphenation}
-    \begin{table}[H]
-        \centering
-        \def\arraystretch{1.2}
-        \setlength\tabcolsep{1.2ex}
-        \caption[Amount of cars registered in Helsinki Capital Region and in Finland total]{The number of private cars registered in the Helsinki Capital Region municipalities, in KUUMA municipalities, and in Finland total (\cite{StatisticsFinland2020b}). Private cars decommissioned from traffic are not included in this table.} 
-        \label{tab:registered_cars}
-        \begin{tabular}{ llll @{} >{\raggedleft\arraybackslash}p{2cm} @{} }
-            \toprule
-                                            & 2011      & 2015      & 2019      & Growth 2011--2019 \\
-            \midrule
-            Helsinki                        & 207 639   & 206 229   & 214 583   & \calcin{214583}{207639} \\
-            Espoo                           & 107 833   & 115 446   & 122 185   & \calcin{122185}{107833} \\
-            Vantaa                          & 91 844    & 98 963    & 109 068   & \calcin{109068}{91844} \\
-            Kauniainen                      & 3 815     & 4 105     & 4 324     & \calcin{4324}{3815} \\
-            \greyrule
-            KUUMA municipalities*           & 149 930   & 157 984   & 169 760   & \calcin{169760}{149930} \\
-            \greyrule
-            Finland                         & 2 978 729 & 3 257 581 & 3 574 570 & \calcin{3574570}{2978729} \\
-            \bottomrule
-            \multicolumn{5}{ p{12cm} }{\textsuperscript{*}\footnotesize{KUUMA municipalities are the Greater Helsinki municipalities without the Helsinki Capital Region: Hyvinkää, Järvenpää, Kirkkonummi, Kerava, Mäntsälä, Nurmijärvi, Pornainen, Sipoo, Tuusula, and Vihti (\cite{KUUMA-seutuliikelaitos2020}).}}
-        \end{tabular}
-    \end{table}
-\end{hyphenrules}
-
-% tarkempaa aineistoa autotiheydestä:
-%https://www.hel.fi/hel2/helsinginseutu/hs_tunnusluvut/liikennemaara_ja_autonomistus.pdf
-
-% use package xfp for density calculations. This makes the calculations much more transparent
-\begin{hyphenrules}{nohyphenation}
-    \begin{table}[H]
-        \centering
-        \def\arraystretch{1.2}
-        \setlength\tabcolsep{1.2ex}
-        \caption[Density of private cars in Helsinki Capital Region in 2019]{Density of private cars in Helsinki Capital Region municipalities, in KUUMA municipalities, and in the entire Finland in 2019 (\cite{StatisticsFinland2020b}, \citeyear{StatisticsFinland2020}). Private cars decommissioned from traffic are not included in this table. Density is formulated as cars/1000 inhabitants.} 
-        \label{tab:car_density}
-        \scalebox{0.9}
-        {\begin{tabular}{ lllLlll }
-            \toprule
-            			            & \multicolumn{3}{c}{2011} & \multicolumn{3}{c}{2019} \\
-						            \cmidrule(lr{\tbspace}){2-4} \cmidrule(lr){5-7}
-                                    & Population & Private cars & Density & Population & Private cars & Density \\
-            \midrule    
-            Helsinki                & 595 384   & 207 639   & \fpeval{round(207639/(595384/1000),0)}  & 656 970   & 214 583   & \fpeval{round(214583/(656970/1000),0)} \\
-            Espoo                   & 252 439   & 107 833   & \fpeval{round(107833/(252439/1000),0)}  & 291 490   & 122 185   & \fpeval{round(122185/(291490/1000),0)} \\
-            Vantaa                  & 203 001   & 91 844    & \fpeval{round(91844/(203001/1000),0)}   & 236 434   & 109 068   & \fpeval{round(109068/(291490/1000),0)} \\
-            Kauniainen              & 8 807     & 3 815     & \fpeval{round(3815/(8807/1000),0)}      & 9 990     & 4 324     & \fpeval{round(4324/(9990/1000),0)} \\
-            \greyrule
-            KUUMA municipalities*   & 315 094   & 149 930   & \fpeval{round(149930/(315094/1000),0)}  & 326 211   & 169 760   & \fpeval{round(169760/(326211/1000),0)} \\
-            \greyrule
-            Finland                 & 5 401 267 & 2 978 729 & \fpeval{round(2978729/(5401267/1000),0)}& 5 532 333 & 3 574 570 & \fpeval{round(3574570/(5532333/1000),0)} \\
-            \bottomrule
-            \multicolumn{7}{ p{16cm} }{\textsuperscript{*}\footnotesize{KUUMA municipalities are the Greater Helsinki municipalities without the Helsinki Capital Region: Hyvinkää, Järvenpää, Kirkkonummi, Kerava, Mäntsälä, Nurmijärvi, Pornainen, Sipoo, Tuusula, and Vihti (\cite{KUUMA-seutuliikelaitos2020}).}}
-        \end{tabular}}
-    \end{table}
-\end{hyphenrules}
+One goal of parking policy is an urban environment less dependant on private cars. However, a central issue in attempting to shape urban development in a direction that's less dependent on cars is that the alternatives fail to reach the quality of accessibility provided by private cars (\cite{Bertolini2003}).
 
 \newpage
-\subsection{Accessibility studies in geography}
+\subsection{Accessibility}
 \justify
 
-\begin{itemize}
-  \item Benenson et al. research
-\end{itemize}
+Considering transportation of persons in cities, It may be thought that it is of highest priority to reach places as fast as possible. This is spatial mobility, movement which can be observed. However, people are ultimately not interested in measuring time units, but in social and economic interactions. It can then be said that the actual matter to focus in transporting persons in cities is not mobility, but accessibility. Accessibility can be defined as potential movement, observed through modeling. In accessibility, it is possible to attain a more realistic view into what is possible with available resources, such as time, and combine this matter with important issues regarding the sustainable development of cities. (\cite{Hodge1997}; \cite{Tenkanen2017}; \cite{Cervero2017})
+
+First discussed by \citeauthor{Hansen1959} (\citeyear{Hansen1959}), accessibility as a concept has been widely studied in the decades that followed. In these first efforts Hansen succeeded in showing that locations in Washington D.C., United States, that had good accessibility were more likely to end up developed. These areas would also be developed at a higher density.
+
+Torsten Hägerstrand's classic time geography approach developed further the idea that accessibility is a intricate complex of interdisciplinary tendencies. Individuals can be viewed as a bearers of action spaces of varying sizes and durations, which are determined by their social role, income, and how advanced technology they can access. Individuals are bound to their time budgets which are indivisible from certain constraints: the capacity, coupling, and institutional constraints (\cite{Wegener1999}; \cite{Hagerstrand1970}).
+
+%Hodge asks how to navigate the intricate implications of accessibility, and reject the simplicity of distance or time as measure of accessibility (\cite{Hodge1997})
+Continuing on Hägerstrand's action-space line of thinking, Zahavi (\citeyear{Zahavi1974}) proposed that individuals are not attempting to minimise travel time or cost required for a number of activities, but to maximise what is available to them considering their travel times and monetary budgets. Zahavi's theory can explain why the expansion of private car use has been as extensive as it has been. According to \citeauthor{Wegener1999} (\citeyear{Wegener1999}), the theory sheds light why the motorisation in the twentieth century caused even longer and more car trips when travel speed gains were attained and why shopping centers in outskirts of cities can attract customers from ever more larger areas of influence.
+
+More recently, \citeauthor{Geurs2004} (\citeyear{Geurs2004}) and \citeauthor{Bertolini2003} (\citeyear{Bertolini2003}) have provided their definitions for accessibility. \citeauthor{Geurs2004} argues that accessibility should be associated with land use and transport systems in society and this would provide individuals with opportunities to take part in activities in different locations. According to \cite{Bertolini2003}, accessibility refers to the quantity and the diversity of spatial opportunities which can be reached within a certain amount of time.
+
+\newpage
+\subsection{Previous parking studies}
+\justify
+%Hyödynnä taustoittamisessa:
+%\cite{Belloche2015}, On-street Parking Search Time Modelling and Validation with Survey-based Data
+%\cite{Aryandoust2019}, City-scale car traffic and parking density maps from Uber Movement travel time data
+%\cite{Axhausen1993}, Effectiveness of parking guidance and information systems: recent evidence from Nottingham and Frankfurt am Main
+%\cite{Parmar2020}, Study on demand and characteristics of parking system in urban areas: A review
+
+%\cite{VanDerGoot1982}: "A model to describe the choice of parking places". walking time greatly influenced the visitor's choice
+Van der Goot (\cite{VanDerGoot1982}) walking time greatly influenced the visitor's choice
+Van der Goot (\cite{VanDerGoot1982}) parking study in Haarlem
+Van der Goot (\cite{VanDerGoot1982}) found out that a purpose of "shopping", longer walking times to destination led to longer parking times, and shorter walking times to shorter parking times.
+
+An agent-based model designed to capture trip chaining behaviour and "often-overlooked" phenomenon of drivers searching for parking for an available spot (\cite{Guo2013}).
+Parking search process: driver upon arriving to campus would first go to his/her most desirable lot on campus, only to find it full and would thus have to drive to his second-choice parking lot and so on until he/she finds an available spot  (\cite{Guo2013}).
+
+Thompson and Richardson showed that long term experience does not necessarily lead to better choices in parking search (\cite{Thompson1998}).
+adverse effects on traffic congestion (thompson 1998:ssa: parker 73, gillen 77, feeney 89)
+Parking choice is a search process, where drivers make a number of linked decisions based on updated knowledge gained from experience (lukee thompsonissa 1998: layzell85, polak+axhausen89)
+The parking search process figure (\cite{Thompson1998}).
+Motorists must base their choice on imperfect information, synthesise the initial perception with the additional information gained from previous as well as the current searching experiences (\cite{Thompson1998}).
+
+amount and location of parking affect 1) level of service and congestion on access roads and internal city streets, 2) efficiency, effectiveness and financial performance of public transport 3) amenity, safety and environmental integrity of the city and its surroundings, and 4) form and functioning of the metropolitan region as a whole (\cite{Young1991})
+
+Parking search problems arise from mismatch between parking intentions of the travellers and supply (\cite{Axhausen1993}).
+In some cases problems are because overall shortfall of parking supply relative to parking demand, but can be spatially and temporally specific. Additionally poor car park design or drivers unaware ofg prevailing levels of occupancy in car parks or alternative parking and travel opportunities (\cite{Axhausen1993}).
+Parking search time has been identified as a significant contributor to urban congestion and as an important influence in destination choice, especially shopping (\cite{Axhausen1993}).
+Drivers value parking search time about 1.5 to 2 times of the value of driving time (\cite{Axhausen1991}).
+
+Simulation to evaluate parking space availability has also been utilised in these papers: (evaluate parking space availability at university campus \cite{Harris1997}; on-street parking issues: \cite{Saltzman1997})
+
+PARKFIT, an algorithm for estimating parking patterns (\cite{Levy2015}).
+
+PARKAGENT, simulation that captures self-organising dynamics of "parking agents" (drivers) (\cite{Benenson2008}). Point out shortcomings in parking time estimations
+
+Donald Shoup's Cruising for Parking (\cite{Shoup2006})
+Shoup's High Cost of Free Parking
+
+%Benenson et al. research
+%\cite{Salonen2013}, door-to-door
 
 \begin{figure}[H]%
     \includegraphics[width=\textwidth]{images/door2door.png}
@@ -111,34 +80,19 @@ A high-performance public transport system operates in the Helsinki Capital Regi
     \label{fig:door-to-door}%
 \end{figure}
 
-\newpage
-\subsection{Previous parking studies}
-\justify
+%\newpage
+%\subsection{Parking time estimations}
+%\justify
+Häyrynen \& Kalenoja's Tampere (\cite{Kalenoja2003})
+\item Broad estimations used in Helsinki Travel Time Matrix: item 0.42 min searching for parking, 2 min and 2.5 min walking in TTM18 (\cite{Tenkanen2020})
+Donald Shoup's parking time study (\cite{Shoup2006})
 
-PARKFIT, an algorithm for estimating parking patterns (\cite{Levy2015}).
-
-PARKAGENT, simulation that captures self-organising dynamics of "parking agents" (drivers) (\cite{Benenson2008}). Point out shortcomings in parking time estimations
-
-Donald Shoup Cruising for Parking, High Cost of Free Parking
-
-\newpage
-\subsection{Parking time estimations}
-\justify
-
-\begin{itemize}
-  \item Talk about Häyrynen \& Kalenoja's Tampere
-  \item Broad estimations used in Helsinki Travel Time Matrix:
-  \item 0.42 min searching for parking
-  \item 2 min and 2.5 min walking in TTM18
-  \item A word about donald shoup's findings
-\end{itemize}
+%The Helsinki Capital Region faces increasing pressure to manage its traffic because (\textcolor{red}{LÄHDE}). --Semi huono teksti, kokeile vaikka:
+To aid Helsinki Capital Region in search for more reality-based parking policy and land use planning, this study produces parking duration data at the granularity of postal code areas.
 
 \newpage
 \subsection{Research in parcipatory GIS and map surveys}
 \justify
-
-\begin{itemize}
-  \item PPGIS bibliography and map survey options such as Survey123 and Maptionnaire
-  \item Talk about own work on the map survey
-  \item How did the map survey I created work for the purpose of collection user data
-\end{itemize}
+%PPGIS bibliography and map survey considerations
+Comparing conventional and PPGIS approaches in measuring equality of access to urban aquatic environments (\cite{Laatikainen2015})
+Do suburban residents prefer the fastest or low-carbon travel modes? Combining public participation GIS and multimodal travel time analysis for daily mobility research (\cite{Salonen2014}).
