@@ -77,24 +77,25 @@
 % Abbreviations --------------------------------------------------------
 % Note the definition of plural forms where applicable
 \newacronym{anova}{ANOVA}{Analysis of Variance test}
+\newacronym[plural=CPUs,firstplural=Central processing units (CPU)]{cpu}{CPU}{Central Processing Unit}
+\newacronym{gis}{GIS}{Geographic Information System}
 \newacronym[plural=IDEs,firstplural=Integrated development environments (IDE)]{ide}{IDE}{Integrated Development Environment}
 \newacronym{php}{PHP}{Hypertext preprocessor}
+\newacronym{ppgis}{PPGIS}{Public participation geographic information system}
+\newacronym{ram}{RAM}{Random Access Memory}
 
 % Nomenclature for glossary --------------------------------------------
 % Note the definition of plural forms.
 % \glssetwidest together with \printglossary parameters helps prevent overlong nomenclature lines
 \glssetwidest[0]{...................}
 
-\newglossaryentry{CPU}{
-  name = {CPU},
-  description = {Central Processing Unit},
-  plural = {CPUs},
-  firstplural = {\glsentrydesc{CPU}s (\glsentryplural{CPU})}
-}
-\newglossaryentry{GIS}{
-  name = {GIS},
-  description = {Geographic Information System},
-}
+% example plural
+%\newglossaryentry{CPU}{
+%  name = {CPU},
+%  description = {Central Processing Unit},
+%  plural = {CPUs},
+%  firstplural = {\glsentrydesc{CPU}s (\glsentryplural{CPU})}
+%}
 \newglossaryentry{GB}{
   name = {GB},
   description = {Gigabyte is a multiple of the unit used to store digital information. A gigabyte is 1 000 megabytes},
@@ -103,10 +104,7 @@
   name = {MySQL},
   description = {Open-source relational database management system},
 }
-\newglossaryentry{RAM}{
-  name = {RAM},
-  description = {Random Access Memory},
-}
+
 \makeglossaries
 
 % Datetime settings  ------------------------------------------------------
@@ -352,6 +350,9 @@
 % NB, nomenclature labels will not line break if parameters nonumberlist and style=alttree are not combined with \glssetwidest.
 \newpage
 \printglossary[type=\acronymtype,title=List of abbreviations]
+\bigskip
+\bigskip
+\bigskip
 \printglossary[nonumberlist,style=alttree,title=Nomenclature]
 \thispagestyle{empty}
 
