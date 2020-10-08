@@ -326,20 +326,20 @@ After careful consideration, it was decided that the survey for this thesis woul
 
 \subsubsection{Programming the parking survey}
 \justify
-To achieve maximum transparency and repeatability for this research, in addition to freedom in survey content and appearance, a survey web application was programmed from the ground up utilising HTML, JavaScript and PHP. The survey and its supporting infrastructure was installed on a virtual machine in CSC's -- the state owned ICT solutions company -- Taito supercluster. CSC offers virtual machines in several different hardware configurations, or flavors. The virtual machine flavor picked for this survey was \textit{standard.medium}, a flavor with 3.9 \gls{GB} \gls{RAM}, three virtual \gls{CPU}s and 80 GB of disk space. Running on the Linux distribution Ubuntu version 16.04, the backbone of the survey ecosystem was a LAMP stack, a software bundle which incorporates the Linux operating system, Apache web server software, \gls{mysql} relational database management system and the PHP programming language environment for server-side scripting. The public component of the survey is the front-end, the only component of the survey system a respondent would interact with (figure~\ref{fig:js_survey_welcome}). One may use additional software in a LAMP stack for extended functionality or can replace some of the components with a wide array of alternatives. This thesis utilises the components described in the table~\ref{tab:survey_components}.
+To achieve maximum transparency and repeatability for this research, in addition to freedom in survey content and appearance, a survey web application was programmed from the ground up utilising HTML, JavaScript and PHP. The survey and its supporting infrastructure was installed on a virtual machine in CSC's -- the state owned ICT solutions company -- Taito supercluster. CSC offers virtual machines in several different hardware configurations, or flavors. The virtual machine flavor picked for this survey was \textit{standard.medium}, a flavor with 3.9 \gls{gb} \acrshort{ram}, three virtual \acrshort{cpu}s and 80 GB of disk space. Running on the Linux distribution Ubuntu version 16.04, the backbone of the survey ecosystem was a LAMP stack, a software bundle which incorporates the Linux operating system, Apache web server software, \gls{mysql} relational database management system and the PHP programming language environment for server-side scripting. The public component of the survey is the front-end, the only component of the survey system a respondent would interact with (figure~\ref{fig:js_survey_welcome}). One may use additional software in a LAMP stack for extended functionality or can replace some of the components with a wide array of alternatives. This thesis utilises the components described in the table~\ref{tab:survey_components}.
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
         \def\arraystretch{1.2}
         \setlength\tabcolsep{1.2ex}
-        \caption{Survey web application components} 
+        \caption[Survey web application components]{The research survey web application components.} 
         \label{tab:survey_components}
         \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{5.5cm} @{} }
             \toprule
             Component & Version & Description \\
             \midrule
-            Ubuntu & 16.04.6 & Linux distribution, operating system for the virtual machine \\
+            Ubuntu & 16.04.6 & Linux distribution, the operating system for the virtual machine \\
             Apache HTTP Server & 2.4.18-2ubuntu3.9 & Web server software, manage website requests and responses \\
             MySQL & 5.7.25-0ubuntu0.16.04.2 & Relational database management system, survey database operations \\
             PHP & 7.0.33-0ubuntu0.16.04.1 & Programming language, used for server side scripting \\

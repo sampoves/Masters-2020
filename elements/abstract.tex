@@ -12,34 +12,36 @@
         \Xhline{3\arrayrulewidth}
         % FIRST ROW ENGLISH, FACULTY AND DEPARTMENT
         \multicolumn{3}{?>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{\textsf{Tiedekunta/Osasto  Fakultet/Sektion – Faculty}\newline \myfaculty} & %
-        \multicolumn{3}{>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}?}{\textsf{Laitos/Institution– Department}\newline \mydept} \TBstrut\\
+        \multicolumn{3}{>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}?}{\textsf{Laitos/Institution – Department}\newline \mydept} \TBstrut \\
         \hline
         % SECOND ROW, AUTHOR
-        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Tekijä/Författare – Author }\newline \myname} \TBstrut\\
+        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Tekijä/Författare – Author }\newline \myname} \TBstrut \\
         \hline
         % THIRD ROW, TITLE
-        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Työn nimi / Arbetets titel – Title}\newline \mytitle} \TBstrut\\
+        % \hsize+10 widens title text to cover the page width
+        % \space adds a space character after \mytitle which would not appear otherwise
+        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+10\tabcolsep\relax}S{X}?}{\textsf{Työn nimi / Arbetets titel – Title}\newline \mytitle \space -- \mysubtitle} \TBstrut \\
         \hline
         % FOURTH ROW, SUBJECT
-        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline \mysubject (\mySpecSubject)} \TBstrut\\
+        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine /Läroämne – Subject}\newline \mysubject (\mySpecSubject)} \TBstrut \\
         \hline
         % FIFTH ROW, THESIS PROPERTIES
         \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji/Arbetets art – Level}\newline \mythesis} & %
         % Month and year is now frozen. See main.tex on how to resume the running date.
         \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika/Datum – Month and year}\newline \translatedate} & %
-        \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \mypages} \TBstrut\\
+        \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä/ Sidoantal – Number of pages}\newline \mypages} \TBstrut \\
         \hline    
         % SIXTH ROW, ABSTRACT. \hsize+10 widens abstract text to cover the page width
         \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+10\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä/Referat – Abstract} \myabstract} \\ [475pt]
         \hline
         % SEVENTH ROW, KEYWORDS
-        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax} S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline \mykeywords} \TBstrut\\
+        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax} S{X}?}{\textsf{Avainsanat – Nyckelord – Keywords}\newline \mykeywords} \TBstrut \\
         \hline
         % EIGHTH ROW, DEPOSIT
-        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax} S{X}?}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline \mylibrary} \TBstrut\\
+        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax} S{X}?}{\textsf{Säilytyspaikka – Förvaringställe – Where deposited}\newline \mylibrary} \TBstrut \\
         \hline
         % LAST ROW, OTHER INFO
-        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax} S{X}?}{\textsf{Muita tietoja – Övriga uppgifter – Additional information}\newline \myotherinfo} \TBstrut\\
+        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax} S{X}?}{\textsf{Muita tietoja – Övriga uppgifter – Additional information}\newline \myotherinfo} \TBstrut \\
         \Xhline{3\arrayrulewidth}
     \end{tabularx}
 \end{spacing}
