@@ -11,6 +11,7 @@
 \textcolor{red}{selitä auki parktime ja walktime kerran ennen lyhenteiden käyttöä}\\
 In this chapter, the thesis research survey results are presented. Within the selected criteria (\code{parktime < 60} and \code{walktime < 60}, see \hyperref[sec:c3-processdata]{\fullref{sec:c3-processdata}}), the survey received a total of 5579 visits from 4320 unique IP addresses. 848 unique IP addresses visited the survey more than one time and a total of 1060 unique IP addresses responded to the survey. 24.5 percent of all visitors submitted at least one data row. On average one respondent submitted 4.9 data rows.
 
+% tilde "~" indicates a non-breaking space
 The survey received in total 5183 data rows. All postal code areas were represented in the survey results, but the data row count histogram was heavily skewed to the right, with the first quartile being eight data rows, second (median) 17 data rows and third 42 data rows (table~\ref{tab:muns_answer_stats}, figures~\ref{fig:parktime_hist},~\ref{fig:walktime_hist}). Most respondents reported short parking times below ten minutes, but the histograms do not smoothly lessen in values from the right to left, as respondents have preferred to report round figures such as five, ten, or fifteen minutes. There were five postal code areas with more than one hundred data rows and 55 postal code areas with less than ten data rows. In Helsinki, the answers strongly clustered around the center of Helsinki, with other centers of activity being Herttoniemi and Itäkeskus-Marjaniemi in Helsinki, Tapiola-Otaniemi and Leppävaara in Espoo, and Tikkurila-Vantaanportti in Vantaa.
 
 \begin{hyphenrules}{nohyphenation}
@@ -18,9 +19,9 @@ The survey received in total 5183 data rows. All postal code areas were represen
         \centering
         \def\arraystretch{1.2}
         \setlength\tabcolsep{4pt}
-        \caption[Answer counts by municipality]{Amount of data rows received per municipality in Helsinki Capital Region.} 
+        \caption[Answer counts by municipality]{Amount of data rows received per municipality in the Helsinki Capital Region.} 
         \label{tab:muns_answer_stats}
-        \begin{tabular}{ @{} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} @{} }
+        \begin{tabular}{ >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2.2cm} }
             \toprule
             Municipality & Data rows total & Most data rows in municipality & Data rows mean in municipality & Data rows median in municipality \\
             \midrule
@@ -75,28 +76,28 @@ It is difficult to try and determine the causes behind these long \code{walktime
 \begin{figure}[H]%
     \centering
     \includegraphics[width=\textwidth]{images/thesis_postalvis_parkmean.png}
-    \caption[Parktime, mean, in the reseach area]{This figure illustrates the mean duration of searching for parking and parking one's car in each postal code area.}%
+    \caption[Parktime, mean, in the reseach area]{This figure illustrates the mean duration (minutes) of searching for parking and parking one's car in each postal code area.}%
     \label{fig:postalvis_parkmean}%
 \end{figure}
 
 \begin{figure}[H]%
     \centering
     \includegraphics[width=\textwidth]{images/thesis_postalvis_parkmedian.png}
-    \caption[Parktime, median, in the reseach area]{This figure illustrates the median duration of searching for parking and parking one's car in each postal code area.}%
+    \caption[Parktime, median, in the reseach area]{This figure illustrates the median duration (minutes) of searching for parking and parking one's car in each postal code area.}%
     \label{fig:postalvis_parkmedian}%
 \end{figure}
 
 \begin{figure}[H]%
     \centering
     \includegraphics[width=\textwidth]{images/thesis_postalvis_walkmean.png}
-    \caption[Walktime, mean, in the research area]{This figure illustrates the mean duration of walking from one's parked car to the final destination in each postal code area.}%
+    \caption[Walktime, mean, in the research area]{This figure illustrates the mean duration (minutes) of walking from one's parked car to the final destination in each postal code area.}%
     \label{fig:postalvis_walkmean}%
 \end{figure}
 
 \begin{figure}[H]%
     \centering
     \includegraphics[width=\textwidth]{images/thesis_postalvis_walkmedian.png}
-    \caption[Walktime, median, in the research area]{This figure illustrates the median duration of walking from one's parked car to the final destination in each postal code area.}%
+    \caption[Walktime, median, in the research area]{This figure illustrates the median duration (minutes) of walking from one's parked car to the final destination in each postal code area.}%
     \label{fig:postalvis_walkmedian}%
 \end{figure}
 
@@ -109,19 +110,19 @@ It is difficult to try and determine the causes behind these long \code{walktime
 %https://towardsdatascience.com/understanding-descriptive-statistics-c9c2b0641291
 %https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
 %https://towardsdatascience.com/analysis-of-variance-and-its-variations-6ef3f8fbeb05
+The thesis survey data reveals that there are spatial differences between municipalities and regions of the Helsinki Capital Region (table~\ref{tab:park_walk_subdiv}) in the durations to find a parking spot (\code{parktime}), and walking from one's parked car to the final destination (\code{walktime}). This is shown by the one-way \acrfull{anova} that for \code{parktime} and \code{walktime} there are statistically significant differences ($p < 0.05$) between the 23 groups (municipality subdivisions, figure~\ref{fig:subdiv_placement}). In the vast majority of subdivision groups, the group sizes were sufficiently large for \acrshort{anova} analysis to be highly significant ($p < 0.001$). An exception to this is the \acrshort{anova} test for Espoo's subdivisions using \code{parktime}. This test finishes with a less significant $p = 0.015$.
 
-% tärkeää, lisää f statisticit!
-% https://www.statisticshowto.com/probability-and-statistics/f-statistic-value-test/#FandP
-\textcolor{red}{ANOVA normality assumed through central limit theorem, expand on this} \\
-The thesis survey data reveals that there are spatial differences between municipalities and regions of Helsinki Capital Region (table~\ref{tab:park_walk_subdiv}) in the durations to find a parking spot (\code{parktime}), and walking from one's parked car to the final destination (\code{walktime}). This is shown by the one-way \acrfull{anova} that for \code{parktime} and \code{walktime} there are statistically significant differences ($p < 0.05$) between the 23 groups (municipality subdivisions, figure~\ref{fig:subdiv_placement}). In the vast majority of subdivision groups, the group sizes were sufficiently large for \acrshort{anova} analysis to be highly significant ($p < 0.001$). An exception to this is the \acrshort{anova} test for Espoo's subdivisions using \code{parktime}. This test finishes with a less significant $p = 0.015$.
+% citeaikomus: Central limit theorem: the cornerstone of modern statistics: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5370305/
+\textcolor{red}{varmista tämä CLT}
+In this study, I consider the normality assumption of \acrshort{anova} satisfied on the grounds of the central limit theorem. In central limit theorem, with sample sizes large enough, sample mean of distribution of any shape will tend toward a normal distribution.
 
 The spatial differences between subdivisions were wide-ranging, with a 5.2 minutes mean (median 4.0 minutes) \code{parktime} in Helsinki, 3.8 minutes in Vantaa (2.0 min), 3.2 minutes in Espoo (2.0 min) and lastly, 2.1 minutes (2.0 min) in Kauniainen. Durations to find a parking spot varied inside municipalities; in Espoo, in the subdivision of Pohjois-Espoo mean \code{parktime} was 1.7 minutes (1.0 min) while the same value for Suur-Matinkylä was 4.3 minutes (3.0 min). From all the subdivisions in the research area, the subdivision representing the center of Helsinki, Helsinki Southern, had the the longest mean \code{parktime}, 7.3 minutes (5.0 min). Kauniainen ranked as fourth with a \code{parktime} values 2.1 minutes mean (2.0 min).
 
 Viewing \code{walktime} through subdivisions, longest \code{walktime} was found from Espoo's Suur-Kauklahti (mean 6.3 min, median 5.5 min). In Helsinki, the Southern subdivision's durations were the second longest (mean 6.3 min, median 5.0 min) with Vantaa's top values reaching 5.8 minutes mean and 5.0 median in Tikkurila. Kauniainen's \code{walktime} values were more moderate with 2.2 minutes mean and 2.0 minutes median.
 
-When comparing specific subdivisions, we can observe finer details in the survey dataset. For example, comparing \code{parktime} in Espoo's Suur-Tapiola and Vantaa's Aviapolis gives no statistical significance with \acrshort{anova} ($p = 0.121$). However, a test with Suur-Tapiola and Helsinki's Southern subdivision is statistically significant ($p < 0.001$). It is interesting, that an \acrshort{anova} \code{parktime} comparison of Espoo's Suur-Leppävaara and Helsinki's Northeastern subdivisions -- both important subcenters of their respective cities -- produces no statistical significance ($p = 0.850$). 
+When comparing specific subdivisions, we can observe finer details in the survey dataset. For example, comparing \code{parktime} in Espoo's Suur-Tapiola and Vantaa's Aviapolis gives no statistical significance with \acrshort{anova} ($F = 2.412$, $p = 0.121$). However, a test with Suur-Tapiola and Helsinki's Southern subdivision is statistically significant ($F = 88.272$, $p < 0.001$, ’***’). It is interesting, that an \acrshort{anova} \code{parktime} comparison of Espoo's Suur-Leppävaara and Helsinki's Northeastern subdivisions -- both important subcenters of their respective cities -- produces no statistical significance ($F = 0.036$, $p = 0.850$). 
 
-Differences of Espoo's Vanha-Espoo and Helsinki's Östersundom subdivisions viewed with \code{walktime} gives a faint statistical significance with \acrshort{anova} ('.', $p = 0.054$). Testing areas with contrasting features, Vanha-Espoo and Vantaa's Tikkurila proved statistically significant ('**', $p = 0.004$). It is interesting that important city centers receive different results from the \acrshort{anova} test. For example, differences in \code{walktime} are statistically significant (’***’, $p \leq 0.001$) between Vantaa's Myyrmäki and Tikkurila subdivisions. \code{walktime} differences of Espoo's Suur-Matinkylä and Suur-Leppävaara are not ('$ns$', $p = 0.132$). The same case stands for Helsinki's Southeastern and Western subdivisions of which differences were not identified as statistically significant ('$ns$', $p = 0.762$). However, varying degrees of significance is found for the same subdivision comparison pairs when using \code{parktime} as the explanatory variable: Myyrmäki--Tikkurila achieves high statistical significance (’***’, $p \leq 0.001$), while Suur-Matinkylä--Suur-Leppävaara ('**', $p = 0.007$), and Southeastern--Western ('**', $p = 0.007$) get moderate significance.
+Differences of Espoo's Vanha-Espoo and Helsinki's Östersundom subdivisions viewed with \code{walktime} gives a faint statistical significance with \acrshort{anova} ($F = 3.807$, $p = 0.054$, '.'). Testing areas with contrasting features, Vanha-Espoo and Vantaa's Tikkurila proved statistically significant ($F = 8.258$, $p = 0.004$, '**'). It is interesting that important city centers receive different results from the \acrshort{anova} test. For example, differences in \code{walktime} are statistically significant ($F = 36.168$, $p \leq 0.001$, ’***’) between Vantaa's Myyrmäki and Tikkurila subdivisions. \code{walktime} differences of Espoo's Suur-Matinkylä and Suur-Leppävaara are not ($F = 2.277$, $p = 0.132$). The same case stands for Helsinki's Southeastern and Western subdivisions of which differences were not identified as statistically significant ($F = 0.091$, $p = 0.762$). However, varying degrees of significance is found for the same subdivision comparison pairs when using \code{parktime} as the explanatory variable: Myyrmäki--Tikkurila achieves high statistical significance ($F = 23.299$, $p \leq 0.001$, ’***’), while Suur-Matinkylä--Suur-Leppävaara ($F = 7.296$, $p = 0.007$, '**'), and Southeastern--Western ($F = 7.218$, $p = 0.007$, '**') get moderate significance.
 
 % 290720 kun verrataan kahta subdiviä (2 ryhmää), käytetään anovaa ja katsotaan merkitsevyys. Suur-Tapiola ja Aviapolis oli " ", ei-merkitsevä, Suur-Tapiola ja Helsinki Southern ***. Kirjoita muutamasta parista, joissa ***. Vois mainita yhden kiinnostavan, missä parkkiaikojen ero on kohinaa (Tapiola ja Aviapolis). Muista tää sama walktimelle. \\
 % 290720 katso muut muuttujat niin, että mukana kaikki subdivit, onko merkitsevyyttä anovassa \\
@@ -153,7 +154,7 @@ Differences of Espoo's Vanha-Espoo and Helsinki's Östersundom subdivisions view
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[Parktime and walktime descriptive statistics with explanatory variable subdiv]{Parking times and walking times descriptive statistics displayed by municipalities and subdivisions (the explanatory variable \code{subdiv}). The unit of median, mean, and standard deviation is minutes. The f value and p value presented are calculated in One-way \acrfull{anova}. P value significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
+        \caption[Parktime and walktime descriptive statistics with explanatory variable subdiv]{Parking times and walking times descriptive statistics displayed by municipalities and subdivisions (the explanatory variable \code{subdiv}). The unit of median, mean, and standard deviation is minutes. The F value and p value presented are calculated in One-way \acrfull{anova}. P value significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
         \label{tab:park_walk_subdiv}
         \scalebox{0.66}
         % Column type C is a custom column which adds space to its position. Used to separate important features of this table. L aligns left.
@@ -161,7 +162,7 @@ Differences of Espoo's Vanha-Espoo and Helsinki's Östersundom subdivisions view
             \toprule
 		    & & &                                       \multicolumn{5}{c}{parktime} &          \multicolumn{5}{c}{walktime} \\
 														\cmidrule(lr{\tbspace}){4-8}            \cmidrule(lr){9-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{} & \multirow{2}{*}{n} & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & f value, & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & f value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{} & \multirow{2}{*}{n} & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & F value, & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & F value, \\
             & & & & & & & p value & & & & & p value \\
             
             \midrule
@@ -174,7 +175,7 @@ Differences of Espoo's Vanha-Espoo and Helsinki's Östersundom subdivisions view
             & Vanha-Espoo &                             80 & 2 & 2.81 & 4.00 & 0.45 & &         3 & 3.89 & 3.81 & 0.43 & \\
             % Use \arrayrulecolor to get a grey cmidrule, then revert \midrule color back to black
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{746} & \multirow{2}{*}{2} & \multirow{2}{*}{3.23} & \multirow{2}{*}{3.63} & \multirow{2}{*}{0.13} & value, & \multirow{2}{*}{2} & \multirow{2}{*}{3.52} & \multirow{2}{*}{3.09} & \multirow{2}{*}{0.11} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{746} & \multirow{2}{*}{2} & \multirow{2}{*}{3.23} & \multirow{2}{*}{3.63} & \multirow{2}{*}{0.13} & 2.646, & \multirow{2}{*}{2} & \multirow{2}{*}{3.52} & \multirow{2}{*}{3.09} & \multirow{2}{*}{0.11} & 4.647, \\
             & & & & & & & 0.015 (*) & & & & & < 0.001 (***) \\
             \arrayrulecolor{black}\midrule
             
@@ -187,7 +188,7 @@ Differences of Espoo's Vanha-Espoo and Helsinki's Östersundom subdivisions view
             & Western &                                 612 & 2 & 4.28 & 5.04 & 0.20 & &        3 & 3.63 & 3.15 & 0.13 & \\
             & Östersundom &                             6 & 0.5 & 0.67 & 0.82 & 0.33 & &        1 & 0.83 & 0.75 & 0.31 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{3777} & \multirow{2}{*}{4} & \multirow{2}{*}{5.24} & \multirow{2}{*}{5.60} & \multirow{2}{*}{0.09} & value, & \multirow{2}{*}{4} & \multirow{2}{*}{4.78} & \multirow{2}{*}{4.10} & \multirow{2}{*}{0.07} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{3777} & \multirow{2}{*}{4} & \multirow{2}{*}{5.24} & \multirow{2}{*}{5.60} & \multirow{2}{*}{0.09} & 53.823, & \multirow{2}{*}{4} & \multirow{2}{*}{4.78} & \multirow{2}{*}{4.10} & \multirow{2}{*}{0.07} & 47.497, \\
             & & & & & & & < 0.001 (***) & & & & & < 0.001 (***) \\
             \arrayrulecolor{black}\midrule
             
@@ -202,11 +203,11 @@ Differences of Espoo's Vanha-Espoo and Helsinki's Östersundom subdivisions view
             & Myyrmäki &                                161 & 2 & 2.98 & 4.13 & 0.33 & &        2 & 2.83 & 3.08 & 0.24 & \\
             & Tikkurila &                               110 & 5 & 5.84 & 5.60 & 0.53 & &        5 & 5.85 & 5.15 & 0.49 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{637} & \multirow{2}{*}{2} & \multirow{2}{*}{3.82} & \multirow{2}{*}{4.65} & \multirow{2}{*}{0.18} & value, & \multirow{2}{*}{3} & \multirow{2}{*}{3.98} & \multirow{2}{*}{4.11} & \multirow{2}{*}{0.16} & < value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{637} & \multirow{2}{*}{2} & \multirow{2}{*}{3.82} & \multirow{2}{*}{4.65} & \multirow{2}{*}{0.18} & 6.218, & \multirow{2}{*}{3} & \multirow{2}{*}{3.98} & \multirow{2}{*}{4.11} & \multirow{2}{*}{0.16} & 9.565, \\
             & & & & & & & < 0.001 (***) & & & & & < 0.001 (***) \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{2}{*}{All} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{5183} & \multirow{2}{*}{3} & \multirow{2}{*}{4.76} & \multirow{2}{*}{5.29} & \multirow{2}{*}{0.07} & value, & \multirow{2}{*}{3} & \multirow{2}{*}{4.49} & \multirow{2}{*}{3.99} & \multirow{2}{*}{0.06} & value, \\
+            \multirow{2}{*}{All} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{5183} & \multirow{2}{*}{3} & \multirow{2}{*}{4.76} & \multirow{2}{*}{5.29} & \multirow{2}{*}{0.07} & 27.123, & \multirow{2}{*}{3} & \multirow{2}{*}{4.49} & \multirow{2}{*}{3.99} & \multirow{2}{*}{0.06} & 23.767, \\
             & & & & & & & < 0.001 (***) & & & & & < 0.001 (***) \\
             \bottomrule
         \end{tabular}}
@@ -217,21 +218,21 @@ The municipalities of Helsinki Capital Region show varying results when \code{pa
 
 Furthermore, Helsinki also had the longest \code{walktime} values when viewed against \code{timeofday}. In the capital it took the longest to walk from one's car to the final destination on weekend (mean 5.1 min, median 5.0 min). For Espoo, survey participants again reported the highest \code{walktime} value for the choice \textit{Can't specify, no usual time} (4.0 min, 3.0 min). In Vantaa one had to walk the longest from the car to the final destination during weekday's rush hour (4.7 min, 3.0 min), while in Kauniainen weekend private car users spent the longest time walking from their car to their destination (2.6 min, 2.0 min).
 
-The one-way \acrshort{anova} test yielded varying results when comparing choices of \code{timeofday} inside municipalities of Helsinki Capital Region. Highly significant differences between the time of day of parking and walking from one's car to the final destination were only detected in Helsinki, where both \code{parktime} and \code{walktime} received significance of $p \leq 0.001$. The corresponding test for Espoo produced a weaker statistical significance with \code{parktime} ('*', $p = 0.04$) and \code{walktime} ('*', $p = 0.02$). The \acrshort{anova} tests were entirely non-significant while Vantaa's \acrshort{anova} test testing \code{timeofday} produced a non-significant result for \code{parktime} and a weak significance for \code{walktime} ('.', $p = 0.07$).
+The one-way \acrshort{anova} test yielded varying results when comparing choices of \code{timeofday} inside the municipalities of Helsinki Capital Region. Highly significant differences between the time of the the day of parking and walking from one's car to the final destination were only detected in Helsinki, where the significant results of $F = 5.913$, $p \leq 0.001$ (\code{parktime}), and $F = 6.808$, $p \leq 0.001$ (\code{walktime}) were reached. The corresponding test for Espoo produced a weaker statistical significance with \code{parktime} ($F = 2.857$, $p = 0.036$, '*') and \code{walktime} ($F = 3.121$, $p = 0.02$, '*'). The \acrshort{anova} tests were entirely non-significant while Vantaa's \acrshort{anova} test testing \code{timeofday} produced a non-significant result for \code{parktime} and a weak significance for \code{walktime} ($F = 6.372$, $p = 0.067$, '.').
 
 Groups were excluded from the variable \code{timeofday} in a test to see if it would enhance statistical significance of differences between the rest of the groups. This proved unsuccessful. For example, statistically significant differences could not be found for \code{timeofday} groups when concentrating on Vantaa and \code{parktime}. Each group was successively excluded from the test and additionally hypothetically different times of day were compared to each other (\textit{Weekday, rush hour}--\textit{Weekend}).
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[timeofday descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{timeofday}. The unit of median, mean, and standard deviation is minutes. The f value and p value presented are calculated in One-way \acrfull{anova}. P value significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
+        \caption[timeofday descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{timeofday}. The unit of median, mean, and standard deviation is minutes. The F value and p value presented are calculated in One-way \acrfull{anova}. P value significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
         \label{tab:park_walk_timeofday}
         \scalebox{0.6}
         {\begin{tabular}{clLccccCcccccc}
             \toprule
             & & &                                           \multicolumn{5}{c}{parktime} &          \multicolumn{5}{c}{walktime} \\
                                                             \cmidrule(lr{\tbspace}){4-8}            \cmidrule(lr){9-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{} & \multirow{2}{*}{n} & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & f value, & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & f value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{} & \multirow{2}{*}{n} & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & F value, & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & F value, \\
             & & & & & & & p value & & & & & p value \\
             
             \midrule
@@ -240,7 +241,7 @@ Groups were excluded from the variable \code{timeofday} in a test to see if it w
             & Weekend &                                     155 & 2 & 3.11 & 2.81 & 0.23 & &        3 & 3.57 & 2.88 & 0.23 & \\
             & Can't specify, no usual time &                190 & 2 & 3.82 & 4.48 & 0.33 & &        3 & 3.96 & 3.62 & 0.26 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{746} & \multirow{2}{*}{2} & \multirow{2}{*}{3.23} & \multirow{2}{*}{3.63} & \multirow{2}{*}{0.13} & value, & \multirow{2}{*}{2} & \multirow{2}{*}{3.52} & \multirow{2}{*}{3.09} & \multirow{2}{*}{0.11} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{746} & \multirow{2}{*}{2} & \multirow{2}{*}{3.23} & \multirow{2}{*}{3.63} & \multirow{2}{*}{0.13} & 2.857, & \multirow{2}{*}{2} & \multirow{2}{*}{3.52} & \multirow{2}{*}{3.09} & \multirow{2}{*}{0.11} & 3.121, \\
             & & & & & & & 0.036 (*) & & & & & 0.025 (*) \\
             \arrayrulecolor{black}\midrule
             
@@ -249,7 +250,7 @@ Groups were excluded from the variable \code{timeofday} in a test to see if it w
             & Weekend &                                     698 & 3.5 & 4.94 & 4.76 & 0.18 & &      5 & 5.06 & 4.28 & 0.16 & \\
             & Can't specify, no usual time &                819 & 3 & 4.68 & 5.58 & 0.19 & &        3 & 4.23 & 3.90 & 0.14 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{3777} & \multirow{2}{*}{4} & \multirow{2}{*}{5.24} & \multirow{2}{*}{5.60} & \multirow{2}{*}{0.09} & value, & \multirow{2}{*}{4} & \multirow{2}{*}{4.78} & \multirow{2}{*}{4.10} & \multirow{2}{*}{0.07} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{3777} & \multirow{2}{*}{4} & \multirow{2}{*}{5.24} & \multirow{2}{*}{5.60} & \multirow{2}{*}{0.09} & 5.913, & \multirow{2}{*}{4} & \multirow{2}{*}{4.78} & \multirow{2}{*}{4.10} & \multirow{2}{*}{0.07} & 6.808, \\
             & & & & & & & < 0.001 (***) & & & & & < 0.001 (***) \\
             \arrayrulecolor{black}\midrule
             
@@ -258,7 +259,7 @@ Groups were excluded from the variable \code{timeofday} in a test to see if it w
             & Weekend &                                     5 & 3 & 3.00 & 1.22 & 0.55 & &          2 & 2.60 & 1.52 & 0.68 & \\
             & Can't specify, no usual time &                5 & 1 & 1.00 & 0.71 & 0.32 & &          1 & 1.40 & 0.55 & 0.24 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{23} & \multirow{2}{*}{2} & \multirow{2}{*}{2.13} & \multirow{2}{*}{1.60} & \multirow{2}{*}{0.33} & value, & \multirow{2}{*}{2} & \multirow{2}{*}{2.22} & \multirow{2}{*}{1.28} & \multirow{2}{*}{0.27} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{23} & \multirow{2}{*}{2} & \multirow{2}{*}{2.13} & \multirow{2}{*}{1.60} & \multirow{2}{*}{0.33} & 1.669, & \multirow{2}{*}{2} & \multirow{2}{*}{2.22} & \multirow{2}{*}{1.28} & \multirow{2}{*}{0.27} & 0.893, \\
             & & & & & & & 0.207 ($ns$) & & & & & 0.463 ($ns$) \\
             \arrayrulecolor{black}\midrule
             
@@ -267,11 +268,11 @@ Groups were excluded from the variable \code{timeofday} in a test to see if it w
             & Weekend &                                     141 & 2 & 3.65 & 3.44 & 0.29 & &        3 & 3.97 & 3.94 & 0.33 & \\
             & Can't specify, no usual time &                156 & 2 & 3.45 & 4.32 & 0.35 & &        2 & 3.54 & 3.58 & 0.29 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{637} & \multirow{2}{*}{2} & \multirow{2}{*}{3.82} & \multirow{2}{*}{4.65} & \multirow{2}{*}{0.18} & value, & \multirow{2}{*}{3} & \multirow{2}{*}{3.98} & \multirow{2}{*}{4.11} & \multirow{2}{*}{0.16} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{637} & \multirow{2}{*}{2} & \multirow{2}{*}{3.82} & \multirow{2}{*}{4.65} & \multirow{2}{*}{0.18} & 0.929, & \multirow{2}{*}{3} & \multirow{2}{*}{3.98} & \multirow{2}{*}{4.11} & \multirow{2}{*}{0.16} & 2.399, \\
             & & & & & & & < 0.426 ($ns$) & & & & & < 0.067 (.) \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{2}{*}{All} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{5183} & \multirow{2}{*}{3} & \multirow{2}{*}{4.76} & \multirow{2}{*}{5.29} & \multirow{2}{*}{0.07} & value, & \multirow{2}{*}{3} & \multirow{2}{*}{4.49} & \multirow{2}{*}{3.99} & \multirow{2}{*}{0.06} & value, \\
+            \multirow{2}{*}{All} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{5183} & \multirow{2}{*}{3} & \multirow{2}{*}{4.76} & \multirow{2}{*}{5.29} & \multirow{2}{*}{0.07} & 5.801, & \multirow{2}{*}{3} & \multirow{2}{*}{4.49} & \multirow{2}{*}{3.99} & \multirow{2}{*}{0.06} & 6.372, \\
             & & & & & & & < 0.001 (***) & & & & & < 0.001 (***) \\
             \bottomrule
         \end{tabular}}
@@ -284,19 +285,19 @@ Walking to one's destination from the parked car also was the longest when parti
 
 The thesis survey data shows that \code{parktime} and \code{walktime} in private parking lots or non-personal reserved parking spots was under two minutes mean ($\leq$ 1.0 min median) in all municipalities, with the exception of Vantaa's \code{walktime}, where the group \textit{Private or reserved} received a mean duration of 2.2 minutes (1.0 min).
 
-The one-way \acrshort{anova} test for the explanatory variable \code{parkspot} and response variables \code{parktime} and \code{walktime} showed strong statistical significance for differences between parking spot types and study area municipalities. However, while the three largest research area municipalities had this state (Helsinki, Espoo, and Vantaa), Kauniainen received non-significant results from the \acrshort{anova} test for both \code{parktime} and \code{walktime}. In the cases of all research area municipalities, a better significance for differences between \code{parkspot} groups could be attained by excluding the group \textit{Other}, if only slightly. When testing with a more limited set of \textit{parkspot} groups, such as only testing differences of \textit{Parking lot} and \textit{Parking garage}, all statistical significance would be lost with the exception of Espoo, where statistical significance for the differences would position at $p = 0.02$ ('*'). All municipalities except Kauniainen would also receive substantial statistical significance when testing for differences between the group \textit{On the side of street} and \textit{Private or reserved} ('***', $p \leq 0.001$).
+The one-way \acrshort{anova} test for the explanatory variable \code{parkspot} and response variables \code{parktime} and \code{walktime} showed strong statistical significance for differences between parking spot types and study area municipalities. However, while the three largest research area municipalities had this state (Helsinki, Espoo, and Vantaa), Kauniainen received non-significant results from the \acrshort{anova} test for both \code{parktime} and \code{walktime}. In the cases of all research area municipalities, a better significance for differences between \code{parkspot} groups could be attained by excluding the group \textit{Other}, if only slightly. When testing with a more limited set of \textit{parkspot} groups, such as only testing differences of \textit{Parking lot} and \textit{Parking garage}, all statistical significance would be lost with the exception of Espoo, where statistical significance for the differences would position at $F = 5.266$, $p = 0.022$ ('*'). All municipalities except Kauniainen would also receive substantial statistical significance when testing for differences between the group \textit{On the side of street} and \textit{Private or reserved} ($F = 28.410$ in Espoo, $F = 126.548$ in Helsinki, and $F = 24.910$ in Vantaa, and all municipalities shared $p \leq 0.001$, '***').
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[parkspot descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{parkspot}. The unit of median, mean, and standard deviation is minutes. The f value and p value presented are calculated in One-way \acrfull{anova}. P value significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
+        \caption[parkspot descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{parkspot}. The unit of median, mean, and standard deviation is minutes. The F value and p value presented are calculated in One-way \acrfull{anova}. P value significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
         \label{tab:park_walk_parkspot}
         \scalebox{0.64}
         {\begin{tabular}{clLccccCcccccc}
             \toprule
 			& & &                                           \multicolumn{5}{c}{parktime} &          \multicolumn{5}{c}{walktime} \\
 															\cmidrule(lr{\tbspace}){4-8}            \cmidrule(lr){9-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{} & \multirow{2}{*}{n} & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & f value, & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & f value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{} & \multirow{2}{*}{n} & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & F value, & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & F value, \\
             & & & & & & & p value & & & & & p value \\
             
             \midrule
@@ -306,7 +307,7 @@ The one-way \acrshort{anova} test for the explanatory variable \code{parkspot} a
             & Private or reserved &                         49 & 1 & 1.12 & 1.24 & 0.18 & &         1 & 1.88 & 1.82 & 0.26 & \\
             & Other &                                       13 & 2 & 4.08 & 7.89 & 2.19 & &         2 & 4.23 & 5.66 & 1.57 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{746} & \multirow{2}{*}{2} & \multirow{2}{*}{3.23} & \multirow{2}{*}{3.63} & \multirow{2}{*}{0.13} & value, & \multirow{2}{*}{2} & \multirow{2}{*}{3.52} & \multirow{2}{*}{3.09} & \multirow{2}{*}{0.11} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{746} & \multirow{2}{*}{2} & \multirow{2}{*}{3.23} & \multirow{2}{*}{3.63} & \multirow{2}{*}{0.13} & 8.323, & \multirow{2}{*}{2} & \multirow{2}{*}{3.52} & \multirow{2}{*}{3.09} & \multirow{2}{*}{0.11} & 5.750, \\
             & & & & & & & < 0.001 (***) & & & & & < 0.001 (***) \\
             \arrayrulecolor{black}\midrule
             
@@ -316,7 +317,7 @@ The one-way \acrshort{anova} test for the explanatory variable \code{parkspot} a
             & Private or reserved &                         178 & 1 & 1.19 & 2.12 & 0.16 & &        1 & 1.98 & 2.39 & 0.18 & \\
             & Other &                                       19 & 2 & 3.00 & 3.51 & 0.81 & &         1 & 2.95 & 3.41 & 0.78 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{3777} & \multirow{2}{*}{4} & \multirow{2}{*}{5.24} & \multirow{2}{*}{5.60} & \multirow{2}{*}{0.09} & value, & \multirow{2}{*}{4} & \multirow{2}{*}{4.78} & \multirow{2}{*}{4.10} & \multirow{2}{*}{0.07} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{3777} & \multirow{2}{*}{4} & \multirow{2}{*}{5.24} & \multirow{2}{*}{5.60} & \multirow{2}{*}{0.09} & 68.395, & \multirow{2}{*}{4} & \multirow{2}{*}{4.78} & \multirow{2}{*}{4.10} & \multirow{2}{*}{0.07} & 29.022, \\
             & & & & & & & < 0.001 (***) & & & & & < 0.001 (***) \\
             \arrayrulecolor{black}\midrule
             
@@ -326,7 +327,7 @@ The one-way \acrshort{anova} test for the explanatory variable \code{parkspot} a
             & Private or reserved &                         2 & 0.5 & 0.50 & 0.71 & 0.50 & &        1 & 1.00 & 0.00 & 0.00 & \\
             & Other &                                       1 & 1 & 1.00 & --- & --- & &            1 & 1.00 & --- & --- & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{23} & \multirow{2}{*}{2} & \multirow{2}{*}{2.13} & \multirow{2}{*}{1.60} & \multirow{2}{*}{0.33} & value, & \multirow{2}{*}{2} & \multirow{2}{*}{2.22} & \multirow{2}{*}{1.28} & \multirow{2}{*}{0.27} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{23} & \multirow{2}{*}{2} & \multirow{2}{*}{2.13} & \multirow{2}{*}{1.60} & \multirow{2}{*}{0.33} & 0.976, & \multirow{2}{*}{2} & \multirow{2}{*}{2.22} & \multirow{2}{*}{1.28} & \multirow{2}{*}{0.27} & 1.055, \\
             & & & & & & & 0.425 ($ns$) & & & & & 0.391 ($ns$) \\
             \arrayrulecolor{black}\midrule
             
@@ -336,11 +337,11 @@ The one-way \acrshort{anova} test for the explanatory variable \code{parkspot} a
             & Private or reserved &                         55 & 1 & 1.49 & 2.76 & 0.37 & &         1 & 2.18 & 2.58 & 0.35 & \\
             & Other &                                       6 & 1 & 2.50 & 3.83 & 1.57 & &          1 & 2.17 & 3.87 & 1.58 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{637} & \multirow{2}{*}{2} & \multirow{2}{*}{3.82} & \multirow{2}{*}{4.65} & \multirow{2}{*}{0.18} & value, & \multirow{2}{*}{3} & \multirow{2}{*}{3.98} & \multirow{2}{*}{4.11} & \multirow{2}{*}{0.16} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{637} & \multirow{2}{*}{2} & \multirow{2}{*}{3.82} & \multirow{2}{*}{4.65} & \multirow{2}{*}{0.18} & 9.437, & \multirow{2}{*}{3} & \multirow{2}{*}{3.98} & \multirow{2}{*}{4.11} & \multirow{2}{*}{0.16} & 7.354, \\
             & & & & & & & < 0.001 (***) & & & & & < 0.001 (***) \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{2}{*}{All} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{5183} & \multirow{2}{*}{3} & \multirow{2}{*}{4.76} & \multirow{2}{*}{5.29} & \multirow{2}{*}{0.07} & value, & \multirow{2}{*}{3} & \multirow{2}{*}{4.49} & \multirow{2}{*}{3.99} & \multirow{2}{*}{0.06} & value, \\
+            \multirow{2}{*}{All} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{5183} & \multirow{2}{*}{3} & \multirow{2}{*}{4.76} & \multirow{2}{*}{5.29} & \multirow{2}{*}{0.07} & 111.008, & \multirow{2}{*}{3} & \multirow{2}{*}{4.49} & \multirow{2}{*}{3.99} & \multirow{2}{*}{0.06} & 51.508, \\
             & & & & & & & < 0.001 (***) & & & & & < 0.001 (***) \\
             \bottomrule
         \end{tabular}}
@@ -351,19 +352,19 @@ A view to the thesis survey data variables \code{parktime} and \code{walktime} t
 
 Response variable \code{walktime} behaved similarly to \code{parktime} when viewed with explanatory variable \code{likert}. Values \textit{Extremely familiar} and \textit{Not at all familiar} tended to be lowest, with the total sequence of mean or median creating graphs approximately shaped like bells.
 
-The statistical significance of differences between groups for the explanatory variable \code{likert} were varying. Helsinki and Espoo received a $p$ value under $0.01$ from the one-way \acrshort{anova} test, while this identical test for Vantaa and Kauniainen ended in a non-significant conclusion. Conducting \acrshort{anova} test for a contained set of \code{likert} groups did not markedly change the statistical significance result of the differences between groups inside municipalities. In most combinations removing \textit{Not at all familiar} would improve the $p$ value result but not as much as to change the significance code. Conversely, in most \code{parktime} and \code{walktime} combinations the absence of \textit{Extremely familiar} would worsen the $p$ value. For example, Helsinki's strong \code{walktime} results can be undone by stripping the group \textit{Extremely familiar} from the \acrshort{anova} test, providing a statistically non-significant output. From Vantaa's mostly non-significant \acrshort{anova} results, a low statistical significance for \code{parktime} could be gained from the differences of groups \textit{Moderately familiar} and \textit{Not at all familiar} ('.', $p = 0.09$). Using the same groups, an equivalent result was found with \code{walktime} ('.', $p = 0.06$).
+The statistical significance of differences between groups for the explanatory variable \code{likert} were varying. Helsinki and Espoo received a $p$ value under $0.01$ from the one-way \acrshort{anova} test, while this identical test for Vantaa and Kauniainen ended in a non-significant conclusion. Conducting \acrshort{anova} test for a contained set of \code{likert} groups did not markedly change the statistical significance result of the differences between groups inside municipalities. In most combinations removing \textit{Not at all familiar} would improve the $p$ value result but not as much as to change the significance code. Conversely, in most \code{parktime} and \code{walktime} combinations the absence of \textit{Extremely familiar} would worsen the $p$ value. For example, Helsinki's strong \code{walktime} results can be undone by stripping the group \textit{Extremely familiar} from the \acrshort{anova} test, providing a statistically non-significant output. From Vantaa's mostly non-significant \acrshort{anova} results, a low statistical significance for \code{parktime} could be gained from the differences of groups \textit{Moderately familiar} and \textit{Not at all familiar} ($F = 2.936$, $p = 0.088$, '.'). Using the same groups, an equivalent result was found with \code{walktime} ($F = 3.459$, $p = 0.064$, '.').
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[likert descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{likert}. The unit of median, mean, and standard deviation is minutes. The f value and p value presented are calculated in One-way \acrfull{anova}. P value significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
+        \caption[likert descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{likert}. The unit of median, mean, and standard deviation is minutes. The F value and p value presented are calculated in One-way \acrfull{anova}. P value significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
         \label{tab:park_walk_likert}
         \scalebox{0.64}
         {\begin{tabular}{clLccccCcccccc}
             \toprule
 			& & &                                           \multicolumn{5}{c}{parktime} &          \multicolumn{5}{c}{walktime} \\
 															\cmidrule(lr{\tbspace}){4-8}            \cmidrule(lr){9-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{} & \multirow{2}{*}{n} & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & f value, & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & f value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{} & \multirow{2}{*}{n} & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & F value, & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & F value, \\
             & & & & & & & p value & & & & & p value \\
             
             \midrule
@@ -373,7 +374,7 @@ The statistical significance of differences between groups for the explanatory v
             & Slightly familiar &                           74 & 2 & 4.08 & 5.08 & 0.59 & &         3 & 4.39 & 4.20 & 0.49 & \\
             & Not at all familiar &                         12 & 2.5 & 2.67 & 1.61 & 0.47 & &       2 & 2.67 & 1.97 & 0.57 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{746} & \multirow{2}{*}{2} & \multirow{2}{*}{3.23} & \multirow{2}{*}{3.63} & \multirow{2}{*}{0.13} & value, & \multirow{2}{*}{2} & \multirow{2}{*}{3.52} & \multirow{2}{*}{3.09} & \multirow{2}{*}{0.11} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{746} & \multirow{2}{*}{2} & \multirow{2}{*}{3.23} & \multirow{2}{*}{3.63} & \multirow{2}{*}{0.13} & 3.936, & \multirow{2}{*}{2} & \multirow{2}{*}{3.52} & \multirow{2}{*}{3.09} & \multirow{2}{*}{0.11} & 3.375, \\
             & & & & & & & 0.004 (**) & & & & & 0.009 (**) \\
             \arrayrulecolor{black}\midrule
             
@@ -383,7 +384,7 @@ The statistical significance of differences between groups for the explanatory v
             & Slightly familiar &                           282 & 4 & 5.24 & 4.98 & 0.30 & &        5 & 5.59 & 4.99 & 0.30 & \\
             & Not at all familiar &                         56 & 2.5 & 4.12 & 4.96 & 0.66 & &       3.5 & 4.59 & 3.62 & 0.48 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{3777} & \multirow{2}{*}{4} & \multirow{2}{*}{5.24} & \multirow{2}{*}{5.60} & \multirow{2}{*}{0.09} & value, & \multirow{2}{*}{4} & \multirow{2}{*}{4.78} & \multirow{2}{*}{4.10} & \multirow{2}{*}{0.07} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{3777} & \multirow{2}{*}{4} & \multirow{2}{*}{5.24} & \multirow{2}{*}{5.60} & \multirow{2}{*}{0.09} & 7.508, & \multirow{2}{*}{4} & \multirow{2}{*}{4.78} & \multirow{2}{*}{4.10} & \multirow{2}{*}{0.07} & 18.793, \\
             & & & & & & & < 0.001 (***) & & & & & < 0.001 (***) \\
             \arrayrulecolor{black}\midrule
             
@@ -393,7 +394,7 @@ The statistical significance of differences between groups for the explanatory v
             & Slightly familiar &                           2 & 3.5 & 3.50 & 0.71 & 0.50 & &        2.5 & 2.50 & 0.71 & 0.50 & \\
             & Not at all familiar &                         1 & 3 & 3.00 & --- & --- & &            2 & 2.00 & --- & --- & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{23} & \multirow{2}{*}{2} & \multirow{2}{*}{2.13} & \multirow{2}{*}{1.60} & \multirow{2}{*}{0.33} & value, & \multirow{2}{*}{2} & \multirow{2}{*}{2.22} & \multirow{2}{*}{1.28} & \multirow{2}{*}{0.27} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{23} & \multirow{2}{*}{2} & \multirow{2}{*}{2.13} & \multirow{2}{*}{1.60} & \multirow{2}{*}{0.33} & 1.025, & \multirow{2}{*}{2} & \multirow{2}{*}{2.22} & \multirow{2}{*}{1.28} & \multirow{2}{*}{0.27} & 0.309, \\
             & & & & & & & 0.421 ($ns$) & & & & & 0.868 ($ns$) \\
             \arrayrulecolor{black}\midrule
             
@@ -403,11 +404,11 @@ The statistical significance of differences between groups for the explanatory v
             & Slightly familiar &                           59 & 2 & 3.92 & 4.74 & 0.62 & &         2 & 3.64 & 3.47 & 0.45 & \\
             & Not at all familiar &                         14 & 2 & 2.21 & 1.42 & 0.38 & &         2 & 2.29 & 1.38 & 0.37 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{637} & \multirow{2}{*}{2} & \multirow{2}{*}{3.82} & \multirow{2}{*}{4.65} & \multirow{2}{*}{0.18} & value, & \multirow{2}{*}{3} & \multirow{2}{*}{3.98} & \multirow{2}{*}{4.11} & \multirow{2}{*}{0.16} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{637} & \multirow{2}{*}{2} & \multirow{2}{*}{3.82} & \multirow{2}{*}{4.65} & \multirow{2}{*}{0.18} & 1.114, & \multirow{2}{*}{3} & \multirow{2}{*}{3.98} & \multirow{2}{*}{4.11} & \multirow{2}{*}{0.16} & 1.817, \\
             & & & & & & & 0.349 ($ns$) & & & & & 0.124 ($ns$) \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{2}{*}{All} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{5183} & \multirow{2}{*}{3} & \multirow{2}{*}{4.76} & \multirow{2}{*}{5.29} & \multirow{2}{*}{0.07} & value, & \multirow{2}{*}{3} & \multirow{2}{*}{4.49} & \multirow{2}{*}{3.99} & \multirow{2}{*}{0.06} & value, \\
+            \multirow{2}{*}{All} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{5183} & \multirow{2}{*}{3} & \multirow{2}{*}{4.76} & \multirow{2}{*}{5.29} & \multirow{2}{*}{0.07} & 10.132, & \multirow{2}{*}{3} & \multirow{2}{*}{4.49} & \multirow{2}{*}{3.99} & \multirow{2}{*}{0.06} & 20.354, \\
             & & & & & & & < 0.001 (***) & & & & & < 0.001 (***) \\
             \bottomrule
         \end{tabular}}
@@ -420,19 +421,19 @@ Explanatory variable \code{parktime} values follow a descending trend from the m
 
 The variable \code{walktime} does not offer such a clear downward trend as \code{parktime} does. In Helsinki, the longest walks from one's car to the final destination of one's journey was in the areas marked \textit{Fully built}, with a mean duration of 4.8 minutes (4.0 minutes median). However, the groups \code{Predominantly built}, \code{Moderately built}, and \code{Some built} were close runners-up. In Vantaa, longest walking times were recorded in the group \textit{Fully built} with 5.7 minutes mean and 5.0 minutes median, and in Espoo, the highest value recorded in \textit{Scarcely built}, with 4.3 minutes mean and 3.0 minutes median, is a detail worthy of attention.
 
-As for the \acrshort{anova} test, \code{artificial} produces strong statistical significances for differences between groups in applicable municipalities, but not for all municipalities. For example, the p-value for Helsinki's \code{walktime} received a result of $p \leq 0.090$ (.), a weak result compared to other variables and municipalities. Comparing specific groups instead of all of them, statistically significant sections could be identified most frequently in Vantaa. For example, there is a $p \leq 0.001$ ('***') statistical significance between the differences of the groups \textit{Fully built} and \textit{Some built}. This was true for both \code{parktime} and \code{walktime}. In contrast, testing \textit{Fully built}--\textit{Scarcely built} gives non-significant results for both \code{parktime} and \code{walktime} in Vantaa.
+As for the \acrshort{anova} test, \code{artificial} produces strong statistical significances for differences between groups in applicable municipalities, but not for all municipalities. For example, the p value for Helsinki's \code{walktime} received $F = 2.009$ and $p \leq 0.090$ (.), a weak result compared to other variables and municipalities. Comparing specific groups instead of all of them, statistically significant sections could be identified most frequently in Vantaa. For example, there is a $p \leq 0.001$ ('***') statistical significance between the differences of the groups \textit{Fully built} and \textit{Some built}. This was true for both \code{parktime} ($F = 19.293$) and \code{walktime} ($F = 24.186$). In contrast, testing \textit{Fully built}--\textit{Scarcely built} gives non-significant results for both \code{parktime} ($F = 0.015$, $p = 0.902$) and \code{walktime} ($F = 0.035$, $p = 0.851$) in Vantaa.
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[articifial descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{articifial}. The unit of median, mean, and standard deviation is minutes. The f value and p value presented are calculated in One-way \acrfull{anova}. P value significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
+        \caption[articifial descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{articifial}. The unit of median, mean, and standard deviation is minutes. The F value and p value presented are calculated in One-way \acrfull{anova}. P value significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
         \label{tab:park_walk_artificial}
         \scalebox{0.64}
         {\begin{tabular}{clLccccCcccccc}
             \toprule
 			& & &                                           \multicolumn{5}{c}{parktime} &          \multicolumn{5}{c}{walktime} \\
 															\cmidrule(lr{\tbspace}){4-8}            \cmidrule(lr){9-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{} & \multirow{2}{*}{n} & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & f value, & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & f value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{} & \multirow{2}{*}{n} & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & F value, & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & F value, \\
             & & & & & & & p value & & & & & p value \\
             
             \midrule
@@ -442,7 +443,7 @@ As for the \acrshort{anova} test, \code{artificial} produces strong statistical 
             & Some built &                                  61 & 1 & 2.59 & 2.91 & 0.37 & &         2 & 3.20 & 3.00 & 0.38 & \\
             & Scarcely built &                              48 & 2 & 2.77 & 4.44 & 0.64 & &         3 & 4.29 & 4.50 & 0.65 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{746} & \multirow{2}{*}{2} & \multirow{2}{*}{3.23} & \multirow{2}{*}{3.63} & \multirow{2}{*}{0.13} & value, & \multirow{2}{*}{2} & \multirow{2}{*}{3.52} & \multirow{2}{*}{3.09} & \multirow{2}{*}{0.11} & value,
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{746} & \multirow{2}{*}{2} & \multirow{2}{*}{3.23} & \multirow{2}{*}{3.63} & \multirow{2}{*}{0.13} & 3.237, & \multirow{2}{*}{2} & \multirow{2}{*}{3.52} & \multirow{2}{*}{3.09} & \multirow{2}{*}{0.11} & 4.431,
             \\
             & & & & & & & 0.012 (*) & & & & & 0.001 (**) \\
             \arrayrulecolor{black}\midrule
@@ -453,7 +454,7 @@ As for the \acrshort{anova} test, \code{artificial} produces strong statistical 
             & Some built &                                  55 & 2 & 3.16 & 3.95 & 0.53 & &         3 & 4.24 & 4.30 & 0.58 & \\
             & Scarcely built &                              6 & 0 & 0.67 & 0.82 & 0.33 & &          1 & 0.83 & 0.75 & 0.31 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{3777} & \multirow{2}{*}{4} & \multirow{2}{*}{5.24} & \multirow{2}{*}{5.60} & \multirow{2}{*}{0.09} & value, & \multirow{2}{*}{4} & \multirow{2}{*}{4.78} & \multirow{2}{*}{4.10} & \multirow{2}{*}{0.07} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{3777} & \multirow{2}{*}{4} & \multirow{2}{*}{5.24} & \multirow{2}{*}{5.60} & \multirow{2}{*}{0.09} & 6.097, & \multirow{2}{*}{4} & \multirow{2}{*}{4.78} & \multirow{2}{*}{4.10} & \multirow{2}{*}{0.07} & 2.009, \\
             & & & & & & & < 0.001 (***) & & & & & 0.090 (.) \\
             \arrayrulecolor{black}\midrule
             
@@ -463,8 +464,7 @@ As for the \acrshort{anova} test, \code{artificial} produces strong statistical 
             & Some built &                                  --- & --- & --- & --- & --- & &         --- & --- & --- & --- & \\
             & Scarcely built &                              --- & --- & --- & --- & --- & &         --- & --- & --- & --- & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{23} & \multirow{2}{*}{2} & \multirow{2}{*}{2.13} & \multirow{2}{*}{1.60} & \multirow{2}{*}{0.33} & value, & \multirow{2}{*}{2} & \multirow{2}{*}{2.22} & \multirow{2}{*}{1.28} & \multirow{2}{*}{0.27} & value, \\
-            & & & & & & & --- & & & & & --- \\
+            & \textbf{Total} &                              23 & 2 & 2.13 & 1.60 & 0.33 & --- &     2 & 2.22 & 1.28 & 0.27 & --- \\
             \arrayrulecolor{black}\midrule
             
             \multirow{6}{*}{Vantaa} & Fully built &         204 & 4 & 5.11 & 5.23 & 0.37 & &        5 & 5.67 & 5.16 & 0.36 & \\
@@ -473,11 +473,11 @@ As for the \acrshort{anova} test, \code{artificial} produces strong statistical 
             & Some built &                                  60 & 1 & 2.03 & 2.59 & 0.33 & &         2 & 2.32 & 2.00 & 0.26 & \\
             & Scarcely built &                              9 & 2 & 5.33 & 8.03 & 2.68 & &          3 & 5.33 & 6.16 & 2.05 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{637} & \multirow{2}{*}{2} & \multirow{2}{*}{3.82} & \multirow{2}{*}{4.65} & \multirow{2}{*}{0.18} & value, & \multirow{2}{*}{3} & \multirow{2}{*}{3.98} & \multirow{2}{*}{4.11} & \multirow{2}{*}{0.16} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{637} & \multirow{2}{*}{2} & \multirow{2}{*}{3.82} & \multirow{2}{*}{4.65} & \multirow{2}{*}{0.18} & 7.587, & \multirow{2}{*}{3} & \multirow{2}{*}{3.98} & \multirow{2}{*}{4.11} & \multirow{2}{*}{0.16} & 15.331, \\
             & & & & & & & < 0.001 (***) & & & & & < 0.001 (***) \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{2}{*}{All} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{5183} & \multirow{2}{*}{3} & \multirow{2}{*}{4.76} & \multirow{2}{*}{5.29} & \multirow{2}{*}{0.07} & value, & \multirow{2}{*}{3} & \multirow{2}{*}{4.49} & \multirow{2}{*}{3.99} & \multirow{2}{*}{0.06} & value, \\
+            \multirow{2}{*}{All} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{5183} & \multirow{2}{*}{3} & \multirow{2}{*}{4.76} & \multirow{2}{*}{5.29} & \multirow{2}{*}{0.07} & 18.333, & \multirow{2}{*}{3} & \multirow{2}{*}{4.49} & \multirow{2}{*}{3.99} & \multirow{2}{*}{0.06} & 11.757, \\
             & & & & & & & < 0.001 (***) & & & & & < 0.001 (***) \\
             \bottomrule
         \end{tabular}}
@@ -491,19 +491,19 @@ Longest \code{parktime} values were recorded in the groups \textit{Keskustan jal
 
 Longest walking times from one's parked car to the journey's end is observed in Helsinki's \textit{Keskustan jalankulkuvyöhyke} with a mean duration of 6.4 minutes (5.0 min median). Espoo's longest \code{walktime} value was in \textit{Alakeskuksen jalankulkuvyöhyke} with a 4.1 minutes mean duration (3.0 min). In Vantaa, some northern postal code areas received \code{walktime} values that can be considered aberrations, causing the longest walking times appear in the group \textit{novalue} with a mean duration of 4.9 minutes and 3.0 minutes median.
 
-Strong statistical significances were found for the explanatory variable \code{ykr\_zone} in the \acrshort{anova} test. All test combinations with \textit{ykr\_zone} produced $p \leq 0.001$, with the exception of Vantaa's \code{parktime}. This result could be slightly improved by excluding the group \textit{novalue} from the \acrshort{anova} test. In other combinations the statistical significance was sufficiently strong so that this same removal had a negligible effect in test results. Carrying out the \acrshort{anova} test with a narrower set of groups produced, too, statistically strong results. Some exceptions, however, could be found. In Espoo, where an \acrshort{anova} test with the groups \textit{Alakeskuksen jalankulkuvyöhyke}, \textit{Intensiivinen joukkoliikennevyöhyke}, and \textit{novalue} resulted in a non-significant result ($p = 0.16$). The same non-significant results were achieved with the same groups in Vantaa, using \code{parktime} or \code{walktime} ($p = 0.30$, and $p = 0.44$, respectively).
+Strong statistical significances were found for the explanatory variable \code{ykr\_zone} in the \acrshort{anova} test. All test combinations with \code{ykr\_zone} produced $p \leq 0.001$, with the exception of Vantaa's \code{parktime} ($F = 4.001$, $p = 0.003$, '**'). This result could be slightly improved by excluding the group \textit{novalue} from the \acrshort{anova} test. In other combinations the statistical significance was sufficiently strong so that this same removal had a negligible effect in test results. Carrying out the \acrshort{anova} test with a narrower set of groups produced, too, statistically strong results. Some exceptions, however, could be found. In Espoo, where an \acrshort{anova} test with the groups \textit{Alakeskuksen jalankulkuvyöhyke}, \textit{Intensiivinen joukkoliikennevyöhyke}, and \textit{novalue} resulted in a non-significant result ($F = 1.806$, $p = 0.165$). The same non-significant results were achieved with the same groups in Vantaa, using \code{parktime} or \code{walktime} ($F = 1.212$, $p = 0.298$, and $F = 	0.814$, $p = 0.444$, respectively).
 
 \begin{hyphenrules}{nohyphenation}
     \begin{table}[H]
         \centering
-        \caption[ykr\_zone descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{ykr\_zone}. The unit of median, mean, and standard deviation is minutes. The f value and p value presented are calculated in One-way \acrfull{anova}. P value significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
+        \caption[ykr\_zone descriptives]{Parking times and walking times descriptive statistics with explanatory variable \code{ykr\_zone}. The unit of median, mean, and standard deviation is minutes. The F value and p value presented are calculated in One-way \acrfull{anova}. P value significance codes: '***' $p \leq 0.001$, '**' $p \leq 0.01$, '*' $p \leq 0.05$, '.' $p \leq 0.1$, 'ns' $p \leq 1$.}
         \label{tab:park_walk_ykrzone}
         \scalebox{0.58}
         {\begin{tabular}{clLccccCcccccc}
             \toprule
         	& & &                                           \multicolumn{5}{c}{parktime} &              \multicolumn{5}{c}{walktime} \\
         													\cmidrule(lr{\tbspace}){4-8}                \cmidrule(lr){9-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{} & \multirow{2}{*}{n} & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & f value, & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & f value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{} & \multirow{2}{*}{n} & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & F value, & \multirow{2}{*}{Median} & \multirow{2}{*}{Mean} & \multirow{2}{*}{Std.dev} & \multirow{2}{*}{Std.err} & F value, \\
             & & & & & & & p value & & & & & p value \\
             
             \midrule
@@ -515,7 +515,7 @@ Strong statistical significances were found for the explanatory variable \code{y
             & Autovyöhyke &                                         99 & 1 & 1.93 & 2.23 & 0.22 & &     2 & 2.59 & 2.86 & 0.29 & \\
             & novalue &                                             101 & 2 & 2.65 & 3.71 & 0.37 & &    3 & 3.85 & 3.85 & 0.38 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{746} & \multirow{2}{*}{2} & \multirow{2}{*}{3.23} & \multirow{2}{*}{3.63} & \multirow{2}{*}{0.13} & value, & \multirow{2}{*}{2} & \multirow{2}{*}{3.52} & \multirow{2}{*}{3.09} & \multirow{2}{*}{0.11} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{746} & \multirow{2}{*}{2} & \multirow{2}{*}{3.23} & \multirow{2}{*}{3.63} & \multirow{2}{*}{0.13} & 8.040, & \multirow{2}{*}{2} & \multirow{2}{*}{3.52} & \multirow{2}{*}{3.09} & \multirow{2}{*}{0.11} & 8.026, \\
             & & & & & & & < 0.001 (***) & & & & & < 0.001 (***) \\
             \arrayrulecolor{black}\midrule
             
@@ -527,7 +527,7 @@ Strong statistical significances were found for the explanatory variable \code{y
             & Autovyöhyke &                                         18 & 1 & 1.56 & 1.54 & 0.36 & &     1 & 2.28 & 2.30 & 0.54 & \\
             & novalue &                                             148 & 2 & 3.01 & 3.57 & 0.29 & &    3 & 3.61 & 3.31 & 0.27 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{3777} & \multirow{2}{*}{4} & \multirow{2}{*}{5.24} & \multirow{2}{*}{5.60} & \multirow{2}{*}{0.09} & value, & \multirow{2}{*}{4} & \multirow{2}{*}{4.78} & \multirow{2}{*}{4.10} & \multirow{2}{*}{0.07} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{3777} & \multirow{2}{*}{4} & \multirow{2}{*}{5.24} & \multirow{2}{*}{5.60} & \multirow{2}{*}{0.09} & 77.835, & \multirow{2}{*}{4} & \multirow{2}{*}{4.78} & \multirow{2}{*}{4.10} & \multirow{2}{*}{0.07} & 64.204, \\
             & & & & & & & < 0.001 (***) & & & & & < 0.001 (***) \\
             \arrayrulecolor{black}\midrule
             
@@ -539,8 +539,7 @@ Strong statistical significances were found for the explanatory variable \code{y
             & Autovyöhyke &                                         --- & --- & --- & --- & --- & &     --- & --- & --- & --- & \\
             & novalue &                                             --- & --- & --- & --- & --- & &     --- & --- & --- & --- & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{23} & \multirow{2}{*}{2} & \multirow{2}{*}{2.13} & \multirow{2}{*}{1.60} & \multirow{2}{*}{0.33} & value, & \multirow{2}{*}{2} & \multirow{2}{*}{2.22} & \multirow{2}{*}{1.28} & \multirow{2}{*}{0.27} & value, \\
-            & & & & & & & --- & & & & & --- \\
+            & \textbf{Total} &                                      23 & 2 & 2.13 & 1.60 & 0.33	& --- & 2 & 2.22 & 1.28 & 0.27 & --- \\
             \arrayrulecolor{black}\midrule
             
             \multirow{8}{*}{Vantaa} & Keskustan jalankulkuvyöhyke & --- & --- & --- & --- & --- & &     --- & --- & --- & --- & \\
@@ -551,11 +550,11 @@ Strong statistical significances were found for the explanatory variable \code{y
             & Autovyöhyke &                                         98 & 1 & 2.43 & 3.62 & 0.37 & &     2 & 2.42 & 2.43 & 0.25 & \\
             & novalue &                                             123 & 2 & 3.64 & 4.49 & 0.40 & &    3 & 4.91 & 4.99 & 0.45 & \\
             \arrayrulecolor{black!30}\cmidrule(lr){2-13}
-            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{637} & \multirow{2}{*}{2} & \multirow{2}{*}{3.82} & \multirow{2}{*}{4.65} & \multirow{2}{*}{0.18} & value, & \multirow{2}{*}{3} & \multirow{2}{*}{3.98} & \multirow{2}{*}{4.11} & \multirow{2}{*}{0.16} & value, \\
+            \multirow{2}{*}{} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{637} & \multirow{2}{*}{2} & \multirow{2}{*}{3.82} & \multirow{2}{*}{4.65} & \multirow{2}{*}{0.18} & 4.001, & \multirow{2}{*}{3} & \multirow{2}{*}{3.98} & \multirow{2}{*}{4.11} & \multirow{2}{*}{0.16} & 7.475, \\
             & & & & & & & 0.003 (**) & & & & & < 0.001 (***) \\
             \arrayrulecolor{black}\midrule
             
-            \multirow{2}{*}{All} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{5183} & \multirow{2}{*}{3} & \multirow{2}{*}{4.76} & \multirow{2}{*}{5.29} & \multirow{2}{*}{0.07} & value, & \multirow{2}{*}{3} & \multirow{2}{*}{4.49} & \multirow{2}{*}{3.99} & \multirow{2}{*}{0.06} & value, \\
+            \multirow{2}{*}{All} & \multirow{2}{*}{\textbf{Total}} & \multirow{2}{*}{5183} & \multirow{2}{*}{3} & \multirow{2}{*}{4.76} & \multirow{2}{*}{5.29} & \multirow{2}{*}{0.07} & 112.502, & \multirow{2}{*}{3} & \multirow{2}{*}{4.49} & \multirow{2}{*}{3.99} & \multirow{2}{*}{0.06} & 88.815, \\
             & & & & & & & < 0.001 (***) & & & & & < 0.001 (***) \\
             \bottomrule
         \end{tabular}}
@@ -579,7 +578,7 @@ Utilising the travel time comparison application, we can find results pertaining
         \caption[YKR zones example selections for results]{Zones of urban structure and postal code area example selections. Population data is from PAAVO dataset (\cite{StatisticsFinland2019a}).}
         \label{tab:ykrzone_selections_for_results}
         \scalebox{0.9}
-        {\begin{tabular}{ @{} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2cm} @{} }
+        {\begin{tabular}{ >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2cm} }
             \toprule
             Zone of urban structure (YKR zone) & YKR zone population mean & Selected postal code area & Postal code area population \\
             \midrule
@@ -603,12 +602,13 @@ Utilising the travel time comparison application, we can find results pertaining
 
 \begin{figure}[H]%
     \centering
+    %Cropping an image: trim={<left> <lower> <right> <upper>},clip
     \includegraphics[trim={0 0.2cm 0 0},clip,width=\textwidth]{images/results_comparison_examplezips.png}
-    \caption[Postal code areas selected for in-depth results review]{Postal code areas selected for in-depth results review.}%
+    \caption[Postal code areas selected for in-depth results review]{The postal code areas selected for in-depth results review.}%
     \label{fig:ykrzone_selections_map}%
 \end{figure}
 
-The selected postal code areas represent functionally different parts of the research area. 00150 Eira-Hernesaari (Center walking zone) is located at the southern tip of Helsinginniemi where all possible travel options for private car are time intensive. 00520 Itä-Pasila (Center periphery zone) is in the immediate vicinity of the center of Helsinki, is densely built, and is equipped with better travel options for the private car than Eira-Hernesaari. 02650 Pohjois-Leppävaara (Subcenter walking zone) represents an important subcenter in the research area with large amounts of office space, a major shopping mall, and a large population. It is a major residential area in Espoo, and it has a good access to major roads. 00640 Oulunkylä-Patola (Intensive transit zone) is also mostly a residential area with extensive public transport connections as well as access to major road infrastructure of Helsinki Capital Region, namely the Ring I beltway and the Finnish national road 3 to Tampere. 00430 Maununneva (Transit zone) is a residential area situated just next to the Finnish national highway 3, but with limited motorway interchanges. Its eastern side hugs the Central Park of Helsinki and is littered with small neighborhood roads. 02920 Niipperi (Automobile zone) is characterised as an area of detached housing where public transport coverage is scarce. 01690 Ylästö (novalue) was selected to represent postal code areas which were outside of the YKR zones classification according to the thesis calculation method. These areas can be centers of local activity, but lack a combination of population, commercial interaction and public transport connections to belong in any of the proper \code{ykr\_zone} groups (\textcolor{red}{cite ykrvyöhykkeet}). It is then indicative to use these areas as representatives of the whole research area, as the breadth of the data available in the travel time comparison application is much too plentiful to be presented in full in tables or individual images. The results will delve further into the proportion of the parking process in the cases of 00150 Eira-Hernesaari, 00640 Oulunkylä-Patola, and 02920 Niipperi.
+The selected postal code areas represent functionally different parts of the research area. 00150 Eira-Hernesaari (Center walking zone) is located at the southern tip of Helsinginniemi where all possible travel options for private car are time intensive. 00520 Itä-Pasila (Center periphery zone) is in the immediate vicinity of the center of Helsinki, is densely built, and is equipped with better travel options for the private car than Eira-Hernesaari. 02650 Pohjois-Leppävaara (Subcenter walking zone) represents an important subcenter in the research area with large amounts of office space, a major shopping mall, and a large population. It is a major residential area in Espoo, and it has a good access to major roads. 00640 Oulunkylä-Patola (Intensive transit zone) is also mostly a residential area with extensive public transport connections as well as access to major road infrastructure of the Helsinki Capital Region, namely the Ring I beltway and the Finnish national road 3 to Tampere. 00430 Maununneva (Transit zone) is a residential area situated just next to the Finnish national highway 3, but with limited motorway interchanges. Its eastern side hugs the Central Park of Helsinki and is littered with small neighborhood roads. 02920 Niipperi (Automobile zone) is characterised as an area of detached housing where public transport coverage is scarce. 01690 Ylästö (novalue) was selected to represent postal code areas which were outside of the YKR zones classification according to the thesis calculation method. These areas can be centers of local activity, but lack a combination of population, commercial interaction and public transport connections to belong in any of the proper \code{ykr\_zone} groups (\cite{Ristimaki2017}). It is then indicative to use these areas as representatives of the whole research area, as the breadth of the data available in the travel time comparison application is much too plentiful to be presented in full in tables or individual images. The results will delve further into the proportion of the parking process in the cases of 00150 Eira-Hernesaari, 00640 Oulunkylä-Patola, and 02920 Niipperi.
 
 Table~\ref{tab:comparison_parkingprocess_signif} presents the driving segments and parking process segments of several different example travel chains. In these examples, the parking process is a significant part of the travel chains. In most cases the parking process share diminishes the longer the travel chain is in duration and kilometers, but driving to the center of Helsinki is an exception of this because of the long mean \code{parktime} and \code{walktime} values. When comparing the parking process length between thesis survey and the durations used in \textit{TTM}, thesis parking process can be up to six times longer than that of in \textit{TTM}.
 
@@ -702,7 +702,6 @@ During midday traffic, the general outline of the parking process durations star
 
 Using all available survey data and the full \textit{TTM} data, all postal code areas can be represented (figure~\ref{fig:compare_msc_all_pct_00150}). This data largely follows the trend of rush hour and midday data of the origin postal code area 00150 Eira-Hernesaari. Utilising this aggregated variable, long parking processes are found from 02100 Tapiola in Espoo (55 \%), Kulosaari in Helsinki (58 \%), and 00590 Kaitalahti in Helsinki (44 \%). The parking process proportions of subcenters of the Helsinki Capital Region slightly stand out from the data, but this is an inconclusive observation as sparsely populated locations such as 01750 Keimola may also receive large parking process shares.
 
-% trim={<left> <lower> <right> <upper>}
 \begin{figure}[H]%
     \centering
     \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_r_pct_fromzip-00150_28-09-2020.png}
@@ -751,7 +750,7 @@ If all available temporal data is employed in thesis survey data and \textit{TTM
     \label{fig:compare_msc_all_pct_00640}%
 \end{figure}
 
-The proportion of the parking process in total travel chains starting from 02920 Niipperi, during rush hour traffic, is generally large in all parts of Helsinki Capital Region (figure~\ref{fig:compare_msc_r_pct_02920}). In Espoo, long parking process shares are found from the beltway Ring III postal code areas such as 02780 Kauklahti (42~\%), 02770 Espoon keskus (40 \%), and 02740 Bemböle-Pakankylä (37 \%). In Vantaa, largest shares are found from 01400 Rekola (73 \%), 01530 Veromiehenkylä (54 \%), and 01520 Tammisto (49 \%). Helsinki's largest parking process share is located in 00270 Pohjois-Meilahti (49~\%) with all of the postal code areas of the center of Helsinki reaching lower shares. According to the survey and \textit{TTM} data, the parking process share in a rush hour traffic travel chain from Niipperi to 00160 Katajanokka is a proportionally low 19 percent.
+The proportion of the parking process in total travel chains starting from 02920 Niipperi, during rush hour traffic, is generally large in all parts of the Helsinki Capital Region (figure~\ref{fig:compare_msc_r_pct_02920}). In Espoo, long parking process shares are found from the beltway Ring III postal code areas such as 02780 Kauklahti (42~\%), 02770 Espoon keskus (40 \%), and 02740 Bemböle-Pakankylä (37 \%). In Vantaa, largest shares are found from 01400 Rekola (73 \%), 01530 Veromiehenkylä (54 \%), and 01520 Tammisto (49 \%). Helsinki's largest parking process share is located in 00270 Pohjois-Meilahti (49~\%) with all of the postal code areas of the center of Helsinki reaching lower shares. According to the survey and \textit{TTM} data, the parking process share in a rush hour traffic travel chain from Niipperi to 00160 Katajanokka is a proportionally low 19 percent.
 
 During midday traffic the proportion of the parking process in travel chains starting from the origin postal code area of 02920 Niipperi shows relatively low values (figure~\ref{fig:compare_msc_m_pct_02920}). In fact, the largest parking process share in Espoo is found from the travel chain that starts and ends in Niipperi (67 \%). All other values are equal or below 40 percent. In Helsinki, largest midday traffic parking process shares are found from 00270 Pohjois-Meilahti (47 \%) and 00340 Länsi-Pasila (46 \%) with the center of Helsinki again exhibiting lower parking process values across the board. In Vantaa, large parking process shares were located in 01700 Kivistö (70 \%), 01710 Pähkinärinne (52 \%), and 01680 Askisto (48 \%).
 
