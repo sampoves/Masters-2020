@@ -1,15 +1,6 @@
 
 % Welcome to the University of Helsinki Master's thesis of Sampo Vesanen. This is the main document of this thesis, which sets up the software packages and document properties and calls individual tex files (thesis chapters) to complete this multifile LaTeX project. Please find below some links which I used as a basis in the technical structure of the thesis. Additionally, I have extensively commented the thesis in appropriate places to establish programmatical aspects of this LaTeX project.
 
-
-
-% VIESTI HENKALLE, PETTERILLE JA TUULILLE:
-% tilanne tiistai-iltapäivänä 6.10.2020: 
-%- minulta puuttuu aukikirjoitettu teksti enää kappaleesta "2 Background", kohdasta PPGIS. Työstän sitä juuri nyt
-%- Backgroundin jälkeen heti tiivistelmien kimppuun
-%- Henkka antanut kommentteja 4.10., teen muutokset mahdollisimman nopeasti täyden tekstimitan saavuttamisen jälkeen
-
-
 % Multifile LaTeX project:
 %%% https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects
 %%% https://en.wikibooks.org/wiki/LaTeX/Modular_Documents
@@ -44,6 +35,28 @@
 \setlength{\abovecaptionskip}{15pt plus 3pt minus 2pt}
 \setlength{\belowcaptionskip}{15pt plus 3pt minus 2pt}
 \usepackage{csquotes}                       % Enable displayquote
+
+
+% Appendices settings ----------------------------------------------------
+\usepackage[title,titletoc]{appendix}
+
+\makeatletter
+    % Inside \appendices, rename "table x. and "figure x." to "appendix x.". Roman numerals
+    \g@addto@macro\appendices{\renewcommand{\figurename}{Appendix}}
+    \g@addto@macro\appendices{\renewcommand{\thefigure}{\Roman{figure}}\setcounter{figure}{0}}
+    \g@addto@macro\appendices{\renewcommand{\tablename}{Appendix}}
+    \g@addto@macro\appendices{\renewcommand{\thetable}{\Roman{table}}\setcounter{table}{0}}
+    
+    % Rename sections to use Roman numerals
+    \g@addto@macro\appendices{\renewcommand{\thesection}{\Roman{section}}}
+    
+    % Enable uniform numbering for tables and figures inside \appendices, both now called "appendix"
+    \newcommand*{\dupcntr}[2]{%
+        \expandafter\let\csname c@#1\expandafter\endcsname\csname c@#2\endcsname
+    }
+    \g@addto@macro\appendices{\dupcntr{table}{figure}}
+\makeatother
+
 
 % define \code{}: StackExchange style inline code ----------------------
 \usepackage{soul}                           % typesetting with colour, supports linebreak (\colorbox on its own does not)
@@ -84,6 +97,7 @@
 \newacronym{ppgis}{PPGIS}{Public participation geographic information system}
 \newacronym{ram}{RAM}{Random Access Memory}
 
+
 % Nomenclature for glossary --------------------------------------------
 % Note the definition of plural forms.
 % \glssetwidest together with \printglossary parameters helps prevent overlong nomenclature lines
@@ -107,6 +121,7 @@
 
 \makeglossaries
 
+
 % Datetime settings  ------------------------------------------------------
 \usepackage[ddmmyyyy]{datetime}             % Change the format of datetime
 
@@ -125,7 +140,7 @@
 
 % References and reference styles -----------------------------------------
 \usepackage{natbib}                         % Flexible bibliography support
-\bibliographystyle{apalike2}                
+\bibliographystyle{apalike2}                % Bibliography style
 \setcitestyle{authoryear,open={},close={}}  % Removes citation parentheses
 
 % Define new command \fullref to reference both section number and name
@@ -136,7 +151,6 @@
 
 
 % Other packages ----------------------------------------------------------
-%\usepackage{alphabeta}                      % Greek alphabet
 \usepackage{amsmath}                        % AMS mathematical facilities, equations
 \usepackage{subfig}                         % Enable collections of subfigures as a single figure
 \usepackage{gensymb}                        % Generic symbols for both text and math mode
@@ -380,15 +394,17 @@
 % REFERENCES
 % Connect Mendeley references to Overleaf bib file
 \newpage
-\label{myLastPage} % This label defines the last page to be included in page count
+\label{myLastPage} % This label defines the last page to be included in page count of the abstract page
 \section{References}
-\renewcommand{\refname}{}
+\renewcommand{\refname}{} % remove bibliography name from the \bibliography command
 \bibliography{references.bib}
 
 % APPENDICES
 \newpage
 \pagenumbering{gobble} % Suppress appendices page numbering from page and table of contents
-\appendix
-\import{content/}{appendices.tex}%
-
+%\appendix
+\begin{appendices}
+    %\renewcommand{\thesection}{\Roman{section}}
+    \import{content/}{appendices.tex}%
+\end{appendices}
 \end{document}

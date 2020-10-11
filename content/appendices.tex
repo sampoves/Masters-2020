@@ -1,14 +1,26 @@
-\section{Appendices}
-% NOTE NAMING OF FIGURES IN APPENDIX! APPENDIX X: asdfasdf
-\subsection{PAAVO 2019 postal code areas}
+% Appendices are not given names in this style
+\section{}
 \justify
 
 % Longtable allows tables to span multiple pages. Not possible with tabularx
 \begin{longtable}{llll}
+    % define longtable header for the first page
+    \caption[PAAVO postal code areas]{PAAVO postal code areas.}
+    \label{tab:appendix_postalcodes} \\
     \hline
     Postal code & Name (fi) & Name (sv) & Municipality \\ [0.5ex]
     \hline\hline
-    \endhead % all lines above this command will be repeated on every page
+    \endfirsthead % all lines above this command will be repeated on every page
+    
+    % define longtable header for all subsequent pages
+    \multicolumn{4}{c}%
+        {\textbf{\tablename\ \thetable.} PAAVO postal code areas, continued from previous page.} \\ [1.25ex]
+    \hline
+    Postal code & Name (fi) & Name (sv) & Municipality \\ [0.5ex]
+    \hline\hline 
+    \endhead
+    
+    % Content proper
     00100 & Helsinki Keskusta - Etu-Töölö & Helsingfors centrum - Främre Tölö & Helsinki \\ [0.5 ex] \hline
     00120 & Punavuori & Rödbergen & Helsinki \\ [0.25ex] \hline
     00130 & Kaartinkaupunki & Gardesstaden & Helsinki \\ [0.25ex] \hline
@@ -176,9 +188,6 @@
     02940 & Lippajärvi-Järvenperä & Klappträsk-Träskända & Espoo \\ [0.25ex] \hline
     02970 & Kalajärvi & Kalajärvi & Espoo \\ [0.25ex] \hline
     02980 & Lakisto & Lakisto & Espoo \\ [0.75ex] \hline
-    % caption should be on top for tables. Can't do that because the caption is duplicated for all longtable pages and that counts the table of contents as well.
-    \caption[PAAVO postal code areas]{PAAVO postal code areas.}
-    \label{tab:appendix_postalcodes}
 \end{longtable}
 
 \newgeometry{left=2cm, right=1cm, top=1.75cm, bottom=1.75cm}
