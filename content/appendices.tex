@@ -190,6 +190,8 @@
     02980 & Lakisto & Lakisto & Espoo \\ [0.75ex] \hline
 \end{longtable}
 
+% \invisiblesection{} is defined to provide a appendix section to the table of contents but not print anything over the appendix II, which is the large postal code area map
+\invisiblesection{}
 \newgeometry{left=2cm, right=1cm, top=1.75cm, bottom=1.75cm}
 \begin{sidewaysfigure}
     \includegraphics[width=\textwidth]{images/muns_postal_comparison.png}
@@ -197,3 +199,6 @@
     \label{fig:appendix_muns_postal}
 \end{sidewaysfigure}
 \restoregeometry
+
+\section{}
+comparison map -kuvat. yritä laittaa subfigure, jotta ei mene kuvatekstit pieleen

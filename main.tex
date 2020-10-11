@@ -57,6 +57,13 @@
     \g@addto@macro\appendices{\dupcntr{table}{figure}}
 \makeatother
 
+% this creates a section that is invisible in the document proper, but creates a section for the table of contents. Used in appendices
+\newcommand\invisiblesection[1]{%
+  \refstepcounter{section}%
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+  \sectionmark{#1}
+}
+
 
 % define \code{}: StackExchange style inline code ----------------------
 \usepackage{soul}                           % typesetting with colour, supports linebreak (\colorbox on its own does not)
@@ -249,9 +256,9 @@
 
 % PAGE COUNT
 \newtranslatorcommand{\mypages}{%
-    \pageref{myLastPage} pages and appendices%
+    \pageref{myLastPage} pages + \pageref{myLastAppendixPage} pages of appendices%
 }{%
-    \pageref{myLastPage} sivua ja liitteet%
+    \pageref{myLastPage} sivua + \pageref{myLastAppendixPage} liitesivua%
 }
 
 % UNIVERSITY NAME
@@ -359,6 +366,7 @@
 
 % LIST OF TABLES
 \listoftables
+\thispagestyle{empty}
 
 % LIST OF ABBREVIATIONS AND NOMENCLATURE
 % NB, nomenclature labels will not line break if parameters nonumberlist and style=alttree are not combined with \glssetwidest.
@@ -396,15 +404,17 @@
 \newpage
 \label{myLastPage} % This label defines the last page to be included in page count of the abstract page
 \section{References}
-\renewcommand{\refname}{} % remove bibliography name from the \bibliography command
+\renewcommand{\refname}{} % remove the title "bibliography" from the \bibliography command
 \bibliography{references.bib}
 
 % APPENDICES
 \newpage
-\pagenumbering{gobble} % Suppress appendices page numbering from page and table of contents
-%\appendix
+%\pagenumbering{gobble} % Suppress appendices page numbering from page and table of contents
+\pagestyle{empty}
+\pagenumbering{arabic}
 \begin{appendices}
-    %\renewcommand{\thesection}{\Roman{section}}
     \import{content/}{appendices.tex}%
 \end{appendices}
+\label{myLastAppendixPage}
+
 \end{document}
