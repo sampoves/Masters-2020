@@ -38,7 +38,12 @@
 
 
 % Appendices settings ----------------------------------------------------
-\usepackage[title,titletoc]{appendix}
+\usepackage[toc,title]{appendix}
+
+% Remove individual appendices from ToC, but at the same time protect the viewing of list of figures and tables
+\appto\appendices{\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}}
+\appto\listoffigures{\addtocontents{lof}{\protect\setcounter{tocdepth}{1}}}
+\appto\listoftables{\addtocontents{lot}{\protect\setcounter{tocdepth}{1}}}
 
 \makeatletter
     % Inside \appendices, rename "table x. and "figure x." to "appendix x.". Roman numerals
@@ -60,7 +65,7 @@
 % this creates a section that is invisible in the document proper, but creates a section for the table of contents. Used in appendices
 \newcommand\invisiblesection[1]{%
   \refstepcounter{section}%
-  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+  %\addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
   \sectionmark{#1}
 }
 
@@ -255,10 +260,11 @@
 }
 
 % PAGE COUNT
+% I did not have time to figure out an automatic page count for appendices. Should be possible, though.
 \newtranslatorcommand{\mypages}{%
-    \pageref{myLastPage} pages + \pageref{myLastAppendixPage} pages of appendices%
+    \pageref{myLastPage} pages + 19 pages of appendices%
 }{%
-    \pageref{myLastPage} sivua + \pageref{myLastAppendixPage} liitesivua%
+    \pageref{myLastPage} sivua + 19 liitesivua%
 }
 
 % UNIVERSITY NAME
@@ -378,6 +384,13 @@
 \printglossary[nonumberlist,style=alttree,title=Nomenclature]
 \thispagestyle{empty}
 
+% Acknowledgements
+% \section*{} only adds an entry in the navigation bars, not in the table of contents
+\newpage
+\section*{Acknowledgements}
+\thispagestyle{empty}
+I would like to thank Harri Lampi, Johannes Nyman, Samuli Pitzén and Panu Vesanen for their invaluable help in various aspects of this thesis.
+
 % INTRODUCTION AND RESEARCH QUESTIONS
 \newpage
 \setcounter{page}{1} % set page numbering to start from here
@@ -409,12 +422,11 @@
 
 % APPENDICES
 \newpage
-%\pagenumbering{gobble} % Suppress appendices page numbering from page and table of contents
-\pagestyle{empty}
-\pagenumbering{arabic}
 \begin{appendices}
+    % Instruct package "caption" so that figures and tables hereon do not show in list of figures and tables
+    \captionsetup[figure]{list=no}
+    \captionsetup[table]{list=no}
     \import{content/}{appendices.tex}%
 \end{appendices}
-\label{myLastAppendixPage}
 
 \end{document}

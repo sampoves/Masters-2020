@@ -5,7 +5,7 @@
 % Longtable allows tables to span multiple pages. Not possible with tabularx
 \begin{longtable}{llll}
     % define longtable header for the first page
-    \caption[PAAVO postal code areas]{PAAVO postal code areas.}
+    \caption[PAAVO postal code areas]{PAAVO postal code areas in Helsinki Capital Region.} \\
     \label{tab:appendix_postalcodes} \\
     \hline
     Postal code & Name (fi) & Name (sv) & Municipality \\ [0.5ex]
@@ -14,7 +14,7 @@
     
     % define longtable header for all subsequent pages
     \multicolumn{4}{c}%
-        {\textbf{\tablename\ \thetable.} PAAVO postal code areas, continued from previous page.} \\ [1.25ex]
+        {\textbf{\tablename\ \thetable.} PAAVO postal code areas, continued from previous pages.} \\ [1.25ex]
     \hline
     Postal code & Name (fi) & Name (sv) & Municipality \\ [0.5ex]
     \hline\hline 
@@ -200,5 +200,106 @@
 \end{sidewaysfigure}
 \restoregeometry
 
-\section{}
-comparison map -kuvat. yritä laittaa subfigure, jotta ei mene kuvatekstit pieleen
+% Rotate content sideways
+\newgeometry{left=2cm, right=1cm, top=2cm, bottom=2cm}
+
+% 00520 Itä-Pasila
+\begin{sidewaysfigure}
+    \section{}
+    \centering
+    \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_r_pct_fromzip-00520_11-10-2020.png}
+    \caption[Parking process proportion from Itä-Pasila, rush hour traffic]{The parking process proportion in the total travel chain, in rush hour traffic, starting from 00520 Itä-Pasila. SFP stands for \textit{searching for parking}, \code{parktime}, and WTD \textit{walking to destination}, \code{walktime}. These are the components of the parking process in the \textit{door-to-door approach}.}%
+    \label{fig:compare_msc_r_pct_00520}%
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+    \section{}
+    \centering
+    \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_m_pct_fromzip-00520_11-10-2020.png}
+    \caption[Parking process proportion from Itä-Pasila, midday traffic]{The parking process proportion in the total travel chain, in midday traffic, starting from 00520 Itä-Pasila.}%
+    \label{fig:compare_msc_m_pct_00520}%
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+    \section{}
+    \centering
+    \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_all_pct_fromzip-00520_11-10-2020.png}
+    \caption[Parking process proportion from Itä-Pasila, all temporal values]{The parking process proportion in the total travel chain, using all temporal values, starting from 00520 Itä-Pasila.}%
+    \label{fig:compare_msc_all_pct_00520}%
+\end{sidewaysfigure}
+
+% 02650 Pohjois-Leppävaara
+\begin{sidewaysfigure}
+    \section{}
+    \centering
+    \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_r_pct_fromzip-02650_11-10-2020.png}
+    \caption[Parking process proportion from Pohjois-Leppävaara, rush hour traffic]{The parking process proportion in the total travel chain, in rush hour traffic, starting from 02650 Pohjois-Leppävaara. SFP stands for \textit{searching for parking}, \code{parktime}, and WTD \textit{walking to destination}, \code{walktime}. These are the components of the parking process in the \textit{door-to-door approach}.}%
+    \label{fig:compare_msc_r_pct_02650}%
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+    \section{}
+    \centering
+    \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_m_pct_fromzip-02650_11-10-2020.png}
+    \caption[Parking process proportion from Pohjois-Leppävaara, midday traffic]{The parking process proportion in the total travel chain, in midday traffic, starting from 02650 Pohjois-Leppävaara.}%
+    \label{fig:compare_msc_m_pct_02650}%
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+    \section{}
+    \centering
+    \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_all_pct_fromzip-02650_11-10-2020.png}
+    \caption[Parking process proportion from Pohjois-Leppävaara, all temporal values]{The parking process proportion in the total travel chain, using all temporal values, starting from 02650 Pohjois-Leppävaara.}%
+    \label{fig:compare_msc_all_pct_02650}%
+\end{sidewaysfigure}
+
+% 00430 Maununneva
+\begin{sidewaysfigure}
+    \section{}
+    \centering
+    \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_r_pct_fromzip-00430_11-10-2020.png}
+    \caption[Parking process proportion from Maununneva, rush hour traffic]{The parking process proportion in the total travel chain, in rush hour traffic, starting from 00430 Maununneva. SFP stands for \textit{searching for parking}, \code{parktime}, and WTD \textit{walking to destination}, \code{walktime}. These are the components of the parking process in the \textit{door-to-door approach}.}%
+    \label{fig:compare_msc_r_pct_00430}%
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+    \section{}
+    \centering
+    \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_m_pct_fromzip-00430_11-10-2020.png}
+    \caption[Parking process proportion from Maununneva, midday traffic]{The parking process proportion in the total travel chain, in midday traffic, starting from 00430 Maununneva.}%
+    \label{fig:compare_msc_m_pct_00430}%
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+    \section{}
+    \centering
+    \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_all_pct_fromzip-00430_11-10-2020.png}
+    \caption[Parking process proportion from Maununneva, all temporal values]{The parking process proportion in the total travel chain, using all temporal values, starting from 00430 Maununneva.}%
+    \label{fig:compare_msc_all_pct_00430}%
+\end{sidewaysfigure}
+
+% 01690 Ylästö
+\begin{sidewaysfigure}
+    \section{}
+    \centering
+    \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_r_pct_fromzip-01690_11-10-2020.png}
+    \caption[Parking process proportion from Ylästö, rush hour traffic]{The parking process proportion in the total travel chain, in rush hour traffic, starting from 01690 Ylästö. SFP stands for \textit{searching for parking}, \code{parktime}, and WTD \textit{walking to destination}, \code{walktime}. These are the components of the parking process in the \textit{door-to-door approach}.}%
+    \label{fig:compare_msc_r_pct_01690}%
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+    \section{}
+    \centering
+    \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_m_pct_fromzip-01690_11-10-2020.png}
+    \caption[Parking process proportion from Ylästö, midday traffic]{The parking process proportion in the total travel chain, in midday traffic, starting from 01690 Ylästö.}%
+    \label{fig:compare_msc_m_pct_01690}%
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+    \section{}
+    \centering
+    \includegraphics[trim={0.9cm 0.3cm 0.25cm 0.3cm},clip,width=\textwidth]{images/compare_traveltimes_mapfill-msc_all_pct_fromzip-01690_11-10-2020.png}
+    \caption[Parking process proportion from Ylästö, all temporal values]{The parking process proportion in the total travel chain, using all temporal values, starting from 01690 Ylästö.}%
+    \label{fig:compare_msc_all_pct_01690}%
+\end{sidewaysfigure}
+\restoregeometry
