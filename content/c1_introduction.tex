@@ -1,48 +1,39 @@
 \newpage
 \section{Introduction}
 \justify
-% --- what to include in intro ---
-% Glimpse to the essence of the current scientific discussion \par
-% terminology
-% viewpoint of previous studies
-% gaps in current scientific knowledge
-% how study relates to existing ones
-% main themes and challenges dealt with the present study
 
-% parking policy? 
-%Parking management is a way to link land use and transportation (\cite{Marsden2006}).
-%Goals of parking policy are numerous, for example optimal accessibility and traffic flow and maximising turn-over for shops (\cite{Marsden2006}).
-Accessibility -- what can be reached from a given point in space and how -- is an essential field of study to measure physical structure of cities, travel mode choices of residents, and the competitiveness of areas (\cite{Bertolini2005}; \cite{Toivonen2014a}). Researchers increasingly acknowledge that accessibility concepts are fundamental on understanding how cities and urban regions work, and the relation of accessibility and land use planning has been linked with sustainable development (\cite{TeBrommelstroet2014}; \cite{Wegener1999}).
+Accessibility -- what can be reached from a given point in space and how -- is an essential field of study to measure the physical structure of cities, travel mode choices of residents, and the competitiveness of areas (\cite{Bertolini2005}; \cite{Toivonen2014a}). Researchers increasingly acknowledge that accessibility concepts are fundamental on understanding how cities and urban regions work, and the relation of accessibility and land use planning has been linked with sustainable development (\cite{TeBrommelstroet2014}; \cite{Wegener1999}).
 
-%Cities today face many challenges, particularly in relation to mobility of people and structure of land use.(\cite{Diallo2015};
 Travel time is considered an intuitive measure to indicate accessibility and a strong predictor of mode choice (\cite{Frank2008}). In this sense, the private car is usually the fastest mode of transport in an urban environment, surpassing public transport and non-motorised transport (\cite{Salonen2014}). The combined effect of the increased use of private car in the last century and the way private cars have molded cities in their current form, personal vehicle traffic accessibility study is at the forefront when attempting to find a way to the sustainable future of urban life. 
 
 An issue which rises with private cars and accessibility is the parking. A peculiar feat of private cars is that they are mostly studied when they are in use, which is a vast minority of the time (\cite{Diallo2015}). Although almost all private car trips contain two parking events and cars spend 80 percent of the time parked, mobility research has traditionally been concentrated on other mobility and transport linked themes, such as congestion and emissions (\cite{Bates2012}). 
 
-In the Helsinki Capital Region, accessibility has been studied in a multitude of articles (\cite{Jarvi2014}; \cite{Toivonen2014a}; \cite{Laatikainen2015}; \cite{Salonen2016}; \cite{Tenkanen2017}; \cite{Tenkanen2018}). Many of these works employ a recent dataset released by the Accessibility Research Group, based in the University of Helsinki, the Helsinki Region Travel Time Matrix (\cite{Tenkanen2018}). Using a spatial grid of square cells laid over the Helsinki Capital Region, this dataset contains travel time data from every cell to all the others by walking, bicycling, public transport, and private car. In Helsinki Region Travel Time Matrix, public transport and private car journeys employ the door-to-door approach, as introduced by \citeauthor{Salonen2013} (\citeyear{Salonen2013}). The approach strives for added realism in modelling accessibility. For example, to realistically model travel times by private car, one needs to take into account the whole process of the journey, or the \textit{travel chain}, including walking from the point of origin to the location of one's car, then driving the car to a location near the destination, finding a parking place, and, in the end, walking from one's car to the final destination.
+In the Helsinki Capital Region, accessibility has been explored in a multitude of studies (\cite{Jarvi2014}; \cite{Toivonen2014a}; \cite{Laatikainen2015}; \cite{Salonen2016}; \cite{Tenkanen2017}; \cite{Tenkanen2018}). Many of these works employ a recent dataset released by the Accessibility Research Group, based in the University of Helsinki, the Helsinki Region Travel Time Matrix (\cite{Tenkanen2018}). Using a spatial grid of square cells laid over the Helsinki Capital Region, this dataset contains travel time data from every cell to all the others by walking, bicycling, public transport, and private car. In Helsinki Region Travel Time Matrix, public transport and private car journeys employ the door-to-door approach, as introduced by \citeauthor{Salonen2013} (\citeyear{Salonen2013}). The approach strives for added realism in modelling accessibility. For example, to realistically model travel times by private car, one needs to take into account the whole process of the journey, or the \textit{travel chain}, including walking from the point of origin to the location of one's car, then driving the car to a location near the destination, finding a parking place, and, in the end, walking from one's car to the final destination.
 
 This thesis builds upon the work of Digital Geography Lab (\textcolor{blue}{\url{https://www.helsinki.fi/en/researchgroups/digital-geography-lab}}) and Accessibility Research Group (\textcolor{blue}{\url{https://blogs.helsinki.fi/accessibility}}) within the University of Helsinki. Adapting the same study area as Helsinki Region Travel Time Matrix uses, the study aims to find out the spatial variation in durations that it takes to park one's private car in the Helsinki Capital Region and how long it took to walk from one's car to the final destination of a journey. In the current iteration of Helsinki Region Travel Time Matrix, the parking process -- searching for parking, parking one's car, and walking to the destination -- is represented as the same static value for all areas of the Helsinki Capital Region based on previous literature (\cite{Tenkanen2020}; \cite{Kalenoja2003}).
 
 However, this thesis makes the hypothesis that the variation in times that it takes to find a parking place and walk from one's car to the destination varies greatly inside the Helsinki Capital Region and that the proportion of the parking process is a large share of the total travel time, especially in the densely populated areas. The data for the thesis was gathered via a survey using a web survey application specifically developed for this purpose.
 
-\textcolor{red}{i will insert here a short summary of how the thesis is structured; bg-data-methods-discussion. myös miten tää tutkimus sopii kirjallisuuteen ja mitä aukkoja tukitaan (tämän vois laittaa myös backgroundiin, vaikka joka kappaleen loppuun jos on käsitelty mua erityisen läheltä liippaavaa aihetta}
-The thesis is structured as follows: ---
+The thesis is structured as follows: This introduction is followed by a literary review that focuses on the essential literature pertaining to the subjects of accessibility, parking research and \acrlong{ppgis} (\hyperref[sec:c2-background]{\fullref{sec:c2-background}}). In this study, the design and execution of the parking survey research was in an important role, as well as the notions of openness and transparency. In \hyperref[sec:c3-data]{\fullref{sec:c3-data}}, the development processes of the parking survey and analysis applications are described alongside with the utilised software and spatial data. \hyperref[sec:c4-results]{\fullref{sec:c4-results}}, reports on the results of the parking survey. Finally in the \hyperref[sec:c5-discussion]{\fullref{sec:c5-discussion}}, the results and their implications are discussed and how they are related to the research questions presented below. Moreover, the success of the survey is evaluated. The thesis concludes with a conversation on the uncertainties of a study such as this and proposes a few avenues for further research.
 
 As preparation for this thesis, I searched for comparable parking studies, but could not find any. According to \citeintext{Diallo2015}, parking studies are infrequent because of the cost or difficulty to collect applicable data and the scope needed. As such, this thesis is breaking new ground at least in Finland, if not everywhere else.
 
 This thesis strives for maximum transparency and repeatability. All parts of this thesis are available online at GitHub (\textcolor{blue}{\url{https://github.com/sampoves/Masters-2020}} and \textcolor{blue}{\url{https://github.com/sampoves/thesis-data-analysis}}). This includes the entire thesis in LaTeX format, the parking survey programmed in JavaScript, instructions to set up the web server as used in this research survey, and the interactive survey data and analysis applications programmed in Python and R. Complete development histories of all components are included. In addition to the work proper, as side products, an empty template of this thesis (\textcolor{blue}{\url{https://github.com/sampoves/msc-thesis-template}}) and a point based variant of the park survey (\textcolor{blue}{\url{https://github.com/sampoves/leaflet-map-survey-point}}) have been made available.
 
 \bigskip
-\noindent
-The research questions for this thesis are:
-
-\begin{spacing}{1}
-    % use Roman numerals, uses package enumitem
-    \begin{enumerate}[label=\Roman*]
-      \item What are the spatial differences in the time that it takes to find a parking spot and park one’s car in the study area?
-      \item If spatial differences are detected, what explains them?
-      \item What is the significance of the parking process to the overall travel time?
-    \end{enumerate}
-\end{spacing}
-\bigskip
-In addition to these research questions, this thesis explores how well the map survey created for this thesis worked in collecting user data in a spatial manner.
+% Make sure this environment is not divided to two pages
+\begin{samepage}
+    \noindent
+    The research questions for this thesis are:
+    
+    \begin{spacing}{1}
+        % use Roman numerals, uses package enumitem
+        \begin{enumerate}[label=\Roman*]
+          \item What are the spatial differences in the time that it takes to find a parking spot and park one’s car in the study area?
+          \item If spatial differences are detected, what explains them?
+          \item What is the significance of the parking process to the overall travel time?
+        \end{enumerate}
+    \end{spacing}
+    \bigskip
+    In addition to these research questions, this thesis explores how well the map survey created for this thesis worked in collecting user data in a spatial manner.
+\end{samepage}
