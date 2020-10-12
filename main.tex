@@ -44,6 +44,7 @@
 \appto\appendices{\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}}
 \appto\listoffigures{\addtocontents{lof}{\protect\setcounter{tocdepth}{1}}}
 \appto\listoftables{\addtocontents{lot}{\protect\setcounter{tocdepth}{1}}}
+\renewcommand\appendixtocname{Appendixes}
 
 \makeatletter
     % Inside \appendices, rename "table x. and "figure x." to "appendix x.". Roman numerals
@@ -96,41 +97,16 @@
 % Generate list of abbreviations ---------------------------------------
 \usepackage{xurl}                               % xurl linebreaks long links
 \usepackage[breaklinks=true]{hyperref}          % Hyperlinks. Need to be activated before glossaries
-\def\UrlBreaks{\do\/\do-}                       % define hyperlinks urlbreaks at "/"
+\def\UrlBreaks{\do\/\do-\do:\do.}               % define hyperlinks urlbreaks at "/", "-", ":" and "."
 \usepackage[acronym,style=super4col]{glossaries}% Glossaries and lists of acronyms
 
 
 % Abbreviations --------------------------------------------------------
 % Note the definition of plural forms where applicable
 \newacronym{anova}{ANOVA}{Analysis of Variance test}
-\newacronym[plural=CPUs,firstplural=Central Processing Units (CPU)]{cpu}{CPU}{Central Processing Unit}
 \newacronym{gis}{GIS}{Geographic Information System}
 \newacronym[plural=IDEs,firstplural=Integrated development environments (IDE)]{ide}{IDE}{Integrated Development Environment}
-\newacronym{php}{PHP}{Hypertext preprocessor}
 \newacronym{ppgis}{PPGIS}{Public Participation Geographic Information System}
-\newacronym{ram}{RAM}{Random Access Memory}
-
-
-% Nomenclature for glossary --------------------------------------------
-% Note the definition of plural forms.
-% \glssetwidest together with \printglossary parameters helps prevent overlong nomenclature lines
-\glssetwidest[0]{...................}
-
-% example plural
-%\newglossaryentry{CPU}{
-%  name = {CPU},
-%  description = {Central Processing Unit},
-%  plural = {CPUs},
-%  firstplural = {\glsentrydesc{CPU}s (\glsentryplural{CPU})}
-%}
-\newglossaryentry{mysql}{
-  name = {MySQL},
-  description = {Open-source relational database management system},
-}
-\newglossaryentry{lamp}{
-  name = {LAMP stack},
-  description = {Linux, Apache, MySQL, PHP. Base components of a very common web server software infrastructure},
-}
 
 \makeglossaries
 
@@ -155,6 +131,7 @@
 \usepackage{natbib}                         % Flexible bibliography support
 \bibliographystyle{apalike2}                % Bibliography style
 \setcitestyle{authoryear,open={},close={}}  % Removes citation parentheses
+\renewcommand*\&{and}                       % Change all citation ampersands with and's
 
 % Define new command \fullref to reference both section number and name
 \newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1}, \nameref*{#1}}}
@@ -240,9 +217,9 @@
 % THESIS MULTILANGUAGE STRINGS
 
 \newtranslatorcommand{\mytitle}{%
-    Parking private cars and accessibility in Helsinki Capital Region%
+    Parking private cars and spatial accessibility in Helsinki Capital Region%
 }{%
-    Henkilöauton pysäköinti ja spatiaalinen saavutettavuus pääkaupunkiseudulla%
+    Henkilöautojen pysäköinti ja spatiaalinen saavutettavuus pääkaupunkiseudulla%
 }
 \newtranslatorcommand{\mysubtitle}{%
     Parking time as a part of the total travel time%
@@ -368,21 +345,18 @@
 
 % LIST OF FIGURES
 \newpage
-\listoffigures
 \thispagestyle{empty}
+\listoffigures
 
 % LIST OF TABLES
+\thispagestyle{empty}
 \listoftables
 \thispagestyle{empty}
 
 % LIST OF ABBREVIATIONS AND NOMENCLATURE
 % NB, nomenclature labels will not line break if parameters nonumberlist and style=alttree are not combined with \glssetwidest.
 \newpage
-\printglossary[type=\acronymtype,title=List of abbreviations]
-\bigskip
-\bigskip
-\bigskip
-\printglossary[nonumberlist,style=alttree,title=Nomenclature]
+\printglossary[type=\acronymtype,nonumberlist,title=List of abbreviations]
 \thispagestyle{empty}
 
 % Acknowledgements
