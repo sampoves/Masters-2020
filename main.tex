@@ -96,7 +96,7 @@
 
 % link settings --------------------------------------------------------
 \usepackage{xurl}                               % xurl linebreaks long links
-\usepackage[breaklinks=true]{hyperref}          % Hyperlinks. Need to be activated before glossaries
+\usepackage[hidelinks,breaklinks=true]{hyperref}% Hyperlinks settings. Without hidelinks coloured boxes are drawn around all links (not good)
 \def\UrlBreaks{\do\/\do-\do:\do.}               % define hyperlinks urlbreaks at "/", "-", ":" and "."
 \usepackage[acronym,style=super4col]{glossaries}% Glossaries and lists of acronyms
 
@@ -388,7 +388,7 @@ I would like to thank Harri Lampi, Johannes Nyman, Samuli Pitzén and Panu Vesan
 \import{content/}{c5_discussion.tex}%
 
 % REFERENCES
-% Connect Mendeley references to Overleaf bib file
+% Connect Mendeley references to Overleaf bib file. A note about Mendeley synchronisation: Mendeley supports a large amount of data fields to describe sources. However, many of these fields are not carried over to Overleaf when synchronising. For this reason, some details had to be added manually to the references. For this reason there is "references.bib" and "references_final.bib" in this project. "references.bib" is the one which is automatically synchronised from Mendeley, and "references_final.bib" is the file actually used in this thesis, with manual additions for 1) URLs for web sources, 2) accessed dates, and 3) DOI addresses where available.
 \newpage
 \label{myLastPage} % This label defines the last page to be included in page count of the abstract page
 \section{References}
