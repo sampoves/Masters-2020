@@ -10,6 +10,8 @@ The thesis is available as PDF at University of Helsinki E-thesis: https://ethes
 
 By the time I had finished this thesis, I was a complete LaTeX convert. There are some major advantages in using LaTeX (and Overleaf, or a competing online LaTeX editor) in just about any literary work. For me, the most important feature Overleaf offered was the GitHub integration which enabled saving the entire version history of my thesis process for the posterity. I know of no other thesis developed in this way. Additionally, the programmatic nature of LaTeX leaves less room for human error when compared to Word. Word hallmarks such as irregular line spacing, fonts, and font sizes, accompanied with awkward positioning of basic elements such as figures and tables just are not a thing in LaTeX.
 
+As I found LaTeX so useful in my thesis work, I created a template version of my thesis in Overleaf. In this Overleaf project I aim to demonstrate some of the most useful features without the clutter actual content text. Take a look at the template project at https://github.com/sampoves/msc-thesis-template.
+
 ### LaTeX woes
 
 Not all is fluffy in LaTeX land, not at least with my somewhat novice skillset. Here are some problems I encountered during the development of this LaTeX document:
@@ -23,7 +25,7 @@ Please find the other GitHub repositories important to this thesis in the table 
 
 | Repository | Description | Web deployment |
 | --- | --- | --- |
-| https://github.com/sampoves/thesis-data-analysis | The thesis data analysis workflow | See below |
+| https://github.com/sampoves/thesis-data-analysis | The thesis data analysis workflow, the main repo for all things programming in this thesis | See below |
 | https://github.com/sampoves/parking-in-helsinki-region | The web based survey application | Hosted by the author: **https://parking-survey.socialsawblade.fi** |
 | https://github.com/sampoves/thesis-analysis-shinyapps | shinyapps.io deployment of the survey data analysis and statistics application | shinyapps.io: **https://sampoves.shinyapps.io/analysis/** |
 | https://github.com/sampoves/thesis-visitors-shinyapps | shinyapps.io deployment of the visitors analysis application | shinyapps.io: **https://sampoves.shinyapps.io/visitors/** |
