@@ -37,3 +37,7 @@ During the process of creating the thesis, the following side products came into
 | --- | --- | --- |
 | https://github.com/sampoves/leaflet-map-survey-point | A variant of the survey application. Users place points on the map instead of postal code areas | HTML, Javascript, PHP |
 | https://github.com/sampoves/msc-thesis-template | A barebones LaTeX thesis template in the style required by Department of Geosciences and Geography in the University of Helsinki | LaTeX |
+
+## Sonic landscapes
+
+This thesis was written while immersed in the deep sonic landscapes produced by some unbelievably talented ambient, downtempo, and psychill artists and projects: [Atmoswaves](https://mindspringmusic.bandcamp.com/album/distant-horizons), [Solar Fields](https://solarfields.bandcamp.com/album/altered-second-movements), [Carbon Based Lifeforms](https://carbonbasedlifeforms.bandcamp.com/album/twentythree), [Lauge](https://iboga-beatspace.bandcamp.com/album/dawn), [Stellardrone](https://stellardrone.bandcamp.com/album/between-the-rings), [Atmoflow](https://atmoflow.bandcamp.com/album/transparence), [Connect.Ohm](https://ultimae.bandcamp.com/album/9980), [Dreamstate Logic](https://dreamstatelogic.bandcamp.com/album/secrets-of-the-stars), [Neuroq](https://mysticsound.bandcamp.com/album/neuroq-spacephoria-3), [Dreaming Cooper](https://dreamingcooper.bandcamp.com/album/exploring-the-universe), [Cell](https://ultimae.bandcamp.com/album/hanging-masses), and [Distant System](https://distantsystem.bandcamp.com/album/spiral-empire).
