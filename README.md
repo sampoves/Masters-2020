@@ -4,7 +4,7 @@ Welcome to view the source code of my master's thesis (University of Helsinki, F
 
 To my knowledge, an overwhelming majority of master's theses in the University of Helsinki are written in Microsoft Word. I had little interest in managing a project of this size in Word for many reasons, and luckily, I found out about LaTeX and Overleaf in late 2018. LaTeX, in short, is a document preparation system, used to create documents such as scientific articles. With a large amount of software packages available for it, LaTeX can provide a reliable foundation for a lengthy document while giving it a professional appearance. This thesis was entirely written in the online LaTeX editor [Overleaf](https://www.overleaf.com/).
 
-The thesis is available as PDF at University of Helsinki E-thesis: https://ethesis.helsinki.fi/en/ **(NB: the thesis not yet published)**
+The thesis is available as PDF at the Digital Repository of the University of Helsinki: https://ethesis.helsinki.fi/en/ **(NB: the thesis not yet published)**
 
 ## Writing a thesis in LaTeX
 
