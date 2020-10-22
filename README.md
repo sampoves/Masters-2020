@@ -21,6 +21,8 @@ Not all is fluffy in LaTeX land, not at least with my somewhat novice skillset. 
 
 ## Associated repositories
 
+### Primary repositories
+
 Please find the other GitHub repositories important to this thesis in the table below.
 
 | Repository | Description | Web deployment |
@@ -30,6 +32,8 @@ Please find the other GitHub repositories important to this thesis in the table 
 | https://github.com/sampoves/thesis-analysis-shinyapps | shinyapps.io deployment of the survey data analysis and statistics application | shinyapps.io: **https://sampoves.shinyapps.io/analysis/** |
 | https://github.com/sampoves/thesis-visitors-shinyapps | shinyapps.io deployment of the visitors analysis application | shinyapps.io: **https://sampoves.shinyapps.io/visitors/** |
 | https://github.com/sampoves/thesis-comparison-shinyapps | shinyapps.io deployment of the travel time comparison application | shinyapps.io: **https://sampoves.shinyapps.io/comparison/** |
+
+### Appendixes
 
 During the process of creating the thesis, the following side products came into being:
 
